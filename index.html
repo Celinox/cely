@@ -1633,10 +1633,12 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 
 /* ---- à retenir ---- */
 .art-tldr-wrap{ padding-block:0 clamp(28px,3.6vw,40px); background:var(--off-white); }
-.art-tldr{ position:relative; background:var(--white); border:1px solid var(--border); border-left:4px solid var(--violet); border-radius:18px; padding:clamp(20px,2.6vw,28px) clamp(22px,2.8vw,30px); }
-.art-tldr-label{ display:block; font-family:var(--font-label); font-weight:700; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--violet-3); margin-bottom:12px; }
-.art-tldr ul{ display:flex; flex-direction:column; gap:10px; padding-left:20px; margin:0; }
-.art-tldr li{ font-size:.98rem; color:var(--prune); line-height:1.6; }
+.art-tldr{ position:relative; background:var(--in-bg); border-radius:22px; padding:clamp(22px,2.8vw,30px) clamp(24px,3vw,34px); }
+.art-tldr-label{ display:flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--violet-3); margin-bottom:14px; }
+.art-tldr-label::before{ content:"//"; color:var(--violet); }
+.art-tldr ul{ display:flex; flex-direction:column; gap:12px; padding-left:0; margin:0; list-style:none; }
+.art-tldr li{ font-size:.98rem; color:var(--prune); line-height:1.6; padding-left:22px; position:relative; }
+.art-tldr li::before{ content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--violet); }
 
 /* ---- tableaux réutilisables dans l'article ---- */
 .art-table-wrap{ margin-block:clamp(24px,3vw,32px); overflow-x:auto; border-radius:16px; border:1px solid var(--border); }
@@ -1647,14 +1649,19 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .art-table tbody tr:nth-child(even){ background:var(--off-white); }
 
 /* ---- callouts (Conseil Cély / Warning Cély / résumé) ---- */
-.art-callout{ margin-block:clamp(28px,3.6vw,40px); border-radius:18px; padding:clamp(18px,2.4vw,24px) clamp(20px,2.6vw,26px); border-left:4px solid var(--violet); background:var(--in-bg); }
+.art-callout{ margin-block:clamp(28px,3.6vw,40px); border-radius:22px; padding:clamp(20px,2.6vw,28px) clamp(22px,2.8vw,30px); background:var(--in-bg); }
 .art-callout p{ margin-top:12px; font-size:.94rem; line-height:1.65; color:var(--prune); }
 .art-callout p:first-of-type{ margin-top:12px; }
-.art-callout-tag{ display:inline-flex; font-family:var(--font-display); font-weight:800; font-size:1rem; color:var(--prune); }
-.art-callout-tip{ background:var(--in-bg); border-left-color:var(--violet); }
-.art-callout-warning{ background:var(--warn-bg); border-left-color:var(--warn); }
+.art-callout-tag{ display:flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700; font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:var(--violet-3); }
+.art-callout-tag::before{ content:"//"; color:var(--violet); font-weight:700; }
+.art-callout-title{ margin-top:8px; font-family:var(--font-display); font-weight:800; font-size:1.14rem; color:var(--prune); }
+.art-callout-tip{ background:var(--in-bg); }
+.art-callout-warning{ background:var(--warn-bg); }
 .art-callout-warning .art-callout-tag{ color:var(--warn); }
-.art-callout-summary{ background:var(--off-white-2); border-left-color:var(--prune); }
+.art-callout-warning .art-callout-tag::before{ color:var(--warn); }
+.art-callout-summary{ background:var(--off-white-2); }
+.art-callout-summary .art-callout-tag{ color:var(--muted); }
+.art-callout-summary .art-callout-tag::before{ color:var(--prune); }
 
 /* ---- schema commun ---- */
 .sch{ margin-block:clamp(32px,4vw,44px); }
@@ -3582,7 +3589,7 @@ main.site-page[hidden]{ display:none !important; }
         <div class="art-authorhead-body">
           <div class="art-authorhead-top">
             <a href="https://www.linkedin.com/in/celienboillotwenoble/" target="_blank" rel="noopener" class="art-authorhead-name">Célien Boillot</a>
-            <span class="art-authorhead-role">Cofondateur de Wenoble, agence d'acquisition B2B (Saint-Ismier, Grenoble)</span>
+            <span class="art-authorhead-role">Fondateur de Cely, cofondateur de Wenoble</span>
             <span class="art-authorhead-dates">Publié le 18 septembre 2026 · Mis à jour le 18 septembre 2026</span>
           </div>
           <p class="art-authorhead-note">« J'écris cet article parce que je me suis posé la question moi-même, pour ma propre boîte. Et parce que je l'entends en rendez-vous presque chaque semaine&nbsp;: "on devrait pas plutôt faire du contenu&nbsp;?". Ce que vous allez lire n'est pas une synthèse d'articles trouvés sur Google&nbsp;: ce sont nos ratios, nos erreurs, et ce qu'on applique chez nos clients. Vous verrez, je ne suis pas d'accord avec tout le monde sur certains points, notamment sur le cold emailing. »</p>
@@ -3705,8 +3712,9 @@ main.site-page[hidden]{ display:none !important; }
         <p class="art-figure-cap" style="margin-top:8px;">Les délais sont des ordres de grandeur&nbsp;: ils varient selon votre marché, votre offre et la qualité d'exécution.</p>
 
         
-        <div class="art-callout art-callout-warning">
-          <span class="art-callout-tag">Conseil Cély&nbsp;: pourquoi je déconseille le cold emailing en 2026</span>
+        <div class="art-callout art-callout-tip">
+          <span class="art-callout-tag">Conseil Cély</span>
+          <h4 class="art-callout-title">Pourquoi je déconseille le cold emailing en 2026</h4>
           <p>C'est l'avis qui me vaut le plus de débats, alors je l'assume&nbsp;: <strong>en 2026, le cold emailing est devenu le canal au pire rapport effort/résultat pour la plupart des TPE et PME.</strong> Trois raisons.</p>
           <p><strong>1. Le coût d'entrée a explosé.</strong> Pour envoyer proprement, il faut acheter des noms de domaine secondaires, créer et préchauffer des boîtes, configurer SPF, DKIM et DMARC, surveiller la délivrabilité… Quel calvaire. Des semaines de mise en place avant le premier email envoyé.</p>
           <p><strong>2. Les boîtes de réception sont saturées.</strong> L'IA a fait exploser le volume d'emails générés. Vos prospects reçoivent chaque jour des messages qui se ressemblent tous, et ils ne les lisent plus.</p>
@@ -3764,7 +3772,7 @@ main.site-page[hidden]{ display:none !important; }
 
         <h3>L'inbound est-il encore aussi simple en 2026&nbsp;?</h3>
 
-        <p>Honnêtement&nbsp;? Non. Il n'a jamais été aussi accessible de publier, et c'est justement le problème&nbsp;: <strong>tout le monde publie.</strong> Les fils LinkedIn sont saturés, l'IA permet de produire du contenu en masse, et <a href="https://ahrefs.com/blog/zero-click-search/" target="_blank" rel="noopener">de plus en plus de recherches Google se terminent sans clic</a>, parce que Google et les IA répondent directement.</p>
+        <p>Honnêtement&nbsp;? Non. Il n'a jamais été aussi accessible de publier, et c'est justement le problème&nbsp;: <strong>tout le monde publie.</strong> Les fils LinkedIn sont saturés, l'IA permet de produire du contenu en masse, et <a href="https://ahrefs.com/blog/zero-click-search/" target="_blank" rel="noopener">de plus en plus de recherches Google se terminent sans clic</a>, parce que Google et les IA répondent directement — un <a href="https://contentmarketinginstitute.com/articles/google-search-behavior-lesson-marketers/" target="_blank" rel="noopener">changement de comportement de recherche</a> que les marketeurs commencent tout juste à intégrer.</p>
 
         <p>Résultat&nbsp;: le contenu moyen ne suffit plus. Ce qui fonctionne en 2026, c'est le contenu qui apporte ce que personne d'autre ne peut apporter&nbsp;: votre expérience terrain, vos chiffres, vos avis tranchés, votre personnalité. C'est d'ailleurs exactement ce que <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr" target="_blank" rel="noopener">Google demande dans sa documentation</a> : des contenus utiles, écrits par quelqu'un qui connaît son sujet.</p>
 
@@ -3772,14 +3780,15 @@ main.site-page[hidden]{ display:none !important; }
 
         <h4>Le SEO et le blog</h4>
 
-        <p>Le SEO consiste à positionner vos pages dans Google sur les recherches de vos clients. Aujourd'hui, il va de pair avec le GEO&nbsp;: être cité dans les réponses de ChatGPT, Perplexity ou Google AI Overviews.</p>
+        <p>Le SEO consiste à positionner vos pages dans Google sur les recherches de vos clients. Aujourd'hui, il va de pair avec le GEO&nbsp;: être cité dans les réponses de ChatGPT, Perplexity ou Google AI Overviews. On détaille la méthode dans notre accompagnement SEO/GEO.</p>
 
         <p><strong>Avantages&nbsp;:</strong> un trafic qualifié, car la personne cherche activement une solution. C'est aussi un actif durable&nbsp;: un article bien positionné peut générer des leads pendant des années.</p>
 
         <p><strong>Inconvénients&nbsp;:</strong> c'est lent, avec souvent plusieurs mois avant les premiers résultats. Il faut une vraie compétence technique et éditoriale, et la concurrence est forte sur les mots-clés à fort volume.</p>
 
         <div class="art-callout art-callout-warning">
-          <span class="art-callout-tag">Warning Cély&nbsp;: appelle-t-on encore ça du SEO&nbsp;?</span>
+          <span class="art-callout-tag">Warning Cély</span>
+          <h4 class="art-callout-title">Appelle-t-on encore ça du SEO&nbsp;?</h4>
           <p>Honnêtement, je ne sais plus si le mot est encore juste. <strong>Le SEO traditionnel, celui qui consiste à viser une position et à attendre les clics, commence sérieusement à baisser.</strong></p>
           <p>SparkToro a mesuré que sur les quatre premiers mois de 2026, <a href="https://sparktoro.com/blog/in-2026-less-than-one-third-of-google-searches-still-send-a-click/" target="_blank" rel="noopener">environ 68&nbsp;% des recherches Google américaines se terminent sans le moindre clic</a> vers un site, contre 60&nbsp;% en 2024. De son côté, Ahrefs a mesuré que <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks/" target="_blank" rel="noopener">la présence d'un AI Overview fait chuter le taux de clic de la première position de 34,5&nbsp;%</a>, chiffre porté à <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update" target="_blank" rel="noopener">58&nbsp;% lors de la mise à jour de leur étude</a>.</p>
           <p>Autrement dit&nbsp;: <strong>vous pouvez être premier et perdre du trafic.</strong> Ce qui compte désormais, c'est d'être la source que Google et les IA reprennent dans leur réponse. C'est pour ça qu'on parle aujourd'hui de SEO/GEO (Generative Engine Optimization) et non plus seulement de SEO.</p>
@@ -3795,9 +3804,10 @@ main.site-page[hidden]{ display:none !important; }
         <p><strong>Inconvénients&nbsp;:</strong> constituer une base d'abonnés prend du temps, et la newsletter s'appuie presque toujours sur un autre canal pour recruter.</p>
 
         <div class="art-callout art-callout-tip">
-          <span class="art-callout-tag">Conseil Cély&nbsp;: ne lancez pas votre newsletter en premier</span>
+          <span class="art-callout-tag">Conseil Cély</span>
+          <h4 class="art-callout-title">Ne lancez pas votre newsletter en premier</h4>
           <p><strong>La newsletter est une surcouche, pas un point de départ.</strong> Tant que vous n'avez pas un actif qui produit de l'audience — LinkedIn, YouTube ou un site qui reçoit du trafic — vous allez écrire pour trente personnes, vous démotiver, et arrêter au bout de quatre numéros.</p>
-          <p>L'ordre qui marche&nbsp;: d'abord un canal qui attire (LinkedIn), ensuite la newsletter pour transformer cette audience de passage en audience que vous possédez.</p>
+          <p>L'ordre qui marche&nbsp;: d'abord un canal qui attire (LinkedIn), ensuite la newsletter pour transformer cette audience de passage en audience que vous possédez. La nôtre suit cette logique, si vous voulez voir à quoi ça ressemble.</p>
         </div>
 
         <h4>Les lead magnets et webinaires</h4>
@@ -3820,11 +3830,11 @@ main.site-page[hidden]{ display:none !important; }
 
         <ul>
           <li><strong>Moins de risques pour passer « devant la caméra ».</strong> Pas besoin de vous filmer dès le premier jour. Un post texte bien écrit ou un carrousel suffit pour démarrer, ce qui réduit fortement la peur de se lancer.</li>
-          <li><strong>Des interactions faciles à générer.</strong> Si votre contenu est intéressant pour votre cible, les commentaires et les échanges suivent rapidement. Vos décideurs sont déjà là, et ils lisent.</li>
+          <li><strong>Des interactions faciles à générer.</strong> Si votre contenu est intéressant pour votre cible, les commentaires et les échanges suivent rapidement. Vos décideurs sont déjà là, et ils lisent. On détaille notre méthode dans cet article sur le contenu LinkedIn.</li>
           <li><strong>Un réseau combinable avec l'outbound.</strong> Chaque personne qui interagit avec vos posts devient un signal&nbsp;: un prospect chaud que vous pouvez ensuite contacter. On détaille ce combo dans la partie 3, et c'est là que LinkedIn devient redoutable.</li>
         </ul>
 
-        <p><strong>La limite&nbsp;:</strong> la durée de vie d'un post se compte en jours. Sans régularité, la visibilité retombe vite. Et si vous voulez mesurer votre présence, LinkedIn propose son propre indicateur, le <a href="https://business.linkedin.com/sales-solutions/learning-center/resources/tip-sheets/ts022" target="_blank" rel="noopener">Social Selling Index</a> — utile pour se situer, mais ce n'est pas un indicateur de pipeline.</p>
+        <p><strong>La limite&nbsp;:</strong> la durée de vie d'un post se compte en jours. Sans régularité, la visibilité retombe vite. Et si vous voulez mesurer votre présence, LinkedIn propose son propre indicateur, le <a href="https://business.linkedin.com/sales-solutions/learning-center/resources/tip-sheets/ts022" target="_blank" rel="noopener">Social Selling Index</a> — utile pour se situer, mais ce n'est pas un indicateur de pipeline (<a href="https://blog.hubspot.fr/marketing/ssi-linkedin-score" target="_blank" rel="noopener">HubSpot explique bien comment le lire</a>).</p>
 
         <h4>YouTube&nbsp;: le SEO des réseaux sociaux</h4>
 
@@ -3832,7 +3842,7 @@ main.site-page[hidden]{ display:none !important; }
 
         <p><strong>C'est le seul réseau où le contenu peut durer très longtemps.</strong> YouTube est un moteur de recherche&nbsp;: une vidéo qui répond à une vraie question continue d'être trouvée des mois, voire des années après sa publication. Sur LinkedIn, Instagram ou TikTok, un contenu vit quelques jours.</p>
 
-        <p><strong>La limite&nbsp;:</strong> c'est exigeant. Il faut du tournage, du montage, une vraie ligne éditoriale, et la croissance est lente au début.</p>
+        <p><strong>La limite&nbsp;:</strong> c'est exigeant. Il faut du tournage, du montage, une vraie ligne éditoriale, et la croissance est lente au début. On a résumé notre approche dans cet article sur YouTube en B2B.</p>
 
         <h4>Le combo LinkedIn + YouTube</h4>
 
@@ -3846,7 +3856,7 @@ main.site-page[hidden]{ display:none !important; }
 
         <div class="art-callout art-callout-summary">
           <span class="art-callout-tag">L'inbound en résumé</span>
-          <p>L'inbound est la stratégie la plus rentable sur le long terme, mais la moins prévisible à court terme. En B2B, le trio gagnant pour démarrer tient en trois canaux&nbsp;: <strong>LinkedIn</strong> pour la visibilité et les signaux, <strong>YouTube</strong> pour la durée, <strong>le SEO</strong> pour capter la demande existante. Le tout demande de la patience et de la régularité, ce qui explique pourquoi beaucoup d'entreprises se tournent aussi vers l'outbound.</p>
+          <p>L'inbound est la stratégie la plus rentable sur le long terme, mais la moins prévisible à court terme. En B2B, le trio gagnant pour démarrer tient en trois canaux&nbsp;: <strong>LinkedIn</strong> pour la visibilité et les signaux, <strong>YouTube</strong> pour la durée, <strong>le SEO</strong> pour capter la demande existante. Le tout demande de la patience et de la régularité, ce qui explique pourquoi beaucoup d'entreprises se tournent aussi vers l'outbound. Un exemple concret de ce que ça donne sur la durée&nbsp;: ce cas client.</p>
         </div>
 
         <h2 id="art-s2">2. L'outbound marketing&nbsp;: aller chercher ses clients</h2>
@@ -3921,9 +3931,9 @@ main.site-page[hidden]{ display:none !important; }
 
         <h4>La prospection LinkedIn</h4>
 
-        <p>C'est le canal outbound le plus naturel en B2B&nbsp;: vos décideurs sont là, leur poste et leur entreprise sont visibles, et un message LinkedIn paraît moins intrusif qu'un appel.</p>
+        <p>C'est le canal outbound le plus naturel en B2B&nbsp;: vos décideurs sont là, leur poste et leur entreprise sont visibles, et un message LinkedIn paraît moins intrusif qu'un appel. C'est aussi le cœur de notre offre de prospection.</p>
 
-        <p><strong>Avantages&nbsp;:</strong> un ciblage très précis (notamment avec Sales Navigator), un contact direct avec le décideur, et un profil qui rassure le prospect avant même qu'il réponde.</p>
+        <p><strong>Avantages&nbsp;:</strong> un ciblage très précis (notamment avec Sales Navigator, dont on parle en détail dans cet article), un contact direct avec le décideur, et un profil qui rassure le prospect avant même qu'il réponde.</p>
 
         <p><strong>Inconvénients&nbsp;:</strong> LinkedIn limite le nombre d'invitations hebdomadaires, les décideurs sont de plus en plus sollicités, et les outils d'automatisation mal utilisés peuvent faire restreindre votre compte.</p>
 
@@ -3964,7 +3974,8 @@ main.site-page[hidden]{ display:none !important; }
         </ul>
 
         <div class="art-callout art-callout-tip">
-          <span class="art-callout-tag">Conseil Cély&nbsp;: l'honnêteté est votre meilleure accroche</span>
+          <span class="art-callout-tag">Conseil Cély</span>
+          <h4 class="art-callout-title">L'honnêteté est votre meilleure accroche</h4>
           <p>C'est le conseil que je donne en premier à tous ceux qui se lancent&nbsp;: <strong>dites franchement que c'est un message de prospection.</strong></p>
           <p>Arrêtez les fausses accroches. Le « j'ai adoré votre publication » qui n'a jamais été lu, le « je fais une étude de marché » qui n'existe pas, le faux commentaire sympathique généré par un outil. Vos prospects les repèrent en trois secondes, et vous perdez la seule chose qui compte&nbsp;: la confiance.</p>
           <p>Ce qui marche&nbsp;: « Bonjour X, c'est un message de prospection, je préfère être clair. Je travaille avec des [cible] sur [problème], et en regardant [élément concret], je me suis dit que ça pouvait vous parler. Si ce n'est pas le moment, dites-le-moi, je ne relance pas. »</p>
@@ -3975,7 +3986,7 @@ main.site-page[hidden]{ display:none !important; }
 
         <div class="art-callout art-callout-summary">
           <span class="art-callout-tag">L'outbound en résumé</span>
-          <p>L'outbound est la stratégie la plus prévisible à court terme&nbsp;: des actions régulières, des ratios mesurables, et un flux de rendez-vous que vous contrôlez. En contrepartie, il demande de la rigueur, de la constance et un peu de courage au début. Et il a une limite majeure&nbsp;: <strong>dès que vous arrêtez, les résultats s'arrêtent.</strong></p>
+          <p>L'outbound est la stratégie la plus prévisible à court terme&nbsp;: des actions régulières, des ratios mesurables, et un flux de rendez-vous que vous contrôlez. En contrepartie, il demande de la rigueur, de la constance et un peu de courage au début. Et il a une limite majeure&nbsp;: <strong>dès que vous arrêtez, les résultats s'arrêtent.</strong> Un exemple chiffré&nbsp;? Ce cas client.</p>
           <p>C'est justement là que l'inbound et l'outbound deviennent intéressants ensemble. Et si vos prospects vous connaissaient déjà avant que vous les contactiez&nbsp;?</p>
         </div>
 
@@ -4019,7 +4030,7 @@ main.site-page[hidden]{ display:none !important; }
         </div>
 
 
-        <p>Concrètement, chez nous&nbsp;: quand quelqu'un interagit avec un post LinkedIn, l'information est captée automatiquement et envoyée dans le CRM. On sait qui c'est, sur quel sujet il a réagi, et on peut le contacter avec un message qui a du sens, plutôt qu'un « Bonjour, je me permets de vous contacter… » envoyé à l'aveugle.</p>
+        <p>Concrètement, chez nous&nbsp;: quand quelqu'un interagit avec un post LinkedIn, l'information est captée automatiquement et envoyée dans le CRM. On sait qui c'est, sur quel sujet il a réagi, et on peut le contacter avec un message qui a du sens, plutôt qu'un « Bonjour, je me permets de vous contacter… » envoyé à l'aveugle. On explique le montage technique dans cet article.</p>
 
         <p>La différence ressentie par le prospect est énorme. Il ne reçoit pas une sollicitation au hasard, mais la suite logique d'une conversation qu'il a lui-même commencée.</p>
 
@@ -4034,7 +4045,7 @@ main.site-page[hidden]{ display:none !important; }
 
         <h2 id="art-s4">4. Comment choisir entre inbound et outbound&nbsp;?</h2>
 
-        <p><strong>Pour choisir, il faut regarder cinq critères&nbsp;: votre urgence, ce que vous rapporte un client, votre cible, la demande existante et vos ressources.</strong> Aucun ne suffit seul, mais ensemble, ils dessinent assez vite la bonne direction.</p>
+        <p><strong>Pour choisir, il faut regarder cinq critères&nbsp;: votre urgence, ce que vous rapporte un client, votre cible, la demande existante et vos ressources.</strong> Aucun ne suffit seul, mais ensemble, ils dessinent assez vite la bonne direction. C'est exactement la logique qu'on applique dans notre méthode IMPA.</p>
 
         <h3>Critère 1&nbsp;: votre urgence</h3>
 
@@ -4204,8 +4215,8 @@ main.site-page[hidden]{ display:none !important; }
           <span class="art-author-avatar" aria-hidden="true">CE</span>
           <div>
             <div class="art-author-card-name">Célien Boillot</div>
-            <div class="art-author-card-role">Cofondateur de Wenoble, agence d'acquisition digitale B2B (Saint-Ismier, Grenoble)</div>
-            <p class="art-author-card-bio">Avec ses deux associés, il accompagne des startups et des PME B2B sur leur acquisition&nbsp;: site, SEO/GEO, contenu LinkedIn et prospection. Cet article s'appuie sur les campagnes menées pour les clients de l'agence et sur la prospection de Wenoble elle-même. <a href="https://www.linkedin.com/in/celienboillotwenoble/" target="_blank" rel="noopener">Profil LinkedIn</a>.</p>
+            <div class="art-author-card-role">Fondateur de Cely, cofondateur de Wenoble (agence d'acquisition digitale B2B, Saint-Ismier, Grenoble)</div>
+            <p class="art-author-card-bio">Avec ses deux associés chez Wenoble, il accompagne des startups et des PME B2B sur leur acquisition&nbsp;: site, SEO/GEO, contenu LinkedIn et prospection. Cet article s'appuie sur les campagnes menées pour les clients de l'agence et sur la prospection de Wenoble elle-même. <a href="https://www.linkedin.com/in/celienboillotwenoble/" target="_blank" rel="noopener">Profil LinkedIn</a>.</p>
           </div>
         </div>
       </article>
@@ -4397,7 +4408,7 @@ main.site-page[hidden]{ display:none !important; }
           "name":"Célien Boillot",
           "url":"https://www.linkedin.com/in/celienboillotwenoble/",
           "sameAs":["https://www.linkedin.com/in/celienboillotwenoble/"],
-          "jobTitle":"Cofondateur de Wenoble"
+          "jobTitle":"Fondateur de Cely, cofondateur de Wenoble"
         },
         "publisher":{
           "@type":"Organization",
