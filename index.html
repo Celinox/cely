@@ -92,9 +92,8 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .glass-edge::after{ content:""; position:absolute; inset:0; border-radius:inherit; opacity:.55; mix-blend-mode:overlay; background: linear-gradient(96deg, rgba(139,91,255,.22), transparent 16%), linear-gradient(266deg, rgba(232,139,247,.18), transparent 16%); }
 .nav-shell::after{ content:""; position:absolute; left:8%; right:8%; bottom:-14px; height:16px; z-index:-1; background:radial-gradient(closest-side, rgba(26,17,40,.16), transparent 75%); opacity:calc(.4 + .5 * var(--nav-scroll,0)); filter:blur(4px); }
 .nav-inner{ position:relative; z-index:2; display:flex; align-items:center; gap:clamp(20px,3vw,44px); height:calc(var(--nav-h) - 8px * var(--nav-scroll,0)); padding-inline:clamp(14px,2vw,22px); transition:height .3s var(--ease-cely-soft); }
-.nav-logo-link{ position:relative; z-index:3; display:flex; align-items:center; gap:8px; padding:6px 4px 6px 8px; font-family:var(--font-display); font-weight:900; font-size:1.15rem; color:var(--prune); }
-.nav-logo-link .e{ color:var(--violet); position:relative; }
-.nav-logo-link .dot{ width:6px; height:6px; border-radius:50%; background:var(--violet); display:inline-block; margin-left:1px; transform:translateY(-8px); }
+.nav-logo-link{ position:relative; z-index:3; display:flex; align-items:center; padding:6px 4px 6px 8px; }
+.nav-logo-link img{ display:block; height:30px; width:auto; max-width:none; }
 .nav-links{ position:relative; display:flex; align-items:center; gap:clamp(4px,1vw,10px); }
 .nav-links a{ position:relative; z-index:1; display:inline-flex; align-items:center; gap:1px; font-family:var(--font-label); font-size:.92rem; font-weight:500; color:var(--prune); padding:9px 13px; border-radius:13px; white-space:nowrap; }
 .nl-slash{ display:inline-block; width:0; overflow:hidden; opacity:0; color:var(--violet); transform:translateX(-4px); transition:width .2s var(--ease-cely-out), opacity .16s var(--ease-cely-out), transform .2s var(--ease-cely-out); }
@@ -1652,7 +1651,7 @@ main.site-page[hidden]{ display:none !important; }
     <div class="glass-edge"></div>
   </div>
   <div class="nav-inner">
-    <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil">C<span class="e">e</span>ly<span class="dot" aria-hidden="true"></span></a>
+    <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><img src="/cely-logo-light.png" alt="Cely" width="688" height="240"></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="/growth" data-route="growth" class="nl-priority"><span class="nl-slash is-permanent">/</span><span>Growth Part-Time</span></a>
       <a href="/audit" data-route="audit"><span class="nl-slash">/</span><span>Audit</span></a>
