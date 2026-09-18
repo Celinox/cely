@@ -19,7 +19,12 @@
 <meta name="twitter:image" content="https://www.celygrowth.com/cely-mark-ce.png" id="twitterImage">
 <link rel="icon" type="image/png" href="/cely-mark-ce.png">
 <script type="application/ld+json" id="articleJsonLd"></script>
-<title>Cely</title>
+<title>Cely — Le growth qui s'intègre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800;900&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800;900&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800;900&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap"></noscript>
 <style>
 
 
@@ -31,7 +36,6 @@
    dessous. Système reconstruit pour cette section ; seule la navbar
    reprend le composant "liquid glass" déjà validé sur le site en ligne.
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800;900&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap');
 
 :root{
   color-scheme: light;
@@ -367,7 +371,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 }
 .sc-inner{ display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(28px,4vw,56px); align-items:center; }
 @media (max-width:720px){ .sc-inner{ grid-template-columns:1fr; } }
-.sc-num{ font-family:var(--font-label); font-weight:600; font-size:.82rem; letter-spacing:.08em; opacity:.6; }
+.sc-num{ font-family:var(--font-label); font-weight:600; font-size:.82rem; letter-spacing:.08em; opacity:.72; }
 .sc-title{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.4rem,1.15rem + 1.2vw,2rem); margin-top:10px; }
 .sc-copy{ margin-top:14px; font-size:1rem; line-height:1.55; max-width:42ch; opacity:.86; }
 .sc-month{ margin-top:20px; display:flex; flex-direction:column; gap:7px; font-family:var(--font-label); font-size:.78rem; opacity:.78; }
@@ -380,7 +384,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 
 .sc-doc{ border-radius:14px; background:rgba(139,91,255,.09); padding:18px; display:flex; flex-direction:column; gap:8px; }
 .sc-doc .sd-label{ font-family:var(--font-label); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; opacity:.6; }
-.sc-doc .sd-free{ font-family:var(--font-label); font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--violet-2); }
+.sc-doc .sd-free{ font-family:var(--font-label); font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#5827D3; }
 .sc-doc .sd-line{ height:7px; border-radius:4px; background:currentColor; opacity:.16; }
 .sc-doc .sd-line.w60{ width:60%; } .sc-doc .sd-line.w80{ width:80%; } .sc-doc .sd-line.w40{ width:40%; }
 .sc-doc .sd-note{ margin-top:2px; font-family:var(--font-body); font-size:.76rem; line-height:1.38; color:currentColor; opacity:.68; }
@@ -1848,7 +1852,7 @@ main.site-page[hidden]{ display:none !important; }
     <div class="glass-edge"></div>
   </div>
   <div class="nav-inner">
-    <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><img src="/cely-logo-light.png" alt="Cely" width="688" height="240"></a>
+    <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><picture><source srcset="/cely-logo-light.webp" type="image/webp"><img src="/cely-logo-light.png" alt="Cely" width="292" height="102"></picture></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="/growth" data-route="growth" class="nl-priority"><span class="nl-slash is-permanent">/</span><span>Growth Part-Time</span></a>
       <a href="/audit" data-route="audit"><span class="nl-slash">/</span><span>Audit</span></a>
@@ -1867,7 +1871,7 @@ main.site-page[hidden]{ display:none !important; }
     </div>
   </div>
   <div class="nav-mobile-panel-wrap">
-    <nav class="nav-mobile-panel" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true">
+    <nav class="nav-mobile-panel" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true" inert>
       <div class="nmp-links">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
         <a href="/audit" data-route="audit">Audit</a>
@@ -1946,7 +1950,7 @@ main.site-page[hidden]{ display:none !important; }
   </div>
 
   <div class="manifeste-close wrap reveal">
-    <img class="wordmark" src="/cely-logo-light.png" alt="Cely">
+    <picture><source srcset="/cely-logo-light.webp" type="image/webp"><img class="wordmark" src="/cely-logo-light.png" alt="Cely" width="292" height="102"></picture>
     <h2>Le growth qui <span style="color:var(--violet)">s'intègre.</span></h2>
     <div style="margin-top:32px;">
       <a href="/contact" data-route="contact" class="btn btn-primary">
@@ -4328,8 +4332,8 @@ main.site-page[hidden]{ display:none !important; }
 
   var burger = document.getElementById('burgerBtn');
   var mobileMenu = document.getElementById('mobileMenu');
-  function openMobileMenu(){ navShell.classList.add('menu-open'); mobileMenu.setAttribute('aria-hidden','false'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-  function closeMobileMenu(){ navShell.classList.remove('menu-open'); mobileMenu.setAttribute('aria-hidden','true'); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  function openMobileMenu(){ navShell.classList.add('menu-open'); mobileMenu.setAttribute('aria-hidden','false'); mobileMenu.removeAttribute('inert'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMobileMenu(){ navShell.classList.remove('menu-open'); mobileMenu.setAttribute('aria-hidden','true'); mobileMenu.setAttribute('inert',''); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
   burger.addEventListener('click', function(){ (this.getAttribute('aria-expanded')==='true') ? closeMobileMenu() : openMobileMenu(); });
   mobileMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMobileMenu); });
 
@@ -4467,6 +4471,7 @@ main.site-page[hidden]{ display:none !important; }
     if(navShell && burger && mobileMenu && burger.getAttribute('aria-expanded') === 'true'){
       navShell.classList.remove('menu-open');
       mobileMenu.setAttribute('aria-hidden','true');
+      mobileMenu.setAttribute('inert','');
       burger.setAttribute('aria-expanded','false');
       document.body.style.overflow = '';
     }
