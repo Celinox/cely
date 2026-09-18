@@ -1458,18 +1458,11 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .form-dev-tag{ display:inline-flex; align-items:center; gap:6px; margin-top:18px; font-family:var(--font-label); font-size:.66rem; letter-spacing:.05em; text-transform:uppercase; color:var(--violet-3); background:var(--lavender); padding:5px 11px; border-radius:7px; }
 
 /* ---- carte calendrier (alternative visuelle, pas d'iframe brut) ---- */
-.calendly-card{ background:linear-gradient(165deg, var(--prune), #241736); color:var(--off-white); border-radius:28px; padding:clamp(26px,3vw,36px); position:sticky; top:calc(var(--nav-top) + var(--nav-h) + 24px); overflow:hidden; }
-.calendly-tag{ display:inline-flex; align-items:center; gap:6px; font-family:var(--font-label); font-size:.64rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(247,245,250,.7); background:rgba(247,245,250,.1); padding:5px 10px; border-radius:7px; }
-.calendly-title{ margin-top:14px; font-family:var(--font-display); font-weight:800; font-size:1.28rem; line-height:1.25; }
-.calendly-copy{ margin-top:10px; font-size:.9rem; color:rgba(247,245,250,.72); line-height:1.5; }
-.calendly-grid{ position:relative; margin-top:22px; border-radius:16px; background:rgba(247,245,250,.06); border:1px solid rgba(247,245,250,.14); padding:16px; display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
-.calendly-slot{ aspect-ratio:1; border-radius:8px; background:rgba(247,245,250,.08); }
-.calendly-slot.is-open{ background:var(--violet); }
-.calendly-qs{ margin-top:20px; display:flex; flex-direction:column; gap:8px; }
-.calendly-q{ display:flex; align-items:center; gap:9px; font-family:var(--font-label); font-size:.78rem; color:rgba(247,245,250,.82); }
-.calendly-q::before{ content:""; width:5px; height:5px; border-radius:50%; background:var(--pink); flex:none; }
-.calendly-cta{ margin-top:22px; display:inline-flex; align-items:center; gap:9px; font-family:var(--font-label); font-weight:600; font-size:.88rem; color:rgba(247,245,250,.5); cursor:default; }
-.calendly-cta svg{ width:13px; height:13px; }
+.calendly-card{ background:var(--white); border:1px solid var(--border); border-radius:28px; padding:clamp(24px,2.8vw,32px); position:sticky; top:calc(var(--nav-top) + var(--nav-h) + 24px); box-shadow:0 34px 70px -46px rgba(26,17,40,.28); }
+.calendly-label{ display:inline-flex; }
+.calendly-title{ margin-top:14px; font-family:var(--font-display); font-weight:800; font-size:1.28rem; line-height:1.25; color:var(--prune); }
+.calendly-copy{ margin-top:10px; font-size:.9rem; color:var(--muted); line-height:1.5; }
+.calendly-embed-wrap{ margin-top:20px; border-radius:16px; border:1px solid var(--border); overflow:hidden; }
 
 /* ---- réassurance : ce qui se passe ensuite (process, pas de témoignages) ---- */
 .contact-reassurance{ padding-block:clamp(60px,7.5vw,96px); background:var(--off-white-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
@@ -1559,7 +1552,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .art-header-dek{ margin-top:16px; font-size:1.1rem; color:var(--muted); line-height:1.55; max-width:58ch; }
 .art-header-meta{ margin-top:26px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
 .art-author{ display:flex; align-items:center; gap:11px; }
-.art-author-avatar{ width:38px; height:38px; border-radius:50%; background:var(--off-white-2); border:1.4px dashed var(--border); display:flex; align-items:center; justify-content:center; flex:none; color:var(--muted); font-family:var(--font-label); font-size:.7rem; font-weight:700; }
+.art-author-avatar{ width:38px; height:38px; border-radius:50%; object-fit:cover; border:1.4px solid var(--border); flex:none; display:block; }
 .art-author-name{ font-family:var(--font-label); font-size:.86rem; font-weight:600; color:var(--prune); }
 .art-author-role{ font-size:.78rem; color:var(--muted); }
 .art-meta-dot{ width:3px; height:3px; border-radius:50%; background:var(--border); flex:none; }
@@ -1572,7 +1565,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .art-cover-label{ font-family:var(--font-label); font-size:.78rem; color:var(--muted); text-align:center; padding-inline:20px; }
 
 .art-body-wrap{ padding-block:0 clamp(64px,8vw,100px); background:var(--off-white); }
-.art-layout{ display:grid; grid-template-columns:200px 1fr; gap:clamp(28px,4vw,56px); align-items:start; }
+.art-layout{ display:grid; grid-template-columns:180px 1fr; gap:clamp(24px,3.4vw,48px); align-items:start; max-width:1300px; }
 .art-layout > *{ min-width:0; }
 @media (max-width:920px){ .art-layout{ grid-template-columns:1fr; } }
 
@@ -1583,13 +1576,21 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .art-toc-list a:hover{ color:var(--violet-2); }
 @media (max-width:920px){ .art-toc{ position:static; } .art-toc-list{ display:flex; flex-direction:row; flex-wrap:wrap; gap:8px 16px; border-left:0; } .art-toc-list a{ padding-left:0; border-bottom:1.4px solid var(--border); padding-bottom:2px; } }
 
-.art-content{ max-width:68ch; }
+.art-content{ max-width:74ch; }
 .art-lead{ font-size:1.14rem; color:var(--prune); line-height:1.65; font-weight:500; }
 .art-content h2{ font-family:var(--font-display); font-weight:800; font-size:1.5rem; color:var(--prune); margin-top:clamp(36px,4.6vw,48px); line-height:1.2; scroll-margin-top:calc(var(--nav-top) + var(--nav-h) + 28px); }
 .art-content p{ margin-top:18px; font-size:1rem; color:var(--prune); line-height:1.72; }
 .art-content p + p{ margin-top:16px; }
 .art-content ul{ margin-top:18px; padding-left:20px; display:flex; flex-direction:column; gap:10px; }
 .art-content ul li{ font-size:.98rem; color:var(--prune); line-height:1.6; }
+
+/* Liens dans le corps de l'article : distinction visuelle interne / externe */
+.art-content a, .art-pull a, .art-authorhead-note a, .art-author-card-bio a{ font-weight:600; text-underline-offset:3px; text-decoration-thickness:1.5px; transition:color .15s var(--ease-cely-out); }
+.art-content a[data-route]:not(.btn-hero), .art-pull a[data-route]:not(.btn-hero){ color:var(--violet-2); text-decoration:underline dashed; }
+.art-content a[data-route]:not(.btn-hero):hover, .art-pull a[data-route]:not(.btn-hero):hover{ color:var(--violet-3); }
+.art-content a[target="_blank"], .art-pull a[target="_blank"], .art-authorhead-note a[target="_blank"], .art-author-card-bio a[target="_blank"]{ color:var(--violet-3); text-decoration:underline solid; }
+.art-content a[target="_blank"]:hover, .art-pull a[target="_blank"]:hover, .art-authorhead-note a[target="_blank"]:hover, .art-author-card-bio a[target="_blank"]:hover{ color:var(--violet); }
+.art-content a[target="_blank"]::after, .art-pull a[target="_blank"]::after, .art-authorhead-note a[target="_blank"]::after, .art-author-card-bio a[target="_blank"]::after{ content:"↗"; display:inline-block; margin-left:2px; font-weight:700; font-size:.85em; text-decoration:none; }
 .art-pull{ margin-block:clamp(32px,4vw,44px); padding-left:22px; border-left:3px solid var(--violet); font-family:var(--font-display); font-weight:700; font-size:1.28rem; color:var(--prune); line-height:1.4; }
 .art-figure{ margin-block:clamp(28px,3.6vw,40px); }
 .art-figure-frame{ aspect-ratio:16/9; border-radius:16px; background:repeating-linear-gradient(135deg, var(--off-white-2), var(--off-white-2) 12px, var(--white) 12px, var(--white) 24px); border:1.4px dashed var(--border); display:flex; align-items:center; justify-content:center; }
@@ -1669,8 +1670,8 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 /* ---- schéma 1 : comparatif ---- */
 .sch-compare{ position:relative; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 .sch-compare-col{ background:var(--white); border:1px solid var(--border); border-radius:20px; padding:clamp(20px,2.4vw,26px); }
-.sch-compare-in{ border-top:4px solid var(--violet); }
-.sch-compare-out{ border-top:4px solid var(--out-ink); }
+.sch-compare-in{ background:var(--in-bg); }
+.sch-compare-out{ background:var(--out-bg); }
 .sch-compare-tag{ font-family:var(--font-label); font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--violet-3); }
 .sch-compare-out .sch-compare-tag{ color:var(--out-ink); }
 .sch-compare-col h4{ margin-top:6px; font-family:var(--font-display); font-weight:800; font-size:1.14rem; color:var(--prune); }
@@ -3498,23 +3499,14 @@ main.site-page[hidden]{ display:none !important; }
           </div>
         </div>
 
-        <!-- ---- alternative créneaux (pièce graphique, pas un iframe brut) ---- -->
+        <!-- ---- alternative créneaux — widget Calendly réel ---- -->
         <aside class="calendly-card reveal" aria-label="Réserver un créneau directement">
-          <span class="calendly-tag">Créneaux en ligne — lien à connecter</span>
-          <h2 class="calendly-title">Vous préférez choisir un créneau directement&nbsp;?</h2>
-          <p class="calendly-copy">Dès que l'agenda partagé sera branché, vous pourrez réserver un échange de 30&nbsp;minutes sans passer par le formulaire.</p>
-          <div class="calendly-grid" aria-hidden="true">
-            <span class="calendly-slot"></span><span class="calendly-slot is-open"></span><span class="calendly-slot"></span><span class="calendly-slot is-open"></span><span class="calendly-slot"></span>
-            <span class="calendly-slot is-open"></span><span class="calendly-slot"></span><span class="calendly-slot"></span><span class="calendly-slot is-open"></span><span class="calendly-slot"></span>
+          <span class="section-label calendly-label"><span class="sl-slash">//</span> Ou directement</span>
+          <h2 class="calendly-title">Choisissez un créneau qui vous arrange.</h2>
+          <p class="calendly-copy">30&nbsp;minutes en visio, confirmation immédiate&nbsp;— sans passer par le formulaire.</p>
+          <div class="calendly-embed-wrap">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/c-boillotpro/30min?hide_event_type_details=1&amp;hide_gdpr_banner=1&amp;primary_color=950895" style="min-width:280px;height:660px;"></div>
           </div>
-          <div class="calendly-qs">
-            <span class="calendly-q">Quelques questions de qualification avant le créneau</span>
-            <span class="calendly-q">Confirmation immédiate par email</span>
-            <span class="calendly-q">30 minutes, en visio</span>
-          </div>
-          <span class="calendly-cta">Réserver un créneau
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
         </aside>
 
       </div>
@@ -3585,7 +3577,7 @@ main.site-page[hidden]{ display:none !important; }
   <section class="art-authorhead-wrap">
     <div class="section-wrap reveal">
       <div class="art-authorhead">
-        <span class="art-author-avatar art-authorhead-avatar" aria-hidden="true">CE</span>
+        <img src="/celien-boillot.png" alt="Photo de Célien Boillot" class="art-author-avatar art-authorhead-avatar" width="56" height="56">
         <div class="art-authorhead-body">
           <div class="art-authorhead-top">
             <a href="https://www.linkedin.com/in/celienboillotwenoble/" target="_blank" rel="noopener" class="art-authorhead-name">Célien Boillot</a>
@@ -4212,7 +4204,7 @@ main.site-page[hidden]{ display:none !important; }
         </div>
 
         <div class="art-author-card">
-          <span class="art-author-avatar" aria-hidden="true">CE</span>
+          <img src="/celien-boillot.png" alt="Photo de Célien Boillot" class="art-author-avatar" width="52" height="52">
           <div>
             <div class="art-author-card-name">Célien Boillot</div>
             <div class="art-author-card-role">Fondateur de Cely, cofondateur de Wenoble (agence d'acquisition digitale B2B, Saint-Ismier, Grenoble)</div>
@@ -4480,6 +4472,16 @@ main.site-page[hidden]{ display:none !important; }
     }
   }
 
+  var calendlyLoaded = false;
+  function ensureCalendlyWidget(){
+    if(calendlyLoaded) return;
+    calendlyLoaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+
   function render(){
     var parsed = parsePath();
     var route = parsed.route;
@@ -4523,6 +4525,8 @@ main.site-page[hidden]{ display:none !important; }
     requestAnimationFrame(function(){ window.scrollTo({top:0, left:0, behavior:'instant'}); });
 
     forceRevealPage(pageKey);
+
+    if(pageKey === 'contact'){ ensureCalendlyWidget(); }
 
     /* ancre intra-page optionnelle après un changement de route, ex.
        navigate('/contact#formulaire') -> #/contact/formulaire d'origine */
