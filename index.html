@@ -6,18 +6,19 @@
 <meta name="robots" id="metaRobots" content="index, follow">
 <meta name="description" id="metaDescription" content="Cely pilote la croissance digitale des startups tech B2B en Growth Part-Time : audit, plan d'action et exécution outbound/inbound, intégré à votre équipe.">
 <link rel="canonical" id="canonicalLink" href="https://www.celygrowth.com/">
-<meta property="og:type" content="website">
+<meta property="og:type" content="website" id="ogType">
 <meta property="og:site_name" content="Cely">
-<meta property="og:title" content="Cely — Le growth qui s'intègre">
-<meta property="og:description" content="Cely pilote la croissance digitale des startups tech B2B en Growth Part-Time : audit, plan d'action et exécution outbound/inbound, intégré à votre équipe.">
-<meta property="og:url" content="https://www.celygrowth.com/">
-<meta property="og:image" content="https://www.celygrowth.com/cely-mark-ce.png">
+<meta property="og:title" content="Cely — Le growth qui s'intègre" id="ogTitle">
+<meta property="og:description" content="Cely pilote la croissance digitale des startups tech B2B en Growth Part-Time : audit, plan d'action et exécution outbound/inbound, intégré à votre équipe." id="ogDescription">
+<meta property="og:url" content="https://www.celygrowth.com/" id="ogUrl">
+<meta property="og:image" content="https://www.celygrowth.com/cely-mark-ce.png" id="ogImage">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cely — Le growth qui s'intègre">
-<meta name="twitter:description" content="Cely pilote la croissance digitale des startups tech B2B en Growth Part-Time : audit, plan d'action et exécution outbound/inbound, intégré à votre équipe.">
-<meta name="twitter:image" content="https://www.celygrowth.com/cely-mark-ce.png">
+<meta name="twitter:title" content="Cely — Le growth qui s'intègre" id="twitterTitle">
+<meta name="twitter:description" content="Cely pilote la croissance digitale des startups tech B2B en Growth Part-Time : audit, plan d'action et exécution outbound/inbound, intégré à votre équipe." id="twitterDescription">
+<meta name="twitter:image" content="https://www.celygrowth.com/cely-mark-ce.png" id="twitterImage">
 <link rel="icon" type="image/png" href="/cely-mark-ce.png">
+<script type="application/ld+json" id="articleJsonLd"></script>
 <title>Cely</title>
 <style>
 
@@ -1524,6 +1525,16 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .act-card-example .act-card-cover{ background:linear-gradient(120deg, var(--lavender), var(--off-white-2)); }
 .act-note{ margin-top:clamp(28px,3.4vw,36px); font-size:.9rem; color:var(--muted); max-width:60ch; line-height:1.6; }
 
+/* ---- carte article réelle (remplace le gabarit factice une fois publié) ---- */
+.act-card-real{ display:block; grid-column:1 / -1; opacity:1; border:1.4px solid var(--border); transition:border-color .18s var(--ease-cely-out), transform .18s var(--ease-cely-out); }
+.act-card-real:hover{ border-color:var(--violet); transform:translateY(-2px); }
+.act-card-cover-real.act-card-cover-real{ height:160px; background:linear-gradient(135deg, var(--prune), var(--violet-3)); display:flex; align-items:flex-end; padding:14px; }
+.act-card-cat{ font-family:var(--font-label); font-size:.7rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--off-white); background:rgba(255,255,255,.14); padding:5px 11px; border-radius:999px; }
+.act-card-meta-real{ font-family:var(--font-label); font-size:.78rem; color:var(--muted); gap:6px; }
+.act-card-meta-real span{ display:inline; height:auto; width:auto; border-radius:0; background:none; }
+.act-card-real-title{ margin-top:12px; font-family:var(--font-display); font-weight:800; font-size:1.16rem; color:var(--prune); line-height:1.28; }
+.act-card-real-dek{ margin-top:8px; font-size:.92rem; color:var(--muted); line-height:1.55; }
+
 @media (prefers-reduced-motion:reduce){
   .act-card{ transition:none; }
 }
@@ -1562,6 +1573,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 
 .art-body-wrap{ padding-block:0 clamp(64px,8vw,100px); background:var(--off-white); }
 .art-layout{ display:grid; grid-template-columns:200px 1fr; gap:clamp(28px,4vw,56px); align-items:start; }
+.art-layout > *{ min-width:0; }
 @media (max-width:920px){ .art-layout{ grid-template-columns:1fr; } }
 
 .art-toc{ position:sticky; top:calc(var(--nav-top) + var(--nav-h) + 28px); }
@@ -1595,6 +1607,185 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 
 /* ---- articles liés (réutilise le format .act-card de la page Actualités) ---- */
 .art-related{ padding-block:clamp(64px,8vw,100px); background:var(--off-white-2); border-top:1px solid var(--border); }
+/* ============================================================
+   ARTICLE RÉEL — "Inbound vs outbound" — tokens sémantiques
+   ============================================================ */
+:root{
+  --warn:#A33B3B;
+  --warn-bg:#F7E9E7;
+  --in-bg:var(--lavender);
+  --out-bg:#EFECE6;
+  --out-ink:#4A4458;
+}
+
+/* ---- bloc auteur d'en-tête ---- */
+.art-authorhead-wrap{ padding-block:0 clamp(28px,3.6vw,40px); background:var(--off-white); }
+.art-authorhead{ display:flex; gap:18px; align-items:flex-start; background:var(--white); border:1px solid var(--border); border-radius:22px; padding:clamp(20px,2.6vw,26px); }
+.art-authorhead-avatar{ width:56px; height:56px; font-size:.86rem; flex:none; }
+.art-authorhead-body{ display:flex; flex-direction:column; gap:4px; }
+.art-authorhead-top{ display:flex; flex-wrap:wrap; align-items:center; gap:6px 10px; }
+.art-authorhead-name{ font-family:var(--font-display); font-weight:800; font-size:1.02rem; color:var(--prune); }
+.art-authorhead-name:hover{ text-decoration:underline; }
+.art-authorhead-role{ font-family:var(--font-label); font-size:.82rem; color:var(--muted); }
+.art-authorhead-dates{ flex-basis:100%; font-family:var(--font-label); font-size:.76rem; color:var(--violet-2); }
+.art-authorhead-note{ margin-top:8px; font-size:.94rem; font-style:italic; color:var(--prune); line-height:1.6; max-width:62ch; }
+.art-authorhead-sig{ margin-top:2px; font-family:var(--font-display); font-weight:800; font-style:italic; color:var(--violet-2); }
+
+/* ---- à retenir ---- */
+.art-tldr-wrap{ padding-block:0 clamp(28px,3.6vw,40px); background:var(--off-white); }
+.art-tldr{ position:relative; background:var(--white); border:1px solid var(--border); border-left:4px solid var(--violet); border-radius:18px; padding:clamp(20px,2.6vw,28px) clamp(22px,2.8vw,30px); }
+.art-tldr-label{ display:block; font-family:var(--font-label); font-weight:700; font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--violet-3); margin-bottom:12px; }
+.art-tldr ul{ display:flex; flex-direction:column; gap:10px; padding-left:20px; margin:0; }
+.art-tldr li{ font-size:.98rem; color:var(--prune); line-height:1.6; }
+
+/* ---- tableaux réutilisables dans l'article ---- */
+.art-table-wrap{ margin-block:clamp(24px,3vw,32px); overflow-x:auto; border-radius:16px; border:1px solid var(--border); }
+.art-table{ width:100%; border-collapse:collapse; font-size:.9rem; min-width:560px; }
+.art-table thead tr{ background:var(--prune); }
+.art-table thead th{ color:var(--off-white); font-family:var(--font-label); font-weight:600; font-size:.78rem; letter-spacing:.03em; text-transform:uppercase; text-align:left; padding:12px 16px; white-space:nowrap; }
+.art-table tbody td{ padding:11px 16px; border-top:1px solid var(--border); color:var(--prune); vertical-align:top; }
+.art-table tbody tr:nth-child(even){ background:var(--off-white); }
+
+/* ---- callouts (Conseil Cély / Warning Cély / résumé) ---- */
+.art-callout{ margin-block:clamp(28px,3.6vw,40px); border-radius:18px; padding:clamp(18px,2.4vw,24px) clamp(20px,2.6vw,26px); border-left:4px solid var(--violet); background:var(--in-bg); }
+.art-callout p{ margin-top:12px; font-size:.94rem; line-height:1.65; color:var(--prune); }
+.art-callout p:first-of-type{ margin-top:12px; }
+.art-callout-tag{ display:inline-flex; font-family:var(--font-display); font-weight:800; font-size:1rem; color:var(--prune); }
+.art-callout-tip{ background:var(--in-bg); border-left-color:var(--violet); }
+.art-callout-warning{ background:var(--warn-bg); border-left-color:var(--warn); }
+.art-callout-warning .art-callout-tag{ color:var(--warn); }
+.art-callout-summary{ background:var(--off-white-2); border-left-color:var(--prune); }
+
+/* ---- schema commun ---- */
+.sch{ margin-block:clamp(32px,4vw,44px); }
+
+/* ---- schéma 1 : comparatif ---- */
+.sch-compare{ position:relative; display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+.sch-compare-col{ background:var(--white); border:1px solid var(--border); border-radius:20px; padding:clamp(20px,2.4vw,26px); }
+.sch-compare-in{ border-top:4px solid var(--violet); }
+.sch-compare-out{ border-top:4px solid var(--out-ink); }
+.sch-compare-tag{ font-family:var(--font-label); font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--violet-3); }
+.sch-compare-out .sch-compare-tag{ color:var(--out-ink); }
+.sch-compare-col h4{ margin-top:6px; font-family:var(--font-display); font-weight:800; font-size:1.14rem; color:var(--prune); }
+.sch-compare-kicker{ margin-top:16px; font-family:var(--font-label); font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+.sch-compare-col ul{ margin-top:8px; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:7px; }
+.sch-compare-col li{ font-size:.88rem; line-height:1.5; color:var(--prune); padding-left:20px; position:relative; }
+.sch-plus li::before{ content:"+"; position:absolute; left:0; color:var(--violet-2); font-weight:800; }
+.sch-minus li::before{ content:"−"; position:absolute; left:0; color:var(--out-ink); font-weight:800; }
+.sch-ideal{ margin-top:16px; font-size:.84rem; font-style:italic; color:var(--muted); background:var(--off-white-2); border-radius:12px; padding:12px 14px; }
+.sch-vs{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:44px; height:44px; border-radius:50%; background:var(--prune); color:var(--off-white); display:flex; align-items:center; justify-content:center; font-family:var(--font-label); font-weight:700; font-size:.78rem; box-shadow:0 4px 14px rgba(26,17,40,.22); z-index:2; }
+@media (max-width:760px){ .sch-compare{ grid-template-columns:1fr; } .sch-vs{ position:static; transform:none; margin:4px auto; } }
+
+/* ---- schéma 2 : table des canaux ---- */
+.sch-badge{ display:inline-flex; align-items:center; font-family:var(--font-label); font-size:.72rem; font-weight:600; padding:3px 9px; border-radius:999px; white-space:nowrap; }
+.sch-badge-in{ background:var(--in-bg); color:var(--violet-3); }
+.sch-badge-paid{ background:var(--lavender); color:var(--violet-3); border:1px dashed var(--violet-2); }
+.sch-badge-out{ background:var(--out-bg); color:var(--out-ink); }
+.sch-badge-warn{ background:var(--warn-bg); color:var(--warn); font-weight:700; }
+.sch-row-warn td:first-child{ font-weight:700; }
+
+/* ---- schéma 3 : courbe SVG ---- */
+.sch-curve svg{ width:100%; height:auto; max-width:100%; }
+.sch-axis{ stroke:var(--border); stroke-width:1.4; }
+.sch-axis-label{ font-family:var(--font-label); font-size:11px; fill:var(--muted); }
+.sch-curve-in{ stroke:var(--violet); stroke-width:3; }
+.sch-curve-out{ stroke:var(--out-ink); stroke-width:3; }
+.sch-curve-dot-in{ fill:var(--violet); }
+.sch-curve-dot-out{ fill:var(--warn); }
+.sch-curve-note{ font-family:var(--font-label); font-size:11px; fill:var(--warn); }
+.sch-legend{ display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:12px; font-family:var(--font-label); font-size:.8rem; color:var(--muted); }
+.sch-legend span{ display:inline-flex; align-items:center; gap:7px; }
+.sch-swatch{ width:12px; height:12px; border-radius:3px; display:inline-block; }
+.sch-swatch-in{ background:var(--violet); }
+.sch-swatch-out{ background:var(--out-ink); }
+
+/* ---- schéma 4 : entonnoir ---- */
+.sch-funnel{ display:flex; flex-direction:column; gap:12px; }
+.sch-funnel-row{ display:flex; align-items:center; gap:14px; }
+.sch-funnel-bar{ background:linear-gradient(90deg, var(--lavender), var(--violet-2)); color:var(--prune); border-radius:0 999px 999px 0; padding:12px 20px; font-size:.92rem; min-width:120px; }
+.sch-funnel-bar strong{ font-family:var(--font-display); font-size:1.1rem; margin-right:6px; }
+.sch-funnel-row:nth-child(2) .sch-funnel-bar{ color:var(--off-white); }
+.sch-funnel-row:nth-child(3) .sch-funnel-bar, .sch-funnel-row:nth-child(4) .sch-funnel-bar{ color:var(--off-white); }
+.sch-funnel-rate{ font-family:var(--font-label); font-size:.8rem; color:var(--muted); white-space:nowrap; }
+
+/* ---- schéma 5 : système signal-based ---- */
+.sch-signal-row{ display:flex; flex-wrap:wrap; align-items:center; gap:10px 6px; }
+.sch-signal-node{ display:flex; align-items:center; gap:8px; background:var(--white); border:1.4px solid var(--border); border-radius:14px; padding:12px 16px; font-family:var(--font-label); font-size:.88rem; font-weight:600; color:var(--prune); }
+.sch-signal-num{ width:22px; height:22px; border-radius:50%; background:var(--violet); color:var(--off-white); display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700; flex:none; }
+.sch-signal-arrow{ color:var(--violet-2); font-size:1.1rem; }
+.sch-signal-return{ margin-top:14px; font-family:var(--font-label); font-size:.8rem; color:var(--muted); font-style:italic; padding-left:2px; border-left:2px dashed var(--border); padding-left:12px; }
+
+/* ---- schéma 6 : grille de décision ---- */
+.sch-grid-table thead th:nth-child(2){ background:var(--in-bg); color:var(--violet-3); }
+.sch-grid-table thead th:nth-child(3){ background:var(--out-bg); color:var(--out-ink); }
+.sch-grid-table thead tr{ background:transparent; }
+.sch-grid-in{ background:rgba(233,215,255,.35); }
+.sch-grid-out{ background:rgba(74,68,88,.06); }
+
+/* ---- FAQ accordéon ---- */
+.art-faq{ margin-top:clamp(20px,2.6vw,28px); border-top:1px solid var(--border); }
+.art-faq-item{ border-bottom:1px solid var(--border); padding-block:16px; }
+.art-faq-item summary{ list-style:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+.art-faq-item summary::-webkit-details-marker{ display:none; }
+.art-faq-item summary h3{ margin:0; font-family:var(--font-display); font-weight:700; font-size:1rem; color:var(--prune); }
+.art-faq-icon{ position:relative; width:20px; height:20px; flex:none; }
+.art-faq-icon::before, .art-faq-icon::after{ content:""; position:absolute; background:var(--violet-2); border-radius:2px; transition:transform var(--t-fast) var(--ease-cely-out); }
+.art-faq-icon::before{ left:0; top:9px; width:20px; height:2px; }
+.art-faq-icon::after{ left:9px; top:0; width:2px; height:20px; }
+.art-faq-item[open] .art-faq-icon::after{ transform:scaleY(0); }
+.art-faq-answer{ margin-top:12px; }
+.art-faq-answer p{ margin:0; font-size:.94rem; line-height:1.65; color:var(--prune); }
+.art-faq-answer a{ color:var(--violet-2); text-decoration:underline; }
+
+/* ---- CTA final intra-article ---- */
+.art-final-cta{ margin-block:clamp(36px,4.6vw,52px); background:var(--prune); color:var(--off-white); border-radius:22px; padding:clamp(26px,3.4vw,36px); }
+.art-final-cta h3{ font-family:var(--font-display); font-weight:800; font-size:1.3rem; margin:0; color:var(--off-white); }
+.art-final-cta p{ margin-top:12px; color:rgba(247,245,250,.82); font-size:.96rem; line-height:1.6; }
+.art-final-cta .btn-hero{ margin-top:18px; background:var(--violet); }
+.art-final-cta .btn-hero:hover{ background:var(--violet-2); }
+
+/* ============================================================
+   SIMULATEUR "Inbound vs outbound" (artsim-*, préfixé pour ne
+   jamais entrer en collision avec .sim-* du hero de la home)
+   ============================================================ */
+.artsim{ margin-block:clamp(28px,3.6vw,40px); background:var(--white); border:1px solid var(--border); border-radius:24px; padding:clamp(22px,3vw,32px); }
+.artsim-gauge{ display:flex; align-items:center; gap:12px; }
+.artsim-gauge-label{ font-family:var(--font-label); font-weight:700; font-size:.78rem; letter-spacing:.04em; text-transform:uppercase; flex:none; }
+.artsim-gauge-label-i{ color:var(--violet-2); }
+.artsim-gauge-label-o{ color:var(--out-ink); }
+.artsim-gauge-track{ position:relative; flex:1; height:10px; border-radius:999px; background:linear-gradient(90deg, var(--violet), var(--lavender) 48%, var(--out-bg) 52%, var(--out-ink)); }
+.artsim-gauge-cursor{ position:absolute; top:50%; width:20px; height:20px; border-radius:50%; background:var(--white); border:3px solid var(--prune); box-shadow:0 2px 8px rgba(26,17,40,.28); transform:translate(-50%,-50%); transition:left .4s var(--ease-cely-out); }
+.artsim-progress{ margin-top:20px; height:5px; border-radius:999px; background:var(--off-white-2); overflow:hidden; }
+.artsim-progress-bar{ height:100%; background:var(--violet-2); border-radius:999px; transition:width .3s var(--ease-cely-out); }
+.artsim-counter{ margin-top:10px; font-family:var(--font-label); font-size:.8rem; color:var(--muted); }
+.artsim-question{ border:0; padding:0; margin:20px 0 0; }
+.artsim-question legend{ font-family:var(--font-display); font-weight:800; font-size:1.16rem; color:var(--prune); padding:0; margin-bottom:16px; line-height:1.3; }
+.artsim-option{ display:block; position:relative; margin-bottom:10px; }
+.artsim-option input{ position:absolute; opacity:0; width:1px; height:1px; }
+.artsim-option span{ display:block; padding:13px 18px; border:1.4px solid var(--border); border-radius:14px; font-size:.94rem; color:var(--prune); cursor:pointer; transition:border-color .15s, background .15s; }
+.artsim-option input:checked + span{ border-color:var(--violet); background:var(--in-bg); font-weight:600; }
+.artsim-option input:focus-visible + span{ outline:2.5px solid var(--violet); outline-offset:2px; }
+.artsim-nav{ margin-top:18px; display:flex; justify-content:flex-start; }
+.artsim-btn-secondary{ font-family:var(--font-label); font-size:.86rem; font-weight:600; color:var(--muted); padding:9px 4px; }
+.artsim-btn-secondary:not(:disabled):hover{ color:var(--violet-2); }
+.artsim-btn-secondary:disabled{ opacity:.4; cursor:default; }
+.artsim-capture{ margin-top:8px; filter:blur(0); }
+.artsim-capture-title{ font-family:var(--font-display); font-weight:800; font-size:1.2rem; color:var(--prune); margin:0 0 16px; }
+.artsim-field{ display:block; margin-bottom:14px; }
+.artsim-field span{ display:block; font-family:var(--font-label); font-size:.78rem; color:var(--muted); margin-bottom:6px; }
+.artsim-field input{ width:100%; padding:12px 16px; border:1.4px solid var(--border); border-radius:12px; font-size:.96rem; font-family:inherit; color:var(--prune); background:var(--off-white); }
+.artsim-field input:focus-visible{ outline:2.5px solid var(--violet); outline-offset:1px; }
+.artsim-consent{ display:flex; align-items:flex-start; gap:10px; margin-bottom:18px; }
+.artsim-consent input{ margin-top:3px; flex:none; }
+.artsim-consent span{ font-size:.82rem; color:var(--muted); line-height:1.5; }
+.artsim-consent a{ color:var(--violet-2); text-decoration:underline; }
+.artsim-error{ margin-top:10px; font-size:.84rem; color:var(--warn); min-height:1em; }
+.artsim-result-label{ display:inline-flex; font-family:var(--font-label); font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--violet-3); background:var(--in-bg); padding:5px 11px; border-radius:999px; }
+.artsim-result h3{ font-family:var(--font-display); font-weight:800; font-size:1.4rem; color:var(--prune); margin:12px 0 0; }
+.artsim-result p{ margin-top:12px; font-size:.96rem; color:var(--prune); line-height:1.6; }
+.artsim-result-bonus{ font-style:italic; color:var(--violet-2) !important; }
+.artsim-result .btn-hero{ margin-top:18px; }
+
 
 
 /* ============ ROUTER — pages Cely combinées dans un seul artefact ============ */
@@ -1630,8 +1821,6 @@ main.site-page[hidden]{ display:none !important; }
 
 </head>
 <body>
-
-<meta name="description" content="Cely accompagne les startups B2B dans leur croissance : pilotage growth à temps partagé, audit digital, et un premier échange offert.">
 
 <a class="skip-link" href="#site-content">Aller au contenu</a>
 
@@ -2917,53 +3106,29 @@ main.site-page[hidden]{ display:none !important; }
   </section>
 
   <!-- ============================================================
-       ÉTAT VIDE — soigné, honnête
-       ============================================================ -->
-  <section class="act-empty">
-    <div class="section-wrap">
-      <div class="act-empty-card reveal">
-        <div class="act-empty-glyph" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16l-3.5-2.5L12 20l-3.5-2.5L5 20V4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8.5 9h7M8.5 12.5h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </div>
-        <p class="act-empty-title">Les premiers articles arrivent.</p>
-        <p class="act-empty-copy">On préfère prendre le temps d'écrire des contenus utiles plutôt que de publier pour occuper l'espace. Revenez bientôt, ou parlons-en directement.</p>
-        <div class="act-empty-dots" aria-hidden="true"><span></span><span></span><span></span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       APERÇU DU FORMAT — gabarit, pas de vrai contenu
+       ARTICLES — le premier article publié
        ============================================================ -->
   <section class="act-template">
     <div class="section-wrap">
       <div class="act-template-head reveal">
         <div>
-          <span class="section-label"><span class="sl-slash">//</span> À quoi ça ressemblera</span>
-          <h2 class="section-h2">Le gabarit sur lequel on travaille.</h2>
+          <span class="section-label"><span class="sl-slash">//</span> Dernière analyse</span>
+          <h2 class="section-h2">Ce qu'on vient de publier.</h2>
         </div>
-        <span class="act-template-tag">Aperçu — pas encore de contenu</span>
       </div>
       <div class="act-template-grid">
-        <div class="act-card act-card-example reveal" aria-hidden="true">
-          <div class="act-card-cover"></div>
-          <div class="act-card-meta"><span></span><span></span></div>
-          <div class="act-card-title"><span></span><span></span></div>
-        </div>
-        <div class="act-card reveal" aria-hidden="true">
-          <div class="act-card-cover"></div>
-          <div class="act-card-meta"><span></span><span></span></div>
-          <div class="act-card-title"><span></span><span></span></div>
-        </div>
-        <div class="act-card reveal" aria-hidden="true">
-          <div class="act-card-cover"></div>
-          <div class="act-card-meta"><span></span><span></span></div>
-          <div class="act-card-title"><span></span><span></span></div>
-        </div>
+        <a href="/actualites/inbound-vs-outbound" data-route="actualites" class="act-card act-card-real reveal">
+          <div class="act-card-cover act-card-cover-real">
+            <span class="act-card-cat">Growth marketing B2B</span>
+          </div>
+          <div class="act-card-meta act-card-meta-real">
+            <span>Célien Boillot</span><span>·</span><span>18 septembre 2026</span>
+          </div>
+          <h3 class="act-card-real-title">Inbound vs outbound : quoi choisir pour son entreprise en 2026 ?</h3>
+          <p class="act-card-real-dek">Avantages, canaux, ratios et méthode pour choisir la bonne stratégie B2B — avec un simulateur gratuit en fin d'article.</p>
+        </a>
       </div>
-      <p class="act-note">Ces cartes sont un gabarit de mise en page, sans titre, date ni auteur inventés — le vrai contenu viendra les remplacer au fil des publications. <a href="/actualites/gabarit" data-route="actualites" class="btn-text-cely" style="display:inline-flex;">Voir le gabarit d'un article
-        <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a></p>
+      <p class="act-note">D'autres analyses arrivent — on préfère prendre le temps d'écrire des contenus utiles plutôt que de publier pour occuper l'espace.</p>
     </div>
   </section>
 
@@ -3384,62 +3549,69 @@ main.site-page[hidden]{ display:none !important; }
   <main class="site-page" data-page="article" hidden>
 
   <!-- ============================================================
-       BANDEAU HONNÊTETÉ — gabarit, pas un vrai article
-       ============================================================ -->
-  <div class="art-devbar">
-    <div class="section-wrap art-devbar-inner reveal">
-      <span class="art-devbar-tag">Gabarit — pas un vrai article</span>
-      <span class="art-devbar-copy">Cette page montre la mise en page prévue pour un article. Titre, texte, auteur, date et images sont des exemples : aucun article réel n'est publié pour l'instant.</span>
-    </div>
-  </div>
-
-  <!-- ============================================================
        FIL D'ARIANE
        ============================================================ -->
   <nav class="art-breadcrumb" aria-label="Fil d'Ariane">
     <div class="section-wrap art-breadcrumb-row">
+      <a href="/" data-route="home">Accueil</a>
+      <span class="sep">/</span>
       <a href="/actualites" data-route="actualites">Actualités</a>
       <span class="sep">/</span>
-      <span>Exemple d'article</span>
+      <span aria-current="page">Inbound vs outbound</span>
     </div>
   </nav>
 
   <!-- ============================================================
-       EN-TÊTE DE L'ARTICLE (exemple)
+       EN-TÊTE DE L'ARTICLE
        ============================================================ -->
   <section class="art-header">
     <div class="section-wrap reveal">
-      <span class="art-header-cat">Acquisition — exemple de catégorie</span>
-      <h1 class="art-header-h1">Titre d'exemple : à quoi ressemblera un article Cely</h1>
-      <p class="art-header-dek">Ce chapô d'exemple montre l'emplacement du résumé d'introduction — une ou deux phrases qui donnent envie de lire, une fois qu'un vrai article existera.</p>
-      <div class="art-header-meta">
-        <div class="art-author">
-          <span class="art-author-avatar" aria-hidden="true">CE</span>
-          <div>
-            <div class="art-author-name">Nom Prénom — exemple</div>
-            <div class="art-author-role">Rôle — exemple</div>
-          </div>
-        </div>
-        <span class="art-meta-dot" aria-hidden="true"></span>
-        <span class="art-meta-sub">Date de publication — exemple · Temps de lecture — exemple</span>
-      </div>
+      <span class="art-header-cat">Acquisition — Growth marketing B2B</span>
+      <h1 class="art-header-h1">Inbound vs outbound : quoi choisir pour son entreprise en 2026&nbsp;?</h1>
+      <p class="art-header-dek">Ce que ça change concrètement pour trouver des clients en B2B en 2026&nbsp;: les avantages et limites de chaque approche, comment les combiner, et un simulateur pour identifier la vôtre.</p>
     </div>
   </section>
 
   <!-- ============================================================
-       IMAGE DE COUVERTURE (emplacement)
+       BLOC AUTEUR — signal humain, au-dessus du "À retenir"
        ============================================================ -->
-  <section class="art-cover">
+  <section class="art-authorhead-wrap">
     <div class="section-wrap reveal">
-      <div class="art-cover-frame" role="img" aria-label="Emplacement réservé à l'image de couverture de l'article">
-        <svg class="art-cover-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="m4 16 5-5 3 3 4-5 4 4" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="9" cy="9.5" r="1.3" stroke="currentColor" stroke-width="1.2"/></svg>
-        <span class="art-cover-label">Emplacement de l'image de couverture — sera ajoutée avec le vrai article</span>
+      <div class="art-authorhead">
+        <span class="art-author-avatar art-authorhead-avatar" aria-hidden="true">CE</span>
+        <div class="art-authorhead-body">
+          <div class="art-authorhead-top">
+            <a href="https://www.linkedin.com/in/celienboillotwenoble/" target="_blank" rel="noopener" class="art-authorhead-name">Célien Boillot</a>
+            <span class="art-authorhead-role">Cofondateur de Wenoble, agence d'acquisition B2B (Saint-Ismier, Grenoble)</span>
+            <span class="art-authorhead-dates">Publié le 18 septembre 2026 · Mis à jour le 18 septembre 2026</span>
+          </div>
+          <p class="art-authorhead-note">« J'écris cet article parce que je me suis posé la question moi-même, pour ma propre boîte. Et parce que je l'entends en rendez-vous presque chaque semaine&nbsp;: "on devrait pas plutôt faire du contenu&nbsp;?". Ce que vous allez lire n'est pas une synthèse d'articles trouvés sur Google&nbsp;: ce sont nos ratios, nos erreurs, et ce qu'on applique chez nos clients. Vous verrez, je ne suis pas d'accord avec tout le monde sur certains points, notamment sur le cold emailing. »</p>
+          <span class="art-authorhead-sig">Célien</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       CORPS DE L'ARTICLE — texte d'exemple, structure réelle
+       À RETENIR
+       ============================================================ -->
+  <section class="art-tldr-wrap">
+    <div class="section-wrap reveal">
+      <div class="art-tldr">
+        <span class="art-tldr-label">À retenir</span>
+        <ul>
+          <li><strong>L'inbound</strong> attire des prospects déjà intéressés grâce au contenu, au SEO et aux réseaux sociaux. C'est rentable sur la durée, mais lent à démarrer et peu prévisible.</li>
+          <li><strong>L'outbound</strong> consiste à aller chercher ses clients directement (prospection LinkedIn, emails, appels). Les résultats arrivent vite et se pilotent avec des chiffres, mais s'arrêtent dès que l'effort s'arrête.</li>
+          <li><strong>Combiner inbound et outbound</strong> est souvent la stratégie la plus solide en B2B&nbsp;: le contenu réchauffe les prospects, l'outbound accélère le pipeline.</li>
+          <li><strong>Le bon choix dépend</strong> de votre urgence, de ce que vous rapporte un client, de votre cible, de la demande existante et de vos ressources.</li>
+          <li><strong>Un simulateur</strong> en fin d'article vous aide à identifier l'approche adaptée à votre situation.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CORPS DE L'ARTICLE
        ============================================================ -->
   <section class="art-body-wrap">
     <div class="section-wrap art-layout">
@@ -3447,52 +3619,593 @@ main.site-page[hidden]{ display:none !important; }
       <aside class="art-toc reveal" aria-label="Sommaire de l'article">
         <span class="art-toc-label">Dans cet article</span>
         <nav class="art-toc-list">
-          <a href="#art-s1">Premier point — exemple</a>
-          <a href="#art-s2">Deuxième point — exemple</a>
-          <a href="#art-s3">Ce qu'on en retient</a>
+          <a href="#art-s0">Avantages et inconvénients</a>
+          <a href="#art-s1">1. L'inbound marketing</a>
+          <a href="#art-s2">2. L'outbound marketing</a>
+          <a href="#art-s3">3. Les combiner</a>
+          <a href="#art-s4">4. Comment choisir</a>
+          <a href="#art-s5">5. Le simulateur</a>
+          <a href="#art-faq">FAQ</a>
         </nav>
       </aside>
 
       <article class="art-content reveal">
-        <p class="art-lead">Ce paragraphe d'ouverture d'exemple montre la largeur de lecture et l'espacement retenus pour un article Cely — confortables sur écran, sans colonne trop large ni trop étroite.</p>
 
-        <h2 id="art-s1">Premier point — titre d'exemple</h2>
-        <p>Voici un paragraphe de texte d'exemple destiné à illustrer la longueur et le rythme d'un vrai paragraphe d'article. Il ne contient aucune information réelle sur Cely ni sur ses clients — uniquement la mise en forme du gabarit.</p>
-        <p>Un second paragraphe d'exemple suit le premier, pour montrer l'espacement entre deux blocs de texte consécutifs dans le corps de l'article.</p>
-        <ul>
-          <li>Élément de liste d'exemple — premier point à retenir.</li>
-          <li>Élément de liste d'exemple — second point à retenir.</li>
-          <li>Élément de liste d'exemple — troisième point à retenir.</li>
-        </ul>
+        <p class="art-lead">Alala… Une question que tout dirigeant se pose à un certain stade de croissance&nbsp;: <strong>inbound ou outbound, quelle stratégie choisir pour trouver des clients&nbsp;?</strong></p>
 
-        <div class="art-pull">« Ceci est une citation mise en avant d'exemple, pour montrer comment un extrait marquant sera traité visuellement dans un vrai article. »</div>
+        <p>On a tous envie d'aller vers l'inbound, parce que ça semble plutôt agréable. Surtout quand un ami entrepreneur vous raconte qu'il reçoit 20 leads par mois grâce au SEO (search engine optimization), ou qu'un autre publie 2 ou 3 vidéos Instagram par mois et gagne des milliers de followers.</p>
 
-        <h2 id="art-s2">Deuxième point — titre d'exemple</h2>
-        <p>Nouveau paragraphe d'exemple. Le gabarit prévoit l'insertion d'images ou de schémas au fil du texte, comme illustré juste en dessous par l'emplacement réservé.</p>
+        <p>L'outbound, à l'inverse, ressemble à un monde de requins. Il faut envoyer des dizaines de messages, relancer, rabâcher, rabâcher encore… pour décrocher un rendez-vous qui n'est même pas toujours qualifié.</p>
 
-        <figure class="art-figure">
-          <div class="art-figure-frame" role="img" aria-label="Emplacement réservé à une illustration ou un schéma dans l'article">
-            <span class="art-figure-label">Emplacement d'illustration ou de schéma — sera ajouté avec le vrai article</span>
+        <p>Naturellement, tout le monde préfère un bon <a href="https://ahrefs.com/blog/fr/inbound-marketing/" target="_blank" rel="noopener">inbound</a>. Mais en 2026, avec l'essor des réseaux sociaux, du personal branding, de la publicité et du contenu partout, est-ce que l'inbound est toujours aussi simple&nbsp;?</p>
+
+        <p>La vraie question devient donc&nbsp;: <strong>comment choisir entre inbound et outbound pour sa société en croissance en 2026&nbsp;?</strong></p>
+
+        <div class="art-pull">Spoiler&nbsp;: il n'y a pas de bonne réponse universelle. Chaque société a un besoin unique, et différentes approches peuvent fonctionner. Par contre, il y a une bonne méthode pour choisir, et c'est ce qu'on va voir. Si vous voulez qu'on regarde votre cas directement, c'est par ici&nbsp;: <a href="/growth" data-route="growth">notre accompagnement acquisition</a>.</div>
+
+        <h2 id="art-s0">Inbound vs outbound&nbsp;: les avantages et les inconvénients en un coup d'œil</h2>
+
+        
+        <div class="sch sch-compare">
+          <div class="sch-compare-col sch-compare-in">
+            <span class="sch-compare-tag">Inbound</span>
+            <h4>Les clients viennent à vous.</h4>
+            <p class="sch-compare-kicker">Avantages</p>
+            <ul class="sch-plus">
+              <li>Des leads déjà informés et intéressés</li>
+              <li>Un coût par lead qui baisse avec le temps</li>
+              <li>Un actif durable (contenus, SEO, audience)</li>
+              <li>Une crédibilité qui facilite la vente</li>
+            </ul>
+            <p class="sch-compare-kicker">Inconvénients</p>
+            <ul class="sch-minus">
+              <li>Lent à démarrer, plusieurs mois voire années</li>
+              <li>Demande une production régulière</li>
+              <li>Résultats difficiles à prévoir</li>
+              <li>Concurrence forte pour capter l'attention</li>
+            </ul>
+            <div class="sch-ideal">Idéal si vos clients cherchent déjà une solution, que vous avez des preuves sociales et que votre expertise mérite d'être démontrée.</div>
           </div>
-          <figcaption class="art-figure-cap">Légende d'exemple pour l'illustration.</figcaption>
+          <span class="sch-vs" aria-hidden="true">VS</span>
+          <div class="sch-compare-col sch-compare-out">
+            <span class="sch-compare-tag">Outbound</span>
+            <h4>Vous allez chercher vos clients.</h4>
+            <p class="sch-compare-kicker">Avantages</p>
+            <ul class="sch-plus">
+              <li>Des premiers rendez-vous en quelques semaines</li>
+              <li>Un ciblage précis des comptes visés</li>
+              <li>Un volume d'actions que vous maîtrisez</li>
+              <li>Idéal pour tester vite une offre ou un marché</li>
+            </ul>
+            <p class="sch-compare-kicker">Inconvénients</p>
+            <ul class="sch-minus">
+              <li>Une mise en place longue (listes, domaines, séquences)</li>
+              <li>Chronophage et répétitif au quotidien</li>
+              <li>Taux de réponse souvent faibles</li>
+              <li>Les résultats s'arrêtent quand vous arrêtez</li>
+            </ul>
+            <div class="sch-ideal">Idéal si vos cibles sont identifiables et vous avez besoin de pipeline rapidement.</div>
+          </div>
+        </div>
+
+
+        <h2>Inbound vs outbound&nbsp;: quelle différence et quels canaux&nbsp;?</h2>
+
+        <p><strong>La différence tient en une phrase&nbsp;: en inbound, ce sont les prospects qui viennent à vous&nbsp;; en outbound, c'est vous qui allez vers eux.</strong> Chaque approche s'appuie sur ses propres canaux d'acquisition. Avant d'entrer dans le détail, voici les principaux, rangés selon leur logique.</p>
+
+        
+        <div class="art-table-wrap sch-table-wrap">
+          <table class="art-table sch-table">
+            <thead><tr><th>Canal</th><th>Approche</th><th>Premiers résultats</th><th>Durée de l'effet</th><th>Pertinence B2B</th></tr></thead>
+            <tbody><tr class="sch-row-in"><td>SEO (blog, pages de services)</td><td><span class="sch-badge sch-badge-in">Inbound</span></td><td>Lents (souvent 3 à 12 mois)</td><td>Longue, parfois des années</td><td>Forte</td></tr><tr class="sch-row-in"><td>GEO (visibilité dans les IA)</td><td><span class="sch-badge sch-badge-in">Inbound</span></td><td>Moyens à lents</td><td>Longue</td><td>Forte, en croissance</td></tr><tr class="sch-row-in"><td>Contenu LinkedIn</td><td><span class="sch-badge sch-badge-in">Inbound</span></td><td>Moyens</td><td>Courte (quelques jours par post)</td><td>Très forte</td></tr><tr class="sch-row-in"><td>YouTube</td><td><span class="sch-badge sch-badge-in">Inbound</span></td><td>Lents</td><td>Longue</td><td>Forte</td></tr><tr class="sch-row-in"><td>Instagram / TikTok</td><td><span class="sch-badge sch-badge-in">Inbound</span></td><td>Moyens</td><td>Courte</td><td>Plus faible</td></tr><tr class="sch-row-in"><td>Newsletter</td><td><span class="sch-badge sch-badge-in">Inbound</span></td><td>Lents</td><td>Moyenne (fidélisation)</td><td>Forte</td></tr><tr class="sch-row-in"><td>Lead magnets / webinaires</td><td><span class="sch-badge sch-badge-in">Inbound</span></td><td>Moyens</td><td>Moyenne</td><td>Forte</td></tr><tr class="sch-row-paid"><td>Google Ads (recherche)</td><td><span class="sch-badge sch-badge-paid">Payant, proche inbound</span></td><td>Rapides</td><td>S'arrête avec le budget</td><td>Forte</td></tr><tr class="sch-row-paid"><td>LinkedIn Ads / Meta Ads</td><td><span class="sch-badge sch-badge-paid">Payant, proche outbound</span></td><td>Rapides</td><td>S'arrête avec le budget</td><td>Forte (LinkedIn), variable (Meta)</td></tr><tr class="sch-row-warn"><td>Cold emailing</td><td><span class="sch-badge sch-badge-warn">Outbound — déconseillé</span></td><td>Rapides mais en baisse</td><td>S'arrête quand vous arrêtez</td><td>Faible aujourd'hui</td></tr><tr class="sch-row-out"><td>Prospection LinkedIn</td><td><span class="sch-badge sch-badge-out">Outbound</span></td><td>Rapides (quelques semaines)</td><td>S'arrête quand vous arrêtez</td><td>Très forte</td></tr><tr class="sch-row-out"><td>Appels à froid</td><td><span class="sch-badge sch-badge-out">Outbound</span></td><td>Rapides</td><td>S'arrête quand vous arrêtez</td><td>Moyenne à forte</td></tr><tr class="sch-row-out"><td>Salons et événements</td><td><span class="sch-badge sch-badge-out">Outbound</span></td><td>Ponctuels</td><td>Courte</td><td>Forte</td></tr></tbody>
+          </table>
+        </div>
+
+
+        <p class="art-figure-cap" style="margin-top:8px;">Les délais sont des ordres de grandeur&nbsp;: ils varient selon votre marché, votre offre et la qualité d'exécution.</p>
+
+        
+        <div class="art-callout art-callout-warning">
+          <span class="art-callout-tag">Conseil Cély&nbsp;: pourquoi je déconseille le cold emailing en 2026</span>
+          <p>C'est l'avis qui me vaut le plus de débats, alors je l'assume&nbsp;: <strong>en 2026, le cold emailing est devenu le canal au pire rapport effort/résultat pour la plupart des TPE et PME.</strong> Trois raisons.</p>
+          <p><strong>1. Le coût d'entrée a explosé.</strong> Pour envoyer proprement, il faut acheter des noms de domaine secondaires, créer et préchauffer des boîtes, configurer SPF, DKIM et DMARC, surveiller la délivrabilité… Quel calvaire. Des semaines de mise en place avant le premier email envoyé.</p>
+          <p><strong>2. Les boîtes de réception sont saturées.</strong> L'IA a fait exploser le volume d'emails générés. Vos prospects reçoivent chaque jour des messages qui se ressemblent tous, et ils ne les lisent plus.</p>
+          <p><strong>3. Le risque est asymétrique.</strong> Une campagne mal calibrée abîme votre réputation d'expéditeur, et donc vos emails normaux&nbsp;: devis, factures, échanges clients. Sans compter le cadre posé par <a href="https://www.cnil.fr/fr/la-prospection-commerciale" target="_blank" rel="noopener">la CNIL sur la prospection commerciale</a>, qu'il faut respecter à la lettre.</p>
+          <p><strong>Ce que je conseille à la place&nbsp;:</strong> mettez cette énergie dans LinkedIn (contenu + prospection ciblée). Vous obtiendrez plus de rendez-vous, avec une mise en place de quelques jours au lieu de quelques semaines. Le cold emailing garde du sens dans un cas&nbsp;: quand votre cible n'est pas sur LinkedIn, typiquement certains métiers de terrain ou l'industrie traditionnelle.</p>
+        </div>
+
+
+        <h3>Et la publicité, c'est inbound ou outbound&nbsp;?</h3>
+
+        <p>Les deux, selon le format. Une annonce Google Ads capte quelqu'un qui cherche déjà une solution&nbsp;: on est proche de l'inbound. Une publicité LinkedIn ou Meta s'affiche devant quelqu'un qui n'a rien demandé&nbsp;: on se rapproche de l'outbound. La différence avec les canaux organiques, c'est que tout s'arrête dès que vous coupez le budget.</p>
+
+        <h2 id="art-s1">1. L'inbound marketing&nbsp;: faire venir les clients à vous</h2>
+
+        <h3>C'est quoi, l'inbound marketing&nbsp;?</h3>
+
+        <p><em>« Mais Cély… c'est quoi l'inbound&nbsp;? »</em></p>
+
+        <p><strong>L'inbound marketing, c'est l'art d'attirer des prospects plutôt que d'aller les chercher.</strong> Au lieu de solliciter des personnes qui ne vous connaissent pas, vous créez du contenu utile (articles, vidéos, posts, guides) qui répond à leurs questions. Les prospects vous trouvent au moment où ils en ont besoin.</p>
+
+        <p>Le terme a été popularisé par HubSpot au milieu des années 2000. L'idée reste la même aujourd'hui&nbsp;: <strong>devenir la réponse que votre client idéal cherche</strong>, avant même qu'il pense à vous contacter.</p>
+
+        <h3>Un eldorado… mais pas une science exacte</h3>
+
+        <p>Tout simplement&nbsp;: quand l'inbound fonctionne et que vous l'alimentez bien, c'est l'eldorado. Des prospects qui arrivent déjà convaincus, qui connaissent votre expertise et qui vous choisissent vous.</p>
+
+        <p>Mais attention&nbsp;: <strong>l'inbound est beaucoup moins mathématique que l'outbound.</strong></p>
+
+        <p>En outbound, les chiffres sont prévisibles. Par exemple&nbsp;:</p>
+
+        <div class="art-pull">100 contactés → 25 réponses → 2 rendez-vous → 1 client</div>
+
+        <p>En inbound, c'est une autre histoire. Pendant quelques mois, vos contenus peuvent surperformer… et après, beaucoup moins, sans raison apparente. Un changement d'algorithme, une actualité, un concurrent qui publie mieux, et vos résultats bougent. L'inbound récompense la régularité sur la durée, pas l'effort ponctuel.</p>
+
+        
+        <figure class="art-figure sch sch-curve">
+          <svg viewBox="0 0 700 320" role="img" aria-label="Graphique comparant l'évolution des leads en inbound et en outbound sur 12 mois : l'inbound démarre lentement puis s'accumule, l'outbound démarre vite puis retombe à zéro quand l'effort s'arrête">
+            <line x1="60" y1="270" x2="670" y2="270" class="sch-axis"/>
+            <line x1="60" y1="30" x2="60" y2="270" class="sch-axis"/>
+            <text x="365" y="305" class="sch-axis-label" text-anchor="middle">Temps (12 mois)</text>
+            <text x="24" y="150" class="sch-axis-label" text-anchor="middle" transform="rotate(-90 24 150)">Leads</text>
+            <path d="M60,260 C 200,255 320,235 420,190 C 520,140 580,90 660,55" class="sch-curve-in" fill="none"/>
+            <path d="M60,260 C 110,120 160,60 240,55 C 320,52 400,58 470,62 L470,62 L472,266" class="sch-curve-out" fill="none"/>
+            <circle cx="472" cy="266" r="5" class="sch-curve-dot-out"/>
+            <text x="480" y="255" class="sch-curve-note">Arrêt de l'effort</text>
+            <circle cx="660" cy="55" r="5" class="sch-curve-dot-in"/>
+          </svg>
+          <div class="sch-legend">
+            <span><i class="sch-swatch sch-swatch-in"></i> Inbound — lente puis cumulative</span>
+            <span><i class="sch-swatch sch-swatch-out"></i> Outbound — rapide, stable, puis retombe à zéro à l'arrêt de l'effort</span>
+          </div>
+          <figcaption class="art-figure-cap">Illustration qualitative, pas des données réelles.</figcaption>
         </figure>
 
-        <p>Paragraphe de conclusion de cette partie, à titre d'exemple, pour montrer l'enchaînement entre une figure et le texte qui la suit.</p>
 
-        <h2 id="art-s3">Ce qu'on en retient</h2>
-        <p>Ce dernier paragraphe d'exemple montre l'emplacement d'une conclusion synthétique, qui rappellera les points clés une fois qu'un vrai article aura été rédigé.</p>
+        <h3>L'inbound est-il encore aussi simple en 2026&nbsp;?</h3>
+
+        <p>Honnêtement&nbsp;? Non. Il n'a jamais été aussi accessible de publier, et c'est justement le problème&nbsp;: <strong>tout le monde publie.</strong> Les fils LinkedIn sont saturés, l'IA permet de produire du contenu en masse, et <a href="https://ahrefs.com/blog/zero-click-search/" target="_blank" rel="noopener">de plus en plus de recherches Google se terminent sans clic</a>, parce que Google et les IA répondent directement.</p>
+
+        <p>Résultat&nbsp;: le contenu moyen ne suffit plus. Ce qui fonctionne en 2026, c'est le contenu qui apporte ce que personne d'autre ne peut apporter&nbsp;: votre expérience terrain, vos chiffres, vos avis tranchés, votre personnalité. C'est d'ailleurs exactement ce que <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr" target="_blank" rel="noopener">Google demande dans sa documentation</a> : des contenus utiles, écrits par quelqu'un qui connaît son sujet.</p>
+
+        <h3>Quels sont les principaux canaux inbound&nbsp;?</h3>
+
+        <h4>Le SEO et le blog</h4>
+
+        <p>Le SEO consiste à positionner vos pages dans Google sur les recherches de vos clients. Aujourd'hui, il va de pair avec le GEO&nbsp;: être cité dans les réponses de ChatGPT, Perplexity ou Google AI Overviews.</p>
+
+        <p><strong>Avantages&nbsp;:</strong> un trafic qualifié, car la personne cherche activement une solution. C'est aussi un actif durable&nbsp;: un article bien positionné peut générer des leads pendant des années.</p>
+
+        <p><strong>Inconvénients&nbsp;:</strong> c'est lent, avec souvent plusieurs mois avant les premiers résultats. Il faut une vraie compétence technique et éditoriale, et la concurrence est forte sur les mots-clés à fort volume.</p>
+
+        <div class="art-callout art-callout-warning">
+          <span class="art-callout-tag">Warning Cély&nbsp;: appelle-t-on encore ça du SEO&nbsp;?</span>
+          <p>Honnêtement, je ne sais plus si le mot est encore juste. <strong>Le SEO traditionnel, celui qui consiste à viser une position et à attendre les clics, commence sérieusement à baisser.</strong></p>
+          <p>SparkToro a mesuré que sur les quatre premiers mois de 2026, <a href="https://sparktoro.com/blog/in-2026-less-than-one-third-of-google-searches-still-send-a-click/" target="_blank" rel="noopener">environ 68&nbsp;% des recherches Google américaines se terminent sans le moindre clic</a> vers un site, contre 60&nbsp;% en 2024. De son côté, Ahrefs a mesuré que <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks/" target="_blank" rel="noopener">la présence d'un AI Overview fait chuter le taux de clic de la première position de 34,5&nbsp;%</a>, chiffre porté à <a href="https://ahrefs.com/blog/ai-overviews-reduce-clicks-update" target="_blank" rel="noopener">58&nbsp;% lors de la mise à jour de leur étude</a>.</p>
+          <p>Autrement dit&nbsp;: <strong>vous pouvez être premier et perdre du trafic.</strong> Ce qui compte désormais, c'est d'être la source que Google et les IA reprennent dans leur réponse. C'est pour ça qu'on parle aujourd'hui de SEO/GEO (Generative Engine Optimization) et non plus seulement de SEO.</p>
+          <p>Ce que ça change concrètement&nbsp;: on écrit des réponses claires et autonomes, on cite ses sources, on signe ses contenus par un vrai auteur, et on arrête de juger un article uniquement au nombre de sessions.</p>
+        </div>
+
+        <h4>La newsletter</h4>
+
+        <p>C'est l'un des rares canaux où vous possédez votre audience&nbsp;: pas d'algorithme entre vous et vos abonnés.</p>
+
+        <p><strong>Avantages&nbsp;:</strong> fidélisation, relation de confiance sur la durée, et un canal qui convertit bien quand le prospect est prêt.</p>
+
+        <p><strong>Inconvénients&nbsp;:</strong> constituer une base d'abonnés prend du temps, et la newsletter s'appuie presque toujours sur un autre canal pour recruter.</p>
+
+        <div class="art-callout art-callout-tip">
+          <span class="art-callout-tag">Conseil Cély&nbsp;: ne lancez pas votre newsletter en premier</span>
+          <p><strong>La newsletter est une surcouche, pas un point de départ.</strong> Tant que vous n'avez pas un actif qui produit de l'audience — LinkedIn, YouTube ou un site qui reçoit du trafic — vous allez écrire pour trente personnes, vous démotiver, et arrêter au bout de quatre numéros.</p>
+          <p>L'ordre qui marche&nbsp;: d'abord un canal qui attire (LinkedIn), ensuite la newsletter pour transformer cette audience de passage en audience que vous possédez.</p>
+        </div>
+
+        <h4>Les lead magnets et webinaires</h4>
+
+        <p>Guides, templates, audits gratuits, webinaires&nbsp;: vous offrez de la valeur en échange d'un contact.</p>
+
+        <p><strong>Avantages&nbsp;:</strong> vous récupérez des leads identifiés, et vous prouvez votre expertise concrètement.</p>
+
+        <p><strong>Inconvénients&nbsp;:</strong> il faut du trafic pour les faire vivre, et les leads récupérés ne sont pas tous prêts à acheter.</p>
+
+        <h4>Les réseaux sociaux</h4>
+
+        <p>C'est le canal le plus visible, et celui où les écarts de résultats sont les plus grands. Chaque réseau a sa propre logique, et c'est là que les choix font la différence.</p>
+
+        <h3>Quel réseau social choisir en B2B&nbsp;? Notre avis terrain</h3>
+
+        <h4>LinkedIn&nbsp;: le meilleur point de départ en B2B</h4>
+
+        <p>J'ai quand même une préférence pour LinkedIn. Si vous êtes en B2B et que vous devez choisir un seul réseau pour commencer, c'est lui. Pour trois raisons&nbsp;:</p>
+
+        <ul>
+          <li><strong>Moins de risques pour passer « devant la caméra ».</strong> Pas besoin de vous filmer dès le premier jour. Un post texte bien écrit ou un carrousel suffit pour démarrer, ce qui réduit fortement la peur de se lancer.</li>
+          <li><strong>Des interactions faciles à générer.</strong> Si votre contenu est intéressant pour votre cible, les commentaires et les échanges suivent rapidement. Vos décideurs sont déjà là, et ils lisent.</li>
+          <li><strong>Un réseau combinable avec l'outbound.</strong> Chaque personne qui interagit avec vos posts devient un signal&nbsp;: un prospect chaud que vous pouvez ensuite contacter. On détaille ce combo dans la partie 3, et c'est là que LinkedIn devient redoutable.</li>
+        </ul>
+
+        <p><strong>La limite&nbsp;:</strong> la durée de vie d'un post se compte en jours. Sans régularité, la visibilité retombe vite. Et si vous voulez mesurer votre présence, LinkedIn propose son propre indicateur, le <a href="https://business.linkedin.com/sales-solutions/learning-center/resources/tip-sheets/ts022" target="_blank" rel="noopener">Social Selling Index</a> — utile pour se situer, mais ce n'est pas un indicateur de pipeline.</p>
+
+        <h4>YouTube&nbsp;: le SEO des réseaux sociaux</h4>
+
+        <p>YouTube est l'un des canaux les plus puissants sur le long terme, à condition de le considérer comme du SEO, et non comme un réseau social classique.</p>
+
+        <p><strong>C'est le seul réseau où le contenu peut durer très longtemps.</strong> YouTube est un moteur de recherche&nbsp;: une vidéo qui répond à une vraie question continue d'être trouvée des mois, voire des années après sa publication. Sur LinkedIn, Instagram ou TikTok, un contenu vit quelques jours.</p>
+
+        <p><strong>La limite&nbsp;:</strong> c'est exigeant. Il faut du tournage, du montage, une vraie ligne éditoriale, et la croissance est lente au début.</p>
+
+        <h4>Le combo LinkedIn + YouTube</h4>
+
+        <p>C'est l'association qu'on recommande le plus en B2B. <strong>LinkedIn apporte la visibilité rapide, YouTube apporte la durée.</strong></p>
+
+        <p>Concrètement, vous utilisez votre audience LinkedIn pour la diriger vers vos vidéos YouTube dès leur sortie. Ces premières vues boostent la vidéo dans l'algorithme de YouTube, qui la pousse ensuite à de nouvelles personnes. Et une seule vidéo peut être déclinée en plusieurs posts LinkedIn&nbsp;: un contenu produit, plusieurs canaux alimentés.</p>
+
+        <h4>Et Instagram, TikTok&nbsp;?</h4>
+
+        <p>Très bien, mais en B2B, plus compliqué. Les audiences y sont énormes, mais vos décideurs n'y sont pas dans une logique professionnelle. Pour une entreprise B2C qui démarre, en revanche, ils sont souvent plus simples pour commencer, parce qu'il y a plus de monde et que la consommation de contenu y est plus spontanée.</p>
+
+        <div class="art-callout art-callout-summary">
+          <span class="art-callout-tag">L'inbound en résumé</span>
+          <p>L'inbound est la stratégie la plus rentable sur le long terme, mais la moins prévisible à court terme. En B2B, le trio gagnant pour démarrer tient en trois canaux&nbsp;: <strong>LinkedIn</strong> pour la visibilité et les signaux, <strong>YouTube</strong> pour la durée, <strong>le SEO</strong> pour capter la demande existante. Le tout demande de la patience et de la régularité, ce qui explique pourquoi beaucoup d'entreprises se tournent aussi vers l'outbound.</p>
+        </div>
+
+        <h2 id="art-s2">2. L'outbound marketing&nbsp;: aller chercher ses clients</h2>
+
+        <h3>Aïe… l'outbound, ça ne donne pas envie</h3>
+
+        <p><em>« J'ai peur d'envoyer ce message. J'ai peur d'appeler. »</em></p>
+
+        <p>Si vous avez déjà pensé ça, vous n'êtes pas seul. L'outbound traîne une mauvaise réputation&nbsp;: messages copiés-collés, appels qui dérangent, relances insistantes. Personne n'a envie d'être « ce commercial-là ».</p>
+
+        <p>Et pourtant, beaucoup d'entreprises B2B qui grandissent vite ont un point commun&nbsp;: <strong>elles ne comptent pas uniquement sur l'inbound.</strong></p>
+
+        <h3>C'est quoi, l'outbound marketing&nbsp;?</h3>
+
+        <p><strong>L'outbound, c'est l'inverse de l'inbound&nbsp;: au lieu d'attendre que les prospects viennent à vous, vous allez les chercher.</strong> Vous identifiez les entreprises et les décideurs qui correspondent à votre client idéal, puis vous les contactez directement par message LinkedIn, email, téléphone ou lors d'événements.</p>
+
+        <p>La différence clé&nbsp;: en inbound, c'est le prospect qui décide du moment. En outbound, <strong>c'est vous.</strong></p>
+
+        <h3>Mais alors, quel est l'avantage de l'outbound&nbsp;?</h3>
+
+        <p>La réponse tient en une phrase&nbsp;: <strong>un flux commercial stable, qui vient installer des rendez-vous réguliers dans la société.</strong></p>
+
+        <p>Là où l'inbound peut vous offrir un excellent mois puis un mois creux, l'outbound bien exécuté produit un rythme constant. Tant que vous faites les actions, les rendez-vous arrivent. C'est ce qui permet de prévoir son chiffre d'affaires, de recruter sereinement et de ne plus dépendre de la chance.</p>
+
+        <h3>Un canal très, très mathématique</h3>
+
+        <p>C'est sa plus grande force&nbsp;: <strong>l'outbound se pilote avec des chiffres.</strong> Reprenons l'exemple de l'introduction.</p>
+
+        
+        <div class="sch sch-funnel">
+          <div class="sch-funnel-row">
+              <div class="sch-funnel-bar" style="width:100%;"><strong>100</strong> personnes contactées</div>
+              
+            </div><div class="sch-funnel-row">
+              <div class="sch-funnel-bar" style="width:68%;"><strong>25</strong> réponses</div>
+              <span class="sch-funnel-rate">25 % des contactés</span>
+            </div><div class="sch-funnel-row">
+              <div class="sch-funnel-bar" style="width:38%;"><strong>2</strong> rendez-vous</div>
+              <span class="sch-funnel-rate">8 % des réponses</span>
+            </div><div class="sch-funnel-row">
+              <div class="sch-funnel-bar" style="width:22%;"><strong>1</strong> client</div>
+              <span class="sch-funnel-rate">50 % des rendez-vous</span>
+            </div>
+          <p class="art-figure-cap">Ratios donnés à titre d'exemple.</p>
+        </div>
+
+
+        <p>Une fois vos ratios connus, il suffit de prendre le calcul à l'envers. Si votre objectif est de signer <strong>4 nouveaux clients par mois</strong>&nbsp;:</p>
+
+        <div class="art-table-wrap">
+          <table class="art-table">
+            <thead><tr><th>Objectif</th><th>Calcul</th><th>Résultat</th></tr></thead>
+            <tbody>
+              <tr><td>4 clients</td><td>1 client pour 2 rendez-vous</td><td><strong>8 rendez-vous</strong></td></tr>
+              <tr><td>8 rendez-vous</td><td>2 rendez-vous pour 100 contacts</td><td><strong>400 contacts</strong></td></tr>
+              <tr><td>400 contacts par mois</td><td>Environ 20 jours ouvrés</td><td><strong>20 contacts par jour</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Vous savez exactement quoi faire chaque matin. Et si les résultats ne suivent pas, vous savez <strong>où</strong> ça bloque&nbsp;:</p>
+
+        <ul>
+          <li><strong>Peu de réponses&nbsp;?</strong> Le problème vient de votre ciblage ou de votre premier message.</li>
+          <li><strong>Des réponses mais peu de rendez-vous&nbsp;?</strong> Votre accroche ne crée pas assez d'intérêt pour votre offre.</li>
+          <li><strong>Des rendez-vous mais peu de clients&nbsp;?</strong> C'est votre discours commercial ou votre offre qu'il faut retravailler.</li>
+        </ul>
+
+        <p>Prévisible ne veut pas dire facile. Mais c'est bien plus rassurant que d'attendre qu'un post devienne viral.</p>
+
+        <h3>Quels sont les principaux canaux outbound&nbsp;?</h3>
+
+        <h4>La prospection LinkedIn</h4>
+
+        <p>C'est le canal outbound le plus naturel en B2B&nbsp;: vos décideurs sont là, leur poste et leur entreprise sont visibles, et un message LinkedIn paraît moins intrusif qu'un appel.</p>
+
+        <p><strong>Avantages&nbsp;:</strong> un ciblage très précis (notamment avec Sales Navigator), un contact direct avec le décideur, et un profil qui rassure le prospect avant même qu'il réponde.</p>
+
+        <p><strong>Inconvénients&nbsp;:</strong> LinkedIn limite le nombre d'invitations hebdomadaires, les décideurs sont de plus en plus sollicités, et les outils d'automatisation mal utilisés peuvent faire restreindre votre compte.</p>
+
+        <h4>Le cold emailing</h4>
+
+        <p>L'email à froid permet de contacter beaucoup de prospects avec un effort réduit, une fois la séquence construite. Comme expliqué plus haut, c'est le canal que je déconseille aujourd'hui dans la plupart des cas.</p>
+
+        <p><strong>Avantages&nbsp;:</strong> un volume élevé, des séquences de relance automatisables, et un coût très faible par contact.</p>
+
+        <p><strong>Inconvénients&nbsp;:</strong> la délivrabilité est technique (domaine dédié, préchauffage, réputation d'envoi), les boîtes de réception sont saturées, et le cadre légal doit être respecté. En B2B, la CNIL autorise <a href="https://www.cnil.fr/fr/la-prospection-commerciale-par-courrier-electronique" target="_blank" rel="noopener">la prospection par email sans consentement préalable</a>, à condition que le message concerne la fonction professionnelle du destinataire et qu'il puisse facilement se désinscrire.</p>
+
+        <h4>Les appels à froid</h4>
+
+        <p>C'est le canal qui fait le plus peur, et souvent celui qui convertit le mieux quand on le maîtrise.</p>
+
+        <p><strong>Avantages&nbsp;:</strong> une conversation immédiate, des objections traitées en direct, et peu de concurrence, puisque la plupart des entreprises ont abandonné le téléphone.</p>
+
+        <p><strong>Inconvénients&nbsp;:</strong> c'est éprouvant mentalement, les taux de décroché sont faibles, et trouver les bons numéros prend du temps.</p>
+
+        <p><strong>Attention au cadre légal, il a changé.</strong> Depuis le 11 août 2026, <a href="https://www.service-public.gouv.fr/particuliers/actualites/A19003" target="_blank" rel="noopener">le démarchage téléphonique des particuliers est interdit sans consentement préalable</a> et le dispositif Bloctel a disparu. <a href="https://www.moselle.cci.fr/actualite/demarchage-telephonique-la-nouvelle-loi-du-11-aout-2026-expliquee-aux-tpe-pme" target="_blank" rel="noopener">La prospection entre entreprises reste autorisée</a>, mais la vigilance s'impose dès qu'un professionnel est appelé sur son numéro personnel. Le <a href="https://www.economie.gouv.fr/entreprises/developper-son-entreprise/innover-et-numeriser-son-entreprise/professionnels-comment-respecter-la-reglementation-sur-le-demarchage" target="_blank" rel="noopener">détail des règles</a> est sur economie.gouv.fr.</p>
+
+        <h4>Les salons et événements</h4>
+
+        <p>C'est de l'outbound en face à face&nbsp;: vous allez là où se trouvent vos prospects.</p>
+
+        <p><strong>Avantages&nbsp;:</strong> la confiance se crée beaucoup plus vite en vrai, et vous pouvez rencontrer plusieurs décideurs en une journée.</p>
+
+        <p><strong>Inconvénients&nbsp;:</strong> un coût élevé (stand, déplacement, temps), un effet ponctuel, et une grande partie du travail se joue dans les relances qui suivent.</p>
+
+        <h3>Comment faire de l'outbound sans devenir un requin&nbsp;?</h3>
+
+        <p>La peur de l'outbound vient souvent d'une mauvaise image&nbsp;: celle du spam. Pourtant, <strong>un outbound efficace n'a rien à voir avec le spam.</strong> Il repose sur trois principes&nbsp;:</p>
+
+        <ul>
+          <li><strong>Cibler moins, mais mieux.</strong> Mieux vaut 20 prospects qui correspondent vraiment à votre client idéal que 200 contacts envoyés au hasard.</li>
+          <li><strong>Personnaliser le premier message.</strong> Mentionnez quelque chose de concret sur l'entreprise ou la personne. Un message qui pourrait être envoyé à n'importe qui ne sera lu par personne.</li>
+          <li><strong>Apporter de la valeur avant de vendre.</strong> Une observation utile, une ressource pertinente ou une question sincère ouvre bien plus de portes qu'une demande de rendez-vous dès le premier message.</li>
+        </ul>
+
+        <div class="art-callout art-callout-tip">
+          <span class="art-callout-tag">Conseil Cély&nbsp;: l'honnêteté est votre meilleure accroche</span>
+          <p>C'est le conseil que je donne en premier à tous ceux qui se lancent&nbsp;: <strong>dites franchement que c'est un message de prospection.</strong></p>
+          <p>Arrêtez les fausses accroches. Le « j'ai adoré votre publication » qui n'a jamais été lu, le « je fais une étude de marché » qui n'existe pas, le faux commentaire sympathique généré par un outil. Vos prospects les repèrent en trois secondes, et vous perdez la seule chose qui compte&nbsp;: la confiance.</p>
+          <p>Ce qui marche&nbsp;: « Bonjour X, c'est un message de prospection, je préfère être clair. Je travaille avec des [cible] sur [problème], et en regardant [élément concret], je me suis dit que ça pouvait vous parler. Si ce n'est pas le moment, dites-le-moi, je ne relance pas. »</p>
+          <p>C'est désarmant, et c'est exactement ce qu'ils attendent. Depuis que je prospecte comme ça, j'obtiens moins de réponses polies… et beaucoup plus de vraies conversations. Les acheteurs B2B le disent d'ailleurs eux-mêmes&nbsp;: Gartner mesure que <a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-09-gartner-sales-survey-finds-67-percent-of-b2b-buyers-prefer-a-rep-free-experience" target="_blank" rel="noopener">67&nbsp;% d'entre eux préfèrent une expérience d'achat sans commercial</a>. Ils ne fuient pas les vendeurs, ils fuient les vendeurs qui font semblant.</p>
+        </div>
+
+        <p>Vu comme ça, vous ne dérangez pas les gens&nbsp;: <strong>vous contactez des entreprises que vous pouvez réellement aider.</strong></p>
+
+        <div class="art-callout art-callout-summary">
+          <span class="art-callout-tag">L'outbound en résumé</span>
+          <p>L'outbound est la stratégie la plus prévisible à court terme&nbsp;: des actions régulières, des ratios mesurables, et un flux de rendez-vous que vous contrôlez. En contrepartie, il demande de la rigueur, de la constance et un peu de courage au début. Et il a une limite majeure&nbsp;: <strong>dès que vous arrêtez, les résultats s'arrêtent.</strong></p>
+          <p>C'est justement là que l'inbound et l'outbound deviennent intéressants ensemble. Et si vos prospects vous connaissaient déjà avant que vous les contactiez&nbsp;?</p>
+        </div>
+
+        <h2 id="art-s3">3. Inbound et outbound marketing combinés&nbsp;: la stratégie la plus solide en B2B</h2>
+
+        <p><strong>Opposer inbound et outbound est une erreur&nbsp;: combinés, les deux se renforcent.</strong> L'inbound rend votre outbound plus crédible, et l'outbound donne de la visibilité à votre inbound. C'est souvent là que les résultats décollent vraiment.</p>
+
+        <h3>Pourquoi l'inbound rend votre outbound plus efficace</h3>
+
+        <p>Mettez-vous à la place de votre prospect. Il reçoit un message d'une personne qu'il ne connaît pas. Premier réflexe&nbsp;: il clique sur le profil.</p>
+
+        <p>Deux scénarios. Soit il tombe sur un profil vide, et votre message part aux oubliettes. Soit il découvre des posts utiles, des avis clients, une vraie expertise… et <strong>votre message change complètement de statut.</strong> Vous n'êtes plus un inconnu qui prospecte, vous êtes quelqu'un dont il a déjà entendu parler, ou qu'il a envie d'écouter.</p>
+
+        <p>Le contenu travaille pour vous pendant que vous prospectez&nbsp;: il rassure, il prouve, il fait la moitié du travail de conviction. C'est aussi vrai pour votre site&nbsp;: un prospect qui a reçu un message ira le regarder dans la foulée, et ce qu'il y trouve décide de la suite.</p>
+
+        <h3>Pourquoi l'outbound accélère votre inbound</h3>
+
+        <p>L'inverse est vrai aussi. L'inbound est lent au démarrage parce que personne ne vous connaît. L'outbound règle ce problème&nbsp;: chaque personne contactée découvre votre profil, et une partie d'entre elles commence à suivre vos contenus.</p>
+
+        <p>Vos premiers rendez-vous outbound vous donnent aussi une matière précieuse&nbsp;: les vraies questions, objections et mots de vos clients. <strong>C'est exactement ce qu'il faut transformer en contenus inbound.</strong> Gartner observe d'ailleurs que <a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-20-gartner-survey-finds-sixty-nine-percent-of-b-two-b-buyers-turn-to-sales-reps-to-validate-ai-generated-insights" target="_blank" rel="noopener">les acheteurs reviennent vers un commercial pour valider ce qu'ils ont trouvé par eux-mêmes ou via l'IA</a>&nbsp;: le contenu ne remplace pas la conversation, il la prépare.</p>
+
+        <h3>Le signal-based selling&nbsp;: prospecter les personnes déjà intéressées</h3>
+
+        <p>C'est la version la plus aboutie du combo, et celle qu'on met en place chez nous. Le principe&nbsp;: <strong>au lieu de contacter des inconnus, vous contactez des personnes qui ont déjà montré un signal d'intérêt.</strong></p>
+
+        <p>Un signal, c'est par exemple&nbsp;:</p>
+
+        <ul>
+          <li>un like ou un commentaire sur l'un de vos posts LinkedIn&nbsp;;</li>
+          <li>une visite de votre profil&nbsp;;</li>
+          <li>un téléchargement de guide ou une inscription à votre newsletter&nbsp;;</li>
+          <li>une visite sur une page clé de votre site.</li>
+        </ul>
+
+        <p>Ces personnes ne sont pas encore des leads, mais elles ne sont plus froides non plus. Et c'est là que LinkedIn devient redoutable&nbsp;: votre contenu crée les signaux, l'automatisation les capte, et l'outbound les transforme en conversations.</p>
+
+        
+        <div class="sch sch-signal">
+          <div class="sch-signal-row"><div class="sch-signal-node"><span class="sch-signal-num">1</span><span>Contenu</span></div><span class="sch-signal-arrow" aria-hidden="true">→</span><div class="sch-signal-node"><span class="sch-signal-num">2</span><span>Signal</span></div><span class="sch-signal-arrow" aria-hidden="true">→</span><div class="sch-signal-node"><span class="sch-signal-num">3</span><span>Capture</span></div><span class="sch-signal-arrow" aria-hidden="true">→</span><div class="sch-signal-node"><span class="sch-signal-num">4</span><span>CRM</span></div><span class="sch-signal-arrow" aria-hidden="true">→</span><div class="sch-signal-node"><span class="sch-signal-num">5</span><span>Message</span></div><span class="sch-signal-arrow" aria-hidden="true">→</span><div class="sch-signal-node"><span class="sch-signal-num">6</span><span>Rendez-vous</span></div></div>
+          <div class="sch-signal-return">↩︎ Les questions et objections des rendez-vous nourrissent les prochains contenus.</div>
+        </div>
+
+
+        <p>Concrètement, chez nous&nbsp;: quand quelqu'un interagit avec un post LinkedIn, l'information est captée automatiquement et envoyée dans le CRM. On sait qui c'est, sur quel sujet il a réagi, et on peut le contacter avec un message qui a du sens, plutôt qu'un « Bonjour, je me permets de vous contacter… » envoyé à l'aveugle.</p>
+
+        <p>La différence ressentie par le prospect est énorme. Il ne reçoit pas une sollicitation au hasard, mais la suite logique d'une conversation qu'il a lui-même commencée.</p>
+
+        <h3>Et la publicité dans tout ça&nbsp;?</h3>
+
+        <p>La publicité peut accélérer le système. Par exemple, du retargeting LinkedIn ou Meta auprès des personnes qui ont visité votre site ou vu vos vidéos&nbsp;: elles continuent de vous voir entre deux contenus, et votre message outbound tombe sur quelqu'un qui vous reconnaît.</p>
+
+        <div class="art-callout art-callout-summary">
+          <span class="art-callout-tag">Le combo en résumé</span>
+          <p>Le combo inbound + outbound, c'est prendre le meilleur des deux mondes&nbsp;: <strong>la crédibilité et la durée de l'inbound, la prévisibilité et la vitesse de l'outbound.</strong> Le contenu réchauffe, l'outbound convertit, et chaque rendez-vous nourrit le contenu suivant.</p>
+        </div>
+
+        <h2 id="art-s4">4. Comment choisir entre inbound et outbound&nbsp;?</h2>
+
+        <p><strong>Pour choisir, il faut regarder cinq critères&nbsp;: votre urgence, ce que vous rapporte un client, votre cible, la demande existante et vos ressources.</strong> Aucun ne suffit seul, mais ensemble, ils dessinent assez vite la bonne direction.</p>
+
+        <h3>Critère 1&nbsp;: votre urgence</h3>
+
+        <p>Si vous avez besoin de clients dans le mois, l'inbound ne vous sauvera pas&nbsp;: il est trop lent. <strong>L'urgence pousse vers l'outbound</strong> (ou la publicité). Si vous construisez pour l'année prochaine, l'inbound devient un investissement très rentable.</p>
+
+        <h3>Critère 2&nbsp;: ce que vous rapporte un client, pas seulement son panier moyen</h3>
+
+        <p>On lit partout que le petit panier impose l'inbound et le gros panier l'outbound. <strong>Je trouve ça trop simpliste.</strong> La vraie question n'est pas le montant de la première facture, c'est ce que vous coûte l'acquisition d'un client par rapport à ce qu'il vous rapporte sur toute la relation.</p>
+
+        <p>Un abonnement à 300&nbsp;€ par mois pendant trois ans vaut plus qu'un projet unique à 6&nbsp;000&nbsp;€. Si vos clients restent, si vous vendez à nouveau, si vous obtenez des recommandations, l'outbound reste rentable même avec un panier d'entrée modeste.</p>
+
+        <p>Ce qu'il faut regarder, dans l'ordre&nbsp;: <strong>combien vous rapporte un client sur toute sa durée de vie, combien de temps commercial il vous coûte, et à quelle vitesse vous récupérez cette mise.</strong> Si un client est remboursé en un mois d'effort commercial, allez-y en outbound, quel que soit le panier. Si chaque client demande dix heures de prospection pour 500&nbsp;€, il faut un canal qui passe à l'échelle sans votre temps&nbsp;: contenu, SEO, publicité.</p>
+
+        <h3>Critère 3&nbsp;: votre cible</h3>
+
+        <p>Pouvez-vous lister vos clients idéaux par leur nom&nbsp;? Si votre marché compte quelques centaines d'entreprises identifiables, <strong>l'outbound est redoutable</strong>&nbsp;: vous pouvez les contacter une par une. Si votre cible est très large et difficile à identifier, l'inbound attirera les bonnes personnes à votre place.</p>
+
+        <h3>Critère 4&nbsp;: la demande existante</h3>
+
+        <p>Vos clients cherchent-ils déjà une solution comme la vôtre sur Google&nbsp;? Si oui, le SEO et Google Ads captent cette demande. Si non, parce qu'ils ne savent pas encore qu'ils ont le problème ou que votre offre est nouvelle, <strong>personne ne vous cherchera&nbsp;: il faut aller vers eux.</strong></p>
+
+        <h3>Critère 5&nbsp;: vos ressources et votre profil</h3>
+
+        <p>Soyons honnêtes&nbsp;: on ne fait bien que ce qu'on arrive à tenir dans la durée. Si créer du contenu vous plaît, l'inbound sera naturel. Si l'idée d'écrire un post vous paralyse mais que la conversation commerciale ne vous fait pas peur, l'outbound sera plus simple. Et si les deux vous font peur… c'est le moment de <a href="/contact#formulaire" data-route="contact">vous faire accompagner</a>.</p>
+
+        
+        <div class="art-table-wrap sch-table-wrap">
+          <table class="art-table sch-grid-table">
+            <thead><tr><th>Critère</th><th>Penche vers l'inbound</th><th>Penche vers l'outbound</th></tr></thead>
+            <tbody><tr><td>Urgence</td><td class="sch-grid-in">Objectif à 6 à 12 mois</td><td class="sch-grid-out">Besoin de clients dans le mois</td></tr><tr><td>Rentabilité d'un client</td><td class="sch-grid-in">Beaucoup de clients, temps commercial peu rentabilisé</td><td class="sch-grid-out">Un client remboursé en peu d'effort commercial</td></tr><tr><td>Cible</td><td class="sch-grid-in">Large, difficile à lister</td><td class="sch-grid-out">Restreinte, identifiable nommément</td></tr><tr><td>Demande existante</td><td class="sch-grid-in">Les clients cherchent déjà une solution</td><td class="sch-grid-out">Le besoin est latent ou l'offre est nouvelle</td></tr><tr><td>Ressources</td><td class="sch-grid-in">Appétence pour le contenu, patience</td><td class="sch-grid-out">Rigueur commerciale, temps quotidien</td></tr><tr><td>Stade de l'offre</td><td class="sch-grid-in">Offre rodée, clients satisfaits</td><td class="sch-grid-out">Offre à valider rapidement</td></tr></tbody>
+          </table>
+        </div>
+
+
+        <p class="art-figure-cap">Plus vous cochez de cases dans une colonne, plus cette approche doit être votre point de départ. Des cases des deux côtés&nbsp;: combinez.</p>
+
+        <h3>Quelle stratégie selon votre stade de croissance&nbsp;?</h3>
+
+        <ul>
+          <li><strong>Au démarrage (vos 10 premiers clients)&nbsp;:</strong> commencez par l'outbound pour valider votre offre vite et apprendre de vos prospects. Lancez LinkedIn en parallèle, même modestement.</li>
+          <li><strong>En croissance&nbsp;:</strong> combinez. Le contenu LinkedIn et le SEO commencent à produire, l'outbound reste votre moteur prévisible, et les signaux relient les deux.</li>
+          <li><strong>En phase de structuration&nbsp;:</strong> l'inbound devient un vrai moteur (SEO, YouTube, newsletter), et l'outbound se concentre sur les comptes stratégiques à fort panier.</li>
+        </ul>
+
+        <h2 id="art-s5">5. Inbound ou outbound&nbsp;: quelle stratégie pour votre situation&nbsp;?</h2>
+
+        <p>Pour vous aider à y voir clair, répondez à ces huit questions. À chaque réponse, la jauge se déplace vers l'inbound ou vers l'outbound, et vous obtenez votre profil à la fin.</p>
+
+        
+        <div class="artsim" id="artSim" data-artsim>
+          <div class="artsim-gauge" aria-hidden="true">
+            <span class="artsim-gauge-label artsim-gauge-label-i">Inbound</span>
+            <div class="artsim-gauge-track">
+              <div class="artsim-gauge-cursor" id="artsimCursor" style="left:50%;"></div>
+            </div>
+            <span class="artsim-gauge-label artsim-gauge-label-o">Outbound</span>
+          </div>
+
+          <div class="artsim-progress"><div class="artsim-progress-bar" id="artsimProgressBar" style="width:12.5%;"></div></div>
+          <p class="artsim-counter" id="artsimCounter" aria-live="polite">Question 1 sur 8</p>
+
+          <form id="artsimForm" novalidate>
+            <input type="text" name="_hp" id="artsimHp" class="sr-only" tabindex="-1" autocomplete="off">
+            <fieldset class="artsim-question" id="artsimQuestionHost"></fieldset>
+            <div class="artsim-nav">
+              <button type="button" id="artsimBack" class="artsim-btn-secondary" disabled>Précédent</button>
+            </div>
+          </form>
+
+          <div class="artsim-capture" id="artsimCapture" hidden>
+            <p class="artsim-capture-title">Votre profil est prêt.</p>
+            <label class="artsim-field">
+              <span>Votre email</span>
+              <input type="email" id="artsimEmail" placeholder="vous@entreprise.com" autocomplete="email">
+            </label>
+            <label class="artsim-consent">
+              <input type="checkbox" id="artsimConsent">
+              <span>J'accepte que mes réponses et mon email soient utilisés par Cely pour m'envoyer mon résultat et me recontacter à ce sujet. <a href="/contact" data-route="contact">Politique de confidentialité</a>.</span>
+            </label>
+            <button type="button" id="artsimSubmit" class="btn-hero">Voir mon résultat</button>
+            <p class="artsim-error" id="artsimError" aria-live="assertive"></p>
+          </div>
+
+          <div class="artsim-result" id="artsimResult" hidden aria-live="polite">
+            <span class="artsim-result-label" id="artsimResultLabel"></span>
+            <h3 id="artsimResultTitle"></h3>
+            <p id="artsimResultDesc"></p>
+            <p id="artsimResultBonus" class="artsim-result-bonus" hidden></p>
+            <a href="/contact#formulaire" data-route="contact" class="btn-hero">Parler de ma situation avec Cely
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+
+        <h3>Quelques exemples de situations</h3>
+
+        <h4>Startup SaaS B2B qui vient de lancer son offre</h4>
+        <p>Peu de clients, une offre à valider, un besoin de traction rapide&nbsp;: <strong>outbound d'abord</strong>, avec du contenu LinkedIn du fondateur en parallèle. Les retours des premiers rendez-vous serviront à affiner à la fois l'offre et les futurs contenus.</p>
+
+        <h4>PME industrielle avec un marché de niche</h4>
+        <p>Quelques centaines de clients potentiels identifiables, des paniers élevés, des cycles de vente longs&nbsp;: <strong>outbound ciblé</strong>, renforcé par un SEO sur des requêtes très spécifiques pour rassurer les acheteurs qui se renseignent.</p>
+
+        <h4>Cabinet de conseil ou expert indépendant</h4>
+        <p>L'expertise est le produit, et elle se démontre&nbsp;: <strong>inbound LinkedIn en priorité</strong>, combiné à de la prospection des personnes qui interagissent avec les contenus.</p>
+
+        <h4>Entreprise B2C ou petit panier</h4>
+        <p>Beaucoup de clients à signer, une cible large&nbsp;: <strong>inbound et publicité</strong>. Instagram et TikTok redeviennent des options sérieuses, là où ils sont plus compliqués en B2B.</p>
+
+        <h2 id="art-faq">FAQ&nbsp;: inbound vs outbound</h2>
+
+        <div class="art-faq">
+<details class="art-faq-item" open>
+          <summary><h3>Quelle est la différence entre inbound et outbound marketing&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>L'inbound marketing attire les prospects grâce à du contenu utile (SEO, réseaux sociaux, newsletter), tandis que l'outbound marketing consiste à contacter directement des prospects qui ne vous ont rien demandé (prospection LinkedIn, emailing, appels, salons).</p></div>
+        </details>
+<details class="art-faq-item">
+          <summary><h3>L'inbound est-il plus rentable que l'outbound&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Sur le long terme, souvent oui, car le coût par lead baisse à mesure que vos contenus s'accumulent. À court terme, l'outbound est généralement plus rentable, car il produit des rendez-vous en quelques semaines alors que l'inbound demande plusieurs mois.</p></div>
+        </details>
+<details class="art-faq-item">
+          <summary><h3>Combien de temps faut-il pour voir les résultats de l'inbound&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Comptez généralement plusieurs mois. Le contenu LinkedIn peut produire des premiers échanges en quelques semaines, mais le SEO et YouTube demandent souvent entre 3 et 12 mois avant de générer des leads réguliers.</p></div>
+        </details>
+<details class="art-faq-item">
+          <summary><h3>La prospection LinkedIn, c'est de l'inbound ou de l'outbound&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Envoyer des messages à des prospects, c'est de l'outbound. Publier du contenu sur LinkedIn, c'est de l'inbound. LinkedIn est justement le réseau idéal pour combiner les deux.</p></div>
+        </details>
+<details class="art-faq-item">
+          <summary><h3>Peut-on faire de l'inbound et de l'outbound en même temps&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Oui, et c'est souvent la meilleure option en B2B. Le contenu rend l'outbound plus crédible, et l'outbound accélère la visibilité du contenu. Le signal-based selling, qui consiste à contacter les personnes ayant interagi avec vos contenus, est la forme la plus efficace de ce combo.</p></div>
+        </details>
+<details class="art-faq-item">
+          <summary><h3>La prospection par email est-elle légale en B2B&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>En France, la CNIL autorise la prospection par email en B2B sans consentement préalable, à condition que le message soit en rapport avec la fonction professionnelle du destinataire et qu'il puisse <a href="https://www.cnil.fr/fr/cnil-direct/question/prospection-commerciale-par-courrier-electronique-fax-ou-sms-le-consentement" target="_blank" rel="noopener">s'opposer facilement à recevoir d'autres messages</a>. Cette souplesse propre au B2B est <a href="https://www.village-justice.com/articles/prospection-commerciale-par-mail-btob-peut-vraiment-contenter-opt-out,46443.html" target="_blank" rel="noopener">régulièrement rappelée par les juristes</a>, mais elle n'autorise pas l'envoi en masse sans ciblage.</p></div>
+        </details>
+<details class="art-faq-item">
+          <summary><h3>Le démarchage téléphonique est-il encore autorisé en 2026&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Envers les particuliers, non&nbsp;: depuis le 11 août 2026, il faut leur consentement préalable, et Bloctel a été supprimé. Entre professionnels, la prospection téléphonique reste autorisée, dans le respect du RGPD.</p></div>
+        </details>
+</div>
+
+        <h2>Conclusion&nbsp;: inbound ou outbound, la bonne réponse est celle que vous tiendrez</h2>
+
+        <p>Vous vous souvenez du spoiler&nbsp;? <strong>Il n'y a pas de bonne réponse universelle.</strong> Il y a votre situation, vos objectifs et ce que vous êtes capable de tenir dans la durée.</p>
+
+        <p>L'inbound, c'est l'eldorado quand il est bien alimenté, mais il est lent et peu mathématique. L'outbound fait peur au début, mais il installe un flux commercial stable et se pilote avec des chiffres. Et en 2026, les entreprises B2B qui s'en sortent le mieux ont souvent arrêté de choisir&nbsp;: <strong>elles combinent les deux, avec LinkedIn au centre.</strong></p>
+
+        <p>Le plus important n'est donc pas de trouver la stratégie parfaite, mais de démarrer avec la bonne pour votre situation, de mesurer, puis d'ajuster.</p>
+
+        <div class="art-final-cta">
+          <h3>Vous ne savez pas par où commencer&nbsp;?</h3>
+          <p><strong>On analyse votre situation et on vous dit quelle stratégie mettre en place en premier.</strong> Inbound, outbound ou combo&nbsp;: en 30 minutes, on regarde votre offre, votre cible et vos objectifs, et vous repartez avec un plan d'action clair, que vous travailliez avec nous ou non.</p>
+          <a href="/contact#formulaire" data-route="contact" class="btn-hero">Réserver mon appel gratuit
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
 
         <div class="art-tags">
-          <span class="art-tag">Tag d'exemple</span>
-          <span class="art-tag">Autre tag d'exemple</span>
+          <span class="art-tag">Growth marketing</span>
+          <span class="art-tag">Prospection LinkedIn</span>
+          <span class="art-tag">SEO / GEO</span>
+          <span class="art-tag">Stratégie B2B</span>
         </div>
 
         <div class="art-author-card">
           <span class="art-author-avatar" aria-hidden="true">CE</span>
           <div>
-            <div class="art-author-card-name">Nom Prénom — exemple</div>
-            <div class="art-author-card-role">Rôle — exemple</div>
-            <p class="art-author-card-bio">Bio d'exemple de l'auteur ou autrice de l'article, présentée ici pour montrer son emplacement dans le gabarit — à remplacer par une vraie présentation.</p>
+            <div class="art-author-card-name">Célien Boillot</div>
+            <div class="art-author-card-role">Cofondateur de Wenoble, agence d'acquisition digitale B2B (Saint-Ismier, Grenoble)</div>
+            <p class="art-author-card-bio">Avec ses deux associés, il accompagne des startups et des PME B2B sur leur acquisition&nbsp;: site, SEO/GEO, contenu LinkedIn et prospection. Cet article s'appuie sur les campagnes menées pour les clients de l'agence et sur la prospection de Wenoble elle-même. <a href="https://www.linkedin.com/in/celienboillotwenoble/" target="_blank" rel="noopener">Profil LinkedIn</a>.</p>
           </div>
         </div>
       </article>
@@ -3500,35 +4213,17 @@ main.site-page[hidden]{ display:none !important; }
   </section>
 
   <!-- ============================================================
-       ARTICLES LIÉS — même gabarit que la page Actualités
+       ARTICLES LIÉS
        ============================================================ -->
   <section class="art-related">
     <div class="section-wrap">
       <div class="act-template-head reveal">
         <div>
           <span class="section-label"><span class="sl-slash">//</span> À lire ensuite</span>
-          <h2 class="section-h2">D'autres articles liés — gabarit.</h2>
-        </div>
-        <span class="act-template-tag">Aperçu — pas encore de contenu</span>
-      </div>
-      <div class="act-template-grid">
-        <div class="act-card reveal" aria-hidden="true">
-          <div class="act-card-cover"></div>
-          <div class="act-card-meta"><span></span><span></span></div>
-          <div class="act-card-title"><span></span><span></span></div>
-        </div>
-        <div class="act-card reveal" aria-hidden="true">
-          <div class="act-card-cover"></div>
-          <div class="act-card-meta"><span></span><span></span></div>
-          <div class="act-card-title"><span></span><span></span></div>
-        </div>
-        <div class="act-card reveal" aria-hidden="true">
-          <div class="act-card-cover"></div>
-          <div class="act-card-meta"><span></span><span></span></div>
-          <div class="act-card-title"><span></span><span></span></div>
+          <h2 class="section-h2">D'autres articles arrivent bientôt.</h2>
         </div>
       </div>
-      <p class="act-note">Ces cartes sont un gabarit de mise en page — les vrais articles liés remplaceront cet aperçu au fil des publications.</p>
+      <p class="act-note">On prend le temps d'écrire des contenus utiles plutôt que de publier pour occuper l'espace — les prochaines analyses viendront compléter celle-ci.</p>
     </div>
   </section>
 
@@ -3665,7 +4360,7 @@ main.site-page[hidden]{ display:none !important; }
     audit:"Audit Digital — Cely",
     growth:"Growth Part-Time — Cely",
     actu:"Actualités — Cely",
-    article:"Article — Cely",
+    article:"Inbound vs outbound : quoi choisir en 2026 ? (+ simulateur)",
     manifeste:"Manifeste — Cely",
     rejoindre:"Nous rejoindre — Cely",
     contact:"Contact — Cely",
@@ -3676,10 +4371,49 @@ main.site-page[hidden]{ display:none !important; }
     audit:"Audit Digital Cely : diagnostic complet de votre acquisition digitale et plan d'action priorisé, livré en PDF avec présentation vidéo — 1 250 €.",
     growth:"Growth Part-Time : Cely rejoint votre équipe pour piloter et exécuter votre croissance — outbound, inbound et coordination des partenaires spécialisés.",
     actu:"Ce qu'on observe, ce qu'on teste — les analyses et retours d'expérience de Cely sur le growth marketing B2B.",
+    article:"Inbound ou outbound marketing ? Avantages, canaux, ratios et méthode pour choisir la bonne stratégie B2B en 2026. Testez notre simulateur gratuit.",
     manifeste:"Le manifeste Cely : notre vision du growth marketing pour les startups tech B2B, sans jargon ni prestations à distance.",
     rejoindre:"Rejoindre Cely : nos valeurs et notre façon de travailler avec nos clients et partenaires.",
     contact:"Parlez de votre croissance avec Cely — réservez un call de découverte.",
     "404":"Cette page n'existe pas ou plus."
+  };
+  var ogImages = {
+    article:"https://www.celygrowth.com/og-inbound-vs-outbound.png"
+  };
+  var ARTICLE_JSONLD = {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BlogPosting",
+        "headline":"Inbound vs outbound : quoi choisir pour son entreprise en 2026 ?",
+        "description":"Inbound ou outbound marketing ? Avantages, canaux, ratios et méthode pour choisir la bonne stratégie B2B en 2026. Testez notre simulateur gratuit.",
+        "image":"https://www.celygrowth.com/og-inbound-vs-outbound.png",
+        "inLanguage":"fr-FR",
+        "datePublished":"2026-09-18",
+        "dateModified":"2026-09-18",
+        "mainEntityOfPage":"https://www.celygrowth.com/actualites/inbound-vs-outbound",
+        "author":{
+          "@type":"Person",
+          "name":"Célien Boillot",
+          "url":"https://www.linkedin.com/in/celienboillotwenoble/",
+          "sameAs":["https://www.linkedin.com/in/celienboillotwenoble/"],
+          "jobTitle":"Cofondateur de Wenoble"
+        },
+        "publisher":{
+          "@type":"Organization",
+          "name":"Cely",
+          "logo":{ "@type":"ImageObject", "url":"https://www.celygrowth.com/cely-mark-ce.png" }
+        }
+      },
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          { "@type":"ListItem", "position":1, "name":"Accueil", "item":"https://www.celygrowth.com/" },
+          { "@type":"ListItem", "position":2, "name":"Actualités", "item":"https://www.celygrowth.com/actualites" },
+          { "@type":"ListItem", "position":3, "name":"Inbound vs outbound", "item":"https://www.celygrowth.com/actualites/inbound-vs-outbound" }
+        ]
+      }
+    ]
   };
   /* chemin réel <-> data-page (le slug de nav "actualites" et le
      data-page "actu" diffèrent dans le fichier artifact d'origine) */
@@ -3748,10 +4482,29 @@ main.site-page[hidden]{ display:none !important; }
     document.title = titles[pageKey] || 'Cely';
     var metaDesc = document.getElementById('metaDescription');
     if(metaDesc){ metaDesc.setAttribute('content', descriptions[pageKey] || descriptions.hero); }
+    var canonicalUrl = location.origin + (location.pathname === '/' ? '/' : location.pathname.replace(/\/+$/,''));
     var canonical = document.getElementById('canonicalLink');
-    if(canonical){ canonical.setAttribute('href', location.origin + (location.pathname === '/' ? '/' : location.pathname.replace(/\/+$/,''))); }
+    if(canonical){ canonical.setAttribute('href', canonicalUrl); }
     var metaRobots = document.getElementById('metaRobots');
     if(metaRobots){ metaRobots.setAttribute('content', isUnknown ? 'noindex, follow' : 'index, follow'); }
+
+    /* Open Graph / Twitter — mis à jour par route (auparavant figés sur la home) */
+    var ogTitleVal = titles[pageKey] || 'Cely';
+    var ogDescVal = descriptions[pageKey] || descriptions.hero;
+    var ogImageVal = ogImages[pageKey] || 'https://www.celygrowth.com/cely-mark-ce.png';
+    var ogType = document.getElementById('ogType'); if(ogType){ ogType.setAttribute('content', pageKey === 'article' ? 'article' : 'website'); }
+    var ogTitle = document.getElementById('ogTitle'); if(ogTitle){ ogTitle.setAttribute('content', ogTitleVal); }
+    var ogDesc = document.getElementById('ogDescription'); if(ogDesc){ ogDesc.setAttribute('content', ogDescVal); }
+    var ogUrl = document.getElementById('ogUrl'); if(ogUrl){ ogUrl.setAttribute('content', canonicalUrl); }
+    var ogImg = document.getElementById('ogImage'); if(ogImg){ ogImg.setAttribute('content', ogImageVal); }
+    var twTitle = document.getElementById('twitterTitle'); if(twTitle){ twTitle.setAttribute('content', ogTitleVal); }
+    var twDesc = document.getElementById('twitterDescription'); if(twDesc){ twDesc.setAttribute('content', ogDescVal); }
+    var twImg = document.getElementById('twitterImage'); if(twImg){ twImg.setAttribute('content', ogImageVal); }
+
+    /* JSON-LD structuré — uniquement présent sur la page article réelle */
+    var jsonLd = document.getElementById('articleJsonLd');
+    if(jsonLd){ jsonLd.textContent = (pageKey === 'article' && !isUnknown) ? JSON.stringify(ARTICLE_JSONLD) : ''; }
+
     setActiveNav(isUnknown ? '' : (route === 'home' ? 'home' : (route === 'actualites' && parsed.sub ? 'actualites' : route)));
     closeMobileMenuIfOpen();
 
@@ -4350,5 +5103,206 @@ main.site-page[hidden]{ display:none !important; }
     });
   });
 })();</script>
+
+<!-- ============================================================
+     SIMULATEUR "Inbound vs outbound" — article /actualites/inbound-vs-outbound
+     ============================================================ -->
+<script>(function(){ "use strict";
+  var root = document.getElementById('artSim');
+  if(!root) return;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var QUESTIONS = [
+    { q:"Quand avez-vous besoin de nouveaux clients ?", options:[
+      { t:"Dans le mois", i:0, o:2 },
+      { t:"Dans 3 à 6 mois", i:1, o:1 },
+      { t:"Je construis pour l'an prochain", i:2, o:0 } ] },
+    { q:"Quel est votre panier moyen par client ?", options:[
+      { t:"Moins de 1 000 €", i:2, o:0 },
+      { t:"1 000 à 10 000 €", i:1, o:1 },
+      { t:"Plus de 10 000 €", i:0, o:2 } ] },
+    { q:"Pouvez-vous lister vos entreprises cibles ?", options:[
+      { t:"Oui, quelques centaines", i:0, o:2 },
+      { t:"Quelques milliers", i:1, o:1 },
+      { t:"Non, cible très large", i:2, o:0 } ] },
+    { q:"Vos clients cherchent-ils déjà une solution sur Google ?", options:[
+      { t:"Oui, souvent", i:2, o:0 },
+      { t:"Parfois", i:1, o:1 },
+      { t:"Non, besoin latent", i:0, o:2 } ] },
+    { q:"Qu'est-ce qui vous coûte le moins ?", options:[
+      { t:"Créer du contenu", i:2, o:0 },
+      { t:"Contacter des inconnus", i:0, o:2 },
+      { t:"Les deux me font peur", i:1, o:1 } ] },
+    { q:"Votre offre est-elle déjà validée ?", options:[
+      { t:"Pas encore", i:0, o:2 },
+      { t:"Quelques clients", i:1, o:1 },
+      { t:"Oui, offre rodée", i:2, o:0 } ] },
+    { q:"Combien de temps par semaine pouvez-vous y consacrer ?", options:[
+      { t:"Moins de 2 h", i:0, o:2 },
+      { t:"2 à 5 h", i:1, o:1 },
+      { t:"Plus de 5 h", i:2, o:0 } ] },
+    { q:"Avez-vous déjà une audience ou des preuves publiques ?", options:[
+      { t:"Aucune", i:0, o:2 },
+      { t:"Un début", i:1, o:1 },
+      { t:"Oui, audience et cas clients", i:2, o:0 } ] }
+  ];
+
+  var selections = new Array(QUESTIONS.length).fill(null); // index de l'option choisie par question
+  var idx = 0;
+  var submitted = false;
+
+  var gaugeCursor = document.getElementById('artsimCursor');
+  var gaugeTrack = root.querySelector('.artsim-gauge-track');
+  var progressBar = document.getElementById('artsimProgressBar');
+  var counter = document.getElementById('artsimCounter');
+  var questionHost = document.getElementById('artsimQuestionHost');
+  var backBtn = document.getElementById('artsimBack');
+  var form = document.getElementById('artsimForm');
+  var capturePanel = document.getElementById('artsimCapture');
+  var emailInput = document.getElementById('artsimEmail');
+  var consentInput = document.getElementById('artsimConsent');
+  var submitBtn = document.getElementById('artsimSubmit');
+  var errorEl = document.getElementById('artsimError');
+  var resultPanel = document.getElementById('artsimResult');
+  var resultLabel = document.getElementById('artsimResultLabel');
+  var resultTitle = document.getElementById('artsimResultTitle');
+  var resultDesc = document.getElementById('artsimResultDesc');
+  var resultBonus = document.getElementById('artsimResultBonus');
+
+  function scores(){
+    var si = 0, so = 0;
+    selections.forEach(function(sel, qi){
+      if(sel === null) return;
+      si += QUESTIONS[qi].options[sel].i;
+      so += QUESTIONS[qi].options[sel].o;
+    });
+    return { i: si, o: so };
+  }
+
+  function updateGauge(){
+    var s = scores();
+    var diff = s.i - s.o; // positif = inbound domine
+    var pct = 50 - (diff / 16) * 50;
+    pct = Math.max(6, Math.min(94, pct));
+    gaugeCursor.style.left = pct + '%';
+  }
+
+  function renderQuestion(){
+    var total = QUESTIONS.length;
+    counter.textContent = 'Question ' + (idx + 1) + ' sur ' + total;
+    progressBar.style.width = (((idx) / total) * 100 + (100/total)*0.15) + '%';
+    backBtn.disabled = (idx === 0);
+
+    var qd = QUESTIONS[idx];
+    var html = '<legend>' + qd.q.replace(/</g,'&lt;') + '</legend>';
+    qd.options.forEach(function(opt, oi){
+      var checked = selections[idx] === oi ? ' checked' : '';
+      html += '<label class="artsim-option">' +
+        '<input type="radio" name="artsimQ' + idx + '" value="' + oi + '"' + checked + '>' +
+        '<span>' + opt.t.replace(/</g,'&lt;') + '</span></label>';
+    });
+    questionHost.innerHTML = html;
+
+    questionHost.querySelectorAll('input[type="radio"]').forEach(function(input){
+      input.addEventListener('change', function(){
+        selections[idx] = Number(input.value);
+        updateGauge();
+        if(idx < QUESTIONS.length - 1){
+          window.setTimeout(function(){ idx++; renderQuestion(); }, reduceMotion ? 0 : 420);
+        } else {
+          window.setTimeout(showCapture, reduceMotion ? 0 : 420);
+        }
+      });
+    });
+  }
+
+  backBtn.addEventListener('click', function(){
+    if(idx === 0) return;
+    idx--;
+    capturePanel.hidden = true;
+    form.hidden = false;
+    renderQuestion();
+  });
+
+  function showCapture(){
+    progressBar.style.width = '100%';
+    counter.textContent = 'Vos réponses sont prises en compte';
+    form.hidden = true;
+    gaugeTrack.parentElement.classList.add('is-frozen');
+    capturePanel.hidden = false;
+    capturePanel.scrollIntoView({ block:'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+  }
+
+  function computeProfile(){
+    var s = scores();
+    var diff = s.o - s.i; // positif = outbound domine
+    var profile, title, desc;
+    if(diff >= 4){
+      profile = "Outbound d'abord";
+      desc = "Vous avez besoin de résultats rapides et vos cibles sont identifiables. Mettez en place une prospection LinkedIn structurée, mesurez vos ratios dès la première semaine, et publiez sur LinkedIn en parallèle pour que vos prospects trouvent un profil qui rassure.";
+    } else if(-diff >= 4){
+      profile = "Inbound d'abord";
+      desc = "La demande existe et vous avez le temps de construire. Misez sur le SEO/GEO pour capter les recherches, LinkedIn pour la visibilité, YouTube pour la durée. La publicité peut faire patienter pendant la montée en puissance.";
+    } else {
+      profile = "Combo signal-based";
+      desc = "Vous êtes dans le cas où combiner est le plus rentable. Publiez sur LinkedIn pour créer des signaux, captez-les automatiquement, et contactez en priorité les personnes qui ont déjà interagi avec vous.";
+    }
+    var bonus = (selections[4] === 2); // Q5 (index 4), réponse C = "Les deux me font peur"
+    return { profile: profile, desc: desc, bonus: bonus, scoreI: s.i, scoreO: s.o };
+  }
+
+  submitBtn.addEventListener('click', function(){
+    if(submitted) return;
+    errorEl.textContent = '';
+    var email = (emailInput.value || '').trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if(!emailOk){ errorEl.textContent = "Merci de renseigner un email valide."; emailInput.focus(); return; }
+    if(!consentInput.checked){ errorEl.textContent = "Merci de cocher la case de consentement pour voir votre résultat."; return; }
+
+    submitted = true;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Un instant…';
+
+    var result = computeProfile();
+
+    // Résultat instantané côté utilisateur, sans attendre la réponse serveur.
+    resultLabel.textContent = 'Votre profil';
+    resultTitle.textContent = result.profile;
+    resultDesc.textContent = result.desc;
+    if(result.bonus){
+      resultBonus.hidden = false;
+      resultBonus.textContent = "Quel que soit votre profil, le plus gros gain viendra d'un accompagnement pour mettre le système en place avec vous.";
+    }
+    capturePanel.hidden = true;
+    resultPanel.hidden = false;
+    resultPanel.scrollIntoView({ block:'nearest', behavior: reduceMotion ? 'auto' : 'smooth' });
+
+    var answers = selections.map(function(sel, qi){
+      return { question: QUESTIONS[qi].q, answer: sel !== null ? QUESTIONS[qi].options[sel].t : '' };
+    }).filter(function(a){ return a.answer; });
+
+    var hp = document.getElementById('artsimHp');
+
+    fetch('/api/lead-article', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: email,
+        consent: true,
+        profile: result.profile,
+        scoreI: result.scoreI,
+        scoreO: result.scoreO,
+        answers: answers,
+        _hp: (hp && hp.value) || ''
+      })
+    }).catch(function(){ /* la notification interne peut échouer sans bloquer le résultat déjà affiché */ });
+  });
+
+  renderQuestion();
+  updateGauge();
+})();</script>
+<style>
+.artsim-gauge.is-frozen{ opacity:.72; filter:blur(.4px); }
+</style>
 </body>
 </html>
