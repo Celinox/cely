@@ -18,6 +18,29 @@
 <meta name="twitter:description" content="Cely pilote la croissance digitale des startups tech B2B en Growth Part-Time : audit, plan d'action et exécution outbound/inbound, intégré à votre équipe." id="twitterDescription">
 <meta name="twitter:image" content="https://www.celygrowth.com/cely-mark-ce.png" id="twitterImage">
 <link rel="icon" type="image/png" href="/cely-mark-ce.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Cely",
+  "description": "Agence de marketing — growth marketing B2B en Growth Part-Time.",
+  "url": "https://www.celygrowth.com/",
+  "image": "https://www.celygrowth.com/cely-mark-ce.png",
+  "telephone": "+33756963783",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "6A Chem. des Prés",
+    "postalCode": "38240",
+    "addressLocality": "Meylan",
+    "addressCountry": "FR"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "06:30", "closes": "21:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "19:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "14:00" }
+  ]
+}
+</script>
 <script type="application/ld+json" id="articleJsonLd"></script>
 <title>Cely — Le growth qui s'intègre</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -683,6 +706,22 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .footer-legal{ display:flex; flex-wrap:wrap; align-items:center; gap:18px; font-family:var(--font-label); font-size:.76rem; color:rgba(247,245,250,.5); }
 .footer-legal a{ color:inherit; }
 .footer-legal a:hover{ color:var(--off-white); }
+
+.footer-nap{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,56px); padding-block:clamp(24px,3.2vw,36px); border-top:1px solid rgba(247,245,250,.12); }
+.footer-nap-col{ display:flex; flex-direction:column; gap:6px; }
+.footer-nap-name{ font-family:var(--font-display); font-weight:800; font-size:1rem; color:var(--off-white); }
+.footer-nap-kind{ font-family:var(--font-label); font-size:.78rem; color:rgba(247,245,250,.6); }
+.footer-nap-address{ font-style:normal; margin-top:6px; font-family:var(--font-label); font-size:.86rem; color:rgba(247,245,250,.82); line-height:1.5; }
+.footer-nap-phone{ font-family:var(--font-label); font-size:.86rem; font-weight:600; color:var(--off-white); }
+.footer-nap-phone:hover{ color:var(--lavender); }
+.footer-nap-gbp{ margin-top:10px; display:inline-flex; align-items:center; gap:7px; font-family:var(--font-label); font-size:.82rem; font-weight:600; color:var(--lavender); width:fit-content; }
+.footer-nap-gbp svg{ width:11px; height:11px; }
+.footer-nap-gbp:hover{ color:var(--off-white); }
+.footer-nap-hours-label{ font-family:var(--font-label); font-size:.78rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:rgba(247,245,250,.6); }
+.footer-hours-list{ margin-top:10px; display:flex; flex-direction:column; gap:6px; }
+.footer-hours-list li{ display:flex; justify-content:space-between; gap:16px; max-width:280px; font-family:var(--font-label); font-size:.86rem; color:rgba(247,245,250,.82); font-variant-numeric:tabular-nums; }
+.footer-hours-list li span:first-child{ color:rgba(247,245,250,.55); }
+@media (max-width:640px){ .footer-nap{ grid-template-columns:1fr; } }
 
 .footer-logo-block{ padding-top:clamp(28px,3.6vw,40px); border-top:1px solid rgba(247,245,250,.1); text-align:center; }
 .footer-logo-row{ position:relative; }
@@ -4287,6 +4326,31 @@ main.site-page[hidden]{ display:none !important; }
         <a href="/confidentialite">Confidentialité</a>
         <a href="/cookies">Cookies</a>
         <span class="footer-copy">© 2026 Cely</span>
+      </div>
+    </div>
+
+    <div class="footer-nap reveal">
+      <div class="footer-nap-col">
+        <span class="footer-nap-name">Cely</span>
+        <span class="footer-nap-kind">Agence de marketing</span>
+        <address class="footer-nap-address">6A Chem. des Prés, 38240 Meylan</address>
+        <a href="tel:+33756963783" class="footer-nap-phone">0756963783</a>
+        <!-- TODO : coller ici le lien de partage de la fiche Google Business Profile (bouton "Partager" sur la fiche) -->
+        <a href="#" class="footer-nap-gbp" target="_blank" rel="noopener">Voir notre fiche Google
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div class="footer-nap-col">
+        <span class="footer-nap-hours-label">Horaires d'ouverture</span>
+        <ul class="footer-hours-list">
+          <li><span>Lundi</span><span>06:30–21:30</span></li>
+          <li><span>Mardi</span><span>06:30–21:30</span></li>
+          <li><span>Mercredi</span><span>06:30–21:30</span></li>
+          <li><span>Jeudi</span><span>06:30–21:30</span></li>
+          <li><span>Vendredi</span><span>06:30–21:30</span></li>
+          <li><span>Samedi</span><span>08:00–19:30</span></li>
+          <li><span>Dimanche</span><span>10:00–14:00</span></li>
+        </ul>
       </div>
     </div>
 
