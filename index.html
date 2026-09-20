@@ -1575,6 +1575,29 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .act-card-real-title{ margin-top:12px; font-family:var(--font-display); font-weight:800; font-size:1.16rem; color:var(--prune); line-height:1.28; }
 .act-card-real-dek{ margin-top:8px; font-size:.92rem; color:var(--muted); line-height:1.55; }
 
+/* ============ HUB pages (audit hub, services hub) ============ */
+.hub-hero{ padding-block:calc(var(--nav-top) + var(--nav-h) + clamp(40px,6vw,72px)) clamp(48px,6vw,72px); background:var(--off-white); border-bottom:1px solid var(--border); }
+.hub-hero-inner{ max-width:64ch; }
+.hub-hero-h1{ margin-top:16px; font-family:var(--font-display); font-weight:800; font-size:clamp(2.2rem,1.6rem + 3.2vw,3.4rem); line-height:1.12; color:var(--prune); text-wrap:balance; }
+.hub-hero-sub{ margin-top:18px; font-size:1.06rem; color:var(--muted); max-width:56ch; line-height:1.6; }
+.hub-grid-section{ padding-block:clamp(72px,9vw,116px); background:var(--off-white); }
+.hub-grid-head{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.hub-grid{ margin-top:clamp(32px,4vw,44px); display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(20px,2.4vw,26px); }
+.hub-grid-2{ grid-template-columns:repeat(2,1fr); }
+.hub-card{ position:relative; display:block; border-radius:20px; background:var(--white); border:1.4px solid var(--border); padding:clamp(20px,2.4vw,24px); grid-column:1 / -1; transition:border-color .18s var(--ease-cely-out), transform .18s var(--ease-cely-out); }
+.hub-card-real:hover{ border-color:var(--violet); transform:translateY(-2px); }
+.hub-card-cover{ height:160px; border-radius:12px; display:flex; align-items:flex-end; padding:14px; }
+.hub-card-cover-real.hub-card-cover-real{ background:linear-gradient(135deg, var(--prune), var(--violet-3)); }
+.hub-card-cat{ font-family:var(--font-label); font-size:.7rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--off-white); background:rgba(255,255,255,.14); padding:5px 11px; border-radius:999px; }
+.hub-card-title{ margin-top:14px; font-family:var(--font-display); font-weight:800; font-size:1.16rem; color:var(--prune); line-height:1.28; }
+.hub-card-dek{ margin-top:8px; font-size:.92rem; color:var(--muted); line-height:1.55; }
+.hub-grid-2 .hub-card{ grid-column:auto; }
+.hub-card-soon{ border-style:dashed; }
+.hub-card-cover-soon.hub-card-cover-soon{ background:linear-gradient(135deg, var(--off-white-2), var(--lavender)); }
+.hub-card-cat-soon.hub-card-cat-soon{ color:var(--violet-3); background:rgba(255,255,255,.55); }
+.hub-note{ margin-top:clamp(28px,3.4vw,36px); font-size:.9rem; color:var(--muted); max-width:60ch; line-height:1.6; }
+@media (max-width:900px){ .hub-grid, .hub-grid-2{ grid-template-columns:1fr; } .hub-grid .hub-card{ grid-column:auto; } }
+
 @media (prefers-reduced-motion:reduce){
   .act-card{ transition:none; }
 }
@@ -2599,7 +2622,7 @@ main.site-page[hidden]{ display:none !important; }
             <li>Vous cherchez une agence pour exécuter une campagne ponctuelle, sans pilotage dans la durée.</li>
             <li>Votre produit ou votre offre n'est pas encore stabilisé.</li>
             <li>Vous voulez un engagement contractuel long avant tout premier échange.</li>
-            <li>Vous cherchez un diagnostic ponctuel plutôt qu'un pilotage continu — voyez plutôt notre <a href="/audit" data-route="audit" class="btn-text-cely" style="display:inline;">Audit Digital</a>.</li>
+            <li>Vous cherchez un diagnostic ponctuel plutôt qu'un pilotage continu — voyez plutôt notre <a href="/audit/audit-marketing-digital" data-route="audit" class="btn-text-cely" style="display:inline;">Audit Marketing Digital</a>.</li>
           </ul>
         </div>
       </div>
@@ -2842,14 +2865,87 @@ main.site-page[hidden]{ display:none !important; }
   <main class="site-page" data-page="audit" hidden>
 
   <!-- ============================================================
-       HERO — Audit Digital
+       HERO — Hub Audits
+       ============================================================ -->
+  <section class="hub-hero">
+    <div class="section-wrap">
+      <div class="hub-hero-inner reveal">
+        <span class="section-label"><span class="sl-slash">//</span> Audits</span>
+        <h1 class="hub-hero-h1">Des audits pour voir clair avant d'agir.</h1>
+        <p class="hub-hero-sub">Chaque audit Cely est un format indépendant, restitué en rapport écrit, pour objectiver une situation avant de décider. Aujourd'hui&nbsp;: un audit marketing digital complet. D'autres formats sont en préparation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GRILLE — audits disponibles
+       ============================================================ -->
+  <section class="hub-grid-section">
+    <div class="section-wrap">
+      <div class="hub-grid-head reveal">
+        <div>
+          <span class="section-label"><span class="sl-slash">//</span> Disponible aujourd'hui</span>
+          <h2 class="section-h2">L'audit à faire dès maintenant.</h2>
+        </div>
+      </div>
+      <div class="hub-grid">
+        <a href="/audit/audit-marketing-digital" data-route="audit" class="hub-card hub-card-real reveal">
+          <div class="hub-card-cover hub-card-cover-real">
+            <span class="hub-card-cat">Diagnostic écrit — 1 250&nbsp;€</span>
+          </div>
+          <h3 class="hub-card-title">Audit Marketing Digital</h3>
+          <p class="hub-card-dek">Un état des lieux complet de votre acquisition — canaux, tracking, conversion, positionnement — restitué en rapport écrit d'une cinquantaine de pages, avec un suivi à M+1 et M+2.</p>
+        </a>
+      </div>
+      <p class="hub-note">D'autres audits sont en préparation — chaque nouveau format sera ajouté ici dès qu'il sera prêt.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION — CTA FINAL (canonique, réutilisé à l'identique)
+       ============================================================ -->
+  <section class="cta-final" id="cta-final-7">
+    <div class="section-wrap cta-final-wrap">
+      <div class="cta-final-content reveal" id="ctaFinalContent-7">
+        <span class="section-label cta-label"><span class="sl-slash">//</span> Premier échange offert</span>
+        <h2 class="cta-final-h2">Pas sûr qu'un audit soit<br>le bon <span class="accent">format</span>&nbsp;?</h2>
+        <p class="cta-final-sub">On regarde ensemble votre situation et on voit si un audit complet, un accompagnement growth, ou simplement un conseil ponctuel, est le plus adapté.</p>
+        <div class="cta-final-actions">
+          <a href="/contact#formulaire" data-route="contact" class="btn-cta-final">Faire le point ensemble
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <p class="cta-final-reassure">Un premier diagnostic ciblé, sans audit complet ni engagement de mission.</p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <main class="site-page" data-page="audit-detail" hidden>
+
+  <!-- ============================================================
+       FIL D'ARIANE
+       ============================================================ -->
+  <nav class="art-breadcrumb" aria-label="Fil d'Ariane">
+    <div class="section-wrap art-breadcrumb-row">
+      <a href="/" data-route="home">Accueil</a>
+      <span class="sep">/</span>
+      <a href="/audit" data-route="audit">Audit</a>
+      <span class="sep">/</span>
+      <span aria-current="page">Audit Marketing Digital</span>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       HERO — Audit Marketing Digital
        ============================================================ -->
   <section class="aud-hero">
     <div class="section-wrap">
       <div class="aud-hero-grid">
         <div class="reveal">
-          <span class="section-label"><span class="sl-slash">//</span> Audit Digital</span>
-          <h1 class="aud-hero-h1">Voyez clair dans votre acquisition.</h1>
+          <span class="section-label"><span class="sl-slash">//</span> Audit Marketing Digital</span>
+          <h1 class="aud-hero-h1">Voyez clair dans votre acquisition avec un audit marketing digital complet.</h1>
           <p class="aud-hero-sub">Un état des lieux détaillé de votre acquisition — canaux, tracking, conversion, positionnement — restitué dans un rapport écrit d'une cinquantaine de pages, avec deux points de suivi après restitution.</p>
           <div class="aud-hero-facts">
             <span class="aud-fact">Environ 50 pages</span>
@@ -2894,20 +2990,20 @@ main.site-page[hidden]{ display:none !important; }
   </section>
 
   <!-- ============================================================
-       DISTINCTION — prédiagnostic ciblé vs Audit Digital
+       DISTINCTION — prédiagnostic ciblé vs Audit Marketing Digital
        ============================================================ -->
   <section class="aud-distinguo">
     <div class="section-wrap">
       <span class="section-label"><span class="sl-slash">//</span> Pour ne pas se tromper d'offre</span>
       <h2 class="section-h2 reveal">Un premier échange n'est pas un audit.</h2>
-      <p class="aud-distinguo-body reveal">Le premier rendez-vous est un prédiagnostic ciblé et offert : on regarde ensemble votre situation et on identifie deux ou trois pistes. L'Audit Digital va beaucoup plus loin — c'est un diagnostic payant et approfondi, restitué dans un rapport écrit d'une cinquantaine de pages, avec un suivi à M+1 et M+2.</p>
+      <p class="aud-distinguo-body reveal">Le premier rendez-vous est un prédiagnostic ciblé et offert : on regarde ensemble votre situation et on identifie deux ou trois pistes. L'Audit Marketing Digital va beaucoup plus loin — c'est un diagnostic payant et approfondi, restitué dans un rapport écrit d'une cinquantaine de pages, avec un suivi à M+1 et M+2.</p>
       <div class="aud-distinguo-pair reveal">
         <div class="aud-distinguo-col">
           <p class="aud-distinguo-col-title">Premier échange</p>
           <p>Gratuit, court, oral. Pour évaluer ensemble si un accompagnement a du sens.</p>
         </div>
         <div class="aud-distinguo-col is-current">
-          <p class="aud-distinguo-col-title">Audit Digital</p>
+          <p class="aud-distinguo-col-title">Audit Marketing Digital</p>
           <p>Payant, approfondi, écrit. Pour obtenir un diagnostic complet et des priorités documentées.</p>
         </div>
       </div>
@@ -3130,7 +3226,7 @@ main.site-page[hidden]{ display:none !important; }
     <div class="section-wrap cta-final-wrap">
       <div class="cta-final-content reveal" id="ctaFinalContent-3">
         <span class="section-label cta-label"><span class="sl-slash">//</span> Premier rendez-vous offert</span>
-        <h2 class="cta-final-h2">Parlons de votre situation.<br>Voyez si l'<span class="accent">Audit Digital</span> a du sens.</h2>
+        <h2 class="cta-final-h2">Parlons de votre situation.<br>Voyez si l'<span class="accent">Audit Marketing Digital</span> a du sens.</h2>
         <p class="cta-final-sub">On identifie ensemble vos principaux blocages et on voit si un audit complet ou un autre format est le plus adapté à votre situation.</p>
         <div class="cta-final-actions">
           <a href="/contact#formulaire" data-route="contact" class="btn-cta-final">Faire le point ensemble
@@ -3142,6 +3238,73 @@ main.site-page[hidden]{ display:none !important; }
     </div>
   </section>
 
+
+  </main>
+
+  <main class="site-page" data-page="services" hidden>
+
+  <!-- ============================================================
+       HERO — Hub Services
+       ============================================================ -->
+  <section class="hub-hero">
+    <div class="section-wrap">
+      <div class="hub-hero-inner reveal">
+        <span class="section-label"><span class="sl-slash">//</span> Services</span>
+        <h1 class="hub-hero-h1">Ce qu'on peut prendre en charge, au-delà du pilotage growth.</h1>
+        <p class="hub-hero-sub">Deux formats packagés arrivent, pensés pour des besoins précis d'acquisition et de direction marketing — en complément de Growth Part-Time et de l'Audit Marketing Digital.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       GRILLE — formats en préparation
+       ============================================================ -->
+  <section class="hub-grid-section">
+    <div class="section-wrap">
+      <div class="hub-grid-head reveal">
+        <div>
+          <span class="section-label"><span class="sl-slash">//</span> En préparation</span>
+          <h2 class="section-h2">Deux formats en cours de construction.</h2>
+        </div>
+      </div>
+      <div class="hub-grid hub-grid-2">
+        <div class="hub-card hub-card-soon reveal">
+          <div class="hub-card-cover hub-card-cover-soon">
+            <span class="hub-card-cat hub-card-cat-soon">Bientôt disponible</span>
+          </div>
+          <h3 class="hub-card-title">Growth Hacking Freelance</h3>
+          <p class="hub-card-dek">Un growth marketer freelance, disponible ponctuellement pour lancer ou relancer un chantier précis d'acquisition — sans les coûts ni les délais d'un recrutement à temps plein.</p>
+        </div>
+        <div class="hub-card hub-card-soon reveal">
+          <div class="hub-card-cover hub-card-cover-soon">
+            <span class="hub-card-cat hub-card-cat-soon">Bientôt disponible</span>
+          </div>
+          <h3 class="hub-card-title">Directeur Marketing Externalisé</h3>
+          <p class="hub-card-dek">Une direction marketing à temps partagé, pour structurer votre stratégie et piloter vos équipes et prestataires, sans le coût d'un poste de direction à temps plein.</p>
+        </div>
+      </div>
+      <p class="hub-note">D'autres formats seront ajoutés à mesure qu'ils sont prêts — chaque page publiée apparaît ici dès sa mise en ligne.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION — CTA FINAL (canonique, réutilisé à l'identique)
+       ============================================================ -->
+  <section class="cta-final" id="cta-final-8">
+    <div class="section-wrap cta-final-wrap">
+      <div class="cta-final-content reveal" id="ctaFinalContent-8">
+        <span class="section-label cta-label"><span class="sl-slash">//</span> Premier échange offert</span>
+        <h2 class="cta-final-h2">Un besoin qui ne rentre<br>dans aucune <span class="accent">case</span>&nbsp;?</h2>
+        <p class="cta-final-sub">Décrivez-nous votre situation — si un de ces formats vous correspond, on vous recontacte en priorité dès qu'il est prêt ; sinon, on regarde ensemble ce qui existe déjà.</p>
+        <div class="cta-final-actions">
+          <a href="/contact#formulaire" data-route="contact" class="btn-cta-final">Parlons-en
+            <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <p class="cta-final-reassure">Un premier diagnostic ciblé, sans audit complet ni engagement de mission.</p>
+      </div>
+    </div>
+  </section>
 
   </main>
 
@@ -4320,6 +4483,7 @@ main.site-page[hidden]{ display:none !important; }
       <nav class="footer-nav" aria-label="Navigation du pied de page">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
         <a href="/audit" data-route="audit">Audit</a>
+        <a href="/services" data-route="services">Services</a>
         <a href="/actualites" data-route="actualites">Actualités</a>
         <a href="/manifeste" data-route="manifeste">Manifeste</a>
         <a href="/nous-rejoindre" data-route="nous-rejoindre">Nous rejoindre</a>
@@ -4431,24 +4595,28 @@ main.site-page[hidden]{ display:none !important; }
   var pages = Array.prototype.slice.call(document.querySelectorAll('main.site-page'));
   var titles = {
     hero:"Cely — Le growth qui s'intègre",
-    audit:"Audit Digital — Cely",
+    audit:"Audits Digitaux — Cely",
+    "audit-detail":"Audit Marketing Digital — Cely",
     growth:"Growth Part-Time — Cely",
     actu:"Actualités — Cely",
     article:"Inbound vs outbound : quoi choisir en 2026 ? (+ simulateur)",
     manifeste:"Manifeste — Cely",
     rejoindre:"Nous rejoindre — Cely",
     contact:"Contact — Cely",
+    services:"Services — Cely",
     "404":"Page introuvable — Cely"
   };
   var descriptions = {
     hero:"Cely pilote la croissance digitale des startups tech B2B en Growth Part-Time : audit, plan d'action et exécution outbound/inbound, intégré à votre équipe.",
-    audit:"Audit Digital Cely : diagnostic complet de votre acquisition digitale et plan d'action priorisé, livré en PDF avec présentation vidéo — 1 250 €.",
+    audit:"Les audits Cely : des diagnostics écrits et actionnables sur votre acquisition digitale. Découvrez l'Audit Marketing Digital, notre premier format disponible.",
+    "audit-detail":"Audit Marketing Digital Cely : diagnostic complet de votre acquisition digitale et plan d'action priorisé, restitué en rapport écrit avec présentation vidéo — 1 250 €.",
     growth:"Growth Part-Time : Cely rejoint votre équipe pour piloter et exécuter votre croissance — outbound, inbound et coordination des partenaires spécialisés.",
     actu:"Ce qu'on observe, ce qu'on teste — les analyses et retours d'expérience de Cely sur le growth marketing B2B.",
     article:"Inbound ou outbound marketing ? Avantages, canaux, ratios et méthode pour choisir la bonne stratégie B2B en 2026. Testez notre simulateur gratuit.",
     manifeste:"Le manifeste Cely : notre vision du growth marketing pour les startups tech B2B, sans jargon ni prestations à distance.",
     rejoindre:"Rejoindre Cely : nos valeurs et notre façon de travailler avec nos clients et partenaires.",
     contact:"Parlez de votre croissance avec Cely — réservez un call de découverte.",
+    services:"Les services Cely au-delà du pilotage growth : growth marketing freelance et direction marketing externalisée — formats en préparation.",
     "404":"Cette page n'existe pas ou plus."
   };
   var ogImages = {
@@ -4557,10 +4725,11 @@ main.site-page[hidden]{ display:none !important; }
   function render(){
     var parsed = parsePath();
     var route = parsed.route;
-    var known = ['home','audit','growth','actualites','manifeste','nous-rejoindre','contact'];
+    var known = ['home','audit','growth','actualites','manifeste','nous-rejoindre','contact','services'];
     var pageKey = pathToPage[route] || route;
     if(route === 'actualites' && parsed.sub){ pageKey = 'article'; } // /actualites/<slug-ou-gabarit>
-    var isUnknown = (known.indexOf(route) === -1);
+    if(route === 'audit' && parsed.sub === 'audit-marketing-digital'){ pageKey = 'audit-detail'; } // /audit/<sous-audit>
+    var isUnknown = (known.indexOf(route) === -1) || (route === 'audit' && parsed.sub && parsed.sub !== 'audit-marketing-digital');
     if(isUnknown){ pageKey = '404'; }
 
     pages.forEach(function(p){ p.hidden = (p.getAttribute('data-page') !== pageKey); });
