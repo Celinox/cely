@@ -4736,7 +4736,7 @@ main.site-page[hidden]{ display:none !important; }
     document.title = titles[pageKey] || 'Cely';
     var metaDesc = document.getElementById('metaDescription');
     if(metaDesc){ metaDesc.setAttribute('content', descriptions[pageKey] || descriptions.hero); }
-    var canonicalUrl = location.origin + (location.pathname === '/' ? '/' : location.pathname.replace(/\/+$/,''));
+    var canonicalUrl = 'https://www.celygrowth.com' + (location.pathname === '/' ? '/' : location.pathname.replace(/\/+$/,''));
     var canonical = document.getElementById('canonicalLink');
     if(canonical){ canonical.setAttribute('href', canonicalUrl); }
     var metaRobots = document.getElementById('metaRobots');
