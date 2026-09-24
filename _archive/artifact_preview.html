@@ -1,23 +1,20 @@
-<!doctype html>
-<html lang="fr">
-<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" id="metaRobots" content="index, follow">
-<meta name="description" id="metaDescription" content="Cely, agence growth marketing pour startups B2B : on s'intègre à votre équipe pour lancer et piloter votre acquisition. Premier mois satisfait ou remboursé.">
+<meta name="description" id="metaDescription" content="Cely, agence growth marketing pour startups tech B2B : audit, plan d'action et exécution outbound/inbound en Growth Part-Time, intégrés à votre équipe.">
 <link rel="canonical" id="canonicalLink" href="https://www.celygrowth.com/">
 <meta property="og:type" content="website" id="ogType">
 <meta property="og:site_name" content="Cely">
 <meta property="og:title" content="Cely — Agence Growth Marketing pour Startups B2B" id="ogTitle">
 <meta property="og:description" content="Cely, agence growth marketing pour startups tech B2B : audit, plan d'action et exécution outbound/inbound en Growth Part-Time, intégrés à votre équipe." id="ogDescription">
 <meta property="og:url" content="https://www.celygrowth.com/" id="ogUrl">
-<meta property="og:image" content="https://www.celygrowth.com/images/cely-mark-ce.png" id="ogImage">
+<meta property="og:image" content="https://www.celygrowth.com/cely-mark-ce.png" id="ogImage">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cely — Agence Growth Marketing pour Startups B2B" id="twitterTitle">
 <meta name="twitter:description" content="Cely, agence growth marketing pour startups tech B2B : audit, plan d'action et exécution outbound/inbound en Growth Part-Time, intégrés à votre équipe." id="twitterDescription">
-<meta name="twitter:image" content="https://www.celygrowth.com/images/cely-mark-ce.png" id="twitterImage">
-<link rel="icon" type="image/png" href="/images/cely-mark-ce.png">
+<meta name="twitter:image" content="https://www.celygrowth.com/cely-mark-ce.png" id="twitterImage">
+<link rel="icon" type="image/png" href="/cely-mark-ce.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -25,7 +22,7 @@
   "name": "Cely",
   "description": "Cely est une agence growth marketing basée à Meylan (Grenoble), spécialisée dans l'accompagnement des startups tech B2B.",
   "url": "https://www.celygrowth.com/",
-  "image": "https://www.celygrowth.com/images/cely-mark-ce.png",
+  "image": "https://www.celygrowth.com/cely-mark-ce.png",
   "telephone": "+33756963783",
   "address": {
     "@type": "PostalAddress",
@@ -42,7 +39,9 @@
   "sameAs": [
     "https://www.google.com/maps?cid=7863789155467383060",
     "https://www.linkedin.com/in/celienboillotwenoble/"
-  ]
+  ],
+  "areaServed": "FR",
+  "founder": { "@type": "Person", "name": "Célien Boillot" }
 }
 </script>
 <script type="application/ld+json" id="articleJsonLd"></script>
@@ -168,7 +167,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
    HERO — mise en scène
    ============================================================ */
 .hero{ position:relative; min-height:100svh; display:flex; flex-direction:column; overflow:hidden; }
-.hero-fill{ height:calc(var(--nav-top) + var(--nav-h) + clamp(8px,1.6vw,16px)); flex:none; }
+.hero-fill{ height:calc(var(--nav-top) + var(--nav-h) + clamp(20px,4vw,40px)); flex:none; }
 
 /* ---- lumière Cely : trois couches asymétriques, jamais une boule ---- */
 .hero-light{ position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
@@ -185,10 +184,10 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 @media (max-width:900px){ .hl-1{ width:130vw; height:100vw; right:-40vw; top:-20vw; } .hl-2{ display:none; } }
 
 /* ---- stage : centrage optique réel, indépendant des largeurs latérales ---- */
-.hero-stage{ position:relative; z-index:1; flex:1; display:flex; align-items:center; padding-block:clamp(10px,1.6vw,18px) clamp(16px,2.4vw,26px); }
+.hero-stage{ position:relative; z-index:1; flex:1; display:flex; align-items:center; padding-block:clamp(24px,4vw,40px) clamp(40px,6vw,64px); }
 .hero-center{ position:relative; width:100%; max-width:760px; margin-inline:auto; padding-inline:20px; text-align:center; }
 
-.hero-trust{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-label); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:14px; }
+.hero-trust{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-label); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:22px; }
 .hero-trust .sep{ color:var(--border); }
 
 .hero-h1{ font-size:clamp(2.9rem,2.1rem + 4.4vw,5.6rem); }
@@ -201,8 +200,8 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 @media (prefers-reduced-motion:reduce){ .hl-word .mark{ transform:scaleX(1); } }
 @keyframes markReveal{ to{ transform:scaleX(1); } }
 
-.hero-sub{ margin-top:14px; font-size:clamp(1.02rem,.96rem + .3vw,1.2rem); color:var(--muted); max-width:44ch; margin-inline:auto; }
-.hero-actions{ margin-top:18px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap; }
+.hero-sub{ margin-top:22px; font-size:clamp(1.02rem,.96rem + .3vw,1.2rem); color:var(--muted); max-width:44ch; margin-inline:auto; }
+.hero-actions{ margin-top:30px; display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap; }
 .btn-hero{ display:inline-flex; align-items:center; gap:10px; font-family:var(--font-label); font-weight:600; font-size:1rem; padding:16px 28px; border-radius:999px; background:var(--prune); color:var(--off-white); transition:background .2s var(--ease-cely-out), transform .15s var(--ease-cely-out); }
 .btn-hero:hover{ background:var(--violet-2); }
 .btn-hero svg{ width:16px; height:16px; transition:transform .22s var(--ease-cely-out); }
@@ -223,9 +222,8 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 @keyframes heroUp{ to{ opacity:1; transform:none; } }
 
 /* ---- ligne de confiance / logos (maquette — voir §08 du brief) ---- */
-.hero-logos{ margin-top:18px; }
+.hero-logos{ margin-top:40px; }
 .hl-devtag{ display:inline-block; margin-bottom:10px; font-family:var(--font-label); font-size:.64rem; letter-spacing:.08em; text-transform:uppercase; color:var(--violet-3); background:var(--lavender); padding:2px 8px; border-radius:5px; }
-.hl-ps-note{ display:block; margin-top:8px; font-style:italic; font-size:.78rem; color:var(--muted); text-align:center; }
 .marquee{ position:relative; width:100%; overflow:hidden; mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
 .marquee-track{ display:flex; align-items:center; gap:56px; width:max-content; }
 @media (prefers-reduced-motion:no-preference){ .marquee-track{ animation: marqueeSlide 34s linear infinite; } }
@@ -328,7 +326,6 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 /* ---- visuel éditorial (composition graphique — pas une photo réelle) ---- */
 .problem-photo{ position:relative; border-radius:26px; overflow:hidden; aspect-ratio:4/5; max-height:460px;
   background:linear-gradient(165deg, var(--prune) 0%, #241736 55%, var(--violet-2) 140%); }
-.problem-photo img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
 .pp-glow{ position:absolute; width:65%; height:65%; left:-14%; top:-14%; background:radial-gradient(circle, var(--violet), transparent 70%); opacity:.4; filter:blur(46px); }
 .pp-glow-2{ position:absolute; width:40%; height:40%; right:-8%; bottom:-6%; background:radial-gradient(circle, var(--pink), transparent 72%); opacity:.28; filter:blur(40px); }
 .pp-desk{ position:absolute; left:9%; right:9%; bottom:9%; height:44%; border-top:1.4px solid rgba(247,245,250,.2); background:linear-gradient(180deg, rgba(247,245,250,.07), transparent); border-radius:8px 8px 0 0; }
@@ -364,7 +361,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .pd-hub-label{ font-family:var(--font-label); font-size:.64rem; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); text-align:center; max-width:14ch; }
 .pd.is-hovering .pd-hub{ border-color:var(--violet); }
 .pd.is-hovering .pd-hub-q{ color:var(--violet); }
-.pd-lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:-1; }
+.pd-lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
 .pd-lines path{ fill:none; stroke:var(--border); stroke-width:1.4; stroke-linecap:round; stroke-dasharray:400; stroke-dashoffset:400; transition:stroke var(--t-normal) var(--ease-cely-out), stroke-width var(--t-normal) var(--ease-cely-out); }
 .pd.is-in .pd-lines path{ animation:pdDraw 1s var(--ease-cely-out) forwards; }
 .pd-lines path.is-active{ stroke:var(--violet); stroke-width:2; }
@@ -384,17 +381,6 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .pdm-hub span.txt{ font-family:var(--font-label); font-size:.82rem; color:var(--prune); font-weight:600; text-transform:uppercase; letter-spacing:.04em; }
 
 .problem-transition{ margin-top:clamp(48px,7vw,72px); font-family:var(--font-display); font-weight:700; font-size:clamp(1.2rem,1.05rem + 1vw,1.7rem); color:var(--prune); max-width:20ch; }
-.problem-moment{ margin-top:clamp(64px,9vw,120px); padding-block:clamp(48px,7vw,88px); text-align:center; display:flex; flex-direction:column; align-items:center; gap:clamp(28px,4vw,40px); }
-.problem-moment-text{ max-width:20ch; margin-inline:auto; }
-.pm-line{ display:block; }
-.pm-line-1{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.9rem,1.5rem + 2vw,3rem); color:var(--muted); line-height:1.15; }
-.pm-line-2{ font-family:var(--font-display); font-weight:800; font-size:clamp(2.6rem,2rem + 3.2vw,4.4rem); color:var(--violet); line-height:1.05; letter-spacing:-.01em; margin-top:6px; text-wrap:balance; }
-.pm-scroll{ display:inline-flex; color:var(--violet); opacity:.55; }
-.pm-scroll svg{ width:16px; height:24px; }
-@media (prefers-reduced-motion:no-preference){
-  .pm-scroll{ animation: pmBounce 1.8s ease-in-out infinite; }
-}
-@keyframes pmBounce{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(6px); } }
 
 /* ============================================================
    SECTION — ET C'EST LÀ QUE CELY ARRIVE
@@ -457,33 +443,29 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .btn-affirm:hover svg{ transform:translate(3px,-3px); }
 
 /* ---- preuve sociale de maquette : clairement signalée comme placeholder ---- */
-.hz-proof{ position:relative; border-radius:26px; background:var(--prune); border:1px solid rgba(247,245,250,.14); padding:clamp(30px,3.6vw,40px); display:flex; flex-direction:column; gap:20px; box-shadow:0 34px 64px -42px rgba(26,17,40,.5); }
+.hz-proof{ position:relative; border-radius:26px; background:var(--off-white-2); border:1px solid var(--border); padding:clamp(26px,3.2vw,36px); display:flex; flex-direction:column; gap:20px; box-shadow:0 34px 64px -42px rgba(26,17,40,.28); }
 .hz-proof-tag{ align-self:flex-start; font-family:var(--font-label); font-size:.64rem; letter-spacing:.07em; text-transform:uppercase; color:var(--violet-3); background:var(--lavender); padding:5px 11px; border-radius:7px; }
 .hz-proof-visual{ position:relative; border-radius:18px; aspect-ratio:16/9; overflow:hidden; background:linear-gradient(135deg, var(--lavender), #EFE7FB 60%, #F6F1FF); }
-.hz-proof-visual img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
 .hz-proof-visual::before{ content:""; position:absolute; inset:0; background-image:repeating-linear-gradient(48deg, rgba(139,91,255,.13) 0 2px, transparent 2px 15px); }
 .hz-proof-visual .hz-visual-mark{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:52px; height:52px; border-radius:50%; border:1.6px dashed rgba(139,91,255,.5); display:flex; align-items:center; justify-content:center; font-family:var(--font-label); font-size:.62rem; letter-spacing:.03em; text-transform:uppercase; color:var(--violet-2); text-align:center; }
 .hz-proof-visual .hz-visual-label{ position:absolute; left:14px; bottom:14px; font-family:var(--font-label); font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; color:var(--violet-2); background:rgba(255,255,255,.75); backdrop-filter:blur(4px); padding:4px 9px; border-radius:6px; }
-.hz-proof-title{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.34rem,1.14rem + 1vw,1.7rem); color:var(--off-white); line-height:1.22; }
-.hz-proof-quote{ font-family:var(--font-body); font-weight:400; font-size:1rem; color:rgba(247,245,250,.82); line-height:1.5; }
-.hz-proof-foot{ display:flex; flex-direction:column; gap:2px; font-family:var(--font-label); font-size:.8rem; margin-top:4px; }
-.hz-proof-name{ color:var(--off-white); font-weight:600; }
-.hz-proof-role{ color:rgba(247,245,250,.6); }
-.hz-proof-stamp{ position:absolute; top:-16px; left:28px; z-index:2; display:inline-flex; align-items:center; font-family:var(--font-label); font-weight:700; font-size:.72rem; letter-spacing:.07em; text-transform:uppercase; color:var(--violet-2); background:var(--off-white); border:1.6px solid var(--violet); border-radius:8px; padding:7px 14px; transform:rotate(-7deg); box-shadow:0 10px 22px -12px rgba(26,17,40,.4); }
-.hz-proof-aside{ font-family:var(--font-body); font-weight:400; font-size:.88rem; color:rgba(247,245,250,.6); }
+.hz-proof-quote{ font-family:var(--font-display); font-weight:700; font-size:clamp(1.05rem,.95rem + .4vw,1.22rem); color:var(--prune); line-height:1.42; }
+.hz-proof-foot{ display:flex; flex-direction:column; gap:2px; font-family:var(--font-label); font-size:.8rem; }
+.hz-proof-name{ color:var(--prune); font-weight:600; }
+.hz-proof-role{ color:var(--muted); }
 
 /* ============================================================
    SECTION — CE QUE VOUS OBTENEZ
    Rupture chromatique nette : fond prune, contenus clairs.
    ============================================================ */
-.obtenez{ position:relative; padding-top:clamp(48px,6vw,84px); padding-bottom:clamp(84px,10.5vw,144px); background:var(--prune); color:var(--off-white); overflow:clip; }
+.obtenez{ position:relative; padding-block:clamp(84px,10.5vw,144px); background:var(--prune); color:var(--off-white); overflow:clip; }
 .obtenez .section-label{ color:var(--pink); }
 .obtenez .section-label .sl-slash{ color:var(--pink); }
 .obtenez .section-h2{ color:var(--off-white); max-width:16ch; }
 .obtenez-lede{ margin-top:16px; color:rgba(247,245,250,.7); font-size:1.05rem; max-width:50ch; }
 .obtenez-light{ position:absolute; inset:0; z-index:0; pointer-events:none; }
 .obtenez-light span{ position:absolute; border-radius:50%; filter:blur(86px); }
-.obtenez-light .ol-1{ width:42vw; height:42vw; max-width:540px; max-height:540px; right:-12vw; top:-6vw; background:var(--violet); opacity:.22; }
+.obtenez-light .ol-1{ width:42vw; height:42vw; max-width:540px; max-height:540px; right:-12vw; top:-14vw; background:var(--violet); opacity:.22; }
 .obtenez-light .ol-2{ width:26vw; height:26vw; max-width:340px; max-height:340px; left:-9vw; bottom:-8vw; background:var(--pink); opacity:.12; }
 
 .ob-grid{ position:relative; z-index:1; margin-top:clamp(48px,6vw,72px); display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(16px,2vw,22px); }
@@ -600,7 +582,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .compare-table-wrap{ position:relative; width:100%; }
 
 /* ---- surface Cely : décorative, indépendante des cellules ---- */
-.ct-cely-surface{ position:absolute; z-index:0; border-radius:20px; background:rgba(139,91,255,.10); border:1px solid rgba(139,91,255,.35); box-shadow:0 18px 40px -28px rgba(122,70,255,.35); pointer-events:none; opacity:0; transition:opacity .4s var(--ease-cely-out); }
+.ct-cely-surface{ position:absolute; z-index:0; border-radius:20px; background:linear-gradient(180deg, var(--lavender), #F2E9FF); box-shadow:0 18px 40px -28px rgba(122,70,255,.35); pointer-events:none; opacity:0; transition:opacity .4s var(--ease-cely-out); }
 .compare-stage.is-in .ct-cely-surface{ opacity:1; }
 .ct-cely-surface::before{ content:""; position:absolute; left:0; top:10px; bottom:10px; width:2.5px; border-radius:2px; background:var(--violet); transform-origin:top; transform:scaleY(0); transition:transform .8s var(--ease-cely-out) .18s; }
 .compare-stage.is-in .ct-cely-surface::before{ transform:scaleY(1); }
@@ -620,8 +602,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .ct-model-h{ font-family:var(--font-display); font-weight:800; font-size:1.02rem; color:var(--prune); }
 .ct-model-sub{ display:block; margin-top:3px; font-family:var(--font-body); font-size:.76rem; font-weight:500; color:var(--muted); }
 .ct-cely-h{ padding:18px 20px 16px !important; position:relative; }
-.ct-recommended-badge{ position:absolute; top:-13px; left:20px; font-family:var(--font-label); font-weight:600; font-size:.6rem; letter-spacing:.05em; text-transform:uppercase; color:var(--violet-3); background:var(--lavender); padding:3px 9px; border-radius:6px; white-space:nowrap; }
-.ct-cely-h .ct-model-h{ display:flex; align-items:baseline; gap:6px; font-size:1.08rem; color:var(--violet-2); font-weight:800; }
+.ct-cely-h .ct-model-h{ display:flex; align-items:baseline; gap:6px; font-size:1.08rem; }
 .ct-cely-h .ct-model-h .e{ color:var(--violet); }
 .ct-cely-h .ct-model-h .dot{ width:5px; height:5px; border-radius:50%; background:var(--violet); display:inline-block; transform:translateY(-7px); }
 .ct-cely-h .ct-model-h .ct-cely-suffix{ font-weight:700; color:var(--violet-2); font-size:.92rem; }
@@ -729,7 +710,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .footer-legal a{ color:inherit; }
 .footer-legal a:hover{ color:var(--off-white); }
 
-.footer-nap{ display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,4vw,56px); padding-block:clamp(24px,3.2vw,36px); border-top:1px solid rgba(247,245,250,.12); }
+.footer-nap{ display:grid; grid-template-columns:1fr; gap:clamp(28px,4vw,56px); padding-block:clamp(24px,3.2vw,36px); border-top:1px solid rgba(247,245,250,.12); }
 .footer-nap-col{ display:flex; flex-direction:column; gap:6px; }
 .footer-nap-name{ font-family:var(--font-display); font-weight:800; font-size:1rem; color:var(--off-white); }
 .footer-nap-kind{ font-family:var(--font-label); font-size:.78rem; color:rgba(247,245,250,.6); }
@@ -801,8 +782,6 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 @media (prefers-reduced-motion:reduce){
   .section-seam{ --p:1; }
 }
-.section-seam-static{ --p:1 !important; }
-.section-seam-static .seam-fill{ transition:none !important; }
 
 
 /* ============ GROWTH PART-TIME (page-specific) ============ */
@@ -1918,7 +1897,6 @@ main.site-page[hidden]{ display:none !important; }
 </style>
 
 </head>
-<body>
 
 <a class="skip-link" href="#site-content">Aller au contenu</a>
 
@@ -1938,7 +1916,7 @@ main.site-page[hidden]{ display:none !important; }
     <div class="glass-edge"></div>
   </div>
   <div class="nav-inner">
-    <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><picture><source srcset="/images/cely-logo-light.webp" type="image/webp"><img src="/images/cely-logo-light.png" alt="Cely" width="292" height="102"></picture></a>
+    <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><picture><source srcset="/cely-logo-light.webp" type="image/webp"><img src="/cely-logo-light.png" alt="Cely" width="292" height="102"></picture></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="/growth" data-route="growth" class="nl-priority"><span class="nl-slash is-permanent">/</span><span>Growth Part-Time</span></a>
       <a href="/audit" data-route="audit"><span class="nl-slash">/</span><span>Audit</span></a>
@@ -2036,7 +2014,7 @@ main.site-page[hidden]{ display:none !important; }
   </div>
 
   <div class="manifeste-close wrap reveal">
-    <picture><source srcset="/images/cely-logo-light.webp" type="image/webp"><img class="wordmark" src="/images/cely-logo-light.png" alt="Cely" width="292" height="102"></picture>
+    <picture><source srcset="/cely-logo-light.webp" type="image/webp"><img class="wordmark" src="/cely-logo-light.png" alt="Cely" width="292" height="102"></picture>
     <h2>Le growth qui <span style="color:var(--violet)">s'intègre.</span></h2>
     <div style="margin-top:32px;">
       <a href="/contact" data-route="contact" class="btn btn-primary">
@@ -2081,59 +2059,40 @@ main.site-page[hidden]{ display:none !important; }
     <div class="hero-fill"></div>
 
     <div class="hero-stage">
-      <div class="hero-journey" aria-hidden="true">
-        <div class="hj-track">
-          <span class="hj-line">
-            <svg viewBox="0 0 2 200" preserveAspectRatio="none"><path d="M1 0 V200" stroke="#8B5BFF" stroke-width="1.4"/></svg>
-            <span class="hj-pulse"></span>
-          </span>
-          <div class="hj-point"><span class="hj-dot"></span><span class="hj-label">Votre situation</span></div>
-          <div class="hj-point is-cely"><span class="hj-dot"></span><span class="hj-label">Cely s'intègre</span></div>
-          <div class="hj-point is-after"><span class="hj-dot"></span><span class="hj-label">Votre acquisition pilotée</span></div>
-        </div>
-      </div>
-
       <div class="hero-center">
         <div class="hero-trust">
-          <span>Agence Growth Marketing B2B</span><span class="sep">/</span><span>Growth Part-Time</span><span class="sep">/</span><span>1er mois satisfait ou remboursé</span>
+          <span>Startups B2B</span><span class="sep">/</span><span>Head of Growth à temps partagé</span>
         </div>
 
         <h1 class="hero-h1">
-          <span class="ln">Le growth qui</span>
-          <span class="ln"><span class="hl-word"><span class="mark" aria-hidden="true"></span>s'intègre.</span></span>
+          <span class="ln">L'agence growth marketing</span>
+          <span class="ln">qui devient votre <span class="hl-word"><span class="mark" aria-hidden="true"></span>Head of Growth.</span></span>
         </h1>
 
-        <p class="hero-sub">Cely est l'agence growth marketing qui s'intègre à votre équipe pour lancer et piloter votre acquisition : stratégie, prospection, contenu.</p>
+        <p class="hero-sub">On prend en main votre acquisition : stratégie, prospection, contenu. En 30 jours, un canal outbound (on va chercher les clients&nbsp;: e-mail, LinkedIn) et un canal inbound (les clients viennent à vous&nbsp;: contenu, SEO, page d'atterrissage) tournent. Et si le premier mois ne vous convainc pas, on vous le rembourse.</p>
 
         <div class="hero-actions">
-          <a href="/contact" data-route="contact" class="btn-hero">Faire le point ensemble
+          <a href="/contact" class="btn-hero">Réserver 30 min offertes
             <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#solution" class="btn-text-cely">Voir comment ça marche
+          <a href="#comment-ca-marche" class="btn-text-cely">Voir comment ça marche
             <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
-
-        <div class="hero-logos">
-          <div class="marquee" aria-hidden="true">
-            <div class="marquee-track">
-              <span class="wordmark">Premier mois satisfait ou remboursé</span><span class="wordmark">Sans engagement</span><span class="wordmark">Un seul interlocuteur</span><span class="wordmark">Startups B2B de 5 à 30 personnes</span><span class="wordmark">Basés à Grenoble, partout en France</span>
-              <span class="wordmark">Premier mois satisfait ou remboursé</span><span class="wordmark">Sans engagement</span><span class="wordmark">Un seul interlocuteur</span><span class="wordmark">Startups B2B de 5 à 30 personnes</span><span class="wordmark">Basés à Grenoble, partout en France</span>
-            </div>
-          </div>
-          <span class="hl-ps-note">PS&nbsp;: on n'a aucune intention de vous rembourser. On a l'intention de vous convaincre.</span>
-        </div>
-
-        <div class="hj-mobile" aria-hidden="true">
-          <span>Votre situation</span>
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span class="cur">Cely s'intègre</span>
-          <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>Acquisition pilotée</span>
-        </div>
+        <p class="hero-micro" style="margin-top:16px;font-family:var(--font-label);font-size:.8rem;color:var(--muted);">Premier échange offert · Sans engagement · Réponse sous 24&nbsp;h</p>
       </div>
     </div>
   </section>
+
+  <div class="reassure-band">
+    <div class="reassure-track">
+      <span>Premier mois satisfait ou remboursé</span><span class="reassure-dot">·</span>
+      <span>Sans engagement, mois par mois</span><span class="reassure-dot">·</span>
+      <span>Un seul interlocuteur pour toute votre acquisition</span><span class="reassure-dot">·</span>
+      <span>Basés à Grenoble, on travaille partout en France</span>
+    </div>
+    <p class="reassure-ps">PS&nbsp;: on n'a aucune intention de vous rembourser. On a l'intention de vous convaincre.</p>
+  </div>
 
   <!-- ============================================================
        SECTION — LE PROBLÈME
@@ -2142,295 +2101,112 @@ main.site-page[hidden]{ display:none !important; }
     <div class="section-wrap">
       <div class="problem-head reveal">
         <span class="section-label"><span class="sl-slash">//</span> Le problème</span>
-        <h2 class="section-h2">Vous faites du growth. Mais qui le pilote&nbsp;?</h2>
+        <h2 class="section-h2">Aujourd'hui, vos clients viennent surtout de votre réseau.</h2>
+        <p class="hz-intro">Et jusqu'ici, ça a marché. Mais le réseau finit toujours par s'épuiser, alors que vos objectifs de croissance, eux, continuent de monter.</p>
       </div>
 
-      <div class="problem-body" id="problemBody">
-        <svg class="problem-connector" id="problemConnector" aria-hidden="true"></svg>
-
-        <div class="problem-visual reveal">
-          <div class="problem-photo" id="problemPhoto">
-            <span class="pp-glow" aria-hidden="true"></span>
-            <span class="pp-glow-2" aria-hidden="true"></span>
-            <img src="/images/photos/cely-terrain-croissance.webp" alt="Célien Boillot analysant les indicateurs d'acquisition d'un client, ordinateur portable ouvert sur les résultats" loading="lazy" width="900" height="1125">
-          </div>
-          <div class="problem-id">
-            <span class="section-label"><span class="sl-slash">//</span> Ça vous parle&nbsp;?</span>
-            <p class="problem-id-phrase" id="problemIdPhrase">Je lance des actions. Mais je ne sais plus vraiment ce qui marche.</p>
-          </div>
-        </div>
-
-        <div class="problem-diagram">
-          <div class="pd" id="pdDesktop">
-            <div class="pd-inner">
-              <div class="pd-rows" id="pdRows">
-                <div class="pd-row" data-row="0" data-id="On lance des actions. Mais on ne sait pas vraiment ce qui marche."><span class="pd-key">Tests</span><p class="pd-phrase">On lance des actions, puis on passe aux suivantes sans vraiment mesurer.</p></div>
-                <div class="pd-row" data-row="1" data-id="On est partout à la fois. Résultat : on ne sait plus où donner la priorité."><span class="pd-key">Canaux</span><p class="pd-phrase">On est partout à la fois. Mais on ne sait plus quoi prioriser.</p></div>
-                <div class="pd-row" data-row="2" data-id="Le site, le CRM, les campagnes... Tout existe, mais rien ne se parle."><span class="pd-key">Outils</span><p class="pd-phrase">On a tous les outils. Mais ils ne travaillent pas ensemble.</p></div>
-                <div class="pd-row" data-row="3" data-id="Au final, c'est encore moi qui dois tout arbitrer."><span class="pd-key">Pilotage</span><p class="pd-phrase">Tout le monde s'occupe un peu du digital. Personne ne tient vraiment l'ensemble.</p></div>
-                <div class="pd-row" data-row="4" data-id="On communique quand on a le temps. Pas quand la stratégie le demande."><span class="pd-key">Communication</span><p class="pd-phrase">On publie quand on a le temps. Pas quand la stratégie le demande.</p></div>
-              </div>
-              <div class="pd-hub" id="pdHub"><span class="pd-hub-q">?</span><span class="pd-hub-label">Qui pilote&nbsp;?</span></div>
-              <svg class="pd-lines" id="pdLines" aria-hidden="true"></svg>
-            </div>
-          </div>
-
-          <div class="pd-mobile">
-            <div class="pdm-track">
-              <span class="pdm-line" aria-hidden="true"></span>
-              <div class="pdm-row"><span class="pdm-key">Tests</span><p class="pdm-phrase">On lance des actions, puis on passe aux suivantes sans vraiment mesurer.</p></div>
-              <div class="pdm-row"><span class="pdm-key">Canaux</span><p class="pdm-phrase">On est partout à la fois. Mais on ne sait plus quoi prioriser.</p></div>
-              <div class="pdm-row"><span class="pdm-key">Outils</span><p class="pdm-phrase">On a tous les outils. Mais ils ne travaillent pas ensemble.</p></div>
-              <div class="pdm-row"><span class="pdm-key">Pilotage</span><p class="pdm-phrase">Tout le monde s'occupe un peu du digital. Personne ne tient vraiment l'ensemble.</p></div>
-              <div class="pdm-row"><span class="pdm-key">Communication</span><p class="pdm-phrase">On publie quand on a le temps. Pas quand la stratégie le demande.</p></div>
-            </div>
-            <div class="pdm-hub"><span class="circ">?</span><span class="txt">Qui pilote ?</span></div>
-          </div>
-        </div>
+      <div class="problem-cards-grid reveal">
+        <article class="problem-card">
+          <h3>Le fondateur fait tout.</h3>
+          <p>La vente, le produit, le recrutement… et le marketing quand il reste du temps. Donc rarement.</p>
+        </article>
+        <article class="problem-card">
+          <h3>On teste un peu de tout.</h3>
+          <p>Un peu de LinkedIn, une campagne lancée une fois, un prestataire SEO. Personne ne sait vraiment ce qui ramène des clients.</p>
+        </article>
+        <article class="problem-card">
+          <h3>Recruter un Head of Growth, c'est trop tôt.</h3>
+          <p>Trop cher, trop long à trouver, et risqué si le profil ne convient pas.</p>
+        </article>
       </div>
 
-      <div class="problem-moment reveal">
-        <p class="problem-moment-text">
-          <span class="pm-line pm-line-1">Et si le problème n'était pas de faire plus&nbsp;?</span>
-          <span class="pm-line pm-line-2">Mais que personne ne tienne la barre.</span>
-        </p>
-        <span class="pm-scroll" aria-hidden="true">
-          <svg viewBox="0 0 16 24" fill="none"><path d="M8 1v18M8 19l-5-5M8 19l5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-      </div>
+      <p class="problem-transition-big reveal">Et si le problème n'était pas de faire plus, mais que quelqu'un tienne enfin la barre&nbsp;?</p>
     </div>
   </section>
 
   <!-- ============================================================
-       SECTION — ET C'EST LÀ QUE CELY ARRIVE
+       SECTION — LA GARANTIE
        ============================================================ -->
-  <section class="solution" id="solution">
+  <section class="guarantee-section" id="garantie">
     <div class="section-wrap">
-      <div class="solution-head reveal">
-        <span class="section-label"><span class="sl-slash">//</span> Et c'est là que Cely arrive</span>
-        <h2 class="section-h2">Et c'est là que <span class="hl-accent">Cely</span> arrive.</h2>
-        <p class="solution-lede">On commence par comprendre votre situation. Puis on construit une collaboration adaptée à vos priorités.</p>
-      </div>
-
-      <div class="solution-stack">
-        <article class="stack-card sc-1 reveal" style="--sc-bg:var(--off-white-2); --sc-fg:var(--prune);">
-          <div class="sc-inner">
-            <div class="sc-text">
-              <span class="sc-num">01</span>
-              <h3 class="sc-title">On vérifie le fit.</h3>
-              <p class="sc-copy">Vous répondez à quelques questions. On vérifie votre stade de développement, vos enjeux principaux, et si notre accompagnement peut être pertinent pour vous.</p>
-            </div>
-            <div class="sc-visual" aria-hidden="true">
-              <div class="sv-check"><span class="sv-dot"></span>Stade de développement</div>
-              <div class="sv-check"><span class="sv-dot"></span>Enjeux prioritaires</div>
-              <div class="sv-check"><span class="sv-dot"></span>Pertinence de l'accompagnement</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="stack-card sc-2 reveal" style="--sc-bg:var(--lavender); --sc-fg:var(--prune);">
-          <div class="sc-inner">
-            <div class="sc-text">
-              <span class="sc-num">02</span>
-              <h3 class="sc-title">On regarde ce qui bloque.</h3>
-              <p class="sc-copy">Un premier échange pour comprendre votre situation et identifier les sujets prioritaires.</p>
-            </div>
-            <div class="sc-doc" aria-hidden="true">
-              <span class="sd-free">Offert</span>
-              <span class="sd-line w80"></span>
-              <span class="sd-line w60"></span>
-              <span class="sd-line w40"></span>
-              <span class="sd-note">30 minutes pour faire le point. Vous repartez avec 2 à 3 pistes concrètes, que vous travailliez avec nous ou pas.</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="stack-card sc-3 reveal" style="--sc-bg:#EFE9FB; --sc-fg:var(--prune);">
-          <div class="sc-inner">
-            <div class="sc-text">
-              <span class="sc-num">03</span>
-              <h3 class="sc-title">On vous propose une direction.</h3>
-              <p class="sc-copy">On revient vers vous avec une proposition claire : priorités, premières actions, périmètre de collaboration, forfait et modalités. Vous décidez librement si vous souhaitez avancer.</p>
-            </div>
-            <div class="sc-plan" aria-hidden="true">
-              <div class="sp-row"><span>Priorités</span><span>→</span></div>
-              <div class="sp-row"><span>Actions</span><span>→</span></div>
-              <div class="sp-row"><span>Périmètre</span><span>→</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="stack-card sc-4 reveal" style="--sc-bg:var(--prune); --sc-fg:var(--off-white);">
-          <div class="sc-inner">
-            <div class="sc-text">
-              <span class="sc-num">04</span>
-              <h3 class="sc-title">On rejoint la boucle.</h3>
-              <p class="sc-copy">Si la proposition est acceptée, Cely rejoint votre équipe. On lance les actions prioritaires et on coordonne les expertises nécessaires. Vous gardez une vision claire de ce qui avance.</p>
-              <div class="sc-month">
-                <span>Le premier mois : audit d'acquisition</span>
-                <span>Plan d'action posé</span>
-                <span>Un levier outbound et un levier inbound lancés</span>
-                <span>Satisfait ou remboursé</span>
-              </div>
-            </div>
-            <div class="sc-loop" aria-hidden="true">
-              <span class="sl-tag">Point équipe</span>
-              <span class="sl-tag">Priorités partagées</span>
-              <span class="sl-tag">Suivi hebdomadaire</span>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <p class="solution-transition reveal">Et ensuite&nbsp;? On avance ensemble, semaine après semaine.</p>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       SECTION — POURQUOI VOUS HÉSITEZ ENCORE ?
-       ============================================================ -->
-  <section class="hesitations" id="hesitations">
-    <div class="section-wrap hesitations-grid">
-      <div class="reveal hz-left">
-        <span class="section-label"><span class="sl-slash">//</span> Réassurance</span>
-        <h2 class="section-h2">Pourquoi vous hésitez encore&nbsp;?</h2>
-        <p class="hz-intro">C'est normal de vouloir comprendre comment la collaboration se passe avant d'aller plus loin — surtout quand il s'agit de votre acquisition.</p>
-        <div class="hz-points">
-          <span class="hz-point">Premier échange offert</span>
-          <span class="hz-point">Sans engagement</span>
-          <span class="hz-point">1er mois remboursé si vous n'êtes pas convaincu</span>
-        </div>
-        <div class="hz-cta-row">
-          <a href="/contact" data-route="contact" class="btn-affirm">Poser mes questions
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="reveal hz-proof">
-        <span class="hz-proof-stamp">Satisfait ou remboursé</span>
-        <div class="hz-proof-visual">
-          <img src="/images/photos/celien-portrait-garantie.webp" alt="Célien Boillot, fondateur de Cely" loading="lazy" width="1000" height="562">
-        </div>
-        <p class="hz-proof-title">Premier mois satisfait ou remboursé.</p>
-        <p class="hz-proof-quote">Pendant 30 jours, on travaille comme votre Head of Growth&nbsp;: audit, plan d'action, premiers canaux lancés. Si à la fin du mois vous n'êtes pas convaincu, on vous rembourse. Un message suffit.</p>
-        <p class="hz-proof-quote hz-proof-aside"><em>Entre nous, on compte bien ne jamais avoir à le faire.</em></p>
-        <div class="hz-proof-foot">
-          <span class="hz-proof-name">Célien Boillot</span>
-          <span class="hz-proof-role">Fondateur de Cely</span>
-        </div>
+      <div class="guarantee-card reveal">
+        <span class="guarantee-badge">Satisfait ou remboursé</span>
+        <h2 class="guarantee-h2">Premier mois satisfait ou remboursé. Oui, vraiment.</h2>
+        <p>Pendant 30 jours, on travaille comme votre Head of Growth&nbsp;: audit, plan d'action, premiers canaux lancés. À la fin du mois, vous jugez sur pièces.</p>
+        <p>Pas convaincu&nbsp;? On vous rembourse le premier mois. Pas de formulaire en 12 étapes, pas de "c'est à cause du contexte". Un message suffit.</p>
+        <p>Pourquoi on prend ce risque&nbsp;? Parce qu'une startup n'a pas six mois à perdre pour savoir si son prestataire est bon. Et parce qu'on préfère être jugés sur ce qu'on fait que sur ce qu'on promet.</p>
+        <a href="/growth" data-route="growth" class="guarantee-link">Les conditions exactes de la garantie →</a>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       TRANSITION — surface Cely (entrée : clair → prune)
+       SECTION — COMMENT ÇA MARCHE
        ============================================================ -->
-  <div class="section-seam section-seam-in" id="seamIn" aria-hidden="true"><div class="seam-fill"></div></div>
+  <section class="section-generic" id="comment-ca-marche">
+    <div class="section-wrap">
+      <div class="reveal">
+        <span class="section-label"><span class="sl-slash">//</span> Le déroulé</span>
+        <h2 class="section-h2">Comment on travaille ensemble.</h2>
+      </div>
+      <div class="steps-grid reveal">
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <h3>30 minutes pour faire le point. Offertes.</h3>
+          <p>Vous nous expliquez où vous en êtes. On vous pose les bonnes questions, et vous repartez avec 2 à 3 pistes concrètes, que vous travailliez avec nous ou pas.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <h3>Une proposition claire.</h3>
+          <p>Sous 48&nbsp;h&nbsp;: les priorités, ce qu'on lance le premier mois, le forfait. Pas de devis de 15 pages.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <h3>Le premier mois, garanti.</h3>
+          <p>Audit de votre acquisition, plan d'action priorisé, un canal outbound et un canal inbound lancés. Satisfait ou remboursé.</p>
+        </div>
+        <div class="step-card">
+          <span class="step-num">04</span>
+          <h3>Ensuite, on avance semaine après semaine.</h3>
+          <p>Un point chaque semaine, des chiffres clairs, des ajustements. Sans engagement&nbsp;: vous restez parce que ça marche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============================================================
        SECTION — CE QUE VOUS OBTENEZ
        ============================================================ -->
-  <section class="obtenez" id="obtenez">
-    <div class="obtenez-light" aria-hidden="true"><span class="ol-1"></span><span class="ol-2"></span></div>
+  <section class="section-generic" id="obtenez" style="background:var(--off-white-2);">
     <div class="section-wrap">
       <div class="reveal">
         <span class="section-label"><span class="sl-slash">//</span> Livrables</span>
-        <h2 class="section-h2">Ce que vous obtenez.</h2>
-        <p class="obtenez-lede">Du pilotage, oui. Mais aussi des éléments concrets pour avancer, décider et exécuter.</p>
+        <h2 class="section-h2">Concrètement, vous obtenez quoi&nbsp;?</h2>
+        <p class="hz-intro">Pas des conseils à mettre en œuvre vous-même. Des choses qui tournent.</p>
       </div>
-
-      <div class="ob-grid">
-        <article class="ob-card ob-card-1 reveal">
-          <span class="ob-num">01</span>
-          <h3 class="ob-title">Un diagnostic clair</h3>
-          <p class="ob-copy">Ce qui vous ramène vraiment des clients, ce qui vous coûte du temps pour rien, et ce qui manque.</p>
-          <div class="ob-visual" aria-hidden="true">
-            <span class="ob-doc-line w80"></span>
-            <span class="ob-doc-line w60"></span>
-            <span class="ob-doc-line w40"></span>
-          </div>
-        </article>
-
-        <article class="ob-card ob-card-2 reveal">
-          <span class="ob-num">02</span>
-          <h3 class="ob-title">Un plan priorisé</h3>
-          <p class="ob-copy">Pas une liste de 40 idées&nbsp;: des priorités claires, dans le bon ordre.</p>
-          <div class="ob-visual" aria-hidden="true">
-            <div class="ob-plan-row"><span class="n">01</span>Canaux prioritaires</div>
-            <div class="ob-plan-row"><span class="n">02</span>Tests à lancer</div>
-            <div class="ob-plan-row"><span class="n">03</span>Structure du suivi</div>
-          </div>
-        </article>
-
-        <article class="ob-card ob-card-3 reveal">
-          <span class="ob-num">03</span>
-          <h3 class="ob-title">Un cadre de pilotage</h3>
-          <p class="ob-copy">Un point de 30 minutes chaque semaine. Vous savez toujours ce qu'on a lancé, ce que ça donne et ce qu'on ajuste.</p>
-          <div class="ob-visual ob-visual-cal" aria-hidden="true">
-            <div class="ob-cal" id="obCal">
-              <span class="ob-cal-spine" id="obCalSpine"></span>
-              <div class="ob-cal-row" data-slot="1"><span class="ob-cal-day">Lun</span><span class="ob-cal-dot"></span><div class="ob-cal-main"><strong>Point équipe</strong><span>Priorités de la semaine</span></div></div>
-              <div class="ob-cal-annotate">On est aussi dans vos points d'équipe. <span aria-hidden="true">↗</span></div>
-              <div class="ob-cal-row" data-slot="2"><span class="ob-cal-day">Mar</span><span class="ob-cal-dot"></span><div class="ob-cal-main"><strong>Exécution growth</strong><span>Mise en place des actions</span></div></div>
-              <div class="ob-cal-row" data-slot="3"><span class="ob-cal-day">Mer</span><span class="ob-cal-dot"></span><div class="ob-cal-main"><strong>Échange Sales</strong><span>Retours du terrain</span></div></div>
-              <div class="ob-cal-row" data-slot="4"><span class="ob-cal-day">Jeu</span><span class="ob-cal-dot"></span><div class="ob-cal-main"><strong>Suivi des tests</strong><span>Analyse et ajustements</span></div></div>
-              <div class="ob-cal-row" data-slot="5"><span class="ob-cal-day">Ven</span><span class="ob-cal-dot"></span><div class="ob-cal-main"><strong>Reporting</strong><span>Résultats et prochaines actions</span></div></div>
-              <span class="ob-cal-pulse" id="obCalPulse"></span>
-            </div>
-            <p class="ob-cal-caption">Exemple d'une semaine avec Cely.</p>
-          </div>
-        </article>
-
-        <article class="ob-card ob-card-4 reveal">
-          <span class="ob-num">04</span>
-          <h3 class="ob-title">Des actions qui avancent</h3>
-          <p class="ob-copy">Dès le premier mois, un canal de prospection et un canal entrant sont lancés. On ne s'arrête pas aux recommandations.</p>
-          <div class="ob-visual ob-visual-tags" aria-hidden="true">
-            <div class="ob-tagboard" id="obTagboard">
-              <span class="ob-tag ob-tag-lav t-span3" data-order="0" title="Prospection ciblée, en cours de diffusion."><span class="ob-tag-label">Campagne outbound</span><span class="ob-tag-arrow">↗</span></span>
-              <span class="ob-tag ob-tag-off t-span3" data-order="1" title="Prise de parole régulière sur LinkedIn."><span class="ob-tag-label">Séquence LinkedIn</span><span class="ob-tag-arrow">↗</span></span>
-              <span class="ob-tag ob-tag-violet t-span2" data-order="2" title="Pilotage des campagnes publicitaires."><span class="ob-tag-label">Coordination Ads</span><span class="ob-tag-arrow">↗</span></span>
-              <span class="ob-tag ob-tag-off t-span2" data-order="3" data-state="prep" title="Page dédiée, en préparation."><span class="ob-tag-label">Landing page</span><span class="ob-tag-arrow">↗</span></span>
-              <span class="ob-tag ob-tag-lav t-span2" data-order="4" title="Centralisation des contacts et opportunités."><span class="ob-tag-label">CRM</span><span class="ob-tag-arrow">↗</span></span>
-              <span class="ob-tag ob-tag-off t-span2" data-order="5" title="Suivi des sources et des conversions."><span class="ob-tag-label">Tracking</span><span class="ob-tag-arrow">↗</span></span>
-              <span class="ob-tag ob-tag-lav t-span3" data-order="6" title="Supports pour nourrir chaque canal."><span class="ob-tag-label">Contenus</span><span class="ob-tag-arrow">↗</span></span>
-              <span class="ob-tag ob-tag-off t-span3" data-order="7" title="Comparaison de variantes pour trancher."><span class="ob-tag-label">Tests A/B</span><span class="ob-tag-arrow">↗</span></span>
-              <span class="ob-tag ob-tag-violet t-span6" data-order="8" title="Lecture des résultats, semaine après semaine."><span class="ob-tag-label">Analyse des résultats</span><span class="ob-tag-arrow">↗</span></span>
-            </div>
-            <p class="ob-tag-legend">À préparer <span class="ob-tag-legend-dot dot-prep"></span> En cours <span class="ob-tag-legend-dot dot-cours"></span> À suivre <span class="ob-tag-legend-dot dot-suivre"></span></p>
-          </div>
-        </article>
+      <div class="obtenez-2col reveal">
+        <div class="obtenez-col">
+          <h3>Le premier mois</h3>
+          <ul>
+            <li>Un audit de votre acquisition&nbsp;: ce qui marche, ce qui ne marche pas, ce qui manque.</li>
+            <li>Un plan d'action de 3 à 5 priorités, dans l'ordre. Pas 40 idées.</li>
+            <li>Un canal outbound lancé&nbsp;: cible définie, fichier de prospects construit, messages écrits, premières séquences envoyées.</li>
+            <li>Un canal inbound lancé&nbsp;: selon votre cas, une page d'atterrissage, une ligne éditoriale LinkedIn ou un chantier SEO.</li>
+            <li>Un tableau de bord simple&nbsp;: les 4 ou 5 chiffres qui comptent vraiment.</li>
+          </ul>
+        </div>
+        <div class="obtenez-col">
+          <h3>Chaque mois ensuite</h3>
+          <ul>
+            <li>Un point hebdomadaire de 30 minutes avec vous (et votre équipe commerciale si vous le souhaitez).</li>
+            <li>Un rapport clair&nbsp;: rendez-vous obtenus, réponses, opportunités. Pas de rapport de 20 pages sur les "impressions".</li>
+            <li>Des tests en continu&nbsp;: on garde ce qui marche, on coupe le reste.</li>
+            <li>La coordination de vos prestataires (publicité, prospection, contenu)&nbsp;: on les choisit, on les briefe, on vérifie leur travail.</li>
+          </ul>
+        </div>
       </div>
-
-      <article class="ob-final reveal" id="obFinal">
-        <div class="ob-final-head">
-          <span class="ob-num ob-num-final">05</span>
-          <h3 class="ob-final-title">Ce que ça change pour vous.</h3>
-        </div>
-        <div class="ob-final-benefits">
-          <div class="ob-benefit" data-b="1">
-            <span class="ob-benefit-index">01</span>
-            <p class="ob-benefit-title">Vous savez <span class="ob-hl">ce qui marche</span>.</p>
-            <p class="ob-benefit-copy">Quels canaux ramènent des clients, et lesquels arrêter.</p>
-          </div>
-          <div class="ob-benefit" data-b="2">
-            <span class="ob-benefit-index">02</span>
-            <p class="ob-benefit-title">Vous arrêtez de <span class="ob-hl">tout porter seul</span>.</p>
-            <p class="ob-benefit-copy">L'acquisition a enfin quelqu'un qui s'en occupe, chaque semaine.</p>
-          </div>
-          <div class="ob-benefit" data-b="3">
-            <span class="ob-benefit-index">03</span>
-            <p class="ob-benefit-title">Des rendez-vous qui ne dépendent plus <span class="ob-hl">seulement de votre réseau</span>.</p>
-            <p class="ob-benefit-copy">Une prospection et un contenu qui tournent, même quand vous êtes pris ailleurs.</p>
-          </div>
-        </div>
-        <p class="ob-final-outro">Moins de dispersion. Plus de direction.</p>
-      </article>
-
-      <p class="obtenez-outro reveal">Autrement dit&nbsp;: pas seulement des conseils. Un cadre pour agir.</p>
-      <div class="obtenez-cta-row reveal">
-        <a href="/growth" data-route="growth" class="btn-text-cely on-dark">Découvrir Growth Part-Time
+      <div class="obtenez-cta-row reveal" style="margin-top:32px;">
+        <a href="/growth" data-route="growth" class="btn-text-cely">Découvrir l'offre Growth Part-Time
           <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -2438,104 +2214,139 @@ main.site-page[hidden]{ display:none !important; }
   </section>
 
   <!-- ============================================================
-       TRANSITION — surface Cely (sortie : prune → clair)
+       SECTION — QUI PILOTE
        ============================================================ -->
-  <div class="section-seam section-seam-out section-seam-static" aria-hidden="true"><div class="seam-fill"></div></div>
+  <section class="section-generic" id="qui-pilote">
+    <div class="section-wrap">
+      <div class="reveal">
+        <span class="section-label"><span class="sl-slash">//</span> L'équipe</span>
+        <h2 class="section-h2">Derrière Cely, il y a Célien.</h2>
+      </div>
+      <div class="pilote-block reveal">
+        <img src="/celien-boillot.png" alt="Photo de Célien Boillot, fondateur de Cely" class="pilote-photo" width="112" height="112">
+        <div class="pilote-text">
+          <p>En 2023, j'ai cofondé Wenoble, une agence qui conçoit des sites pour des startups tech et des PME. Avec Wenoble, on a accompagné plus de 60 entreprises. Et j'ai souvent vu le même scénario&nbsp;: un bon site en ligne… et personne pour faire venir des clients dessus.</p>
+          <p>J'ai créé Cely pour être ce "quelqu'un". Je pilote personnellement chaque client, et je m'entoure de partenaires spécialisés pour l'exécution (publicité, prospection). C'est aussi pour ça qu'on ne travaille qu'avec quelques startups à la fois.</p>
+          <p class="pilote-sig">Célien Boillot, fondateur de Cely</p>
+          <div class="pilote-links">
+            <a href="https://www.linkedin.com/in/celienboillotwenoble/" target="_blank" rel="noopener">Profil LinkedIn</a>
+            <a href="/contact">Réserver 30 min avec moi</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ============================================================
-       SECTION — GRAND COMPARATIF (matrice de décision)
+       SECTION — COMPARATIF COURT
        ============================================================ -->
-  <section class="compare" id="compare">
+  <section class="section-generic" id="comparatif" style="background:var(--off-white-2);">
     <div class="section-wrap">
-      <div class="compare-head reveal">
+      <div class="reveal">
         <span class="section-label"><span class="sl-slash">//</span> Comparatif</span>
-        <h2 class="section-h2">Quel modèle pour votre growth&nbsp;?</h2>
-        <p class="compare-lede">Recruter un salarié, déléguer à un freelance ou une agence growth marketing, ou intégrer un pilote à temps partagé&nbsp;: quatre façons d'organiser votre acquisition.</p>
+        <h2 class="section-h2">Recruter, sous-traiter, ou temps partagé&nbsp;?</h2>
       </div>
+      <div class="compare-short-wrap reveal">
+        <table class="compare-short-table">
+          <thead>
+            <tr><th></th><th>Recruter un Head of Growth</th><th>Une agence spécialisée</th><th>Cely</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Coût</th><td>Environ 68&nbsp;000&nbsp;€ brut/an en salaire médian, hors charges<sup>1</sup></td><td>Souvent 2&nbsp;000 à 15&nbsp;000&nbsp;€/mois hors budget média<sup>2</sup></td><td class="cs-cely">Forfait mensuel, prix transmis après le premier échange</td></tr>
+            <tr><th scope="row">Délai pour démarrer</th><td>Plusieurs mois (recrutement, préavis, prise de poste)</td><td>Quelques semaines</td><td class="cs-cely">Premiers canaux lancés en 30 jours</td></tr>
+            <tr><th scope="row">Vue d'ensemble de l'acquisition</th><td>Oui</td><td>Souvent limitée à son canal</td><td class="cs-cely">Oui, tous vos canaux et prestataires</td></tr>
+            <tr><th scope="row">Si ça ne marche pas</th><td>Rupture et recrutement à refaire</td><td>Vous payez le contrat</td><td class="cs-cely">Premier mois remboursé</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-short-note">1. Salaire médian d'un Head of Growth en France, source Glassdoor 2026. 2. Fourchettes publiées par des comparatifs d'agences growth marketing en France.</p>
+      <!-- Page comparatif complet pas encore construite : lien retiré, sera rétabli une fois la page en ligne. -->
+    </div>
+  </section>
 
-      <div class="compare-stage reveal" id="compareStage">
-        <div class="compare-table-wrap">
-          <div class="ct-cely-surface" id="celySurface" aria-hidden="true"></div>
-          <table class="compare-table" id="compareTable">
-            <caption class="sr-only">Comparatif entre un growth marketer salarié, un freelance spécialisé, une agence marketing et Cely Growth Part-Time, selon sept critères.</caption>
-            <colgroup>
-              <col class="ct-col-crit"><col class="ct-col-sal"><col class="ct-col-free"><col class="ct-col-agence"><col class="ct-col-cely">
-            </colgroup>
-            <thead>
-              <tr>
-                <th class="ct-crit-h" scope="col">// Critère</th>
-                <th scope="col"><span class="ct-model-h">Salarié</span><span class="ct-model-sub">Growth en interne</span></th>
-                <th scope="col"><span class="ct-model-h">Freelance</span><span class="ct-model-sub">Expert spécialisé</span></th>
-                <th scope="col"><span class="ct-model-h">Agence</span><span class="ct-model-sub">Prestataire externe</span></th>
-                <th class="ct-cely-h" scope="col">
-                  <span class="ct-recommended-badge">Recommandé pour les startups B2B</span>
-                  <span class="ct-model-h">C<span class="e">e</span>ly<span class="dot" aria-hidden="true"></span><span class="ct-cely-suffix">Growth Part-Time</span></span>
-                  <span class="ct-model-sub">Pilotage intégré à temps partagé</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr data-row="0">
-                <th scope="row"><span class="ct-num">01</span>Structure de coût</th>
-                <td data-label="Salarié">Environ 60 k€ brut/an de salaire de base moyen<sup>1</sup>, hors charges et recrutement</td>
-                <td data-label="Freelance">Facturé à la journée ou à la mission</td>
-                <td data-label="Agence">Souvent 2 000 à 15 000 €/mois, hors budget publicitaire<sup>2</sup></td>
-                <td data-label="Cely" class="ct-cely-cell">Forfait mensuel fixe, sur devis<span class="ct-arrow">↗</span><span class="ct-sub">Dès quelques heures par semaine</span></td>
-              </tr>
-              <tr data-row="1">
-                <th scope="row"><span class="ct-num">02</span>Mise en place</th>
-                <td data-label="Salarié">Plusieurs mois (recherche, entretiens, préavis)</td>
-                <td data-label="Freelance">Quelques semaines</td>
-                <td data-label="Agence">Quelques semaines</td>
-                <td data-label="Cely" class="ct-cely-cell">Premiers canaux lancés en 30 jours<span class="ct-arrow">↗</span></td>
-              </tr>
-              <tr data-row="2">
-                <th scope="row"><span class="ct-num">03</span>Temps d'intégration</th>
-                <td data-label="Salarié">Onboarding interne</td>
-                <td data-label="Freelance">Immersion selon mission</td>
-                <td data-label="Agence">Prise de contexte selon l'offre</td>
-                <td data-label="Cely" class="ct-cely-cell">Compréhension du business dès le cadrage<span class="ct-arrow">↗</span></td>
-              </tr>
-              <tr data-row="3">
-                <th scope="row"><span class="ct-num">04</span>Présence dans l'équipe</th>
-                <td data-label="Salarié">Au quotidien, en interne</td>
-                <td data-label="Freelance">Selon la mission</td>
-                <td data-label="Agence">Selon l'organisation</td>
-                <td data-label="Cely" class="ct-cely-cell">Intégration régulière à l'équipe<span class="ct-arrow">↗</span></td>
-              </tr>
-              <tr data-row="4">
-                <th scope="row"><span class="ct-num">05</span>Pilotage global</th>
-                <td data-label="Salarié">Oui</td>
-                <td data-label="Freelance">Limité à sa spécialité</td>
-                <td data-label="Agence">Limité à son canal</td>
-                <td data-label="Cely" class="ct-cely-cell">Oui, tous vos canaux et prestataires<span class="ct-arrow">↗</span></td>
-              </tr>
-              <tr data-row="5">
-                <th scope="row"><span class="ct-num">06</span>Exécution et expertises</th>
-                <td data-label="Salarié">Compétences du profil recruté</td>
-                <td data-label="Freelance">Expertise de sa spécialité</td>
-                <td data-label="Agence">Compétences selon l'offre</td>
-                <td data-label="Cely" class="ct-cely-cell">Exécution directe + coordination d'experts<span class="ct-arrow">↗</span></td>
-              </tr>
-              <tr data-row="6">
-                <th scope="row"><span class="ct-num">07</span>Si ça ne marche pas</th>
-                <td data-label="Salarié">Rupture et recrutement à refaire</td>
-                <td data-label="Freelance">Fin de mission</td>
-                <td data-label="Agence">Vous payez le contrat</td>
-                <td data-label="Cely" class="ct-cely-cell">1er mois remboursé, puis sans engagement<span class="ct-arrow">↗</span></td>
-              </tr>
-            </tbody>
-          </table>
+  <!-- ============================================================
+       SECTION — POUR QUI / PAS POUR QUI
+       ============================================================ -->
+  <section class="section-generic" id="pour-qui">
+    <div class="section-wrap">
+      <div class="pourqui-grid">
+        <div class="pourqui-col reveal">
+          <h2 class="section-h2" style="font-size:1.3rem;">Cely est fait pour vous si…</h2>
+          <ul>
+            <li>vous êtes une startup B2B de 5 à 30 personnes&nbsp;;</li>
+            <li>votre produit se vend déjà, mais surtout grâce au réseau du fondateur&nbsp;;</li>
+            <li>personne dans l'équipe n'est dédié à l'acquisition.</li>
+          </ul>
         </div>
+        <div class="pourqui-col reveal">
+          <h3 style="font-family:var(--font-display);font-weight:800;font-size:1.3rem;margin:0;">…et pas pour vous si…</h3>
+          <ul>
+            <li>vous cherchez seulement quelqu'un pour gérer vos campagnes publicitaires&nbsp;;</li>
+            <li>vous voulez une mission ponctuelle sans suivi&nbsp;;</li>
+            <li>vous n'avez pas encore vos premiers clients.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <p class="compare-note reveal">¹ Salaire de base moyen d'un Head of Growth en France, source&nbsp;: <a href="https://www.glassdoor.fr/Salaires/head-of-growth-salaire-SRCH_KO0,14.htm" target="_blank" rel="noopener nofollow">Glassdoor</a>.<br>² Fourchettes publiées par des comparatifs d'agences growth marketing en France. Le coût d'éventuels partenaires coordonnés par Cely (publicité, outils) est annoncé à l'avance.</p>
-
-        <span class="ct-cely-tail" id="celyTail" aria-hidden="true"></span>
-        <div class="compare-outro-block reveal">
-          <p class="compare-outro">Une fonction growth dans votre équipe. À temps partagé.</p>
-          <a href="/growth" data-route="growth" class="btn-text-cely compare-cta">Découvrir Growth Part-Time
-            <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
+  <!-- ============================================================
+       SECTION — FAQ
+       ============================================================ -->
+  <section class="section-generic" id="faq" style="background:var(--off-white-2);">
+    <div class="section-wrap">
+      <div class="reveal">
+        <span class="section-label"><span class="sl-slash">//</span> Questions fréquentes</span>
+        <h2 class="section-h2">Les questions qu'on nous pose souvent</h2>
+      </div>
+      <div class="faq-list reveal" id="homeFaqList">
+        <div class="faq-item" data-open="true">
+          <button type="button" class="faq-q">Qu'est-ce qu'une agence growth marketing, concrètement&nbsp;?
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Une agence growth marketing cherche les canaux qui ramènent des clients à une entreprise, les teste, et développe ceux qui fonctionnent. Chez Cely, on va plus loin&nbsp;: on prend le rôle d'un Head of Growth dans votre équipe, avec une vision d'ensemble sur toute votre acquisition.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-q">Combien coûte Cely&nbsp;?
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Un forfait mensuel, selon le périmètre (nombre de canaux, volume de prospection, besoin de partenaires). Le prix exact vous est donné après le premier échange, par écrit, sans surprise.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-q">Comment fonctionne la garantie satisfait ou remboursé&nbsp;?
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>On rembourse l'intégralité du premier mois si vous n'êtes pas satisfait du travail fourni. Il suffit d'un message&nbsp;: pas de formulaire à rallonge ni de justification à apporter.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-q">Y a-t-il un engagement&nbsp;?
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Non. Après le premier mois, le forfait est mensuel et résiliable à tout moment.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-q">Qui fait le travail concrètement&nbsp;?
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Célien pilote la stratégie et chaque client personnellement. Pour l'exécution spécialisée (publicité, prospection à grande échelle), on travaille avec des partenaires qu'on sélectionne, qu'on briefe et qu'on contrôle. Vous n'avez qu'un seul interlocuteur.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-q">En combien de temps voit-on des résultats&nbsp;?
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Les premiers canaux sont lancés dans les 30 premiers jours. Les premiers rendez-vous issus de la prospection arrivent en général dans les semaines qui suivent. Le SEO et le contenu, eux, prennent plusieurs mois&nbsp;: on vous le dit dès le départ.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-q">Vous travaillez uniquement à Grenoble&nbsp;?
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Non. On est basés à Meylan, près de Grenoble, mais on travaille avec des startups partout en France, en visio.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button type="button" class="faq-q">Quelle différence avec une agence growth marketing classique&nbsp;?
+            <svg viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Une agence classique prend un canal et le fait tourner. Nous, on s'intègre à votre équipe, on regarde toute votre acquisition, on coordonne vos prestataires et on reste responsables du résultat global. Et on rembourse le premier mois si vous n'êtes pas convaincu.</p></div></div>
         </div>
       </div>
     </div>
@@ -2548,19 +2359,49 @@ main.site-page[hidden]{ display:none !important; }
     <div class="section-wrap cta-final-wrap">
       <div class="cta-final-content reveal" id="ctaFinalContent-1">
         <span class="section-label cta-label"><span class="sl-slash">//</span> Premier échange offert</span>
-        <h2 class="cta-final-h2">Un premier rendez-vous.<br>Des <span class="accent">pistes concrètes</span> pour avancer.</h2>
-        <p class="cta-final-sub">On prend le temps de comprendre votre situation, d'identifier vos premiers points de blocage et de voir si Cely peut vous accompagner.</p>
+        <h2 class="cta-final-h2">30 minutes pour savoir<br>si on peut vous <span class="accent">aider</span>.</h2>
+        <p class="cta-final-sub">C'est offert, et ce n'est pas un piège commercial. Vous nous racontez où vous en êtes, on vous pose les bonnes questions, et vous repartez avec 2 à 3 pistes concrètes. Si Cely n'est pas le bon choix pour vous, on vous le dit honnêtement. Et si on travaille ensemble&nbsp;: premier mois satisfait ou remboursé.</p>
         <div class="cta-final-actions">
-          <a href="/contact#formulaire" data-route="contact" class="btn-cta-final">Répondre au formulaire
+          <a href="/contact#formulaire" class="btn-cta-final">Réserver 30 min offertes
             <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
-        <p class="cta-final-reassure">30 minutes offertes, sans engagement. Et si on travaille ensemble, le premier mois est satisfait ou remboursé.</p>
       </div>
     </div>
   </section>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Qu'est-ce qu'une agence growth marketing, concrètement ?","acceptedAnswer":{"@type":"Answer","text":"Une agence growth marketing cherche les canaux qui ramènent des clients à une entreprise, les teste, et développe ceux qui fonctionnent. Chez Cely, on va plus loin : on prend le rôle d'un Head of Growth dans votre équipe, avec une vision d'ensemble sur toute votre acquisition."}},
+      {"@type":"Question","name":"Combien coûte Cely ?","acceptedAnswer":{"@type":"Answer","text":"Un forfait mensuel, selon le périmètre (nombre de canaux, volume de prospection, besoin de partenaires). Le prix exact vous est donné après le premier échange, par écrit, sans surprise."}},
+      {"@type":"Question","name":"Comment fonctionne la garantie satisfait ou remboursé ?","acceptedAnswer":{"@type":"Answer","text":"On rembourse l'intégralité du premier mois si vous n'êtes pas satisfait du travail fourni. Il suffit d'un message, sans formulaire à rallonge ni justification à apporter."}},
+      {"@type":"Question","name":"Y a-t-il un engagement ?","acceptedAnswer":{"@type":"Answer","text":"Non. Après le premier mois, le forfait est mensuel et résiliable à tout moment."}},
+      {"@type":"Question","name":"Qui fait le travail concrètement ?","acceptedAnswer":{"@type":"Answer","text":"Célien pilote la stratégie et chaque client personnellement. Pour l'exécution spécialisée, Cely travaille avec des partenaires sélectionnés, briefés et contrôlés. Un seul interlocuteur pour le client."}},
+      {"@type":"Question","name":"En combien de temps voit-on des résultats ?","acceptedAnswer":{"@type":"Answer","text":"Les premiers canaux sont lancés dans les 30 premiers jours. Les premiers rendez-vous issus de la prospection arrivent en général dans les semaines qui suivent. Le SEO et le contenu prennent plusieurs mois."}},
+      {"@type":"Question","name":"Cely travaille-t-il uniquement à Grenoble ?","acceptedAnswer":{"@type":"Answer","text":"Non. Cely est basé à Meylan, près de Grenoble, mais travaille avec des startups partout en France, en visio."}},
+      {"@type":"Question","name":"Quelle différence avec une agence growth marketing classique ?","acceptedAnswer":{"@type":"Answer","text":"Une agence classique prend un canal et le fait tourner. Cely s'intègre à l'équipe du client, regarde toute son acquisition, coordonne ses prestataires et reste responsable du résultat global, avec un remboursement du premier mois si le client n'est pas convaincu."}}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Cely",
+    "url": "https://www.celygrowth.com/",
+    "image": "https://www.celygrowth.com/cely-mark-ce.png",
+    "telephone": "+33756963783",
+    "address": { "@type": "PostalAddress", "streetAddress": "6A Chem. des Prés", "postalCode": "38240", "addressLocality": "Meylan", "addressCountry": "FR" },
+    "areaServed": "FR",
+    "founder": { "@type": "Person", "name": "Célien Boillot" }
+  }
+  </script>
+
   </main>
+
 
   <main class="site-page" data-page="growth" hidden>
 
@@ -3814,7 +3655,7 @@ main.site-page[hidden]{ display:none !important; }
   <section class="art-authorhead-wrap">
     <div class="section-wrap reveal">
       <div class="art-authorhead">
-        <img src="/images/celien-boillot.png" alt="Photo de Célien Boillot" class="art-author-avatar art-authorhead-avatar" width="56" height="56">
+        <img src="/celien-boillot.png" alt="Photo de Célien Boillot" class="art-author-avatar art-authorhead-avatar" width="56" height="56">
         <div class="art-authorhead-body">
           <div class="art-authorhead-top">
             <a href="https://www.linkedin.com/in/celienboillotwenoble/" target="_blank" rel="noopener" class="art-authorhead-name">Célien Boillot</a>
@@ -4441,7 +4282,7 @@ main.site-page[hidden]{ display:none !important; }
         </div>
 
         <div class="art-author-card">
-          <img src="/images/celien-boillot.png" alt="Photo de Célien Boillot" class="art-author-avatar" width="52" height="52">
+          <img src="/celien-boillot.png" alt="Photo de Célien Boillot" class="art-author-avatar" width="52" height="52">
           <div>
             <div class="art-author-card-name">Célien Boillot</div>
             <div class="art-author-card-role">Fondateur de Cely, cofondateur de Wenoble (agence d'acquisition digitale B2B, Saint-Ismier, Grenoble)</div>
@@ -4496,7 +4337,7 @@ main.site-page[hidden]{ display:none !important; }
     <div class="footer-top reveal">
       <div class="footer-brand-phrase">
         <span class="section-label footer-slash"><span class="sl-slash">//</span> Restons en contact</span>
-        <p class="footer-tagline">On en <span class="accent-lav">parle&nbsp;?</span></p>
+        <p class="footer-tagline">Plus loin,<br><span class="accent-lav">ensemble.</span></p>
       </div>
       <div class="footer-contact">
         <p class="footer-contact-q">Un sujet growth en tête&nbsp;?</p>
@@ -4534,6 +4375,7 @@ main.site-page[hidden]{ display:none !important; }
           <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
+
     </div>
 
     <div class="footer-logo-block reveal">
@@ -4622,7 +4464,7 @@ main.site-page[hidden]{ display:none !important; }
     "404":"Page introuvable — Cely"
   };
   var descriptions = {
-    hero:"Cely, agence growth marketing pour startups B2B : on s'intègre à votre équipe pour lancer et piloter votre acquisition. Premier mois satisfait ou remboursé.",
+    hero:"Cely, agence growth marketing pour startups tech B2B : audit, plan d'action et exécution outbound/inbound en Growth Part-Time, intégrés à votre équipe.",
     audit:"Les audits Cely : des diagnostics écrits et actionnables sur votre acquisition digitale. Découvrez l'Audit Marketing Digital, notre premier format disponible.",
     "audit-detail":"Audit Marketing Digital Cely : diagnostic complet de votre acquisition digitale et plan d'action priorisé, restitué en rapport écrit avec présentation vidéo — 1 250 €.",
     growth:"Growth Part-Time : Cely rejoint votre équipe pour piloter et exécuter votre croissance — outbound, inbound et coordination des partenaires spécialisés.",
@@ -4635,7 +4477,7 @@ main.site-page[hidden]{ display:none !important; }
     "404":"Cette page n'existe pas ou plus."
   };
   var ogImages = {
-    article:"https://www.celygrowth.com/images/og-inbound-vs-outbound.png"
+    article:"https://www.celygrowth.com/og-inbound-vs-outbound.png"
   };
   var ARTICLE_JSONLD = {
     "@context":"https://schema.org",
@@ -4644,7 +4486,7 @@ main.site-page[hidden]{ display:none !important; }
         "@type":"BlogPosting",
         "headline":"Inbound vs outbound : quoi choisir pour son entreprise en 2026 ?",
         "description":"Inbound ou outbound marketing ? Avantages, canaux, ratios et méthode pour choisir la bonne stratégie B2B en 2026. Testez notre simulateur gratuit.",
-        "image":"https://www.celygrowth.com/images/og-inbound-vs-outbound.png",
+        "image":"https://www.celygrowth.com/og-inbound-vs-outbound.png",
         "inLanguage":"fr-FR",
         "datePublished":"2026-09-18",
         "dateModified":"2026-09-18",
@@ -4659,7 +4501,7 @@ main.site-page[hidden]{ display:none !important; }
         "publisher":{
           "@type":"Organization",
           "name":"Cely",
-          "logo":{ "@type":"ImageObject", "url":"https://www.celygrowth.com/images/cely-mark-ce.png" }
+          "logo":{ "@type":"ImageObject", "url":"https://www.celygrowth.com/cely-mark-ce.png" }
         }
       },
       {
@@ -4760,7 +4602,7 @@ main.site-page[hidden]{ display:none !important; }
     /* Open Graph / Twitter — mis à jour par route (auparavant figés sur la home) */
     var ogTitleVal = titles[pageKey] || 'Cely';
     var ogDescVal = descriptions[pageKey] || descriptions.hero;
-    var ogImageVal = ogImages[pageKey] || 'https://www.celygrowth.com/images/cely-mark-ce.png';
+    var ogImageVal = ogImages[pageKey] || 'https://www.celygrowth.com/cely-mark-ce.png';
     var ogType = document.getElementById('ogType'); if(ogType){ ogType.setAttribute('content', pageKey === 'article' ? 'article' : 'website'); }
     var ogTitle = document.getElementById('ogTitle'); if(ogTitle){ ogTitle.setAttribute('content', ogTitleVal); }
     var ogDesc = document.getElementById('ogDescription'); if(ogDesc){ ogDesc.setAttribute('content', ogDescVal); }
@@ -5575,5 +5417,84 @@ main.site-page[hidden]{ display:none !important; }
 <style>
 .artsim-gauge.is-frozen{ opacity:.72; filter:blur(.4px); }
 </style>
-</body>
-</html>
+<style>
+/* ============================================================
+   REFONTE HOME — sections section 5 du brief (sobriété, garantie)
+   ============================================================ */
+.reassure-band{ overflow:hidden; padding-block:18px; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.reassure-track{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; font-family:var(--font-label); font-size:.86rem; color:var(--prune); text-align:center; }
+.reassure-dot{ color:var(--border); margin-inline:2px; }
+.reassure-ps{ text-align:center; margin-top:10px; font-size:.8rem; font-style:italic; color:var(--muted); }
+
+.problem-cards-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:28px; }
+.problem-card{ background:var(--off-white-2); border:1px solid var(--border); border-radius:18px; padding:22px 20px; }
+.problem-card h3{ font-family:var(--font-display); font-weight:800; font-size:1.05rem; margin:0 0 8px; }
+.problem-card p{ color:var(--muted); font-size:.94rem; line-height:1.55; margin:0; }
+@media(max-width:900px){ .problem-cards-grid{ grid-template-columns:1fr; } }
+
+.problem-transition-big{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.6rem,1.2rem + 2.4vw,3rem); text-align:center; line-height:1.15; margin:56px auto 0; max-width:20ch; text-wrap:balance; }
+
+.guarantee-section{ padding-block:clamp(48px,7vw,84px); }
+.guarantee-card{ position:relative; background:linear-gradient(155deg,var(--violet-3),var(--prune) 78%); color:var(--off-white); border-radius:28px; padding:clamp(28px,4vw,48px); max-width:900px; margin-inline:auto; transform:rotate(-.6deg); box-shadow:0 30px 70px -30px rgba(26,17,40,.5); }
+.guarantee-badge{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; background:rgba(255,255,255,.14); padding:7px 14px; border-radius:999px; margin-bottom:16px; }
+.guarantee-h2{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,1.2rem + 1.6vw,2.3rem); margin:0 0 16px; color:var(--off-white); text-wrap:balance; }
+.guarantee-card p{ color:rgba(247,245,250,.86); font-size:1rem; line-height:1.65; max-width:64ch; margin:0; }
+.guarantee-card p + p{ margin-top:14px; }
+.guarantee-link{ display:inline-flex; margin-top:20px; color:var(--off-white); font-family:var(--font-label); font-weight:600; font-size:.9rem; border-bottom:1.3px solid rgba(247,245,250,.5); }
+
+.steps-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-top:32px; }
+.step-card{ padding:20px 4px; border-top:2px solid var(--violet); }
+.step-num{ font-family:var(--font-label); font-size:.78rem; color:var(--violet-2); font-weight:700; }
+.step-card h3{ font-family:var(--font-display); font-weight:800; font-size:1.05rem; margin:10px 0 8px; }
+.step-card p{ color:var(--muted); font-size:.92rem; line-height:1.55; margin:0; }
+@media(max-width:900px){ .steps-grid{ grid-template-columns:1fr; } }
+
+.obtenez-2col{ display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:32px; }
+.obtenez-col h3{ font-family:var(--font-display); font-weight:800; font-size:1.15rem; margin:0 0 14px; }
+.obtenez-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px; }
+.obtenez-col li{ padding-left:20px; position:relative; color:var(--muted); font-size:.94rem; line-height:1.55; }
+.obtenez-col li::before{ content:"—"; position:absolute; left:0; color:var(--violet-2); }
+@media(max-width:900px){ .obtenez-2col{ grid-template-columns:1fr; } }
+
+.pilote-block{ display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:start; margin-top:24px; }
+.pilote-photo{ width:112px; height:112px; border-radius:22px; object-fit:cover; }
+.pilote-text p{ color:var(--muted); font-size:.98rem; line-height:1.65; max-width:62ch; margin:0; }
+.pilote-text p+p{ margin-top:14px; }
+.pilote-sig{ margin-top:16px; font-family:var(--font-label); font-weight:700; font-size:.9rem; }
+.pilote-links{ margin-top:8px; display:flex; gap:16px; }
+.pilote-links a{ font-family:var(--font-label); font-size:.86rem; color:var(--violet-2); border-bottom:1.3px solid var(--lavender); }
+@media(max-width:640px){ .pilote-block{ grid-template-columns:1fr; } .pilote-photo{ width:80px; height:80px; } }
+
+.compare-short-wrap{ overflow-x:auto; margin-top:28px; }
+.compare-short-table{ width:100%; border-collapse:collapse; font-size:.9rem; min-width:520px; }
+.compare-short-table th,.compare-short-table td{ padding:12px 14px; border-bottom:1px solid var(--border); text-align:left; vertical-align:top; }
+.compare-short-table th{ font-family:var(--font-label); font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+.compare-short-table td.cs-cely{ background:var(--off-white-2); font-weight:600; }
+.compare-short-note{ margin-top:10px; font-size:.78rem; color:var(--muted); }
+
+.pourqui-grid{ display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:24px; }
+.pourqui-col ul{ list-style:none; margin:12px 0 0; padding:0; display:flex; flex-direction:column; gap:10px; }
+.pourqui-col li{ padding-left:20px; position:relative; color:var(--muted); font-size:.94rem; line-height:1.5; }
+.pourqui-col li::before{ content:"•"; position:absolute; left:0; color:var(--violet-2); }
+@media(max-width:900px){ .pourqui-grid{ grid-template-columns:1fr; } }
+
+.faq-list{ margin-top:24px; border-top:1px solid var(--border); }
+.faq-item{ border-bottom:1px solid var(--border); }
+.faq-q{ width:100%; display:flex; justify-content:space-between; align-items:center; gap:16px; text-align:left; padding:18px 4px; font-family:var(--font-display); font-weight:700; font-size:1rem; color:var(--prune); background:none; border:0; cursor:pointer; }
+.faq-q svg{ flex:none; width:14px; height:14px; transition:transform .2s var(--ease-cely-out); }
+.faq-item[data-open="true"] .faq-q svg{ transform:rotate(45deg); }
+.faq-a{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .3s var(--ease-cely-out); }
+.faq-item[data-open="true"] .faq-a{ grid-template-rows:1fr; }
+.faq-a-inner{ overflow:hidden; }
+.faq-a p{ padding:0 4px 18px; color:var(--muted); font-size:.94rem; line-height:1.6; max-width:70ch; margin:0; }
+</style>
+<script>(function(){ "use strict";
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('.faq-q');
+    if(!btn) return;
+    var item = btn.closest('.faq-item');
+    if(!item) return;
+    var open = item.getAttribute('data-open') === 'true';
+    item.setAttribute('data-open', open ? 'false' : 'true');
+  });
+})();</script>
