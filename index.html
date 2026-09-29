@@ -281,6 +281,44 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
   .hj-mobile svg{ width:11px; height:11px; flex:none; color:var(--border); }
 }
 
+/* ---- animation "Vous, avec Cely." : bande dédiée, dans le flux, sous le contenu du hero ---- */
+.hero-growth{ position:relative; width:100%; max-width:720px; aspect-ratio:720 / 158; margin:clamp(18px,2.4vw,28px) auto 0; overflow:hidden; pointer-events:none; user-select:none; -webkit-user-select:none; }
+.hero-growth svg{ position:absolute; inset:0; width:100%; height:100%; display:block; }
+.hg-ground{ stroke:var(--border); stroke-width:1; stroke-linecap:round; }
+.hg-shadow{ fill:var(--lavender); }
+.hg-trace{ fill:none; stroke:var(--violet); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.hg-arrow{ fill:none; stroke:var(--violet-3); stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+.hg-ball{ fill:var(--violet-3); stroke:var(--off-white); stroke-width:1.6; }
+.hg-ring{ fill:none; stroke:var(--violet); stroke-width:1.4; }
+.hg-dot{ fill:var(--off-white); stroke:var(--violet); stroke-width:1.5; }
+.hg-step{ font-family:var(--font-label); font-weight:600; font-size:12.5px; letter-spacing:.03em; fill:var(--muted); transition:fill .45s var(--ease-cely-out); }
+.hg-step.is-hit{ fill:var(--violet-3); }
+.hg-msg{ font-family:var(--font-display); font-weight:800; font-size:17.5px; fill:var(--prune); letter-spacing:-.005em; }
+.hg-msg .hg-cely{ fill:var(--violet-2); }
+.hg-guy{ fill:none; stroke:var(--prune); stroke-linecap:round; stroke-linejoin:round; }
+.hg-guy .hg-head{ fill:var(--off-white); }
+.hg-guy .hg-eye{ fill:var(--prune); stroke:none; }
+.hg-guy .hg-mouth{ stroke-width:1.3; }
+@media (max-width:700px){
+  .hero-growth{ max-width:420px; aspect-ratio:360 / 196; }
+  .hg-msg{ font-size:15.5px; }
+  .hg-step{ font-size:12px; }
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero-growth{ opacity:0; transform:translateY(8px); animation:heroUp .5s var(--ease-cely-out) .15s forwards; }
+}
+
+/* ---- hero : écrans d'ordinateur peu hauts (ex. 1366×768) — l'animation reste entièrement visible dès l'arrivée ---- */
+@media (min-width:1181px) and (max-height:880px){
+  .hero-fill{ height:calc(var(--nav-top) + var(--nav-h) + 12px); }
+  .hero-stage{ padding-block:8px 20px; }
+  .hero-trust{ margin-bottom:12px; }
+  .hero-sub{ margin-top:14px; }
+  .hero-actions{ margin-top:20px; }
+  .hero-logos{ margin-top:18px; }
+  .hero-growth{ margin-top:12px; }
+}
+
 /* ---- panneau simulateur ---- */
 .sim-backdrop{ position:fixed; inset:0; background:rgba(26,17,40,.42); z-index:150; opacity:0; pointer-events:none; transition:opacity var(--t-normal) var(--ease-cely-soft); }
 .sim-backdrop.is-open{ opacity:1; pointer-events:auto; }
@@ -339,11 +377,14 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .pp-cup{ position:absolute; left:9%; bottom:24%; width:7%; aspect-ratio:1; border-radius:0 0 40% 40%; background:rgba(247,245,250,.24); border:1px solid rgba(247,245,250,.3); }
 .pp-tag{ position:absolute; left:18px; bottom:18px; font-family:var(--font-label); font-size:.62rem; letter-spacing:.07em; text-transform:uppercase; color:rgba(247,245,250,.72); background:rgba(26,17,40,.4); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); padding:5px 10px; border-radius:6px; }
 
-.problem-id{ padding-inline:2px; }
-.problem-id .section-label{ font-size:.7rem; }
-.problem-id-phrase{ margin-top:10px; font-family:var(--font-display); font-weight:700; font-size:clamp(1.05rem,.95rem + .5vw,1.3rem); color:var(--prune); line-height:1.32; max-width:32ch; min-height:2.6em; transition:opacity .22s var(--ease-cely-soft); }
-.problem-id-phrase.is-fading{ opacity:0; }
 
+/* ---- annotation « Vous » : désigne le groupe de phrases (la situation du visiteur) ---- */
+.pd-you{ position:absolute; top:-6px; right:0; width:calc(142px + 64px + 10px); height:112px; pointer-events:none; z-index:3; color:var(--violet-2); }
+.pd-you-label{ position:absolute; top:0; right:6px; font-family:var(--font-display); font-weight:800; font-size:1.35rem; line-height:1; color:var(--violet-2); transform:rotate(-6deg); }
+.pd-you-arrow{ position:absolute; left:-6px; top:20px; width:150px; height:80px; overflow:visible; }
+.pdm-you{ display:flex; align-items:flex-end; justify-content:flex-end; gap:4px; margin:0 4px -6px 0; color:var(--violet-2); }
+.pdm-you .pd-you-label{ position:static; font-size:1.2rem; }
+.pdm-you-arrow{ width:64px; height:40px; flex:none; overflow:visible; }
 /* ---- connecteur : relie le visuel au point "qui pilote ?" (desktop) ---- */
 .problem-connector{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:0; display:none; }
 @media (min-width:981px){ .problem-connector{ display:block; } }
@@ -418,6 +459,14 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .sc-month span{ display:flex; align-items:center; gap:8px; }
 .sc-month span::before{ content:""; width:5px; height:5px; border-radius:50%; background:currentColor; flex:none; opacity:.7; }
 
+.sc-cta{ display:inline-flex; align-items:center; gap:10px; max-width:100%; min-height:46px; margin-top:22px; padding:12px 20px; border-radius:999px; font-family:var(--font-label); font-weight:600; font-size:.9rem; line-height:1.25; text-align:left; background:var(--prune); color:var(--off-white); transition:background .2s var(--ease-cely-out); }
+.sc-cta:hover{ background:var(--violet-2); }
+.sc-cta svg{ width:14px; height:14px; flex:none; transition:transform .22s var(--ease-cely-out); }
+.sc-cta:hover svg{ transform:translate(3px,-3px); }
+.sc-4 .sc-cta{ background:var(--off-white); color:var(--prune); }
+.sc-4 .sc-cta:hover{ background:var(--lavender); }
+.sc-4 .sc-cta:focus-visible{ outline-color:var(--pink); }
+.sc-month + .sc-cta{ margin-top:24px; }
 .sc-visual{ display:flex; flex-direction:column; gap:10px; }
 .sv-check{ display:flex; align-items:center; gap:10px; font-family:var(--font-label); font-size:.86rem; padding:12px 14px; border-radius:12px; background:rgba(139,91,255,.09); }
 .sv-dot{ width:8px; height:8px; border-radius:50%; background:var(--violet-2); flex:none; }
@@ -435,7 +484,9 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .sc-loop{ display:flex; flex-direction:column; gap:10px; }
 .sc-loop .sl-tag{ font-family:var(--font-label); font-size:.78rem; padding:9px 13px; border-radius:999px; background:rgba(247,245,250,.13); width:fit-content; }
 
-.solution-transition{ margin-top:clamp(40px,6vw,60px); font-family:var(--font-display); font-weight:700; font-size:clamp(1.1rem,1rem + .8vw,1.5rem); color:var(--prune); max-width:26ch; }
+.solution-next{ margin-top:clamp(56px,7vw,96px); padding-top:clamp(34px,4.4vw,52px); border-top:1px solid var(--border); max-width:780px; }
+.solution-next-title{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.8rem,1.4rem + 1.9vw,2.85rem); line-height:1.08; letter-spacing:-.01em; color:var(--prune); margin-top:14px; max-width:22ch; text-wrap:balance; }
+.solution-next-copy{ margin-top:16px; font-size:clamp(1.03rem,.98rem + .25vw,1.16rem); line-height:1.55; color:var(--muted); max-width:46ch; }
 
 /* ============================================================
    SECTION — POURQUOI VOUS HÉSITEZ ENCORE ?
@@ -2121,6 +2172,32 @@ main.site-page[hidden]{ display:none !important; }
           <span class="hl-ps-note">PS&nbsp;: on n'a aucune intention de vous rembourser. On a l'intention de vous convaincre.</span>
         </div>
 
+        <div class="hero-growth" id="heroGrowth" aria-hidden="true">
+          <svg viewBox="0 0 720 158" focusable="false" aria-hidden="true">
+            <line class="hg-ground"/>
+            <path class="hg-trace" opacity="0"/>
+            <circle class="hg-dot" r="2.6" opacity="0"/><circle class="hg-dot" r="2.6" opacity="0"/><circle class="hg-dot" r="2.6" opacity="0"/><circle class="hg-dot" r="2.6" opacity="0"/>
+            <text class="hg-step" opacity="0">Audit</text>
+            <text class="hg-step" opacity="0">Stratégie</text>
+            <text class="hg-step" opacity="0">Actions</text>
+            <text class="hg-step" opacity="0">Résultats</text>
+            <text class="hg-msg" opacity="0">Vous, avec <tspan class="hg-cely">Cely.</tspan></text>
+            <ellipse class="hg-shadow"/>
+            <g class="hg-guy">
+              <path class="hg-legs"/>
+              <path class="hg-arm-b"/>
+              <path class="hg-torso"/>
+              <circle class="hg-head" r="9"/>
+              <circle class="hg-eye"/>
+              <path class="hg-mouth"/>
+              <path class="hg-arm-f"/>
+            </g>
+            <circle class="hg-ring" r="0" opacity="0"/>
+            <circle class="hg-ball" r="0"/>
+            <path class="hg-arrow" d="M-6 -5L0 0L-6 5" opacity="0"/>
+          </svg>
+        </div>
+
         <div class="hj-mobile" aria-hidden="true">
           <span>Votre situation</span>
           <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -2151,10 +2228,6 @@ main.site-page[hidden]{ display:none !important; }
             <span class="pp-glow-2" aria-hidden="true"></span>
             <img src="/images/photos/cely-terrain-croissance.webp" alt="Célien Boillot analysant les indicateurs d'acquisition d'un client, ordinateur portable ouvert sur les résultats" loading="lazy" width="900" height="1125">
           </div>
-          <div class="problem-id">
-            <span class="section-label"><span class="sl-slash">//</span> Ça vous parle&nbsp;?</span>
-            <p class="problem-id-phrase" id="problemIdPhrase">Je lance des actions. Mais je ne sais plus vraiment ce qui marche.</p>
-          </div>
         </div>
 
         <div class="problem-diagram">
@@ -2167,12 +2240,20 @@ main.site-page[hidden]{ display:none !important; }
                 <div class="pd-row" data-row="3" data-id="Au final, c'est encore moi qui dois tout arbitrer."><span class="pd-key">Pilotage</span><p class="pd-phrase">Tout le monde s'occupe un peu du digital. Personne ne tient vraiment l'ensemble.</p></div>
                 <div class="pd-row" data-row="4" data-id="On communique quand on a le temps. Pas quand la stratégie le demande."><span class="pd-key">Communication</span><p class="pd-phrase">On publie quand on a le temps. Pas quand la stratégie le demande.</p></div>
               </div>
+              <div class="pd-you" aria-hidden="true">
+                <span class="pd-you-label">Vous</span>
+                <svg class="pd-you-arrow" viewBox="0 0 132 70" fill="none"><path d="M126 9c-20-8-50-6-72 7-18 11-32 27-45 45" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M9 61l12.5-3M9 61l1-12" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
               <div class="pd-hub" id="pdHub"><span class="pd-hub-q">?</span><span class="pd-hub-label">Qui pilote&nbsp;?</span></div>
               <svg class="pd-lines" id="pdLines" aria-hidden="true"></svg>
             </div>
           </div>
 
           <div class="pd-mobile">
+            <div class="pdm-you" aria-hidden="true">
+              <svg class="pdm-you-arrow" viewBox="0 0 70 44" fill="none"><path d="M62 8c-14-3-30 1-41 10-6 5-10 11-13 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8 36l-1.5-11M8 36l9.5-5.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span class="pd-you-label">Vous</span>
+            </div>
             <div class="pdm-track">
               <span class="pdm-line" aria-hidden="true"></span>
               <div class="pdm-row"><span class="pdm-key">Tests</span><p class="pdm-phrase">On lance des actions, puis on passe aux suivantes sans vraiment mesurer.</p></div>
@@ -2231,6 +2312,9 @@ main.site-page[hidden]{ display:none !important; }
               <span class="sc-num">02</span>
               <h3 class="sc-title">On regarde ce qui bloque.</h3>
               <p class="sc-copy">Un premier échange pour comprendre votre situation et identifier les sujets prioritaires.</p>
+              <a href="/contact#formulaire" data-route="contact" class="sc-cta">Prendre le premier diagnostic offert
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
             </div>
             <div class="sc-doc" aria-hidden="true">
               <span class="sd-free">Offert</span>
@@ -2269,6 +2353,9 @@ main.site-page[hidden]{ display:none !important; }
                 <span>Un levier outbound et un levier inbound lancés</span>
                 <span>Satisfait ou remboursé</span>
               </div>
+              <a href="/contact#formulaire" data-route="contact" class="sc-cta">Prendre le premier diagnostic offert
+                <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
             </div>
             <div class="sc-loop" aria-hidden="true">
               <span class="sl-tag">Point équipe</span>
@@ -2279,7 +2366,11 @@ main.site-page[hidden]{ display:none !important; }
         </article>
       </div>
 
-      <p class="solution-transition reveal">Et ensuite&nbsp;? On avance ensemble, semaine après semaine.</p>
+      <div class="solution-next reveal">
+        <span class="section-label"><span class="sl-slash">//</span> Et ensuite&nbsp;?</span>
+        <h3 class="solution-next-title">Votre croissance ne s'arrête pas au diagnostic.</h3>
+        <p class="solution-next-copy">On passe à l'action, on mesure, on ajuste. Ensemble, semaine après semaine.</p>
+      </div>
     </div>
   </section>
 
@@ -5569,6 +5660,263 @@ main.site-page[hidden]{ display:none !important; }
   renderQuestion();
   updateGauge();
 })();</script>
+<!-- ============================================================
+     HERO — animation "Vous, avec Cely." (SVG inline, horloge unique)
+     balle, trace, repères, message et personnage lisent le même temps
+     ============================================================ -->
+<script>(function(){ "use strict";
+  var host = document.getElementById('heroGrowth');
+  if(!host || !window.requestAnimationFrame) return;
+  var svg = host.querySelector('svg');
+  function $(c){ return svg.querySelector(c); }
+  function $$(c){ return Array.prototype.slice.call(svg.querySelectorAll(c)); }
+  var elGround = $('.hg-ground'), elShadow = $('.hg-shadow'), elTrace = $('.hg-trace'), elMsg = $('.hg-msg'),
+      elGuy = $('.hg-guy'), elLegs = $('.hg-legs'), elArmB = $('.hg-arm-b'), elTorso = $('.hg-torso'),
+      elHead = $('.hg-head'), elEye = $('.hg-eye'), elMouth = $('.hg-mouth'), elArmF = $('.hg-arm-f'),
+      elBall = $('.hg-ball'), elRing = $('.hg-ring'), elArrow = $('.hg-arrow'),
+      elSteps = $$('.hg-step'), elDots = $$('.hg-dot');
+
+  /* ---- chronologie (ms) ---- */
+  var LOOP = 13000,            /* durée d'une boucle */
+      T_START = 300,           /* point d'entrée : l'élan démarre ~0,6 s après l'apparition */
+      T_REL = 1620,            /* lâcher de la balle */
+      T_ARR = 5000,            /* arrivée au point haut (la balle reste visible) */
+      T_OUT = 8800, T_GONE = 9600,   /* fondu de sortie courbe + balle + repères + message */
+      T_NEW = 9800, T_READY = 10250; /* nouvelle balle dans la main, puis pause */
+
+  var LAYOUTS = {
+    wide: { w:720, h:158, g:150, x0:64, k:1, x1:520, yEnd:24, rb:6.5, sw:2.5,
+      msg:{ dx:28, dy:7, anchor:'start' },
+      steps:[ { s:.14, dx:0, dy:21, a:'middle' }, { s:.42, dx:0, dy:21, a:'middle' },
+              { s:.72, dx:7, dy:20, a:'start' },  { s:.965, dx:-11, dy:-8, a:'end' } ] },
+    compact: { w:360, h:196, g:186, x0:52, k:0.82, x1:292, yEnd:66, rb:6, sw:2.2,
+      msg:{ x:352, y:36, anchor:'end' },
+      steps:[ { s:.13, dx:0, dy:20, a:'middle' }, { s:.43, dx:0, dy:20, a:'middle' },
+              { s:.71, dx:7, dy:19, a:'start' },  { s:.985, x:352, dy:23, a:'end' } ] }
+  };
+
+  /* poses clés — [t, lean, dip, hx, a1, a2, pa, pl, b1, b2, tilt, lift, easing]
+     angles en degrés (0 = droite, 90 = bas) ; valeurs choisies pour que chaque
+     interpolation tourne dans le sens naturel du geste. easing : 0 sinus, 1 accélère, 2 freine */
+  var K = [
+    [0,      0, 0,  0,  80,  -10,  -10, 4,  108,  98,   0, 0, 0],
+    [500,    0, 0,  0,  80,  -10,  -10, 4,  108,  98,   0, 0, 0],
+    [950,   22, 3, -3, 190, -150, -150, 4,  -20, -30,  -6, 1, 0],
+    [1400,  26, 3, -4, 196, -156, -156, 4,  -24, -34,  -8, 1, 0],
+    [1620,  -8, 1,  4, 350,  -20,  -20, 4,  150, 130,   2, 0, 1],
+    [1950, -12, 2,  5, 395,   20,   20, 4,  170, 150,   6, 0, 2],
+    [2700,   0, 0,  0, 432,   88,   88, 4,  108,  98,  -8, 0, 0],
+    [3800,   0, 0,  0, 432,   88,   88, 4,  108,  98, -14, 0, 0],
+    [4500,   5, 0,  0, 330,  -90.5, -10, 7,  135,  45, -20, 0, 0],
+    [7800,   5, 0,  0, 330,  -90.5, -10, 7,  135,  45, -20, 0, 0],
+    [8600,   0, 0,  0, 440,  -10,  -10, 4,  108,  98,   0, 0, 0],
+    [13000,  0, 0,  0, 440,  -10,  -10, 4,  108,  98,   0, 0, 0]
+  ];
+  var D2R = Math.PI / 180;
+  function ease(e, x){ return e === 1 ? x * x : e === 2 ? 1 - (1 - x) * (1 - x) : 0.5 - 0.5 * Math.cos(Math.PI * x); }
+  function clamp01(x){ return x < 0 ? 0 : x > 1 ? 1 : x; }
+  function window01(t, a, b){ return clamp01((t - a) / (b - a)); }
+
+  function pose(t){
+    var i = 0; while(i < K.length - 2 && t >= K[i + 1][0]) i++;
+    var A = K[i], B = K[i + 1], e = ease(B[12], clamp01((t - A[0]) / (B[0] - A[0]))), p = [];
+    for(var j = 1; j < 12; j++) p[j] = A[j] + (B[j] - A[j]) * e;
+    var P = { lean:p[1], dip:p[2], hx:p[3], a1:p[4], a2:p[5], pa:p[6], pl:p[7], b1:p[8], b2:p[9], tilt:p[10], lift:p[11] };
+    P.dip += 0.6 * Math.sin(2 * Math.PI * t / 3250);                      /* respiration (période divisant la boucle) */
+    if(t > 950 && t < 1400){                                               /* élan comique : le bras « arme » deux fois */
+      var w = 9 * Math.sin(2 * Math.PI * (t - 950) / 225) * Math.sin(Math.PI * (t - 950) / 450);
+      P.a1 += w; P.a2 += w * 1.3; P.pa += w * 1.3;
+    }
+    if(t > T_ARR && t < T_ARR + 800){                                      /* fierté : deux petits hochements à l'arrivée */
+      var n = Math.sin(2 * Math.PI * (t - T_ARR) / 400) * Math.sin(Math.PI * (t - T_ARR) / 800);
+      P.tilt += 5 * n; P.dip -= 0.8 * Math.abs(n);
+    }
+    return P;
+  }
+
+  function add(p, v){ return [p[0] + v[0], p[1] + v[1]]; }
+  function dir(a, l){ return [Math.cos(a * D2R) * l, Math.sin(a * D2R) * l]; }
+  function rot(v, a){ var c = Math.cos(a * D2R), s = Math.sin(a * D2R); return [v[0] * c - v[1] * s, v[0] * s + v[1] * c]; }
+  function knee(h, f){                                                     /* IK à longueurs fixes, genou vers l'avant */
+    var vx = f[0] - h[0], vy = f[1] - h[1], d = Math.sqrt(vx * vx + vy * vy) || 1, half = Math.min(d / 2, 15.2);
+    var o = Math.sqrt(Math.max(0, 15.2 * 15.2 - half * half));
+    return [h[0] + vx / 2 + (vy / d) * o, h[1] + vy / 2 - (vx / d) * o];
+  }
+  function skeleton(P){
+    var hip = [P.hx, -28.5 + P.dip], up = [-Math.sin(P.lean * D2R), -Math.cos(P.lean * D2R)];
+    var neck = add(hip, [up[0] * 26, up[1] * 26]), sh = add(hip, [up[0] * 24, up[1] * 24]);
+    var hl = (P.lean + P.tilt * 0.25) * D2R, head = add(hip, [-Math.sin(hl) * 37, -Math.cos(hl) * 37]);
+    var el = add(sh, dir(P.a1, 14)), hand = add(el, dir(P.a2, 13)), palm = add(hand, dir(P.pa, P.pl));
+    var elB = add(sh, dir(P.b1, 14)), handB = add(elB, dir(P.b2, 13)), palmB = add(handB, dir(P.b2, 3));
+    var footB = [-9, 0], footF = [9 + P.lift * 4, -P.lift * 13];
+    return { hip:hip, neck:neck, sh:sh, head:head, el:el, hand:hand, palm:palm, elB:elB, handB:handB, palmB:palmB,
+             footB:footB, footF:footF, kneeB:knee(hip, footB), kneeF:knee(hip, footF), tilt:P.tilt, pa:P.pa };
+  }
+
+  var L, curve = [], cum = [], total = 1, endPt = [0, 0], endAng = 0, stepT = [];
+  function W(p){ return [L.x0 + L.k * p[0], L.g + L.k * p[1]]; }
+  function f2(n){ return Math.round(n * 100) / 100; }
+  function pt(p){ var q = W(p); return f2(q[0]) + ' ' + f2(q[1]); }
+  function heldBall(S){ return W(add(S.hand, rot([3.2, -(L.rb / L.k - 0.8)], S.pa))); }
+
+  function flight(t){
+    /* part vite de la main, plane, accélère vers le haut, puis se pose en douceur au point haut */
+    var x = clamp01((t - T_REL) / (T_ARR - T_REL));
+    if(x > 0.8){ var u = (x - 0.8) / 0.2; x = (2*u*u*u - 3*u*u + 1) * 0.8 + (u*u*u - 2*u*u + u) * 0.2 + (-2*u*u*u + 3*u*u); }
+    return 0.12 * (1 - Math.exp(-x / 0.07)) / (1 - Math.exp(-1 / 0.07)) + 0.88 * (0.3 * x + 0.7 * x * x);
+  }
+  function crossTime(s){                                                   /* instant où la balle franchit la fraction s */
+    var lo = T_REL, hi = T_ARR;
+    for(var i = 0; i < 40; i++){ var mid = (lo + hi) / 2; if(flight(mid) < s) lo = mid; else hi = mid; }
+    return hi;
+  }
+
+  function buildCurve(){
+    /* courbe de croissance : part exactement de la balle au lâcher, deux ondulations douces,
+       s'accélère et se termine à l'intérieur de la composition, au point haut */
+    var P0 = heldBall(skeleton(pose(T_REL))), N = 260, kk = 3, ek = Math.exp(kk) - 1, H = P0[1] - L.yEnd;
+    curve = []; cum = [0]; total = 0;
+    for(var i = 0; i <= N; i++){
+      var u = i / N, g = 0.22 * u + 0.78 * (Math.exp(kk * u) - 1) / ek, w = 0;
+      if(u > 0.18 && u < 0.78){ var v = (u - 0.18) / 0.6; w = 0.045 * Math.sin(4 * Math.PI * v) * Math.sin(Math.PI * v); }
+      curve.push([P0[0] + u * (L.x1 - P0[0]), P0[1] - H * (g + w)]);
+      if(i){ var dx = curve[i][0] - curve[i - 1][0], dy = curve[i][1] - curve[i - 1][1]; total += Math.sqrt(dx * dx + dy * dy); cum.push(total); }
+    }
+    curve[0] = P0;
+    endPt = curve[N];
+    endAng = Math.atan2(curve[N][1] - curve[N - 3][1], curve[N][0] - curve[N - 3][0]) / D2R;
+    elTrace.setAttribute('d', 'M' + curve.map(function(p){ return f2(p[0]) + ' ' + f2(p[1]); }).join('L'));
+    elTrace.setAttribute('stroke-dasharray', f2(total) + ' ' + f2(total + 20));
+  }
+  function pointAt(s){                                                     /* position à une fraction s de la longueur */
+    var target = s * total, lo = 0, hi = cum.length - 1;
+    while(hi - lo > 1){ var mid = (lo + hi) >> 1; if(cum[mid] < target) lo = mid; else hi = mid; }
+    var seg = cum[hi] - cum[lo] || 1, r = (target - cum[lo]) / seg;
+    return [curve[lo][0] + (curve[hi][0] - curve[lo][0]) * r, curve[lo][1] + (curve[hi][1] - curve[lo][1]) * r];
+  }
+
+  function applyLayout(){
+    L = window.matchMedia('(max-width:700px)').matches ? LAYOUTS.compact : LAYOUTS.wide;
+    svg.setAttribute('viewBox', '0 0 ' + L.w + ' ' + L.h);
+    elGround.setAttribute('x1', L.x0 - 34 * L.k); elGround.setAttribute('x2', L.w - 8);
+    elGround.setAttribute('y1', L.g + 0.5); elGround.setAttribute('y2', L.g + 0.5);
+    elShadow.setAttribute('cx', L.x0); elShadow.setAttribute('cy', L.g); elShadow.setAttribute('rx', 17 * L.k); elShadow.setAttribute('ry', 2.6 * L.k);
+    elGuy.setAttribute('stroke-width', L.sw);
+    elHead.setAttribute('r', f2(9 * L.k)); elEye.setAttribute('r', f2(1.35 * L.k));
+    buildCurve();
+    /* message : près de la destination */
+    var m = L.msg;
+    elMsg.setAttribute('x', f2(m.x != null ? m.x : endPt[0] + m.dx));
+    elMsg.setAttribute('y', f2(m.y != null ? m.y : endPt[1] + m.dy));
+    elMsg.setAttribute('text-anchor', m.anchor);
+    /* repères : posés le long de la trajectoire, sans la recouvrir */
+    stepT = [];
+    L.steps.forEach(function(st, i){
+      var p = pointAt(st.s);
+      elDots[i].setAttribute('cx', f2(p[0])); elDots[i].setAttribute('cy', f2(p[1]));
+      elSteps[i].setAttribute('x', f2(st.x != null ? st.x : p[0] + st.dx));
+      elSteps[i].setAttribute('y', f2(p[1] + st.dy));
+      elSteps[i].setAttribute('text-anchor', st.a);
+      stepT.push(crossTime(st.s));
+    });
+    /* pointe de flèche ascendante, dans l'axe de la fin de courbe, juste au-delà de la balle */
+    var tip = add(endPt, dir(endAng, L.rb + 9));
+    elArrow.setAttribute('transform', 'translate(' + f2(tip[0]) + ' ' + f2(tip[1]) + ') rotate(' + f2(endAng) + ')');
+    elRing.setAttribute('cx', f2(endPt[0])); elRing.setAttribute('cy', f2(endPt[1]));
+  }
+
+  function render(t, still){
+    var S = skeleton(pose(t));
+    elLegs.setAttribute('d', 'M' + pt(S.footB) + 'L' + pt(S.kneeB) + 'L' + pt(S.hip) + 'L' + pt(S.kneeF) + 'L' + pt(S.footF));
+    elTorso.setAttribute('d', 'M' + pt(S.hip) + 'L' + pt(S.neck));
+    elArmF.setAttribute('d', 'M' + pt(S.sh) + 'L' + pt(S.el) + 'L' + pt(S.hand) + 'L' + pt(S.palm));
+    elArmB.setAttribute('d', 'M' + pt(S.sh) + 'L' + pt(S.elB) + 'L' + pt(S.handB) + 'L' + pt(S.palmB));
+    var hc = W(S.head); elHead.setAttribute('cx', f2(hc[0])); elHead.setAttribute('cy', f2(hc[1]));
+    var eye = W(add(S.head, rot([3.6, -1.4], S.tilt))); elEye.setAttribute('cx', f2(eye[0])); elEye.setAttribute('cy', f2(eye[1]));
+    elMouth.setAttribute('d', 'M' + pt(add(S.head, rot([1.4, 3.3], S.tilt))) + 'Q' + pt(add(S.head, rot([4.4, 4.9], S.tilt))) + ' ' + pt(add(S.head, rot([6.2, 1.9], S.tilt))));
+
+    var out = still ? 0 : window01(t, T_OUT, T_GONE), keep = 1 - out;
+    var s = still ? 1 : flight(t), ball, br = L.rb, bo = 1;
+    if(still){ ball = endPt; }
+    else if(t < T_REL){ ball = heldBall(S); }
+    else if(t <= T_GONE){ ball = pointAt(s); bo = keep; }
+    else {                                                                 /* nouvelle balle : apparaît dans la main, sans téléportation */
+      ball = heldBall(S);
+      var a = window01(t, T_NEW, T_READY);
+      br = L.rb * (a < 0.7 ? a / 0.7 * 1.12 : 1.12 - 0.12 * (a - 0.7) / 0.3);
+      if(a <= 0){ bo = 0; br = 0; }
+    }
+    elBall.setAttribute('cx', f2(ball[0])); elBall.setAttribute('cy', f2(ball[1]));
+    elBall.setAttribute('r', f2(Math.max(0, br))); elBall.setAttribute('opacity', f2(bo));
+    elTrace.setAttribute('stroke-dashoffset', f2(total * (1 - s)));
+    elTrace.setAttribute('opacity', still ? 1 : t < T_REL ? 0 : f2(keep));
+
+    var msgO = still ? 1 : ease(2, window01(t, 1300, 1900)) * keep;       /* message : dès le départ de la balle */
+    elMsg.setAttribute('opacity', f2(msgO));
+    elMsg.setAttribute('transform', 'translate(0 ' + f2((1 - Math.min(1, msgO * 1.4)) * 4) + ')');
+
+    for(var i = 0; i < elSteps.length; i++){                               /* repères : au passage de la balle */
+      var o = still ? 1 : t < T_REL ? 0 : ease(2, window01(t, stepT[i], stepT[i] + 380)) * keep;
+      elSteps[i].setAttribute('opacity', f2(o));
+      elSteps[i].setAttribute('transform', 'translate(0 ' + f2((1 - o) * 3) + ')');
+      elDots[i].setAttribute('opacity', f2(o));
+    }
+    var arr = still ? 1 : ease(2, window01(t, T_ARR - 60, T_ARR + 320)) * keep;   /* accent d'arrivée */
+    elArrow.setAttribute('opacity', f2(arr));
+    elSteps[elSteps.length - 1].classList.toggle('is-hit', arr > 0.5);
+    var rg = still ? 1 : window01(t, T_ARR, T_ARR + 800);
+    elRing.setAttribute('r', f2(L.rb * (1 + 1.5 * ease(2, rg))));
+    elRing.setAttribute('opacity', f2(still || rg <= 0 || rg >= 1 ? 0 : 0.5 * (1 - rg)));
+  }
+
+  /* horloge unique : balle, trace, repères, message et personnage lisent le même temps de boucle */
+  var mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)'), mqCompact = window.matchMedia('(max-width:700px)');
+  var visible = !('IntersectionObserver' in window), raf = 0, last = 0, clock = T_START, io = null;
+  function running(){ return visible && !document.hidden && !mqReduce.matches; }
+  function frame(now){
+    raf = 0;
+    var dt = last ? Math.min(64, now - last) : 0; last = now;
+    clock = (clock + dt) % LOOP;
+    render(clock, 0);
+    if(running()) raf = window.requestAnimationFrame(frame); else last = 0;
+  }
+  function sync(){
+    if(mqReduce.matches){ if(raf){ window.cancelAnimationFrame(raf); raf = 0; } last = 0; render(6000, 1); return; }
+    if(running()){
+      if(!raf){
+        /* reprise : si l'on revient pendant la pause, on repart directement sur l'élan (pose et balle identiques) */
+        if(clock >= T_READY || clock < T_START){ clock = T_START; render(clock, 0); }
+        raf = window.requestAnimationFrame(frame);
+      }
+    }
+    else { if(raf){ window.cancelAnimationFrame(raf); raf = 0; } last = 0; }
+  }
+  function onLayout(){ applyLayout(); if(mqReduce.matches) render(6000, 1); else render(clock, 0); }
+  function listen(mq, fn){ if(mq.addEventListener) mq.addEventListener('change', fn); else if(mq.addListener) mq.addListener(fn); }
+  function unlisten(mq, fn){ if(mq.removeEventListener) mq.removeEventListener('change', fn); else if(mq.removeListener) mq.removeListener(fn); }
+
+  applyLayout();
+  if(mqReduce.matches) render(6000, 1); else render(clock, 0);
+  if(!visible){
+    io = new IntersectionObserver(function(entries){ visible = entries[entries.length - 1].isIntersecting; sync(); }, { threshold:0 });
+    io.observe(host);
+  }
+  document.addEventListener('visibilitychange', sync);
+  listen(mqReduce, sync); listen(mqCompact, onLayout);
+  sync();
+
+  /* nettoyage (observateur, écouteurs, rAF) si la page est déchargée ou si le bloc est retiré */
+  host.heroGrowthDestroy = function(){
+    if(raf){ window.cancelAnimationFrame(raf); raf = 0; }
+    if(io){ io.disconnect(); io = null; }
+    document.removeEventListener('visibilitychange', sync);
+    unlisten(mqReduce, sync); unlisten(mqCompact, onLayout);
+    window.removeEventListener('pagehide', onHide);
+  };
+  function onHide(e){ if(!e.persisted) host.heroGrowthDestroy(); }
+  window.addEventListener('pagehide', onHide);
+})();</script>
+
 <style>
 .artsim-gauge.is-frozen{ opacity:.72; filter:blur(.4px); }
 </style>
