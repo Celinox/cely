@@ -1,0 +1,6 @@
+src/
+scripts/
+_archive/
+_to_delete/
+*.md
+.DS_Store

@@ -1,13 +1,77 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
     {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "celygrowth.com" }],
-      "destination": "https://www.celygrowth.com/$1",
-      "permanent": true
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "celygrowth.com"
+        }
+      ],
+      "destination": "https://www.celygrowth.com/:path",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/gabarit",
+      "destination": "/actualites",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/audit-avant-campagnes",
+      "destination": "/actualites",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/geo-2026",
+      "destination": "/actualites",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/linkedin-outbound",
+      "destination": "/actualites",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/priorisation-growth",
+      "destination": "/actualites",
+      "statusCode": 301
+    },
+    {
+      "source": "/actualites/attribution-multicanal",
+      "destination": "/actualites",
+      "statusCode": 301
     }
   ],
-  "rewrites": [
-    { "source": "/((?!api/|.*\\.[a-zA-Z0-9]+$).*)", "destination": "/index.html" }
+  "headers": [
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
   ]
 }
