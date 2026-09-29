@@ -14,6 +14,17 @@
       "statusCode": 301
     },
     {
+      "source": "/:path(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "2celygrowth.vercel.app"
+        }
+      ],
+      "destination": "https://www.celygrowth.com/:path",
+      "statusCode": 301
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "statusCode": 301
