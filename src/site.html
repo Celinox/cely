@@ -262,7 +262,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 
 /* 2. « Et c'est là que Cely arrive » — entre par la droite, se pose près du titre */
 .solution .section-wrap{ position:relative; }
-.cely-spot--solution{ position:absolute; top:clamp(64px,6.4vw,88px); right:clamp(20px,5vw,56px); width:340px; height:156px; overflow:hidden; }
+.cely-spot--solution{ position:absolute; top:clamp(24px,3vw,44px); right:clamp(20px,5vw,56px); width:340px; height:156px; overflow:hidden; }
 .cely-spot--solution .cely-svg{ position:absolute; right:48px; bottom:0; width:176px; height:149px; overflow:visible; }
 @media (max-width:900px){
   .cely-spot--solution{ position:relative; top:auto; right:auto; width:100%; max-width:320px; height:92px; margin:14px 0 -18px auto; }
@@ -346,6 +346,13 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .legal-page ul{ margin-top:8px; padding-left:20px; }
 .legal-page a{ color:var(--violet-3); text-decoration:underline; text-underline-offset:3px; }
 .legal-todo{ background:#FFF3C4; padding:0 4px; border-radius:4px; }
+
+/* ============ VIDÉO DE PRÉSENTATION (accueil, juste après le hero) ============ */
+.intro-video{ padding-block:clamp(8px,1.6vw,20px) clamp(56px,7vw,96px); background:var(--off-white); }
+.intro-video-frame{ position:relative; max-width:1040px; margin-inline:auto; aspect-ratio:16 / 9; border-radius:clamp(16px,2vw,26px); overflow:hidden; background:var(--prune); border:1px solid var(--border); box-shadow:0 34px 72px -44px rgba(26,17,40,.5); }
+.intro-video-frame.is-portrait{ max-width:min(440px,100%); }
+.intro-video-el{ display:block; width:100%; height:100%; object-fit:contain; background:var(--prune); }
+.intro-video-el:focus-visible{ outline:2.5px solid var(--violet); outline-offset:-3px; }
 /* ---- panneau simulateur ---- */
 .sim-backdrop{ position:fixed; inset:0; background:rgba(26,17,40,.42); z-index:150; opacity:0; pointer-events:none; transition:opacity var(--t-normal) var(--ease-cely-soft); }
 .sim-backdrop.is-open{ opacity:1; pointer-events:auto; }
@@ -374,6 +381,7 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .section-label{ display:flex; align-items:center; gap:8px; font-family:var(--font-label); font-size:.76rem; letter-spacing:.09em; text-transform:uppercase; color:var(--violet-2); font-weight:600; }
 .section-label .sl-slash{ color:var(--violet); }
 .section-h2{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.9rem,1.5rem + 2vw,3rem); line-height:1.08; margin-top:16px; max-width:14ch; text-wrap:balance; }
+.section-h2:first-child, .solution-next-title:first-child{ margin-top:0; }
 .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease-cely-out), transform .6s var(--ease-cely-out); }
 .reveal.is-in{ opacity:1; transform:none; }
 
@@ -2287,10 +2295,22 @@ main.site-page[hidden]{ display:none !important; }
   <!-- ============================================================
        SECTION — LE PROBLÈME
        ============================================================ -->
+  <!-- ============================================================
+       VIDÉO — présentation (lecture auto sans son, lecteur natif : pause, volume, plein écran)
+       ============================================================ -->
+  <section class="intro-video" aria-label="Vidéo de présentation de Cely">
+    <div class="section-wrap">
+      <div class="intro-video-frame" id="introVideoFrame">
+        <video class="intro-video-el" id="introVideo" src="https://xgwszpuiiacukrvvtrze.supabase.co/storage/v1/object/public/collection-video//d7945e4c-3eff-4a64-8700-bb6e6142fdf4.mp4" muted loop playsinline controls preload="metadata">
+          Votre navigateur ne lit pas cette vidéo. <a href="https://xgwszpuiiacukrvvtrze.supabase.co/storage/v1/object/public/collection-video//d7945e4c-3eff-4a64-8700-bb6e6142fdf4.mp4">Ouvrir la vidéo</a>.
+        </video>
+      </div>
+    </div>
+  </section>
+
   <section class="problem" id="problem">
     <div class="section-wrap">
       <div class="problem-head reveal">
-        <span class="section-label"><span class="sl-slash">//</span> Le problème</span>
         <h2 class="section-h2">Vous faites du growth. Mais qui le pilote&nbsp;?</h2>
       </div>
 
@@ -2360,7 +2380,6 @@ main.site-page[hidden]{ display:none !important; }
   <section class="solution" id="solution">
     <div class="section-wrap">
       <div class="solution-head reveal">
-        <span class="section-label"><span class="sl-slash">//</span> Et c'est là que Cely arrive</span>
         <h2 class="section-h2">Et c'est là que <span class="hl-accent">Cely</span> arrive.</h2>
         <p class="solution-lede">On commence par comprendre votre situation. Puis on construit une collaboration adaptée à vos priorités.</p>
       </div>
@@ -2443,7 +2462,6 @@ main.site-page[hidden]{ display:none !important; }
       </div>
 
       <div class="solution-next reveal">
-        <span class="section-label"><span class="sl-slash">//</span> Et ensuite&nbsp;?</span>
         <h3 class="solution-next-title">Votre croissance ne s'arrête pas au diagnostic.</h3>
         <p class="solution-next-copy">On passe à l'action, on mesure, on ajuste. Ensemble, semaine après semaine.</p>
       </div>
@@ -2456,7 +2474,6 @@ main.site-page[hidden]{ display:none !important; }
   <section class="hesitations" id="hesitations">
     <div class="section-wrap hesitations-grid">
       <div class="reveal hz-left">
-        <span class="section-label"><span class="sl-slash">//</span> Réassurance</span>
         <h2 class="section-h2">Pourquoi vous hésitez encore&nbsp;?</h2>
         <p class="hz-intro">C'est normal de vouloir comprendre comment la collaboration se passe avant d'aller plus loin — surtout quand il s'agit de votre acquisition.</p>
         <div class="hz-points">
@@ -2499,7 +2516,6 @@ main.site-page[hidden]{ display:none !important; }
     <div class="obtenez-light" aria-hidden="true"><span class="ol-1"></span><span class="ol-2"></span></div>
     <div class="section-wrap">
       <div class="reveal">
-        <span class="section-label"><span class="sl-slash">//</span> Livrables</span>
         <h2 class="section-h2">Ce que vous obtenez.</h2>
         <p class="obtenez-lede">Du pilotage, oui. Mais aussi des éléments concrets pour avancer, décider et exécuter.</p>
       </div>
@@ -2613,7 +2629,6 @@ main.site-page[hidden]{ display:none !important; }
   <section class="compare" id="compare">
     <div class="section-wrap">
       <div class="compare-head reveal">
-        <span class="section-label"><span class="sl-slash">//</span> Comparatif</span>
         <h2 class="section-h2">Quel modèle pour votre growth&nbsp;?</h2>
         <p class="compare-lede">Recruter un salarié, déléguer à un freelance ou une agence growth marketing, ou intégrer un pilote à temps partagé&nbsp;: quatre façons d'organiser votre acquisition.</p>
       </div>
@@ -2712,7 +2727,6 @@ main.site-page[hidden]{ display:none !important; }
   <section class="cta-final" id="cta-final-1">
     <div class="section-wrap cta-final-wrap">
       <div class="cta-final-content reveal" id="ctaFinalContent-1">
-        <span class="section-label cta-label"><span class="sl-slash">//</span> Premier échange offert</span>
         <h2 class="cta-final-h2">Un premier rendez-vous.<br>Des <span class="accent">pistes concrètes</span> pour avancer.</h2>
         <p class="cta-final-sub">On prend le temps de comprendre votre situation, d'identifier vos premiers points de blocage et de voir si Cely peut vous accompagner.</p>
         <div class="cta-final-actions">
@@ -6067,6 +6081,28 @@ main.site-page[hidden]{ display:none !important; }
   window.addEventListener('pagehide', onHide);
 })();</script>
 
+<script>(function(){ "use strict";
+  /* Vidéo de présentation : démarre sans son quand elle devient visible, se met en pause hors écran.
+     Si le visiteur la met en pause lui-même, on ne la relance plus automatiquement. */
+  var v = document.getElementById('introVideo');
+  if(!v) return;
+  var frame = document.getElementById('introVideoFrame');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var userPaused = false, autoPausing = false;
+  v.muted = true;
+  function fit(){ if(v.videoWidth && v.videoHeight){ frame.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight; frame.classList.toggle('is-portrait', v.videoHeight > v.videoWidth); } }
+  v.addEventListener('loadedmetadata', fit); fit();
+  v.addEventListener('pause', function(){ if(!autoPausing && !v.ended) userPaused = true; autoPausing = false; });
+  v.addEventListener('play', function(){ userPaused = false; });
+  function tryPlay(){ var p = v.play(); if(p && p.catch) p.catch(function(){}); }
+  if(reduce) return;                                     /* réduction des animations : pas de lecture automatique */
+  if(!('IntersectionObserver' in window)){ tryPlay(); return; }
+  new IntersectionObserver(function(entries){
+    var e = entries[entries.length - 1];
+    if(e.isIntersecting && e.intersectionRatio >= 0.35){ if(!userPaused && v.paused) tryPlay(); }
+    else if(!v.paused){ autoPausing = true; v.pause(); }
+  }, { threshold:[0, 0.35, 0.6] }).observe(v);
+})();</script>
 <style>
 .artsim-gauge.is-frozen{ opacity:.72; filter:blur(.4px); }
 </style>
