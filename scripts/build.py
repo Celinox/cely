@@ -54,6 +54,41 @@ BLOG_POSTING = {
     "publisher": {"@type": "Organization", "@id": SITE + "/#organisation", "name": "Cely", "logo": {"@type": "ImageObject", "url": DEFAULT_IMG}}
 }
 
+ARTICLE_IA_URL = '/actualites/referencement-ia'
+PERSON_CELIEN = {
+    "@type": "Person", "@id": SITE + "/#celien-boillot", "name": "Célien Boillot",
+    "jobTitle": "Fondateur de Cely, cofondateur de Wenoble",
+    "image": SITE + "/images/celien-boillot-112.webp", "url": SITE + "/",
+    "sameAs": ["https://www.linkedin.com/in/celienboillotwenoble/"],
+    "worksFor": [{"@id": SITE + "/#organisation"}, {"@type": "Organization", "name": "Wenoble", "url": "https://wenoble.fr"}],
+    "knowsAbout": ["Growth marketing", "Generative Engine Optimization", "Référencement naturel", "Prospection B2B", "Acquisition B2B"]
+}
+BLOG_POSTING_IA = {
+    "@type": "BlogPosting", "@id": SITE + ARTICLE_IA_URL + "#article",
+    "headline": "Le référencement IA : la ruée vers l'or de 2026",
+    "alternativeHeadline": "Référencement IA (GEO) : comment être cité par ChatGPT, Perplexity et les Aperçus IA",
+    "description": "Le GEO, mythe ou réalité ? Ce que disent les études, ce qui change avec les Aperçus IA en France, et la méthode pour être cité par ChatGPT.",
+    "image": SITE + "/images/og-referencement-ia.png", "inLanguage": "fr-FR",
+    "datePublished": "2026-10-01", "dateModified": "2026-10-01",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": SITE + ARTICLE_IA_URL},
+    "author": {"@id": SITE + "/#celien-boillot"},
+    "publisher": {"@type": "Organization", "@id": SITE + "/#organisation", "name": "Cely", "logo": {"@type": "ImageObject", "url": DEFAULT_IMG}},
+    "articleSection": "GEO & visibilité IA",
+    "keywords": ["référencement IA", "GEO", "Generative Engine Optimization", "SEO IA", "AEO", "Aperçus IA", "ChatGPT", "Perplexity"],
+    "about": [{"@type": "Thing", "name": "Generative Engine Optimization"}, {"@type": "Thing", "name": "Référencement naturel"}],
+    "mentions": [
+        {"@type": "Organization", "name": "OpenAI", "sameAs": "https://openai.com"},
+        {"@type": "Organization", "name": "Google", "sameAs": "https://www.google.com"},
+        {"@type": "Organization", "name": "Perplexity", "sameAs": "https://www.perplexity.ai"},
+        {"@type": "Organization", "name": "Webflow", "sameAs": "https://webflow.com"}],
+    "citation": [
+        {"@type": "ScholarlyArticle", "name": "GEO: Generative Engine Optimization", "author": "Aggarwal, Murahari, Rajpurohit, Kalyan, Narasimhan, Deshpande", "datePublished": "2024", "url": "https://arxiv.org/abs/2311.09735"},
+        {"@type": "WebPage", "name": "AI features and your website — Google Search Central", "url": "https://developers.google.com/search/docs/appearance/ai-features"},
+        {"@type": "WebPage", "name": "Overview of OpenAI Crawlers", "url": "https://developers.openai.com/api/docs/bots"},
+        {"@type": "WebPage", "name": "Traffic is no longer a reliable growth metric — Growth Unhinged", "url": "https://www.growthunhinged.com/p/traffic-is-no-longer-reliable"},
+        {"@type": "WebPage", "name": "Webflow 2x'd Sign-Ups from LLMs — Graphite", "url": "https://graphite.io/five-percent/case-studies/webflow-llm-signups"}]
+}
+
 # key = data-page dans src/site.html ; out = fichier généré ; path = URL canonique
 PAGES = [
     dict(key='hero', out='index.html', path='/', prio='1.0', freq='weekly',
@@ -81,6 +116,13 @@ PAGES = [
          desc="Inbound ou outbound marketing ? Avantages, canaux, ratios et méthode pour choisir la bonne stratégie B2B en 2026. Testez notre simulateur gratuit.",
          img=SITE + "/images/og-inbound-vs-outbound.png",
          ld=[BLOG_POSTING, crumbs(("Accueil", "/"), ("Actualités", "/actualites"), ("Inbound vs outbound", ARTICLE_URL))]),
+    dict(key='article-ia', out='actualites/referencement-ia.html', path=ARTICLE_IA_URL, prio='0.6', freq='monthly', og_type='article',
+         title="Référencement IA (GEO) : la ruée vers l'or de 2026",
+         desc="Le GEO, mythe ou réalité ? Ce que disent les études, ce qui change avec les Aperçus IA en France, et la méthode pour être cité par ChatGPT.",
+         img=SITE + "/images/og-referencement-ia.png",
+         article=dict(published="2026-10-01", modified="2026-10-01", section="Visibilité IA — SEO / GEO",
+                      tags=["SEO / GEO", "Visibilité IA", "Stratégie B2B", "Growth marketing"]),
+         ld=[BLOG_POSTING_IA, PERSON_CELIEN, crumbs(("Accueil", "/"), ("Actualités", "/actualites"), ("Référencement IA", ARTICLE_IA_URL))]),
     dict(key='manifeste', out='manifeste.html', path='/manifeste', prio='0.5', freq='monthly',
          title="Manifeste : notre vision du growth marketing | Cely",
          desc="Le manifeste Cely : notre vision du growth marketing pour les startups tech B2B, sans jargon ni prestations à distance."),
@@ -102,7 +144,19 @@ PAGES = [
 
 def esc(v): return html.escape(v, quote=True)
 
-def head_for(p):
+def faq_from_main(main_html, page_url):
+    """FAQPage construit à partir de la FAQ réellement affichée : questions et
+    réponses identiques mot pour mot au texte de la page (règle Google)."""
+    items = re.findall(r'<details class="art-faq-item"[^>]*>\s*<summary><h3>(.*?)</h3>.*?</summary>\s*<div class="art-faq-answer">(.*?)</div>', main_html, re.S)
+    def txt(h):
+        t = html.unescape(re.sub(r'<[^>]+>', '', h)).replace('\u00a0', ' ')
+        return re.sub(r'\s+', ' ', t).strip()
+    if not items:
+        return None
+    return {"@type": "FAQPage", "@id": page_url + "#faq", "mainEntity": [
+        {"@type": "Question", "name": txt(q), "acceptedAnswer": {"@type": "Answer", "text": txt(a)}} for q, a in items]}
+
+def head_for(p, faq=None):
     url = SITE + p['path'] if p['path'] else None
     img = p.get('img', DEFAULT_IMG)
     out = [
@@ -121,15 +175,24 @@ def head_for(p):
     ]
     if url:
         out.append('<meta property="og:url" content="%s">' % url)
+    if p.get('article'):
+        a = p['article']
+        out += ['<meta property="article:published_time" content="%s">' % a['published'],
+                '<meta property="article:modified_time" content="%s">' % a['modified'],
+                '<meta property="article:author" content="https://www.linkedin.com/in/celienboillotwenoble/">',
+                '<meta property="article:section" content="%s">' % esc(a['section'])]
+        out += ['<meta property="article:tag" content="%s">' % esc(t) for t in a['tags']]
     out += [
         '<meta property="og:image" content="%s">' % img,
+    ] + (['<meta property="og:image:width" content="1200">', '<meta property="og:image:height" content="630">'] if p.get('img') else []) + [
         '<meta name="twitter:card" content="summary_large_image">',
         '<meta name="twitter:title" content="%s">' % esc(p['title']),
         '<meta name="twitter:description" content="%s">' % esc(p['desc']),
         '<meta name="twitter:image" content="%s">' % img,
     ]
-    if p.get('ld'):
-        graph = {"@context": "https://schema.org", "@graph": p['ld']}
+    ld = list(p.get('ld') or []) + ([faq] if faq else [])
+    if ld:
+        graph = {"@context": "https://schema.org", "@graph": ld}
         out.append('<script type="application/ld+json">%s</script>' % json.dumps(graph, ensure_ascii=False, separators=(',', ':')))
     return '\n'.join(out)
 
@@ -148,7 +211,8 @@ def main():
         assert len(p['desc']) <= 155, ('description > 155', p['desc'], len(p['desc']))
         body_main = re.sub(r'(<main class="site-page[^"]*" data-page="[^"]+")\s+hidden>', r'\1>', mains[p['key']], count=1)
         page = src[:start] + '\n\n  ' + body_main + '\n\n' + src[end:]
-        page = page.replace('<!--PAGE_HEAD-->', head_for(p), 1)
+        faq = faq_from_main(body_main, SITE + p['path']) if p['path'] else None
+        page = page.replace('<!--PAGE_HEAD-->', head_for(p, faq), 1)
         dest = os.path.join(ROOT, p['out'])
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, 'w', encoding='utf-8') as f:
