@@ -89,6 +89,17 @@ BLOG_POSTING_IA = {
         {"@type": "WebPage", "name": "Webflow 2x'd Sign-Ups from LLMs — Graphite", "url": "https://graphite.io/five-percent/case-studies/webflow-llm-signups"}]
 }
 
+MOTION_URL = '/motion-design'
+SERVICE_MOTION = {
+    "@type": "Service", "@id": SITE + MOTION_URL + "#service",
+    "name": "Vidéo en motion design", "serviceType": "Motion design",
+    "description": "Vidéo en motion design jusqu'à 60 secondes, livrée en 7 jours, déclinée dans tous les formats (vertical, horizontal, carré), révisions illimitées jusqu'à satisfaction.",
+    "provider": {"@id": SITE + "/#organisation"}, "areaServed": {"@type": "Country", "name": "France"},
+    "url": SITE + MOTION_URL,
+    "offers": {"@type": "Offer", "price": "500", "priceCurrency": "EUR", "availability": "https://schema.org/LimitedAvailability",
+               "url": SITE + MOTION_URL, "description": "Offre de lancement limitée à 5 projets (prix habituel : 1 000 €)."}
+}
+
 # key = data-page dans src/site.html ; out = fichier généré ; path = URL canonique
 PAGES = [
     dict(key='hero', out='index.html', path='/', prio='1.0', freq='weekly',
@@ -123,6 +134,10 @@ PAGES = [
          article=dict(published="2026-10-01", modified="2026-10-01", section="Visibilité IA — SEO / GEO",
                       tags=["SEO / GEO", "Visibilité IA", "Stratégie B2B", "Growth marketing"]),
          ld=[BLOG_POSTING_IA, PERSON_CELIEN, crumbs(("Accueil", "/"), ("Actualités", "/actualites"), ("Référencement IA", ARTICLE_IA_URL))]),
+    dict(key='motion-design', out='motion-design.html', path=MOTION_URL, prio='0.8', freq='monthly',
+         title="Vidéo motion design à 500 € (offre de lancement) | Cely",
+         desc="Votre vidéo en motion design jusqu'à 60 s pour 500 € au lieu de 1 000 € : livrée en 7 jours, tous formats, révisions illimitées. 5 places.",
+         ld=[SERVICE_MOTION, crumbs(("Accueil", "/"), ("Motion design", MOTION_URL))]),
     dict(key='manifeste', out='manifeste.html', path='/manifeste', prio='0.5', freq='monthly',
          title="Manifeste : notre vision du growth marketing | Cely",
          desc="Le manifeste Cely : notre vision du growth marketing pour les startups tech B2B, sans jargon ni prestations à distance."),
@@ -148,6 +163,7 @@ def faq_from_main(main_html, page_url):
     """FAQPage construit à partir de la FAQ réellement affichée : questions et
     réponses identiques mot pour mot au texte de la page (règle Google)."""
     items = re.findall(r'<details class="art-faq-item"[^>]*>\s*<summary><h3>(.*?)</h3>.*?</summary>\s*<div class="art-faq-answer">(.*?)</div>', main_html, re.S)
+    items += re.findall(r'<details class="gpt-faq-item"[^>]*>\s*<summary>(.*?)<span class="pm"[^>]*></span></summary>\s*<p class="gpt-faq-answer">(.*?)</p>', main_html, re.S)
     def txt(h):
         t = html.unescape(re.sub(r'<[^>]+>', '', h)).replace('\u00a0', ' ')
         return re.sub(r'\s+', ' ', t).strip()
