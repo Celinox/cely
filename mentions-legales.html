@@ -1948,6 +1948,32 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .md-uses-list li{ font-family:var(--font-label); font-size:.82rem; font-weight:600; color:var(--prune); background:var(--white); border:1.4px solid var(--border); padding:8px 14px; border-radius:999px; transition:border-color var(--t-fast) var(--ease-cely-out), background var(--t-fast) var(--ease-cely-out); }
 .md-uses-list li:hover{ border-color:var(--violet); background:var(--in-bg, var(--lavender)); }
 
+/* ---- nos réalisations ---- */
+.md-real{ padding-block:clamp(16px,2.4vw,32px) clamp(64px,8vw,104px); background:var(--off-white); scroll-margin-top:calc(var(--nav-top) + var(--nav-h) + 16px); }
+.md-real-head{ max-width:60ch; }
+.md-real-lede{ margin-top:14px; color:var(--muted); font-size:1.05rem; line-height:1.6; }
+.md-real-grid{ margin-top:clamp(28px,3.6vw,40px); display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,2vw,22px); }
+.md-real-card{ margin:0; display:flex; flex-direction:column; gap:12px; color:inherit; text-decoration:none; }
+.md-real-media{ position:relative; aspect-ratio:16 / 9; border-radius:18px; overflow:hidden; background:var(--prune); border:1px solid var(--border); box-shadow:0 26px 56px -40px rgba(26,17,40,.5); }
+.md-real-video{ display:block; width:100%; height:100%; object-fit:cover; background:var(--prune); }
+.md-real-video:focus-visible{ outline:2.5px solid var(--violet); outline-offset:-3px; }
+.md-real-cap{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; padding-inline:4px; }
+.md-real-name{ font-family:var(--font-display); font-weight:800; font-size:1.02rem; color:var(--prune); }
+.md-real-kind{ font-family:var(--font-label); font-size:.74rem; color:var(--muted); }
+.md-real-slot{ display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; background:linear-gradient(150deg, var(--lavender), #F3EAFF); border:1.6px dashed var(--violet); box-shadow:none; transition:transform var(--t-normal) var(--ease-cely-out), box-shadow var(--t-normal) var(--ease-cely-out); }
+.md-real-plus{ width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:800; font-size:1.4rem; line-height:1; color:var(--white); background:var(--violet); }
+.md-real-soon{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem); color:var(--prune); }
+.md-real-cta{ display:inline-flex; align-items:center; gap:7px; font-family:var(--font-label); font-weight:600; font-size:.86rem; color:var(--violet-3); }
+.md-real-cta svg{ width:13px; height:13px; transition:transform var(--t-fast) var(--ease-cely-out); }
+.md-real-next:hover .md-real-slot{ transform:translateY(-4px); box-shadow:0 26px 50px -34px rgba(139,91,255,.6); }
+.md-real-next:hover .md-real-cta svg{ transform:translate(3px,-3px); }
+.md-real-next:focus-visible{ outline:none; }
+.md-real-next:focus-visible .md-real-slot{ outline:2.5px solid var(--violet); outline-offset:3px; }
+@media (max-width:900px){ .md-real-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:600px){ .md-real-grid{ grid-template-columns:1fr; } }
+@media (prefers-reduced-motion:reduce){ .md-real-slot{ transition:none; } }
+@media (min-width:601px) and (max-width:900px){ .md-real-next{ grid-column:1 / -1; } .md-real-next .md-real-media{ aspect-ratio:auto; min-height:170px; } }
+
 /* ---- bénéfices : visuels des cartes ---- */
 .md-benefits .ob-copy{ max-width:42ch; }
 .md-tl-track{ position:relative; height:6px; border-radius:3px; background:rgba(247,245,250,.14); overflow:hidden; }
@@ -4133,6 +4159,25 @@ main.site-page[hidden]{ display:none !important; }
         else if(!v.paused){ auto = true; v.pause(); }
       }, { threshold:[0, .35, .6] }).observe(v);
     }
+  }
+
+
+  /* 1b. Réalisations : lecture sans son quand la vidéo est visible, pause hors écran */
+  var reals = page.querySelectorAll('.md-real-video');
+  if(reals.length && !reduce && 'IntersectionObserver' in window){
+    var ioReal = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var vid = e.target;
+        if(e.isIntersecting && e.intersectionRatio >= .5){
+          if(vid.getAttribute('data-user-paused') !== '1' && vid.paused){ vid.preload = 'auto'; var pr = vid.play(); if(pr && pr.catch) pr.catch(function(){}); }
+        } else if(!vid.paused){ vid.setAttribute('data-auto', '1'); vid.pause(); }
+      });
+    }, { threshold:[0, .5] });
+    Array.prototype.forEach.call(reals, function(vid){
+      vid.addEventListener('pause', function(){ if(vid.getAttribute('data-auto') === '1'){ vid.removeAttribute('data-auto'); } else if(!vid.ended){ vid.setAttribute('data-user-paused', '1'); } });
+      vid.addEventListener('play', function(){ vid.removeAttribute('data-user-paused'); });
+      ioReal.observe(vid);
+    });
   }
 
   /* 2. CTA flottant : après le hero, masqué quand la réservation est à l'écran */
