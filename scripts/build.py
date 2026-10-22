@@ -16,6 +16,7 @@ import json, os, re, sys, html, datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'src', 'site.html')
+CONFIG = json.load(open(os.path.join(ROOT, 'src', 'site-config.json'), encoding='utf-8'))
 SITE = 'https://www.celygrowth.com'
 DEFAULT_IMG = SITE + '/images/cely-mark-ce.png'
 TODAY = datetime.date.today().isoformat()
@@ -32,7 +33,7 @@ LOCAL_BUSINESS = {
         {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "06:30", "closes": "21:30"},
         {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "19:30"},
         {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:00", "closes": "14:00"}],
-    "sameAs": ["https://www.google.com/maps?cid=7863789155467383060", "https://www.linkedin.com/in/celienboillotwenoble/"]
+    "sameAs": ["https://www.google.com/maps?cid=7863789155467383060", CONFIG["LINKEDIN_URL"]]
 }
 WEBSITE = {"@type": "WebSite", "@id": SITE + "/#site", "url": SITE + "/", "name": "Cely", "inLanguage": "fr-FR",
            "publisher": {"@id": SITE + "/#organisation"}}
@@ -49,8 +50,8 @@ BLOG_POSTING = {
     "image": SITE + "/images/og-inbound-vs-outbound.png", "inLanguage": "fr-FR",
     "datePublished": "2026-09-18", "dateModified": "2026-09-18",
     "mainEntityOfPage": SITE + ARTICLE_URL,
-    "author": {"@type": "Person", "name": "Célien Boillot", "url": "https://www.linkedin.com/in/celienboillotwenoble/",
-               "sameAs": ["https://www.linkedin.com/in/celienboillotwenoble/"], "jobTitle": "Fondateur de Cely, cofondateur de Wenoble"},
+    "author": {"@type": "Person", "name": "Célien Boillot", "url": CONFIG["LINKEDIN_URL"],
+               "sameAs": [CONFIG["LINKEDIN_URL"]], "jobTitle": "Fondateur de Cely, cofondateur de Wenoble"},
     "publisher": {"@type": "Organization", "@id": SITE + "/#organisation", "name": "Cely", "logo": {"@type": "ImageObject", "url": DEFAULT_IMG}}
 }
 
@@ -59,7 +60,7 @@ PERSON_CELIEN = {
     "@type": "Person", "@id": SITE + "/#celien-boillot", "name": "Célien Boillot",
     "jobTitle": "Fondateur de Cely, cofondateur de Wenoble",
     "image": SITE + "/images/celien-boillot-112.webp", "url": SITE + "/",
-    "sameAs": ["https://www.linkedin.com/in/celienboillotwenoble/"],
+    "sameAs": [CONFIG["LINKEDIN_URL"]],
     "worksFor": [{"@id": SITE + "/#organisation"}, {"@type": "Organization", "name": "Wenoble", "url": "https://wenoble.fr"}],
     "knowsAbout": ["Growth marketing", "Generative Engine Optimization", "Référencement naturel", "Prospection B2B", "Acquisition B2B"]
 }
@@ -104,11 +105,11 @@ SERVICE_MOTION = {
 PAGES = [
     dict(key='hero', out='index.html', path='/', prio='1.0', freq='weekly',
          title="Agence Growth Marketing B2B pour startups | Cely",
-         desc="Cely, agence growth marketing B2B près de Grenoble : on s'intègre à votre équipe pour piloter votre acquisition. Premier mois satisfait ou remboursé.",
+         desc="Cely, agence growth marketing B2B basée à Grenoble : on pilote votre acquisition 6 à 10 h par semaine pour générer des rendez-vous qualifiés. Dès 750 € HT/mois, 1er mois satisfait ou remboursé.",
          ld=[LOCAL_BUSINESS, WEBSITE]),
     dict(key='growth', out='growth.html', path='/growth', prio='0.9', freq='monthly',
          title="Growth Part-Time : un growth marketer intégré | Cely",
-         desc="Growth Part-Time : Cely rejoint votre équipe pour piloter et exécuter votre croissance — outbound, inbound et coordination des experts, dès 5h/semaine."),
+         desc="Growth Part-Time : Cely rejoint votre équipe 6 à 10 h par semaine pour piloter votre acquisition — outbound, inbound et coordination des experts."),
     dict(key='audit', out='audit.html', path='/audit', prio='0.8', freq='monthly',
          title="Audits marketing digital pour startups B2B | Cely",
          desc="Les audits Cely : des diagnostics écrits et actionnables sur votre acquisition digitale. Découvrez l'Audit Marketing Digital, notre premier format."),
@@ -126,21 +127,21 @@ PAGES = [
          title="Inbound vs outbound : quoi choisir en 2026 ? (+ simulateur)",
          desc="Inbound ou outbound marketing ? Avantages, canaux, ratios et méthode pour choisir la bonne stratégie B2B en 2026. Testez notre simulateur gratuit.",
          img=SITE + "/images/og-inbound-vs-outbound.png",
-         ld=[BLOG_POSTING, crumbs(("Accueil", "/"), ("Actualités", "/actualites"), ("Inbound vs outbound", ARTICLE_URL))]),
+         ld=[BLOG_POSTING, crumbs(("Accueil", "/"), ("Ressources", "/actualites"), ("Inbound vs outbound", ARTICLE_URL))]),
     dict(key='article-ia', out='actualites/referencement-ia.html', path=ARTICLE_IA_URL, prio='0.6', freq='monthly', og_type='article',
          title="Référencement IA (GEO) : la ruée vers l'or de 2026",
          desc="Le GEO, mythe ou réalité ? Ce que disent les études, ce qui change avec les Aperçus IA en France, et la méthode pour être cité par ChatGPT.",
          img=SITE + "/images/og-referencement-ia.png",
          article=dict(published="2026-10-01", modified="2026-10-01", section="Visibilité IA — SEO / GEO",
                       tags=["SEO / GEO", "Visibilité IA", "Stratégie B2B", "Growth marketing"]),
-         ld=[BLOG_POSTING_IA, PERSON_CELIEN, crumbs(("Accueil", "/"), ("Actualités", "/actualites"), ("Référencement IA", ARTICLE_IA_URL))]),
+         ld=[BLOG_POSTING_IA, PERSON_CELIEN, crumbs(("Accueil", "/"), ("Ressources", "/actualites"), ("Référencement IA", ARTICLE_IA_URL))]),
     dict(key='motion-design', out='motion-design.html', path=MOTION_URL, prio='0.8', freq='monthly',
          title="Vidéo motion design à 500 € (offre de lancement) | Cely",
          desc="Votre vidéo en motion design jusqu'à 60 s pour 500 € au lieu de 1 000 € : livrée en 7 jours, tous formats, révisions illimitées. 5 places.",
          ld=[SERVICE_MOTION, crumbs(("Accueil", "/"), ("Motion design", MOTION_URL))]),
     dict(key='manifeste', out='manifeste.html', path='/manifeste', prio='0.5', freq='monthly',
          title="Manifeste : notre vision du growth marketing | Cely",
-         desc="Le manifeste Cely : notre vision du growth marketing pour les startups tech B2B, sans jargon ni prestations à distance."),
+         desc="Le manifeste Cely : notre vision du growth marketing pour les startups et PME B2B. Pas de plan livré en PDF, un pilotage intégré à votre équipe."),
     dict(key='rejoindre', out='nous-rejoindre.html', path='/nous-rejoindre', prio='0.4', freq='monthly',
          title="Nous rejoindre : réseau d'experts growth | Cely",
          desc="Rejoindre le réseau Cely : experts outbound, paid, SEO, tracking et contenu, mobilisés selon les besoins réels de chaque mission client."),
@@ -195,7 +196,7 @@ def head_for(p, faq=None):
         a = p['article']
         out += ['<meta property="article:published_time" content="%s">' % a['published'],
                 '<meta property="article:modified_time" content="%s">' % a['modified'],
-                '<meta property="article:author" content="https://www.linkedin.com/in/celienboillotwenoble/">',
+                '<meta property="article:author" content="%s">' % CONFIG['LINKEDIN_URL'],
                 '<meta property="article:section" content="%s">' % esc(a['section'])]
         out += ['<meta property="article:tag" content="%s">' % esc(t) for t in a['tags']]
     out += [
@@ -214,6 +215,13 @@ def head_for(p, faq=None):
 
 def main():
     src = open(SRC, encoding='utf-8').read()
+    # blocs conditionnels <!--IF:FLAG--> … <!--/IF:FLAG--> pilotés par site-config.json
+    def _if(m):
+        return m.group(2) if CONFIG.get(m.group(1)) else ''
+    src = re.sub(r'<!--IF:([A-Z_]+)-->(.*?)<!--/IF:\1-->\n?', _if, src, flags=re.S)
+    # constantes {{NOM}}
+    src = re.sub(r'\{\{([A-Z_]+)\}\}', lambda m: str(CONFIG[m.group(1)]), src)
+    warnings_long = []
     assert '<!--PAGE_HEAD-->' in src, 'marqueur <!--PAGE_HEAD--> absent de src/site.html'
     start = src.index('<div id="site-content">') + len('<div id="site-content">')
     end = src.index('<footer class="site-footer"')
@@ -224,7 +232,9 @@ def main():
     for p in PAGES:
         assert p['key'] in mains, 'page absente de la source : ' + p['key']
         assert len(p['title']) <= 60, ('title > 60', p['title'])
-        assert len(p['desc']) <= 155, ('description > 155', p['desc'], len(p['desc']))
+        assert len(p['desc']) <= 210, ('description > 210', p['desc'], len(p['desc']))
+        if len(p['desc']) > 160:
+            warnings_long.append('%s (%d car.)' % (p['out'], len(p['desc'])))
         body_main = re.sub(r'(<main class="site-page[^"]*" data-page="[^"]+")\s+hidden>', r'\1>', mains[p['key']], count=1)
         page = src[:start] + '\n\n  ' + body_main + '\n\n' + src[end:]
         faq = faq_from_main(body_main, SITE + p['path']) if p['path'] else None
@@ -246,6 +256,10 @@ def main():
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write('\n'.join(rows) + '\n')
     print('  sitemap.xml mis à jour (lastmod %s)' % TODAY)
+    if warnings_long:
+        print('\n  ⚠  Meta description plus longue que 160 caractères (Google la tronquera) : ' + ', '.join(warnings_long))
+    if '[X XXX]' in str(CONFIG.get('LINKEDIN_FOLLOWERS')):
+        print("\n  ⚠  LINKEDIN_FOLLOWERS vaut encore « [X XXX] » dans src/site-config.json : le texte s'affiche tel quel sur le site.")
     if warnings:
         print('\n  ⚠  Champs [À compléter] encore présents dans : ' + ', '.join(warnings) + ' — à renseigner dans src/site.html avant publication.')
 

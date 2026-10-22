@@ -1874,6 +1874,29 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .art-callout ul li{ font-size:.94rem; }
 
 /* ============================================================
+   PAGE — MANIFESTE (six convictions numérotées + signature)
+   ============================================================ */
+.mf-hero{ padding-bottom:clamp(24px,3vw,40px); }
+.mf-list{ padding-block:clamp(8px,1.6vw,20px) clamp(64px,8vw,104px); background:var(--off-white); }
+.mf-items{ list-style:none; margin:0; padding:0; }
+.mf-item{ display:grid; grid-template-columns:clamp(64px,9vw,120px) 1fr; gap:clamp(16px,3vw,48px); align-items:start; padding-block:clamp(26px,3.6vw,44px); border-bottom:1px solid var(--border); }
+.mf-num{ font-family:var(--font-display); font-weight:800; font-size:clamp(2rem,1.4rem + 2.4vw,3.4rem); line-height:1; color:var(--violet); letter-spacing:-.02em; }
+.mf-body{ max-width:64ch; }
+.mf-title{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.3rem,1.1rem + 1vw,1.9rem); line-height:1.18; color:var(--prune); text-wrap:balance; }
+.mf-copy{ margin-top:12px; font-size:1.02rem; line-height:1.68; color:var(--muted); }
+.mf-item:nth-child(even) .mf-num{ color:var(--violet-3); }
+.mf-sign-wrap{ padding-block:0 clamp(80px,10vw,136px); background:var(--off-white); }
+.mf-sign{ margin:0; background:var(--prune); color:var(--off-white); border-radius:28px; padding:clamp(28px,4vw,52px); display:flex; flex-direction:column; align-items:flex-start; gap:22px; box-shadow:0 40px 80px -50px rgba(26,17,40,.6); }
+.mf-quote{ margin:0; font-family:var(--font-display); font-weight:700; font-size:clamp(1.25rem,1rem + 1.2vw,1.85rem); line-height:1.35; max-width:40ch; text-wrap:balance; }
+.mf-author{ display:flex; align-items:center; gap:12px; }
+.mf-avatar{ width:52px; height:52px; border-radius:50%; object-fit:cover; border:1.6px solid rgba(247,245,250,.25); flex:none; }
+.mf-author-text{ display:flex; flex-direction:column; gap:2px; font-family:var(--font-label); font-size:.82rem; }
+.mf-name{ font-weight:600; color:var(--off-white); }
+.mf-role{ color:rgba(247,245,250,.65); }
+.mf-cta{ margin-top:4px; }
+@media (max-width:600px){ .mf-item{ grid-template-columns:1fr; gap:8px; } }
+
+/* ============================================================
    PAGE — MOTION DESIGN (landing de conversion, offre de lancement)
    Ne fait qu'ajuster les composants existants (hero, intro-video,
    obtenez, compare-table, aud-method, aud-offer, gpt-faq, cta-final).
@@ -2378,14 +2401,13 @@ main.site-page[hidden]{ display:none !important; }
     <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><picture><source srcset="/images/cely-logo-light.webp" type="image/webp"><img src="/images/cely-logo-light.png" alt="Cely" width="292" height="102"></picture></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="/growth" data-route="growth" class="nl-priority"><span class="nl-slash is-permanent">/</span><span>Growth Part-Time</span></a>
-      <a href="/audit" data-route="audit"><span class="nl-slash">/</span><span>Audit</span></a>
-      <a href="/actualites" data-route="actualites"><span class="nl-slash">/</span><span>Actualités</span></a>
+      <a href="/#histoire"><span class="nl-slash">/</span><span>À propos</span></a>
       <a href="/manifeste" data-route="manifeste"><span class="nl-slash">/</span><span>Manifeste</span></a>
-      <a href="/nous-rejoindre" data-route="nous-rejoindre" class="nl-quiet"><span class="nl-slash">/</span><span>Nous rejoindre</span></a>
+      <a href="/actualites" data-route="actualites"><span class="nl-slash">/</span><span>Ressources</span></a>
     </nav>
     <div class="nav-right">
       <a href="/contact" data-route="contact" class="nav-cta">
-        <span>Faire le point ensemble</span>
+        <span>Réserver mon diagnostic</span>
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
@@ -2397,13 +2419,12 @@ main.site-page[hidden]{ display:none !important; }
     <nav class="nav-mobile-panel" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true" inert>
       <div class="nmp-links">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
-        <a href="/audit" data-route="audit">Audit</a>
-        <a href="/actualites" data-route="actualites">Actualités</a>
+        <a href="/#histoire">À propos</a>
         <a href="/manifeste" data-route="manifeste">Manifeste</a>
-        <a href="/nous-rejoindre" data-route="nous-rejoindre">Nous rejoindre</a>
+        <a href="/actualites" data-route="actualites">Ressources</a>
       </div>
       <div class="nmp-foot">
-        <a href="/contact" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Faire le point ensemble</a>
+        <a href="/contact" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Réserver mon diagnostic (30 min)</a>
       </div>
     </nav>
   </div>
@@ -2419,7 +2440,7 @@ main.site-page[hidden]{ display:none !important; }
   <section class="contact-hero">
     <div class="section-wrap contact-hero-wrap reveal">
       <span class="section-label"><span class="sl-slash">//</span> Faisons connaissance</span>
-      <h1 class="section-h2">Parlons de votre croissance.</h1>
+      <h1 class="section-h2">30 minutes. Vous repartez avec 2 à 3 pistes concrètes.</h1>
       <p class="contact-hero-sub">Un échange simple pour comprendre votre situation, identifier vos premiers points de blocage et voir si Cely peut vous accompagner.</p>
       <div class="contact-chips">
         <span class="contact-chip">Premier rendez-vous offert</span>
@@ -2437,7 +2458,23 @@ main.site-page[hidden]{ display:none !important; }
       <div class="contact-grid">
 
         <!-- ---- formulaire deux étapes ---- -->
+        <aside class="calendly-card reveal" aria-label="Réserver un créneau directement">
+          <span class="section-label calendly-label"><span class="sl-slash">//</span> Réservation directe</span>
+          <h2 class="calendly-title">Choisissez votre créneau</h2>
+          <div class="hz-proof-foot" style="margin-top:12px;">
+            <img class="hz-proof-avatar" src="/images/photos/celien-portrait-garantie.webp" alt="Célien Boillot, fondateur de Cely" loading="lazy" width="72" height="72">
+            <div class="hz-proof-foot-text">
+              <span class="hz-proof-name" style="color:var(--prune);">Avec Célien Boillot</span>
+              <span class="hz-proof-role" style="color:var(--muted);">Fondateur de Cely, cofondateur de Wenoble</span>
+            </div>
+          </div>
+          <p class="calendly-copy">30&nbsp;minutes en visio, confirmation immédiate.</p>
+          <div class="calendly-embed-wrap">
+            <div class="calendly-inline-widget" data-url="https://calendly.com/c-boillotpro/30min?hide_event_type_details=1&amp;hide_gdpr_banner=1&amp;primary_color=950895" style="min-width:280px;height:660px;"></div>
+          </div>
+        </aside>
         <div class="contact-form-card reveal">
+          <h2 class="calendly-title" style="margin:0 0 18px;">Vous préférez écrire&nbsp;?</h2>
           <div class="form-steps" aria-hidden="true">
             <div class="form-step-dot is-active" id="stepDot1"><span class="n">1</span><span>Vous &amp; votre entreprise</span></div>
             <div class="form-step-sep"></div>
@@ -2471,25 +2508,24 @@ main.site-page[hidden]{ display:none !important; }
               <div class="form-row">
                 <div class="field">
                   <label for="fStade">Stade de la startup</label>
-                  <select id="fStade" name="stade" required>
-                    <option value="" disabled selected>Choisir…</option>
+                  <select id="fStade" name="stade">
+                    <option value="" selected>Optionnel</option>
+                    <option>Autofinancée / PME</option>
                     <option>Pré-seed / Amorçage</option>
                     <option>Seed</option>
                     <option>Série A</option>
                     <option>Série B et +</option>
                     <option>Autre</option>
                   </select>
-                  <p class="field-error">Merci de sélectionner un stade.</p>
                 </div>
                 <div class="field">
                   <label for="fTaille">Taille de l'équipe</label>
                   <select id="fTaille" name="taille" required>
                     <option value="" disabled selected>Choisir…</option>
-                    <option>Solo</option>
-                    <option>2 à 5</option>
-                    <option>6 à 15</option>
-                    <option>16 à 50</option>
-                    <option>50 et +</option>
+                    <option>1 à 4</option>
+                    <option>5 à 15</option>
+                    <option>16 à 30</option>
+                    <option>Plus de 30</option>
                   </select>
                   <p class="field-error">Merci de sélectionner une taille d'équipe.</p>
                 </div>
@@ -2525,9 +2561,8 @@ main.site-page[hidden]{ display:none !important; }
                 <p class="field-error">Merci de sélectionner une réponse.</p>
               </div>
               <div class="field">
-                <label for="fBlocage">Qu'est-ce qui bloque le plus aujourd'hui&nbsp;?</label>
-                <textarea id="fBlocage" name="blocage" required placeholder="En quelques phrases : ce qui freine votre acquisition en ce moment."></textarea>
-                <p class="field-error">Merci de décrire brièvement votre situation.</p>
+                <label for="fBlocage">Qu'est-ce qui bloque le plus aujourd'hui&nbsp;? <span class="opt">(optionnel)</span></label>
+                <textarea id="fBlocage" name="blocage" placeholder="En quelques phrases : ce qui freine votre acquisition en ce moment."></textarea>
               </div>
               <div class="field scale-field">
                 <label for="fScale">Comment évaluez-vous votre acquisition aujourd'hui&nbsp;? (1 à 10)</label>
@@ -2555,7 +2590,7 @@ main.site-page[hidden]{ display:none !important; }
             <h2>Message envoyé.</h2>
             <p>Votre demande a bien été transmise à Cely — voici un récapitulatif de vos réponses.</p>
             <div class="form-success-recap" id="formRecap"></div>
-            <span class="form-dev-tag">On revient vers vous sous 48h ouvrées.</span>
+            <span class="form-dev-tag">Célien vous répond personnellement sous 24&nbsp;h ouvrées.</span>
           </div>
 
           <div class="form-success" id="formError" role="alert" style="background:#FBEAEA;">
@@ -2565,14 +2600,7 @@ main.site-page[hidden]{ display:none !important; }
         </div>
 
         <!-- ---- alternative créneaux — widget Calendly réel ---- -->
-        <aside class="calendly-card reveal" aria-label="Réserver un créneau directement">
-          <span class="section-label calendly-label"><span class="sl-slash">//</span> Ou directement</span>
-          <h2 class="calendly-title">Choisissez un créneau qui vous arrange.</h2>
-          <p class="calendly-copy">30&nbsp;minutes en visio, confirmation immédiate&nbsp;— sans passer par le formulaire.</p>
-          <div class="calendly-embed-wrap">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/c-boillotpro/30min?hide_event_type_details=1&amp;hide_gdpr_banner=1&amp;primary_color=950895" style="min-width:280px;height:660px;"></div>
-          </div>
-        </aside>
+
 
       </div>
     </div>
@@ -2596,7 +2624,7 @@ main.site-page[hidden]{ display:none !important; }
         <div class="reassure-step reveal">
           <span class="reassure-num">02</span>
           <h3 class="reassure-title">On vous recontacte</h3>
-          <p class="reassure-copy">Un retour rapide pour caler un créneau, uniquement si le fit semble réel.</p>
+          <p class="reassure-copy">Célien vous répond personnellement sous 24&nbsp;h ouvrées pour caler un créneau.</p>
         </div>
         <div class="reassure-step reveal">
           <span class="reassure-num">03</span>
@@ -2621,7 +2649,7 @@ main.site-page[hidden]{ display:none !important; }
       </div>
       <div class="footer-contact">
         <p class="footer-contact-q">Un sujet growth en tête&nbsp;?</p>
-        <a href="/contact" data-route="contact" class="footer-contact-link">Parlons-en
+        <a href="/contact" data-route="contact" class="footer-contact-link">Réserver mon diagnostic (30 min)
           <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -2630,11 +2658,11 @@ main.site-page[hidden]{ display:none !important; }
     <div class="footer-nav-row reveal">
       <nav class="footer-nav" aria-label="Navigation du pied de page">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
-        <a href="/audit" data-route="audit">Audit</a>
-        <a href="/services" data-route="services">Services</a>
-        <a href="/actualites" data-route="actualites">Actualités</a>
+        <a href="/#histoire">À propos</a>
         <a href="/manifeste" data-route="manifeste">Manifeste</a>
-        <a href="/nous-rejoindre" data-route="nous-rejoindre">Nous rejoindre</a>
+        <a href="/actualites" data-route="actualites">Ressources</a>
+        <a href="/audit" data-route="audit">Audit</a>
+        <a href="/nous-rejoindre" data-route="nous-rejoindre">Rejoindre le réseau</a>
         <a href="/contact" data-route="contact">Contact</a>
       </nav>
       <div class="footer-legal">
@@ -2662,7 +2690,7 @@ main.site-page[hidden]{ display:none !important; }
         <a href="/" data-route="home" class="footer-logo" aria-label="Cely — retour à l'accueil">C<span class="e">e</span>ly<span class="dot" aria-hidden="true"></span></a>
         <span class="footer-egg-phrase" aria-hidden="true">On regarde ça ensemble&nbsp;?</span>
       </div>
-      <a href="/contact" data-route="contact" class="footer-connaitre">Faire connaissance
+      <a href="/contact" data-route="contact" class="footer-connaitre">Réserver mon diagnostic (30 min)
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>

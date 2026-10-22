@@ -1,0 +1,7 @@
+{
+  "_doc": "Constantes du site, injectées par scripts/build.py dans src/site.html via {{NOM}}. Modifier ici puis relancer python3 scripts/build.py.",
+  "LINKEDIN_FOLLOWERS": "[X XXX]",
+  "LINKEDIN_URL": "https://www.linkedin.com/in/celienboillotwenoble/",
+  "CALENDLY_URL": "https://calendly.com/c-boillotpro/30min",
+  "SHOW_REFERENCES": false
+}

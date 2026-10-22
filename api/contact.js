@@ -31,8 +31,8 @@ const CONTACT_FROM = process.env.CONTACT_FROM || 'Cely — Site <contact@celygro
 
 const MAX_LEN = { prenom: 80, nom: 80, email: 200, entreprise: 150, stade: 60, taille: 40, revenu: 60, gestion: 120, blocage: 3000, scale: 4 };
 
-const STADES = ['Pré-seed / Amorçage', 'Seed', 'Série A', 'Série B et +', 'Autre'];
-const TAILLES = ['Solo', '2 à 5', '6 à 15', '16 à 50', '50 et +'];
+const STADES = ['', 'Autofinancée / PME', 'Pré-seed / Amorçage', 'Seed', 'Série A', 'Série B et +', 'Autre'];
+const TAILLES = ['1 à 4', '5 à 15', '16 à 30', 'Plus de 30'];
 const REVENUS = ['', 'Moins de 10k€/mois', '10k€ à 50k€/mois', '50k€ à 200k€/mois', 'Plus de 200k€/mois'];
 const GESTIONS = ["Personne en interne (dirigeant·e ou associé·e)", 'Un profil généraliste marketing', 'Une agence', 'Un·e freelance', 'Personne pour l\'instant'];
 
@@ -77,7 +77,7 @@ function validate(body) {
   const errors = [];
   const data = {};
 
-  for (const key of ['prenom', 'nom', 'email', 'entreprise', 'stade', 'taille', 'gestion', 'blocage']) {
+  for (const key of ['prenom', 'nom', 'email', 'entreprise', 'taille', 'gestion']) {
     if (!isNonEmptyString(body[key], MAX_LEN[key])) errors.push(key);
   }
   if (errors.length) return { ok: false, errors };
@@ -87,13 +87,15 @@ function validate(body) {
   data.email = sanitizeHeaderValue(body.email).slice(0, MAX_LEN.email);
   if (!EMAIL_RE.test(data.email)) return { ok: false, errors: ['email'] };
   data.entreprise = String(body.entreprise).trim().slice(0, MAX_LEN.entreprise);
-  data.stade = STADES.includes(body.stade) ? body.stade : null;
-  if (!data.stade) return { ok: false, errors: ['stade'] };
+  // stade : optionnel
+  data.stade = STADES.includes(body.stade || '') ? (body.stade || '') : null;
+  if (data.stade === null) return { ok: false, errors: ['stade'] };
   data.taille = TAILLES.includes(body.taille) ? body.taille : null;
   if (!data.taille) return { ok: false, errors: ['taille'] };
   data.gestion = GESTIONS.includes(body.gestion) ? body.gestion : null;
   if (!data.gestion) return { ok: false, errors: ['gestion'] };
-  data.blocage = String(body.blocage).trim().slice(0, MAX_LEN.blocage);
+  // blocage : optionnel
+  data.blocage = typeof body.blocage === 'string' ? body.blocage.trim().slice(0, MAX_LEN.blocage) : '';
 
   // champs optionnels
   data.revenu = REVENUS.includes(body.revenu) ? body.revenu : '';
@@ -163,11 +165,11 @@ module.exports = async (req, res) => {
     ['Nom', d.nom],
     ['Email', d.email],
     ['Entreprise', d.entreprise],
-    ['Stade de la startup', d.stade],
+    ['Stade de la startup', d.stade || '(non renseigné)'],
     ["Taille de l'équipe", d.taille],
     ['Tranche de revenu mensuel', d.revenu || '(non renseigné)'],
     ["Qui gère l'acquisition aujourd'hui", d.gestion],
-    ["Qu'est-ce qui bloque le plus", d.blocage],
+    ["Qu'est-ce qui bloque le plus", d.blocage || '(non renseigné)'],
     ['Auto-évaluation acquisition (1-10)', d.scale !== null ? `${d.scale} / 10` : '(non renseigné)'],
   ];
 

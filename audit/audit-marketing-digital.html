@@ -1875,6 +1875,29 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .art-callout ul li{ font-size:.94rem; }
 
 /* ============================================================
+   PAGE — MANIFESTE (six convictions numérotées + signature)
+   ============================================================ */
+.mf-hero{ padding-bottom:clamp(24px,3vw,40px); }
+.mf-list{ padding-block:clamp(8px,1.6vw,20px) clamp(64px,8vw,104px); background:var(--off-white); }
+.mf-items{ list-style:none; margin:0; padding:0; }
+.mf-item{ display:grid; grid-template-columns:clamp(64px,9vw,120px) 1fr; gap:clamp(16px,3vw,48px); align-items:start; padding-block:clamp(26px,3.6vw,44px); border-bottom:1px solid var(--border); }
+.mf-num{ font-family:var(--font-display); font-weight:800; font-size:clamp(2rem,1.4rem + 2.4vw,3.4rem); line-height:1; color:var(--violet); letter-spacing:-.02em; }
+.mf-body{ max-width:64ch; }
+.mf-title{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.3rem,1.1rem + 1vw,1.9rem); line-height:1.18; color:var(--prune); text-wrap:balance; }
+.mf-copy{ margin-top:12px; font-size:1.02rem; line-height:1.68; color:var(--muted); }
+.mf-item:nth-child(even) .mf-num{ color:var(--violet-3); }
+.mf-sign-wrap{ padding-block:0 clamp(80px,10vw,136px); background:var(--off-white); }
+.mf-sign{ margin:0; background:var(--prune); color:var(--off-white); border-radius:28px; padding:clamp(28px,4vw,52px); display:flex; flex-direction:column; align-items:flex-start; gap:22px; box-shadow:0 40px 80px -50px rgba(26,17,40,.6); }
+.mf-quote{ margin:0; font-family:var(--font-display); font-weight:700; font-size:clamp(1.25rem,1rem + 1.2vw,1.85rem); line-height:1.35; max-width:40ch; text-wrap:balance; }
+.mf-author{ display:flex; align-items:center; gap:12px; }
+.mf-avatar{ width:52px; height:52px; border-radius:50%; object-fit:cover; border:1.6px solid rgba(247,245,250,.25); flex:none; }
+.mf-author-text{ display:flex; flex-direction:column; gap:2px; font-family:var(--font-label); font-size:.82rem; }
+.mf-name{ font-weight:600; color:var(--off-white); }
+.mf-role{ color:rgba(247,245,250,.65); }
+.mf-cta{ margin-top:4px; }
+@media (max-width:600px){ .mf-item{ grid-template-columns:1fr; gap:8px; } }
+
+/* ============================================================
    PAGE — MOTION DESIGN (landing de conversion, offre de lancement)
    Ne fait qu'ajuster les composants existants (hero, intro-video,
    obtenez, compare-table, aud-method, aud-offer, gpt-faq, cta-final).
@@ -2379,14 +2402,13 @@ main.site-page[hidden]{ display:none !important; }
     <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><picture><source srcset="/images/cely-logo-light.webp" type="image/webp"><img src="/images/cely-logo-light.png" alt="Cely" width="292" height="102"></picture></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="/growth" data-route="growth" class="nl-priority"><span class="nl-slash is-permanent">/</span><span>Growth Part-Time</span></a>
-      <a href="/audit" data-route="audit"><span class="nl-slash">/</span><span>Audit</span></a>
-      <a href="/actualites" data-route="actualites"><span class="nl-slash">/</span><span>Actualités</span></a>
+      <a href="/#histoire"><span class="nl-slash">/</span><span>À propos</span></a>
       <a href="/manifeste" data-route="manifeste"><span class="nl-slash">/</span><span>Manifeste</span></a>
-      <a href="/nous-rejoindre" data-route="nous-rejoindre" class="nl-quiet"><span class="nl-slash">/</span><span>Nous rejoindre</span></a>
+      <a href="/actualites" data-route="actualites"><span class="nl-slash">/</span><span>Ressources</span></a>
     </nav>
     <div class="nav-right">
       <a href="/contact" data-route="contact" class="nav-cta">
-        <span>Faire le point ensemble</span>
+        <span>Réserver mon diagnostic</span>
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
@@ -2398,13 +2420,12 @@ main.site-page[hidden]{ display:none !important; }
     <nav class="nav-mobile-panel" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true" inert>
       <div class="nmp-links">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
-        <a href="/audit" data-route="audit">Audit</a>
-        <a href="/actualites" data-route="actualites">Actualités</a>
+        <a href="/#histoire">À propos</a>
         <a href="/manifeste" data-route="manifeste">Manifeste</a>
-        <a href="/nous-rejoindre" data-route="nous-rejoindre">Nous rejoindre</a>
+        <a href="/actualites" data-route="actualites">Ressources</a>
       </div>
       <div class="nmp-foot">
-        <a href="/contact" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Faire le point ensemble</a>
+        <a href="/contact" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Réserver mon diagnostic (30 min)</a>
       </div>
     </nav>
   </div>
@@ -2443,14 +2464,13 @@ main.site-page[hidden]{ display:none !important; }
             <span class="aud-fact">Suivi à M+1 et M+2</span>
           </div>
           <div class="aud-hero-actions">
-            <a href="/contact" data-route="contact" class="btn-hero">Faire le point ensemble
+            <a href="/contact" data-route="contact" class="btn-hero">Réserver mon diagnostic (30 min)
               <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </div>
         <div class="reveal">
           <div class="aud-report-stage">
-            <span class="aud-report-tag">Maquette — rapport type</span>
             <div class="aud-report-page p1" aria-hidden="true">
               <span class="aud-page-line w60"></span>
               <span class="aud-page-line w80"></span>
@@ -2470,7 +2490,7 @@ main.site-page[hidden]{ display:none !important; }
                 <span class="aud-cover-label">Rapport d'audit</span>
                 <p class="aud-cover-title">Diagnostic acquisition</p>
               </div>
-              <span class="aud-cover-foot">Cely — maquette de mise en page</span>
+              <span class="aud-cover-foot">Cely</span>
             </div>
             <span class="aud-report-annot">Rapport — exemple de structure</span>
           </div>
@@ -2664,7 +2684,7 @@ main.site-page[hidden]{ display:none !important; }
           <p class="row">Aucun engagement de mission à la suite</p>
         </div>
         <div class="aud-offer-actions">
-          <a href="/contact" data-route="contact" class="btn-affirm">Faire le point ensemble
+          <a href="/contact" data-route="contact" class="btn-affirm">Réserver mon diagnostic (30 min)
             <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -2719,7 +2739,7 @@ main.site-page[hidden]{ display:none !important; }
         <h2 class="cta-final-h2">Parlons de votre situation.<br>Voyez si l'<span class="accent">Audit Marketing Digital</span> a du sens.</h2>
         <p class="cta-final-sub">On identifie ensemble vos principaux blocages et on voit si un audit complet ou un autre format est le plus adapté à votre situation.</p>
         <div class="cta-final-actions">
-          <a href="/contact#formulaire" data-route="contact" class="btn-cta-final">Faire le point ensemble
+          <a href="/contact#formulaire" data-route="contact" class="btn-cta-final">Réserver mon diagnostic (30 min)
             <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
@@ -2742,7 +2762,7 @@ main.site-page[hidden]{ display:none !important; }
       </div>
       <div class="footer-contact">
         <p class="footer-contact-q">Un sujet growth en tête&nbsp;?</p>
-        <a href="/contact" data-route="contact" class="footer-contact-link">Parlons-en
+        <a href="/contact" data-route="contact" class="footer-contact-link">Réserver mon diagnostic (30 min)
           <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -2751,11 +2771,11 @@ main.site-page[hidden]{ display:none !important; }
     <div class="footer-nav-row reveal">
       <nav class="footer-nav" aria-label="Navigation du pied de page">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
-        <a href="/audit" data-route="audit">Audit</a>
-        <a href="/services" data-route="services">Services</a>
-        <a href="/actualites" data-route="actualites">Actualités</a>
+        <a href="/#histoire">À propos</a>
         <a href="/manifeste" data-route="manifeste">Manifeste</a>
-        <a href="/nous-rejoindre" data-route="nous-rejoindre">Nous rejoindre</a>
+        <a href="/actualites" data-route="actualites">Ressources</a>
+        <a href="/audit" data-route="audit">Audit</a>
+        <a href="/nous-rejoindre" data-route="nous-rejoindre">Rejoindre le réseau</a>
         <a href="/contact" data-route="contact">Contact</a>
       </nav>
       <div class="footer-legal">
@@ -2783,7 +2803,7 @@ main.site-page[hidden]{ display:none !important; }
         <a href="/" data-route="home" class="footer-logo" aria-label="Cely — retour à l'accueil">C<span class="e">e</span>ly<span class="dot" aria-hidden="true"></span></a>
         <span class="footer-egg-phrase" aria-hidden="true">On regarde ça ensemble&nbsp;?</span>
       </div>
-      <a href="/contact" data-route="contact" class="footer-connaitre">Faire connaissance
+      <a href="/contact" data-route="contact" class="footer-connaitre">Réserver mon diagnostic (30 min)
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>

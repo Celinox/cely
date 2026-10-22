@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow">
 <title>Manifeste : notre vision du growth marketing | Cely</title>
-<meta name="description" content="Le manifeste Cely : notre vision du growth marketing pour les startups tech B2B, sans jargon ni prestations à distance.">
+<meta name="description" content="Le manifeste Cely : notre vision du growth marketing pour les startups et PME B2B. Pas de plan livré en PDF, un pilotage intégré à votre équipe.">
 <link rel="canonical" href="https://www.celygrowth.com/manifeste">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Cely">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="Manifeste : notre vision du growth marketing | Cely">
-<meta property="og:description" content="Le manifeste Cely : notre vision du growth marketing pour les startups tech B2B, sans jargon ni prestations à distance.">
+<meta property="og:description" content="Le manifeste Cely : notre vision du growth marketing pour les startups et PME B2B. Pas de plan livré en PDF, un pilotage intégré à votre équipe.">
 <meta property="og:url" content="https://www.celygrowth.com/manifeste">
 <meta property="og:image" content="https://www.celygrowth.com/images/cely-mark-ce.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Manifeste : notre vision du growth marketing | Cely">
-<meta name="twitter:description" content="Le manifeste Cely : notre vision du growth marketing pour les startups tech B2B, sans jargon ni prestations à distance.">
+<meta name="twitter:description" content="Le manifeste Cely : notre vision du growth marketing pour les startups et PME B2B. Pas de plan livré en PDF, un pilotage intégré à votre équipe.">
 <meta name="twitter:image" content="https://www.celygrowth.com/images/cely-mark-ce.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -1874,6 +1874,29 @@ html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px +
 .art-callout ul li{ font-size:.94rem; }
 
 /* ============================================================
+   PAGE — MANIFESTE (six convictions numérotées + signature)
+   ============================================================ */
+.mf-hero{ padding-bottom:clamp(24px,3vw,40px); }
+.mf-list{ padding-block:clamp(8px,1.6vw,20px) clamp(64px,8vw,104px); background:var(--off-white); }
+.mf-items{ list-style:none; margin:0; padding:0; }
+.mf-item{ display:grid; grid-template-columns:clamp(64px,9vw,120px) 1fr; gap:clamp(16px,3vw,48px); align-items:start; padding-block:clamp(26px,3.6vw,44px); border-bottom:1px solid var(--border); }
+.mf-num{ font-family:var(--font-display); font-weight:800; font-size:clamp(2rem,1.4rem + 2.4vw,3.4rem); line-height:1; color:var(--violet); letter-spacing:-.02em; }
+.mf-body{ max-width:64ch; }
+.mf-title{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.3rem,1.1rem + 1vw,1.9rem); line-height:1.18; color:var(--prune); text-wrap:balance; }
+.mf-copy{ margin-top:12px; font-size:1.02rem; line-height:1.68; color:var(--muted); }
+.mf-item:nth-child(even) .mf-num{ color:var(--violet-3); }
+.mf-sign-wrap{ padding-block:0 clamp(80px,10vw,136px); background:var(--off-white); }
+.mf-sign{ margin:0; background:var(--prune); color:var(--off-white); border-radius:28px; padding:clamp(28px,4vw,52px); display:flex; flex-direction:column; align-items:flex-start; gap:22px; box-shadow:0 40px 80px -50px rgba(26,17,40,.6); }
+.mf-quote{ margin:0; font-family:var(--font-display); font-weight:700; font-size:clamp(1.25rem,1rem + 1.2vw,1.85rem); line-height:1.35; max-width:40ch; text-wrap:balance; }
+.mf-author{ display:flex; align-items:center; gap:12px; }
+.mf-avatar{ width:52px; height:52px; border-radius:50%; object-fit:cover; border:1.6px solid rgba(247,245,250,.25); flex:none; }
+.mf-author-text{ display:flex; flex-direction:column; gap:2px; font-family:var(--font-label); font-size:.82rem; }
+.mf-name{ font-weight:600; color:var(--off-white); }
+.mf-role{ color:rgba(247,245,250,.65); }
+.mf-cta{ margin-top:4px; }
+@media (max-width:600px){ .mf-item{ grid-template-columns:1fr; gap:8px; } }
+
+/* ============================================================
    PAGE — MOTION DESIGN (landing de conversion, offre de lancement)
    Ne fait qu'ajuster les composants existants (hero, intro-video,
    obtenez, compare-table, aud-method, aud-offer, gpt-faq, cta-final).
@@ -2378,14 +2401,13 @@ main.site-page[hidden]{ display:none !important; }
     <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><picture><source srcset="/images/cely-logo-light.webp" type="image/webp"><img src="/images/cely-logo-light.png" alt="Cely" width="292" height="102"></picture></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="/growth" data-route="growth" class="nl-priority"><span class="nl-slash is-permanent">/</span><span>Growth Part-Time</span></a>
-      <a href="/audit" data-route="audit"><span class="nl-slash">/</span><span>Audit</span></a>
-      <a href="/actualites" data-route="actualites"><span class="nl-slash">/</span><span>Actualités</span></a>
+      <a href="/#histoire"><span class="nl-slash">/</span><span>À propos</span></a>
       <a href="/manifeste" data-route="manifeste"><span class="nl-slash">/</span><span>Manifeste</span></a>
-      <a href="/nous-rejoindre" data-route="nous-rejoindre" class="nl-quiet"><span class="nl-slash">/</span><span>Nous rejoindre</span></a>
+      <a href="/actualites" data-route="actualites"><span class="nl-slash">/</span><span>Ressources</span></a>
     </nav>
     <div class="nav-right">
       <a href="/contact" data-route="contact" class="nav-cta">
-        <span>Faire le point ensemble</span>
+        <span>Réserver mon diagnostic</span>
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
       <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
@@ -2397,13 +2419,12 @@ main.site-page[hidden]{ display:none !important; }
     <nav class="nav-mobile-panel" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true" inert>
       <div class="nmp-links">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
-        <a href="/audit" data-route="audit">Audit</a>
-        <a href="/actualites" data-route="actualites">Actualités</a>
+        <a href="/#histoire">À propos</a>
         <a href="/manifeste" data-route="manifeste">Manifeste</a>
-        <a href="/nous-rejoindre" data-route="nous-rejoindre">Nous rejoindre</a>
+        <a href="/actualites" data-route="actualites">Ressources</a>
       </div>
       <div class="nmp-foot">
-        <a href="/contact" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Faire le point ensemble</a>
+        <a href="/contact" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Réserver mon diagnostic (30 min)</a>
       </div>
     </nav>
   </div>
@@ -2413,78 +2434,84 @@ main.site-page[hidden]{ display:none !important; }
 
   <main class="site-page" data-page="manifeste">
 
-<section class="view" data-view="manifeste" id="view-manifeste">
-  <div class="manifeste-intro wrap">
-    <span class="label">Manifeste</span>
-    <h1 style="margin-top:14px; max-width:20ch;">Ce qu'on croit, avant de toucher à un seul canal.</h1>
-  </div>
-
-  <div class="moment" style="--mcolor:var(--violet);">
-    <div class="wrap reveal">
-      <span class="num">/ 01</span>
-      <h2>On ne croit pas au growth piloté à distance.</h2>
-      <p class="body">Un plan envoyé par email, sans jamais mettre les mains dans votre réalité, ce n'est pas une stratégie. C'est un pari.</p>
-    </div>
-  </div>
-
-  <div class="moment dark">
-    <div class="wrap reveal">
-      <span class="num">/ 02</span>
-      <h2>On commence par comprendre.</h2>
-      <p class="body">Le marché, les clients, le produit, les contraintes, l'équipe — avant de toucher à un seul canal d'acquisition.</p>
-      <span class="annot pink moment-annot">On commence toujours ici.</span>
-    </div>
-  </div>
-
-  <div class="moment" style="--mcolor:var(--pink);">
-    <div class="wrap reveal">
-      <span class="num">/ 03</span>
-      <h2>On construit avec l'équipe qui va le vivre.</h2>
-      <p class="body">Un bon plan de croissance ne se livre pas depuis l'extérieur. Il se construit avec les personnes qui vont l'exécuter.</p>
-      <div class="photo-slot moment-photo" role="img" aria-label="Photo à produire : séance de travail avec l'équipe cliente, tableau ou carnet">
-        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <span class="cap">[Photo à produire]<br>Séance de travail, équipe cliente</span>
+  <!-- ============================================================
+       MANIFESTE — six convictions + signature (mise en page dédiée)
+       ============================================================ -->
+  <section class="hub-hero mf-hero">
+    <div class="section-wrap">
+      <div class="hub-hero-inner reveal">
+        <span class="section-label"><span class="sl-slash">//</span> Manifeste</span>
+        <h1 class="hub-hero-h1">Ce qu'on croit, avant de toucher à un seul canal.</h1>
+        <p class="hub-hero-sub">Six convictions qui décident de la façon dont on travaille. Et de ce qu'on refuse de faire.</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="moment lav" style="--mcolor:var(--prune);">
-    <div class="wrap reveal">
-      <span class="num">/ 04</span>
-      <h2>On préfère peu de clients, bien accompagnés.</h2>
-      <p class="body">À beaucoup de clients, mal écoutés. Ce n'est pas un choix de croissance à tout prix. C'est un choix d'exigence.</p>
+  <section class="mf-list" aria-label="Nos six convictions">
+    <div class="section-wrap">
+      <ol class="mf-items">
+        <li class="mf-item reveal">
+          <span class="mf-num">01</span>
+          <div class="mf-body">
+            <h2 class="mf-title">On ne croit pas au growth livré en PDF.</h2>
+            <p class="mf-copy">Un plan envoyé par email, puis oublié jusqu'au prochain rapport, ce n'est pas une stratégie. C'est un pari. Chez nous, le plan est un point de départ&nbsp;: on le lance, on le mesure, on le corrige chaque semaine.</p>
+          </div>
+        </li>
+        <li class="mf-item reveal">
+          <span class="mf-num">02</span>
+          <div class="mf-body">
+            <h2 class="mf-title">On commence par comprendre.</h2>
+            <p class="mf-copy">Votre marché, vos clients, votre produit, vos contraintes, votre équipe. On ne peut pas faire grandir une entreprise qu'on ne comprend pas. C'est pour ça que tout commence par un audit, jamais par une campagne.</p>
+          </div>
+        </li>
+        <li class="mf-item reveal">
+          <span class="mf-num">03</span>
+          <div class="mf-body">
+            <h2 class="mf-title">On construit avec l'équipe qui va le vivre.</h2>
+            <p class="mf-copy">Un bon plan de croissance ne se livre pas de l'extérieur. On échange avec vos commerciaux, pas seulement avec le dirigeant. Ce sont eux qui savent ce que les clients disent vraiment.</p>
+          </div>
+        </li>
+        <li class="mf-item reveal">
+          <span class="mf-num">04</span>
+          <div class="mf-body">
+            <h2 class="mf-title">On préfère peu de clients, bien accompagnés.</h2>
+            <p class="mf-copy">Plutôt que beaucoup de clients, mal écoutés. On travaille avec un nombre restreint d'entreprises à la fois. Ce n'est pas un argument commercial, c'est une condition pour bien faire le travail.</p>
+          </div>
+        </li>
+        <li class="mf-item reveal">
+          <span class="mf-num">05</span>
+          <div class="mf-body">
+            <h2 class="mf-title">On s'intègre, où que vous soyez.</h2>
+            <p class="mf-copy">Quelques heures par semaine, on devient un membre de votre équipe growth, pas un prestataire de plus sur votre liste de factures. Vos points d'équipe, votre Slack, votre CRM. En visio partout en France, et sur place quand vous êtes près de Grenoble.</p>
+          </div>
+        </li>
+        <li class="mf-item reveal">
+          <span class="mf-num">06</span>
+          <div class="mf-body">
+            <h2 class="mf-title">On préfère être jugés sur les résultats que sur un contrat.</h2>
+            <p class="mf-copy">Pas d'engagement figé&nbsp;: on continue parce que le travail avance, pas parce qu'un contrat nous y oblige. Et si le premier mois ne vous convainc pas, on vous le rembourse.</p>
+          </div>
+        </li>
+      </ol>
     </div>
-  </div>
+  </section>
 
-  <div class="moment dark">
-    <div class="wrap reveal">
-      <span class="num">/ 05</span>
-      <h2>On s'intègre.</h2>
-      <p class="body">Quelques heures par semaine, on devient un membre de votre équipe growth — pas un prestataire de plus sur la liste.</p>
+  <section class="mf-sign-wrap">
+    <div class="section-wrap">
+      <figure class="mf-sign reveal">
+        <blockquote class="mf-quote">«&nbsp;J'ai écrit ces lignes parce que j'ai trop souvent vu l'inverse. Elles sont la règle du jeu, pour moi et pour chaque expert qui travaille avec Cely.&nbsp;»</blockquote>
+        <figcaption class="mf-author">
+          <img class="mf-avatar" src="/images/photos/celien-portrait-garantie.webp" alt="Célien Boillot, fondateur de Cely" loading="lazy" width="72" height="72">
+          <span class="mf-author-text"><span class="mf-name">Célien Boillot</span><span class="mf-role">Fondateur de Cely, cofondateur de Wenoble</span></span>
+        </figcaption>
+        <a href="/contact#formulaire" data-route="contact" class="btn-cta-final mf-cta">Réserver mon diagnostic (30 min)
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </figure>
     </div>
-  </div>
+  </section>
 
-  <div class="moment" style="--mcolor:var(--violet);">
-    <div class="wrap reveal">
-      <span class="num">/ 06</span>
-      <h2>On reste tant que ça marche.</h2>
-      <p class="body">Pas d'engagement figé. On continue parce que le travail avance, pas parce qu'un contrat nous y oblige.</p>
-    </div>
-  </div>
-
-  <div class="manifeste-close wrap reveal">
-    <picture><source srcset="/images/cely-logo-light.webp" type="image/webp"><img class="wordmark" src="/images/cely-logo-light.png" alt="Cely" width="292" height="102"></picture>
-    <h2>Le growth qui <span style="color:var(--violet)">s'intègre.</span></h2>
-    <div style="margin-top:32px;">
-      <a href="/contact" data-route="contact" class="btn btn-primary">
-        Parler de votre croissance
-        <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-</main>
+  </main>
 
 </div>
 
@@ -2497,7 +2524,7 @@ main.site-page[hidden]{ display:none !important; }
       </div>
       <div class="footer-contact">
         <p class="footer-contact-q">Un sujet growth en tête&nbsp;?</p>
-        <a href="/contact" data-route="contact" class="footer-contact-link">Parlons-en
+        <a href="/contact" data-route="contact" class="footer-contact-link">Réserver mon diagnostic (30 min)
           <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -2506,11 +2533,11 @@ main.site-page[hidden]{ display:none !important; }
     <div class="footer-nav-row reveal">
       <nav class="footer-nav" aria-label="Navigation du pied de page">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
-        <a href="/audit" data-route="audit">Audit</a>
-        <a href="/services" data-route="services">Services</a>
-        <a href="/actualites" data-route="actualites">Actualités</a>
+        <a href="/#histoire">À propos</a>
         <a href="/manifeste" data-route="manifeste">Manifeste</a>
-        <a href="/nous-rejoindre" data-route="nous-rejoindre">Nous rejoindre</a>
+        <a href="/actualites" data-route="actualites">Ressources</a>
+        <a href="/audit" data-route="audit">Audit</a>
+        <a href="/nous-rejoindre" data-route="nous-rejoindre">Rejoindre le réseau</a>
         <a href="/contact" data-route="contact">Contact</a>
       </nav>
       <div class="footer-legal">
@@ -2538,7 +2565,7 @@ main.site-page[hidden]{ display:none !important; }
         <a href="/" data-route="home" class="footer-logo" aria-label="Cely — retour à l'accueil">C<span class="e">e</span>ly<span class="dot" aria-hidden="true"></span></a>
         <span class="footer-egg-phrase" aria-hidden="true">On regarde ça ensemble&nbsp;?</span>
       </div>
-      <a href="/contact" data-route="contact" class="footer-connaitre">Faire connaissance
+      <a href="/contact" data-route="contact" class="footer-connaitre">Réserver mon diagnostic (30 min)
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
