@@ -63,6 +63,41 @@
       "source": "/actualites/attribution-multicanal",
       "destination": "/actualites",
       "statusCode": 301
+    },
+    {
+      "source": "/cely.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/cely-logo-light.png",
+      "destination": "/images/cely-logo-light.png",
+      "statusCode": 301
+    },
+    {
+      "source": "/cely-logo-light.webp",
+      "destination": "/images/cely-logo-light.webp",
+      "statusCode": 301
+    },
+    {
+      "source": "/cely-logo-dark.png",
+      "destination": "/images/cely-logo-hd.png",
+      "statusCode": 301
+    },
+    {
+      "source": "/cely-mark-ce.png",
+      "destination": "/images/cely-mark-ce.png",
+      "statusCode": 301
+    },
+    {
+      "source": "/celien-boillot.png",
+      "destination": "/images/celien-boillot.png",
+      "statusCode": 301
+    },
+    {
+      "source": "/og-inbound-vs-outbound.png",
+      "destination": "/images/og-inbound-vs-outbound.png",
+      "statusCode": 301
     }
   ],
   "headers": [
