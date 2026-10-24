@@ -143,7 +143,7 @@ OG = SITE + "/images/og/"
 PAGES = [
     dict(key='hero', out='index.html', path='/', prio='1.0', freq='weekly', topbar=True, img=OG + 'og-accueil.png',
          title="Growth marketer à temps partagé pour startups B2B | Cely",
-         desc="Cely structure l'acquisition des startups B2B qui n'ont pas encore de growth : outbound et inbound lancés dès le premier mois, sans engagement.",
+         desc="Cely, le growth marketer des startups B2B qui n'en ont pas encore : stratégie, outbound, inbound et automatisation dès le premier mois. Sans engagement.",
          ld=[LOCAL_BUSINESS, WEBSITE, PERSON_CELIEN]),
     dict(key='growth', out='growth.html', path='/growth', prio='0.9', freq='monthly', topbar=True, img=OG + 'og-growth.png',
          crumbs=[H, ("Growth Part-Time", "/growth")],

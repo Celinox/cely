@@ -70,6 +70,11 @@
       "statusCode": 301
     },
     {
+      "source": "/cely",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
       "source": "/cely-logo-light.png",
       "destination": "/images/cely-logo-light.png",
       "statusCode": 301
