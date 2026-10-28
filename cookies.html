@@ -3249,6 +3249,113 @@ h2.hp-story-box-h{ margin:0; }
   .wf-body{ display:flex; flex-direction:column; gap:18px; }
   .wf-main, .wf-branch{ display:flex; flex-direction:column; gap:18px; }
 }
+
+/* ---------- passe v4 ---------- */
+.hp-inline-link{ color:var(--violet-3); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+.hp-bul-row{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)) !important; gap:12px 32px; }
+.hp-bul li{ overflow:visible; }
+.hp-concret-photo{ max-width:400px; }
+.hp-concret-photo img{ aspect-ratio:4 / 5 !important; object-position:center 22% !important; }
+.hp-concret-note{ margin-top:18px; padding-top:16px; border-top:1px solid var(--border); font-size:.98rem; line-height:1.6; color:var(--muted); }
+.hp-extra-card h3{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.3rem,1.1rem + .6vw,1.6rem); text-transform:uppercase; letter-spacing:-.01em; color:var(--prune); }
+.gpt-hero-actions .hp-micro{ margin-top:12px; }
+/* /growth : visuel secteurs */
+.sx-card{ position:relative; padding:clamp(26px,3vw,38px); background:var(--white); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:var(--hp-sh-lg-violet); }
+.sx-card .hp-eyebrow{ margin-bottom:12px; }
+.sx-title{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem); line-height:1.15; letter-spacing:-.02em; color:var(--prune); max-width:18ch; }
+.sx-chips{ list-style:none; margin:22px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:10px; }
+.sx-chips li{ padding:9px 16px; border-radius:999px; border:2px solid var(--prune); background:var(--lavender); font-family:var(--font-label); font-size:.9rem; font-weight:700; color:var(--prune); box-shadow:3px 3px 0 var(--prune); }
+.sx-chips li:nth-child(3n+2){ background:#F4D9FB; } .sx-chips li:nth-child(3n){ background:#FFF1A8; }
+@keyframes sxFloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-4px); } }
+.sx-caption{ margin-top:22px; padding-right:90px; font-size:.98rem; line-height:1.55; color:var(--muted); }
+.sx-cely{ position:absolute; right:12px; bottom:10px; width:96px; height:81px; }
+/* /growth : c'est pour vous si */
+.fit-grid{ margin-top:clamp(36px,4.4vw,52px); display:grid; grid-template-columns:1fr 1fr; gap:clamp(16px,2vw,28px); }
+.fit-card{ padding:clamp(26px,3.4vw,44px); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:var(--hp-sh); background:var(--white); }
+.fit-card.is-yes{ background:var(--lavender); }
+.fit-head{ font-family:var(--font-label); font-size:.82rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--violet-3); }
+.fit-card.is-no .fit-head{ color:var(--muted); }
+.fit-card ul{ list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:18px; }
+.fit-card li{ display:flex; align-items:flex-start; gap:14px; font-family:var(--font-display); font-weight:800; font-size:clamp(1.15rem,1rem + .6vw,1.45rem); line-height:1.3; color:var(--prune); }
+.fit-card li a{ color:var(--violet-3); text-decoration:underline; text-underline-offset:3px; }
+.fit-ic{ flex:none; width:30px; height:30px; margin-top:2px; border-radius:50%; border:2px solid var(--prune); background:var(--violet-3) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M2.5 6.2 5 8.6 9.5 3.6' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center / 15px no-repeat; }
+.fit-card.is-no .fit-ic{ background:#F7E3FB url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3.6 3.6l4.8 4.8M8.4 3.6l-4.8 4.8' stroke='%239B3FA8' stroke-width='2' stroke-linecap='round'/></svg>") center / 14px no-repeat; }
+@media (max-width:760px){ .fit-grid{ grid-template-columns:1fr; } }
+/* /growth : rôle de Cely */
+.gpt-pillar-ico{ display:grid; place-items:center; width:48px; height:48px; margin-bottom:14px; border-radius:14px; background:var(--lavender); border:2px solid var(--prune); color:var(--violet-3); }
+.gpt-pillar-ico svg{ width:24px; height:24px; }
+.gpt-pillar-hub .gpt-pillar-ico{ margin-inline:auto; background:var(--violet-3); color:var(--white); border-color:var(--off-white); }
+.gpt-pillar-num{ display:block; font-family:var(--font-display) !important; font-weight:800; font-size:2.4rem !important; line-height:1; letter-spacing:-.04em; color:transparent !important; -webkit-text-stroke:1.5px var(--violet-3); margin-bottom:10px; }
+.gpt-pillar-hub .gpt-pillar-num{ -webkit-text-stroke-color:var(--pink); }
+.gpt-pillar-branch{ transition:transform .25s var(--ease-cely-out), box-shadow .25s var(--ease-cely-out), border-color .25s; }
+.gpt-pillar-branch:hover{ transform:translate(-3px,-3px); box-shadow:9px 9px 0 var(--violet-3); border-color:var(--violet-3); }
+.gpt-pillar-branches{ gap:clamp(16px,2vw,24px) !important; }
+/* /growth : carte prix */
+.px-card{ margin-top:clamp(36px,4.4vw,52px); display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); background:var(--prune); color:var(--off-white); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:12px 12px 0 var(--violet); overflow:hidden; }
+.px-main{ padding:clamp(30px,4.4vw,60px); background:radial-gradient(70% 80% at 0% 0%, rgba(139,91,255,.35), transparent 70%); }
+.px-label{ display:inline-block; padding:5px 12px; border-radius:999px; background:var(--pink); color:var(--prune); font-family:var(--font-label); font-size:.74rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+.px-title{ margin-top:20px; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,1.1rem + 1.4vw,2.3rem); line-height:1.12; letter-spacing:-.02em; max-width:18ch; }
+.px-price{ margin-top:clamp(28px,3.4vw,44px); font-family:var(--font-display); font-weight:800; font-size:clamp(3rem,2rem + 4vw,5.4rem); line-height:.95; letter-spacing:-.04em; color:var(--white); }
+.px-price small{ display:block; margin-bottom:8px; font-size:.22em; letter-spacing:0; color:var(--lavender); }
+.px-price span{ font-size:.3em; letter-spacing:0; color:var(--lavender); }
+.px-side{ display:flex; flex-direction:column; justify-content:center; gap:18px; padding:clamp(30px,4.4vw,60px); border-left:1px solid rgba(247,245,250,.14); }
+.px-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px; }
+.px-list li{ position:relative; padding-left:34px; font-family:var(--font-display); font-weight:700; font-size:1.12rem; line-height:1.35; }
+.px-list li::before{ content:""; position:absolute; left:0; top:1px; width:22px; height:22px; border-radius:50%; background:var(--violet-3) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M2.5 6.2 5 8.6 9.5 3.6' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") center / 12px no-repeat; }
+.px-small{ font-size:.86rem; line-height:1.55; color:rgba(247,245,250,.66); }
+.px-side .hp-cta-row{ margin-top:6px; }
+@media (max-width:860px){ .px-card{ grid-template-columns:1fr; box-shadow:6px 6px 0 var(--violet); } .px-side{ border-left:0; border-top:1px solid rgba(247,245,250,.14); } }
+/* /growth : garantie avec photo */
+.gpt-guarantee-photo{ flex:none; width:96px; height:96px; border-radius:50%; object-fit:cover; object-position:center 30%; border:var(--hp-line); box-shadow:4px 4px 0 var(--violet); }
+.gpt-guarantee-sign{ margin-top:14px; font-size:.95rem; color:var(--prune); }
+@media (max-width:600px){ .gpt-guarantee.is-hero .gpt-guarantee-text{ flex-direction:column; } .gpt-guarantee-photo{ width:76px; height:76px; } }
+/* /services */
+.au-card-from{ display:block; margin-bottom:6px; font-size:.3em; color:var(--lavender); }
+.svx-section-title{ margin:0; }
+.svx-list{ margin-top:clamp(36px,4.4vw,52px); display:flex; flex-direction:column; gap:clamp(28px,4vw,56px); }
+.svx{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(24px,4vw,64px); align-items:center; scroll-margin-top:calc(var(--nav-top) + var(--nav-h) + 24px); }
+.svx.is-rev .svx-txt{ order:2; }
+.svx-txt .hp-h2{ font-size:clamp(1.8rem,1.2rem + 2vw,2.8rem); max-width:none; }
+.svx-txt > p{ margin-top:16px; font-size:1.06rem; line-height:1.65; color:var(--prune); max-width:56ch; }
+.svx-txt .hp-bul{ margin-top:18px; }
+.svx-vis{ min-height:300px; }
+.hp-extra-card{ scroll-margin-top:calc(var(--nav-top) + var(--nav-h) + 24px); }
+.sv-audit-grid{ align-items:stretch; }
+.sv-hesite{ background:rgba(247,245,250,.04); }
+.sv-hesite .au-vs-go{ margin-top:auto; color:var(--pink); text-decoration:underline; text-underline-offset:3px; }
+#automatisation, #audit{ scroll-margin-top:calc(var(--nav-top) + var(--nav-h)); }
+@media (max-width:860px){ .svx{ grid-template-columns:1fr; } .svx.is-rev .svx-txt{ order:0; } .svx-vis{ min-height:0; } }
+/* /comparatif-growth-marketing */
+.cmpx-author{ font-family:var(--font-label); font-size:.84rem; color:var(--muted); }
+.cmpx-author a{ color:var(--violet-3); font-weight:700; text-decoration:underline; }
+.cmpx-narrow{ max-width:860px; }
+.cmpx-intro{ padding-bottom:0; }
+.cmpx-def{ margin-top:clamp(40px,5vw,64px); scroll-margin-top:calc(var(--nav-top) + var(--nav-h) + 24px); }
+.cmpx-def p{ margin-top:18px; font-size:1.15rem; line-height:1.7; color:var(--prune); }
+.sv-grid-4{ grid-template-columns:repeat(4,minmax(0,1fr)) !important; }
+.sv-cost{ background:var(--prune) !important; }
+.sv-cost h3{ color:var(--pink) !important; }
+.sv-cost p{ color:var(--off-white) !important; }
+.sv-cost sup{ color:var(--lavender); }
+.cmpx-notes{ margin-top:8px; }
+.hp-cmp-5 col.c-crit{ width:15%; } .hp-cmp-5 col.c-cely{ width:19%; }
+.hp-cmp-5 thead th{ font-size:1rem; }
+.hp-cmp-5 tbody td{ font-size:.94rem; padding-inline:14px; }
+.cmpx-case-grid{ list-style:none; margin:clamp(36px,4.4vw,52px) 0 0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2vw,24px); counter-reset:cc; }
+.cmpx-case-grid li{ position:relative; padding:clamp(22px,2.8vw,32px) clamp(22px,2.8vw,32px) clamp(22px,2.8vw,32px) 84px; background:var(--white); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:var(--hp-sh); counter-increment:cc; }
+.cmpx-case-grid li::before{ content:counter(cc, decimal-leading-zero); position:absolute; left:24px; top:22px; font-family:var(--font-display); font-weight:800; font-size:2rem; line-height:1; color:transparent; -webkit-text-stroke:1.5px var(--violet-3); }
+.cmpx-case-grid h3{ margin:0; font-family:var(--font-display); font-weight:800; font-size:1.2rem; line-height:1.3; color:var(--prune); }
+.cmpx-case-grid p{ margin-top:8px; font-size:1rem; line-height:1.55; color:var(--violet-3); font-weight:700; }
+.cmpx-cely{ padding-top:0; }
+.cmpx-cely-card{ padding:clamp(28px,4vw,52px); background:var(--violet-3); color:var(--white); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:10px 10px 0 var(--prune); }
+.cmpx-cely-card .hp-h2{ color:var(--white); }
+.cmpx-cely-card .hp-bul{ margin-top:20px; gap:12px; }
+.cmpx-cely-card .hp-bul li{ color:var(--white); font-size:1.08rem; }
+.cmpx-cely-card .hp-bul li::before{ background:var(--pink); }
+@media (max-width:1000px){ .sv-grid-4{ grid-template-columns:1fr 1fr !important; } }
+@media (max-width:700px){ .sv-grid-4, .cmpx-case-grid{ grid-template-columns:1fr !important; } }
+.svx .hp-eyebrow{ color:var(--violet-3); letter-spacing:.1em; font-size:.8rem; }
+.sv-pilot{ padding-top:0; }
 </style>
 </head>
 <body>
@@ -3275,8 +3382,8 @@ h2.hp-story-box-h{ margin:0; }
     <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><img src="/images/cely-logo.svg" alt="Cely" width="676" height="230"></a>
     <nav class="nav-links" aria-label="Navigation principale">
       <a href="/growth" data-route="growth" class="nl-priority"><span class="nl-slash is-permanent" aria-hidden="true"></span><span>Growth Part-Time</span></a>
+      <a href="/services" data-route="services"><span class="nl-slash" aria-hidden="true"></span><span>Services</span></a>
       <a href="/#histoire"><span class="nl-slash" aria-hidden="true"></span><span>À propos</span></a>
-      <a href="/manifeste" data-route="manifeste"><span class="nl-slash" aria-hidden="true"></span><span>Manifeste</span></a>
       <a href="/actualites" data-route="actualites"><span class="nl-slash" aria-hidden="true"></span><span>Ressources</span></a>
     </nav>
     <div class="nav-right">
@@ -3293,8 +3400,8 @@ h2.hp-story-box-h{ margin:0; }
     <nav class="nav-mobile-panel" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true" inert>
       <div class="nmp-links">
         <a href="/growth" data-route="growth">Growth Part-Time</a>
+        <a href="/services" data-route="services">Services</a>
         <a href="/#histoire">À propos</a>
-        <a href="/manifeste" data-route="manifeste">Manifeste</a>
         <a href="/actualites" data-route="actualites">Ressources</a>
       </div>
       <div class="nmp-foot">
@@ -3335,7 +3442,9 @@ h2.hp-story-box-h{ margin:0; }
         <p class="ft-h" id="ftOffre">Offre</p>
         <ul>
           <li><a href="/growth" data-route="growth">Growth Part-Time</a></li>
+          <li><a href="/services" data-route="services">Services</a></li>
           <li><a href="/audit/audit-marketing-digital" data-route="audit">Audit Marketing Digital</a></li>
+          <li><a href="/comparatif-growth-marketing" data-route="comparatif">Comparatif</a></li>
           <li><a href="/actualites" data-route="actualites">Ressources</a></li>
         </ul>
       </nav>
@@ -3426,7 +3535,7 @@ h2.hp-story-box-h{ margin:0; }
   var main = document.querySelector('main.site-page');
   if(!main) return;
   var key = main.getAttribute('data-page');
-  var navKey = { hero:'home', growth:'growth', audit:'audit', 'audit-detail':'audit', services:'services', actu:'actualites',
+  var navKey = { hero:'home', growth:'growth', audit:'audit', 'audit-detail':'audit', services:'services', comparatif:'comparatif', actu:'actualites',
                  article:'actualites', 'article-ia':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact' }[key] || '';
   document.querySelectorAll('a[data-route]').forEach(function(el){
     if(navKey && el.getAttribute('data-route') === navKey) el.setAttribute('aria-current', 'page');

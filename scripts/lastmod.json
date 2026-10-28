@@ -1,27 +1,31 @@
 {
  "/": {
-  "date": "2026-10-24",
-  "hash": "a5409c6d0ac26441c9a13706a0465116"
+  "date": "2026-10-28",
+  "hash": "ee5d937d4f74c6c62354b7d62b3484a6"
  },
  "/actualites": {
   "date": "2026-10-24",
   "hash": "d73b7c3ec173380014010c1e7a1cc8f3"
  },
  "/actualites/inbound-vs-outbound": {
-  "date": "2026-10-24",
-  "hash": "052648757129903b996e9484a1e6aa0a"
+  "date": "2026-10-28",
+  "hash": "ca51999445fea238952245e7a0ed33f4"
  },
  "/actualites/referencement-ia": {
-  "date": "2026-10-24",
-  "hash": "b3fc80b51f28588878c1ced84b372501"
+  "date": "2026-10-28",
+  "hash": "ac98eda186607ea470e4c00666de3c75"
  },
  "/audit": {
-  "date": "2026-10-24",
-  "hash": "afb9c3017d5abc993f05a9c702c64835"
+  "date": "2026-10-28",
+  "hash": "d92254c8d95484b7be44108b2d0d5331"
  },
  "/audit/audit-marketing-digital": {
   "date": "2026-10-24",
   "hash": "1d25471a663396df65c3d82b9064dacf"
+ },
+ "/comparatif-growth-marketing": {
+  "date": "2026-10-28",
+  "hash": "b048d57e3018f8072899c1e53da36855"
  },
  "/confidentialite": {
   "date": "2026-10-23",
@@ -36,8 +40,8 @@
   "hash": "5defe9628ca4cf4b1d42903ee01e4920"
  },
  "/growth": {
-  "date": "2026-10-24",
-  "hash": "14fed769270d52c35a49af31cfbf9e9d"
+  "date": "2026-10-28",
+  "hash": "231d7c21b8137f22c1c5ab91d3b19906"
  },
  "/manifeste": {
   "date": "2026-10-24",
@@ -56,7 +60,7 @@
   "hash": "3d530f68bbdcb77bb0fe83ef7eb11ad6"
  },
  "/services": {
-  "date": "2026-10-24",
-  "hash": "9ed7d1ea829f1a548d6f76d1c6671152"
+  "date": "2026-10-28",
+  "hash": "b02f76e300b7931dd6b7cf325c59aac0"
  }
 }

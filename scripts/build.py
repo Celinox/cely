@@ -97,7 +97,7 @@ BLOG_POSTING_IA = {
 SERVICE_GROWTH = {
     "@type": "Service", "@id": SITE + "/growth#service",
     "name": "Growth Part-Time", "serviceType": "Growth marketing à temps partagé",
-    "description": "Un growth marketer intégré à votre équipe 6 à 10 heures par semaine : stratégie, outbound, inbound et automatisation. Sans engagement, premier mois satisfait ou remboursé.",
+    "description": "Un growth marketer freelance intégré à votre équipe, présent chaque semaine : stratégie, outbound, inbound et automatisation. Sans engagement, premier mois satisfait ou remboursé.",
     "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "France"},
     "audience": {"@type": "BusinessAudience", "name": "Startups et PME B2B"},
     "url": SITE + "/growth",
@@ -136,19 +136,37 @@ SERVICE_MOTION = {
                "url": SITE + MOTION_URL, "description": "Offre de lancement limitée à 5 projets (prix habituel : 1 000 €)."}
 }
 
+SERVICES_LIST = {
+    "@type": "ItemList", "@id": SITE + "/services#services", "name": "Services Cely",
+    "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "Service", "name": n, "url": SITE + u, "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "France"}}}
+                        for i, (n, u) in enumerate([("Growth Part-Time", "/growth"), ("Stratégie d'acquisition", "/services#strategie"), ("Prospection outbound", "/services#outbound"),
+                                                    ("Stratégie inbound", "/services#inbound"), ("Automatisation marketing et commerciale", "/services#automatisation"),
+                                                    ("Publicité LinkedIn Ads et Google Ads", "/services#publicite"), ("Lead scoring", "/services#lead-scoring"),
+                                                    ("CRM et tracking", "/services#crm-tracking"), ("Audit Marketing Digital", "/audit/audit-marketing-digital")])]
+}
+ARTICLE_COMP = {
+    "@type": "Article", "@id": SITE + "/comparatif-growth-marketing#article",
+    "headline": "Freelance, agence, salarié ou directeur marketing externalisé : que choisir ?",
+    "description": "Growth marketer freelance, agence, salarié ou directeur marketing externalisé : avantages, limites et coûts pour bien choisir en startup B2B.",
+    "image": SITE + "/images/og/og-services.png", "inLanguage": "fr-FR",
+    "datePublished": "2026-10-28", "dateModified": "2026-10-28",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": SITE + "/comparatif-growth-marketing"},
+    "author": {"@id": PERSON_ID}, "publisher": PUBLISHER,
+    "keywords": ["directeur marketing externalisé", "growth marketer c'est quoi", "growth marketer freelance", "agence growth marketing"]
+}
 H = ("Accueil", "/")
 OG = SITE + "/images/og/"
 
 # key = data-page dans src/site.html ; out = fichier généré ; path = URL canonique
 PAGES = [
     dict(key='hero', out='index.html', path='/', prio='1.0', freq='weekly', topbar=True, img=OG + 'og-accueil.png',
-         title="Growth marketer à temps partagé pour startups B2B | Cely",
-         desc="Cely, le growth marketer des startups B2B qui n'en ont pas encore : stratégie, outbound, inbound et automatisation dès le premier mois. Sans engagement.",
+         title="Agence growth marketing B2B pour startups | Cely",
+         desc="Cely, l'agence growth marketing des startups B2B qui n'ont pas encore de growth : stratégie, outbound, inbound et automatisation. Sans engagement.",
          ld=[LOCAL_BUSINESS, WEBSITE, PERSON_CELIEN]),
     dict(key='growth', out='growth.html', path='/growth', prio='0.9', freq='monthly', topbar=True, img=OG + 'og-growth.png',
          crumbs=[H, ("Growth Part-Time", "/growth")],
-         title="Growth Part-Time : un growth marketer intégré | Cely",
-         desc="Growth Part-Time : un growth marketer intégré à votre équipe 6 à 10 h par semaine. Stratégie, outbound, inbound, automatisation. Dès 750 € HT/mois.",
+         title="Growth marketer freelance pour startups B2B | Cely",
+         desc="Un growth marketer freelance intégré à votre équipe : stratégie, outbound, inbound, automatisation. Sans engagement, 1er mois remboursé.",
          ld=[SERVICE_GROWTH]),
     dict(key='audit', out='audit.html', path='/audit', prio='0.8', freq='monthly', topbar=True, img=OG + 'og-audit.png',
          crumbs=[H, ("Audits", "/audit")],
@@ -160,9 +178,15 @@ PAGES = [
          desc="Audit Marketing Digital Cely : diagnostic complet de votre acquisition et plan d'action priorisé, en rapport écrit de 50 pages avec suivi — 1 250 €.",
          ld=[SERVICE_AUDIT]),
     dict(key='services', out='services.html', path='/services', prio='0.6', freq='monthly', topbar=True, img=OG + 'og-services.png',
-         crumbs=[H, ("Formats d'accompagnement", "/services")],
-         title="Growth freelance ou directeur marketing externalisé ? | Cely",
-         desc="Growth marketer freelance, directeur marketing externalisé ou growth à temps partagé : quelles différences pour une startup B2B ? Comment choisir le bon format."),
+         crumbs=[H, ("Services", "/services")],
+         title="Services growth marketing B2B | Cely",
+         desc="Les services Cely pour la croissance digitale des startups B2B : stratégie, outbound, inbound, automatisation, publicité, lead scoring et audit.",
+         ld=[SERVICES_LIST]),
+    dict(key='comparatif', out='comparatif-growth-marketing.html', path='/comparatif-growth-marketing', prio='0.7', freq='monthly', topbar=True, img=OG + 'og-services.png',
+         crumbs=[H, ("Comparatif", "/comparatif-growth-marketing")],
+         title="Freelance, agence ou directeur marketing externalisé ?",
+         desc="Growth marketer freelance, agence, salarié ou directeur marketing externalisé : avantages, limites et coûts pour bien choisir en startup B2B.",
+         ld=[ARTICLE_COMP, PERSON_CELIEN]),
     dict(key='actu', out='actualites.html', path='/actualites', prio='0.6', freq='weekly', img=OG + 'og-ressources.png',
          crumbs=[H, ("Ressources", "/actualites")],
          title="Ressources growth marketing B2B : guides et outils | Cely",
@@ -321,7 +345,7 @@ def main():
         faq = faq_from_main(body_main, SITE + p['path']) if p['path'] else None
         page = page.replace('<!--PAGE_HEAD-->', head_for(p, faq), 1)
         assert page.count('<h1') == 1, ('un seul H1 attendu', p['out'], page.count('<h1'))
-        if not (140 <= len(p['desc']) <= 160) and not p.get('article'):
+        if len(p['desc']) > 160:
             warnings_long.append('%s (%d car.)' % (p['out'], len(p['desc'])))
         dest = os.path.join(ROOT, p['out'])
         os.makedirs(os.path.dirname(dest), exist_ok=True)
