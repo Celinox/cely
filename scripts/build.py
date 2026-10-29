@@ -121,8 +121,9 @@ COLLECTION = {
     "@type": "CollectionPage", "@id": SITE + "/actualites#page", "url": SITE + "/actualites",
     "name": "Ressources growth marketing B2B", "inLanguage": "fr-FR", "isPartOf": {"@id": SITE + "/#site"},
     "mainEntity": {"@type": "ItemList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "url": SITE + ARTICLE_IA_URL, "name": "Le référencement IA : la ruée vers l'or de 2026"},
-        {"@type": "ListItem", "position": 2, "url": SITE + ARTICLE_URL, "name": "Inbound vs outbound : quoi choisir pour son entreprise en 2026 ?"}]}
+        {"@type": "ListItem", "position": 1, "url": SITE + "/actualites/framework-aarrr", "name": "Le framework AARRR, mais qu'est-ce que c'est ?"},
+        {"@type": "ListItem", "position": 2, "url": SITE + ARTICLE_IA_URL, "name": "Le référencement IA : la ruée vers l'or de 2026"},
+        {"@type": "ListItem", "position": 3, "url": SITE + ARTICLE_URL, "name": "Inbound vs outbound : quoi choisir pour son entreprise en 2026 ?"}]}
 }
 
 MOTION_URL = '/motion-design'
@@ -154,6 +155,23 @@ ARTICLE_COMP = {
     "author": {"@id": PERSON_ID}, "publisher": PUBLISHER,
     "keywords": ["directeur marketing externalisé", "growth marketer c'est quoi", "growth marketer freelance", "agence growth marketing"]
 }
+ARTICLE_AARRR_URL = '/actualites/framework-aarrr'
+ARTICLE_AARRR = {
+    "@type": "Article", "@id": SITE + ARTICLE_AARRR_URL + "#article",
+    "headline": "Le framework AARRR, mais qu'est-ce que c'est ?",
+    "alternativeHeadline": "Framework AARRR : définition, étapes et limites en B2B",
+    "description": "AARRR expliqué simplement : les 5 étapes, l'origine, ce que le modèle vaut vraiment et comment l'adapter au B2B. Avec un diagnostic gratuit.",
+    "image": [SITE + "/images/og-framework-aarrr.png", SITE + "/images/aarrr/framework-aarrr-schema.png"], "inLanguage": "fr-FR",
+    "datePublished": "2026-10-29", "dateModified": "2026-10-29",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": SITE + ARTICLE_AARRR_URL},
+    "author": {"@id": PERSON_ID}, "publisher": PUBLISHER,
+    "articleSection": "Growth marketing B2B",
+    "keywords": ["aarrr", "framework aarrr", "funnel aarrr", "modèle aarrr", "pirate metrics", "dave mcclure", "rarra", "aaarrr", "growth marketing", "growth hacking"],
+    "about": [{"@type": "Thing", "name": "Framework AARRR (pirate metrics)"}, {"@type": "Thing", "name": "Growth marketing"}],
+    "mentions": [{"@type": "Person", "name": "Dave McClure"}]
+}
+ORGANIZATION = {"@type": "Organization", "@id": ORG_ID, "name": "Cely", "url": SITE + "/",
+                "logo": {"@type": "ImageObject", "url": LOGO_HD}, "sameAs": [CONFIG["LINKEDIN_URL"], "https://www.google.com/maps?cid=7863789155467383060"]}
 H = ("Accueil", "/")
 OG = SITE + "/images/og/"
 
@@ -208,6 +226,14 @@ PAGES = [
          article=dict(published="2026-10-01", modified="2026-10-01", section="Visibilité IA — SEO / GEO",
                       tags=["SEO / GEO", "Visibilité IA", "Stratégie B2B", "Growth marketing"]),
          ld=[BLOG_POSTING_IA, PERSON_CELIEN]),
+    dict(key='article-aarrr', out='actualites/framework-aarrr.html', path=ARTICLE_AARRR_URL, prio='0.8', freq='monthly', og_type='article', no_faq=True,
+         crumbs=[H, ("Ressources", "/actualites"), ("Framework AARRR", ARTICLE_AARRR_URL)],
+         title="Framework AARRR : définition, étapes et limites en B2B",
+         desc="AARRR expliqué simplement : les 5 étapes, l'origine, ce que le modèle vaut vraiment et comment l'adapter au B2B. Avec un diagnostic gratuit.",
+         img=SITE + "/images/og-framework-aarrr.png",
+         article=dict(published="2026-10-29", modified="2026-10-29", section="Growth marketing B2B",
+                      tags=["Framework AARRR", "Growth marketing", "Stratégie B2B"]),
+         ld=[ARTICLE_AARRR, PERSON_CELIEN, ORGANIZATION]),
     dict(key='motion-design', out='motion-design.html', path=MOTION_URL, prio='0.5', freq='monthly',
          crumbs=[H, ("Motion design", MOTION_URL)],
          title="Vidéo motion design à 500 € (offre de lancement) | Cely",
@@ -342,7 +368,7 @@ def main():
             if not rec or rec['hash'] != h:
                 lastmod[p['path']] = {'hash': h, 'date': TODAY}
         page = src[:start] + '\n\n  ' + body_main + '\n\n' + src[end:]
-        faq = faq_from_main(body_main, SITE + p['path']) if p['path'] else None
+        faq = faq_from_main(body_main, SITE + p['path']) if p['path'] and not p.get('no_faq') else None
         page = page.replace('<!--PAGE_HEAD-->', head_for(p, faq), 1)
         assert page.count('<h1') == 1, ('un seul H1 attendu', p['out'], page.count('<h1'))
         if len(p['desc']) > 160:

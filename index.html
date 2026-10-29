@@ -3359,6 +3359,91 @@ h2.hp-story-box-h{ margin:0; }
 @media (max-width:700px){ .sv-grid-4, .cmpx-case-grid{ grid-template-columns:1fr !important; } }
 .svx .hp-eyebrow{ color:var(--violet-3); letter-spacing:.1em; font-size:.8rem; }
 .sv-pilot{ padding-top:0; }
+
+/* ---------- article AARRR ---------- */
+.art-authorhead-by{ font-family:var(--font-label); font-size:.78rem; color:var(--muted); margin-right:4px; }
+.art-answer{ margin-bottom:clamp(18px,2.4vw,26px); padding:clamp(22px,2.8vw,30px) clamp(24px,3vw,34px); background:var(--white); border:var(--hp-line); border-left:8px solid var(--violet-3); border-radius:var(--hp-r); }
+.art-answer-label{ font-family:var(--font-label); font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--violet-3); }
+.art-answer p{ margin-top:10px; font-family:var(--font-display); font-weight:700; font-size:clamp(1.08rem,1rem + .4vw,1.28rem); line-height:1.5; color:var(--prune); }
+.art-postit{ position:relative; margin:clamp(28px,3.6vw,40px) auto; max-width:520px; padding:26px 28px 24px; background:#FFF6B8; color:#3A3020; border-radius:4px 4px 18px 4px; box-shadow:0 18px 30px -18px rgba(26,17,40,.45); transform:rotate(-1.5deg); }
+.art-postit::before{ content:""; position:absolute; left:50%; top:-12px; width:96px; height:24px; margin-left:-48px; background:rgba(233,215,255,.75); transform:rotate(3deg); }
+.art-postit p{ margin:0 !important; font-family:var(--font-display); font-weight:700; font-size:1.05rem !important; line-height:1.45 !important; color:#3A3020 !important; }
+.art-postit p + p{ margin-top:10px !important; }
+.art-jump{ margin-block:clamp(26px,3.4vw,36px); padding:18px 22px; border:2px dashed var(--violet); border-radius:var(--hp-r-sm); background:var(--white); }
+.art-jump p{ margin:0 !important; }
+.art-jump a{ font-weight:700; }
+.aarrr-fig{ margin-block:clamp(30px,4vw,44px); }
+.afn{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+.afn-row{ display:grid; grid-template-columns:minmax(0,1.6fr) minmax(0,1fr); gap:14px; align-items:center; }
+.afn-bar{ position:relative; display:grid; grid-template-columns:44px auto; grid-template-rows:auto auto; column-gap:12px; width:var(--w); min-width:220px; padding:12px 18px 12px 12px; border-radius:0 999px 999px 0; background:linear-gradient(90deg, var(--violet-3), var(--violet)); color:var(--white); }
+.afn-row:nth-child(n+3) .afn-bar{ background:linear-gradient(90deg, var(--violet), #B99BFF); }
+.afn-row:nth-child(5) .afn-bar{ background:linear-gradient(90deg, #B99BFF, var(--lavender)); color:var(--prune); }
+.afn-letter{ grid-row:1 / span 2; display:grid; place-items:center; width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,.18); font-family:var(--font-display); font-weight:800; font-size:1.5rem; }
+.afn-name{ font-family:var(--font-display); font-weight:800; font-size:1.05rem; line-height:1.2; }
+.afn-q{ font-size:.86rem; opacity:.9; }
+.afn-kpi{ display:flex; flex-direction:column; padding:8px 12px; border-left:3px solid var(--lavender); font-size:.9rem; font-weight:600; color:var(--prune); }
+.afn-kpi small{ font-family:var(--font-label); font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+@media (max-width:720px){ .afn-row{ grid-template-columns:1fr; gap:4px; } .afn-bar{ width:100%; min-width:0; } .afn-kpi{ margin-bottom:6px; } }
+.aarrr-bucket svg{ display:block; width:100%; max-width:560px; height:auto; margin-inline:auto; }
+.bk-pour{ stroke:#8B5BFF; stroke-width:14; stroke-linecap:round; opacity:.7; }
+.bk-bucket{ fill:var(--white); stroke:var(--prune); stroke-width:4; }
+.bk-water{ fill:rgba(139,91,255,.35); }
+.bk-rim{ fill:none; stroke:var(--prune); stroke-width:4; }
+.bk-hole{ fill:var(--prune); }
+.bk-leak{ stroke:#8B5BFF; stroke-width:8; stroke-linecap:round; opacity:.8; }
+.bk-puddle{ fill:rgba(139,91,255,.35); }
+.bk-label{ font-family:var(--font-label); font-size:15px; font-weight:700; fill:var(--prune); }
+.art-figure-img{ margin-top:10px; font-family:var(--font-label); font-size:.78rem; color:var(--muted); }
+.art-figure-img summary{ cursor:pointer; width:fit-content; }
+.art-figure-img img{ margin-top:10px; border:1px solid var(--border); border-radius:12px; width:100%; height:auto; }
+.aarrr-cmp th[scope="row"]{ font-family:var(--font-display); font-weight:800; color:var(--prune); text-align:left; padding:11px 16px; border-top:1px solid var(--border); }
+.aarrr-cmp td:last-child{ font-weight:600; color:var(--violet-3); }
+.art-next-2{ grid-template-columns:1fr 1fr !important; }
+@media (max-width:760px){ .art-next-2{ grid-template-columns:1fr !important; } }
+/* diagnostic AARRR */
+.adg{ margin-block:clamp(28px,3.6vw,40px); padding:clamp(22px,3vw,32px); background:var(--white); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:var(--hp-sh-violet); scroll-margin-top:calc(var(--nav-top) + var(--nav-h) + 20px); }
+.adg-grid{ display:grid; grid-template-columns:minmax(0,1.25fr) minmax(0,1fr); gap:clamp(20px,3vw,36px); align-items:start; }
+.adg-step{ border:0; padding:0; margin:18px 0 0; }
+.adg-step[hidden]{ display:none; }
+.adg-step legend{ padding:0; font-family:var(--font-display); font-weight:800; font-size:1.12rem; line-height:1.35; color:var(--prune); }
+.adg-step-k{ display:block; margin-bottom:6px; font-family:var(--font-label); font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--violet-3); }
+.adg-help{ margin-top:6px !important; font-size:.9rem !important; color:var(--muted) !important; }
+.adg-field{ display:block; margin-top:14px; }
+.adg-field span{ display:block; font-family:var(--font-label); font-size:.8rem; font-weight:600; color:var(--prune); margin-bottom:6px; }
+.adg-field input{ width:100%; padding:12px 14px; border:1.6px solid var(--border); border-radius:12px; font:inherit; font-size:1.05rem; font-variant-numeric:tabular-nums; }
+.adg-field input:focus{ border-color:var(--violet-3); box-shadow:0 0 0 4px rgba(104,45,254,.14); outline:none; }
+.adg-field input:disabled{ background:var(--off-white-2); color:var(--muted); }
+.adg-two{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.adg-unknown{ display:inline-flex; align-items:center; gap:10px; margin-top:14px; padding:8px 14px; border:1.6px solid var(--border); border-radius:999px; cursor:pointer; font-family:var(--font-label); font-size:.88rem; font-weight:600; }
+.adg-unknown:has(input:checked){ border-color:var(--violet-3); background:var(--lavender); }
+.adg-unknown input{ width:18px; height:18px; accent-color:var(--violet-3); }
+.adg-error{ min-height:1.2em; margin-top:10px !important; font-size:.86rem !important; color:var(--warn) !important; }
+.adg-nav{ margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
+.adg-capture{ margin-top:16px; }
+.adg-side{ padding:18px; border-radius:var(--hp-r-sm); background:var(--prune); color:var(--off-white); }
+.adg-side-h{ font-family:var(--font-label) !important; font-size:.76rem !important; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--pink) !important; margin:0 0 12px !important; }
+.adg-funnel{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px; }
+.adg-funnel li{ position:relative; display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px; width:var(--w); min-width:150px; padding:9px 12px; border-radius:0 12px 12px 0; background:rgba(247,245,250,.08); border:1.5px dashed rgba(247,245,250,.25); transition:background .35s var(--ease-cely-out), border-color .35s; }
+.adg-funnel li.is-filled{ background:var(--violet-3); border:1.5px solid var(--violet); }
+.adg-funnel li.is-unknown{ background:rgba(232,139,247,.14); border:1.5px dashed var(--pink); }
+.adg-funnel li.is-leak{ box-shadow:0 0 0 3px var(--pink); }
+.adg-f-name{ font-family:var(--font-display); font-weight:800; font-size:.9rem; }
+.adg-f-val{ margin-left:auto; font-family:var(--font-display); font-size:1rem; font-variant-numeric:tabular-nums; }
+.adg-f-rate{ flex-basis:100%; font-family:var(--font-label); font-size:.72rem; opacity:.85; }
+.adg-side-note{ margin-top:12px !important; font-size:.8rem !important; color:rgba(247,245,250,.6) !important; }
+.adg-result{ margin-top:18px; }
+.adg-result h3{ margin:10px 0 0 !important; font-family:var(--font-display); font-weight:800; font-size:1.35rem; color:var(--prune); }
+.adg-actions{ margin:14px 0 18px !important; }
+.adg-measure{ padding:14px 16px; border-radius:12px; background:var(--lavender); font-weight:600; }
+@media (max-width:760px){ .adg-grid{ grid-template-columns:1fr; } .adg-side{ order:2; } .adg-two{ grid-template-columns:1fr; } }
+@media (prefers-reduced-motion:reduce){ .adg-funnel li{ transition:none; } }
+.adg-funnel li, .adg-funnel li *{ color:var(--off-white) !important; font-size:inherit; }
+.adg-funnel li{ font-size:.95rem !important; line-height:1.3 !important; margin:0 !important; }
+.adg-funnel .adg-f-rate{ font-size:.72rem !important; }
+.adg-side{ position:sticky; top:calc(var(--nav-top) + var(--nav-h) + 20px); }
+@media (max-width:760px){ .adg-side{ position:static; } }
+.art-faq.hp-faq{ padding-block:0 !important; border-top:0 !important; }
+.art-content ol.adg-funnel, .art-content ol.afn{ padding-left:0 !important; margin-left:0 !important; }
 </style>
 </head>
 <body>
@@ -3996,7 +4081,7 @@ h2.hp-story-box-h{ margin:0; }
   if(!main) return;
   var key = main.getAttribute('data-page');
   var navKey = { hero:'home', growth:'growth', audit:'audit', 'audit-detail':'audit', services:'services', comparatif:'comparatif', actu:'actualites',
-                 article:'actualites', 'article-ia':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact' }[key] || '';
+                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact' }[key] || '';
   document.querySelectorAll('a[data-route]').forEach(function(el){
     if(navKey && el.getAttribute('data-route') === navKey) el.setAttribute('aria-current', 'page');
     else el.removeAttribute('aria-current');
@@ -5913,5 +5998,154 @@ h2.hp-story-box-h{ margin:0; }
 <style>
 .artsim-gauge.is-frozen{ opacity:.72; filter:blur(.4px); }
 </style>
+
+<script>(function(){ "use strict";
+  /* Diagnostic AARRR */
+  var root = document.getElementById('diagnostic-aarrr');
+  if(!root) return;
+  var steps = Array.prototype.slice.call(root.querySelectorAll('.adg-step'));
+  var idx = 0, N = steps.length;
+  var bar = document.getElementById('adgBar'), counter = document.getElementById('adgCounter');
+  var prev = document.getElementById('adgPrev'), next = document.getElementById('adgNext'), stepErr = document.getElementById('adgStepError');
+  var form = document.getElementById('adgForm'), capture = document.getElementById('adgCapture'), result = document.getElementById('adgResult');
+  var KEYS = ['acq','act','ret','rev','rec'];
+  var NAMES = { acq:'Acquisition', act:'Activation', ret:'Rétention', rev:'Revenu', rec:'Recommandation' };
+  var fmt = function(n){ return Math.round(n).toLocaleString('fr-FR'); };
+  var num = function(id){ var v = (document.getElementById(id).value || '').replace(/\s/g,'').replace(',','.'); if(v === '') return null; var n = Number(v); return isFinite(n) && n >= 0 ? n : NaN; };
+  var unknown = function(k){ var c = root.querySelector('[data-unknown="'+k+'"]'); return c && c.checked; };
+  function data(){
+    return { acq: unknown('acq') ? null : num('adgAcq'), act: unknown('act') ? null : num('adgAct'),
+             retA: unknown('ret') ? null : num('adgRetA'), retT: unknown('ret') ? null : num('adgRetT'),
+             rev: unknown('rev') ? null : num('adgRev'), rec: unknown('rec') ? null : num('adgRec'),
+             unknown: KEYS.filter(unknown) };
+  }
+  function rates(d){
+    var r = {};
+    if(d.acq > 0 && d.act !== null) r.act = d.act / d.acq;
+    if(d.retT > 0 && d.retA !== null) r.ret = d.retA / d.retT;
+    if(d.rec !== null && d.retT > 0) r.rec = d.rec / d.retT;
+    return r;
+  }
+  var pct = function(x){ return (Math.round(x * 1000) / 10).toLocaleString('fr-FR') + ' %'; };
+  function paint(leak){
+    var d = data(), r = rates(d);
+    var vals = { acq: d.acq, act: d.act, ret: d.retA !== null && d.retT !== null ? (d.retA + ' / ' + d.retT) : null, rev: d.rev !== null ? fmt(d.rev) + ' €' : null, rec: d.rec };
+    KEYS.forEach(function(k, i){
+      var li = root.querySelector('.adg-funnel li[data-k="'+k+'"]'), v = vals[k];
+      var answered = i < idx || unknown(k) || (v !== null && v !== undefined && !(typeof v === 'number' && isNaN(v)));
+      li.classList.toggle('is-unknown', unknown(k));
+      li.classList.toggle('is-filled', !unknown(k) && v !== null && v !== undefined && !(typeof v === 'number' && isNaN(v)));
+      li.classList.toggle('is-leak', leak === k);
+      li.querySelector('.adg-f-val').textContent = unknown(k) ? '?' : (v === null || v === undefined || (typeof v === 'number' && isNaN(v)) ? '—' : (typeof v === 'number' ? fmt(v) : v));
+      var rt = '';
+      if(k === 'act' && r.act !== undefined) rt = pct(r.act) + ' des personnes touchées';
+      if(k === 'ret' && r.ret !== undefined) rt = pct(r.ret) + ' de vos clients restent';
+      if(k === 'rec' && r.rec !== undefined) rt = 'soit ' + pct(r.rec) + ' de votre base clients';
+      li.querySelector('.adg-f-rate').textContent = rt;
+      void answered;
+    });
+  }
+  function show(i){
+    idx = i;
+    steps.forEach(function(s, j){ s.hidden = j !== i; s.classList.toggle('is-on', j === i); });
+    bar.style.width = ((i + 1) / N * 100) + '%';
+    counter.textContent = 'Étape ' + (i + 1) + ' sur ' + N;
+    prev.disabled = i === 0;
+    next.textContent = i === N - 1 ? 'Voir mon entonnoir' : 'Étape suivante';
+    stepErr.textContent = '';
+    paint();
+  }
+  function stepValid(){
+    var s = steps[idx], k = KEYS[idx];
+    if(unknown(k)) return true;
+    var inputs = s.querySelectorAll('input[data-key]'), ok = true;
+    inputs.forEach(function(inp){ var v = num(inp.id); if(v === null || isNaN(v)) ok = false; });
+    if(!ok){ stepErr.textContent = 'Indiquez un nombre, ou cochez « Je ne sais pas ».'; return false; }
+    if(k === 'ret'){ var d = data(); if(d.retA > d.retT){ stepErr.textContent = 'Le nombre de clients actifs ne peut pas dépasser le total.'; return false; } }
+    return true;
+  }
+  root.querySelectorAll('[data-unknown]').forEach(function(c){
+    c.addEventListener('change', function(){
+      var s = c.closest('.adg-step');
+      s.querySelectorAll('input[data-key]').forEach(function(inp){ inp.disabled = c.checked; if(c.checked) inp.value = ''; });
+      stepErr.textContent = ''; paint();
+    });
+  });
+  root.querySelectorAll('input[data-key]').forEach(function(inp){
+    inp.addEventListener('input', function(){ paint(); });
+    inp.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); next.click(); } });
+  });
+  prev.addEventListener('click', function(){ if(idx > 0) show(idx - 1); });
+  next.addEventListener('click', function(){
+    if(!stepValid()) return;
+    if(idx < N - 1){ show(idx + 1); var f = steps[idx].querySelector('input'); if(f) f.focus(); return; }
+    form.hidden = true; capture.hidden = false; bar.style.width = '100%'; counter.textContent = 'Dernière étape : votre diagnostic';
+    document.getElementById('adgEmail').focus();
+  });
+  form.addEventListener('submit', function(e){ e.preventDefault(); });
+
+  var ACTIONS = {
+    measure: ["Choisissez un seul indicateur par étape et notez-le chaque mois dans une feuille partagée.",
+              "Reliez votre site, votre CRM et votre facturation pour savoir d'où vient chaque client.",
+              "Refaites ce diagnostic dans trois mois, avec de vrais chiffres."],
+    act: ["Rappelez chaque demande entrante sous 48 heures, avec une personne responsable du suivi.",
+          "Rendez le premier pas évident sur votre site : un seul appel à l'action, une prise de rendez-vous directe.",
+          "Relancez automatiquement les contacts qui ont montré un intérêt sans passer à l'action."],
+    ret: ["Planifiez un point avec chaque client à des moments clés, avant qu'il ne se pose la question de partir.",
+          "Demandez à vos anciens clients pourquoi ils sont partis : la réponse vous dira quoi corriger.",
+          "Identifiez les clients qui utilisent peu votre offre et accompagnez-les avant le renouvellement."],
+    rec: ["Choisissez un moment déclencheur, par exemple après un résultat livré, pour demander une recommandation.",
+          "Demandez-la explicitement, à la bonne personne, avec une contrepartie claire si c'est pertinent.",
+          "Suivez la recommandation comme un canal à part entière, avec son propre chiffre chaque trimestre."]
+  };
+  var TITLES = { act:'Votre plus grosse fuite est à l\'étape Activation', ret:'Votre plus grosse fuite est à l\'étape Rétention', rec:'Votre plus grosse fuite est à l\'étape Recommandation' };
+  var INTROS = { act:'Des personnes vous découvrent, mais peu font un premier pas concret. Avant d\'acheter plus de visibilité, il faut transformer celle que vous avez déjà.',
+                 ret:'Vous signez des clients, mais une part importante ne reste pas. Chaque client perdu doit être remplacé, ce qui rend toute l\'acquisition plus chère.',
+                 rec:'Vos clients restent, mais ils vous ramènent peu de monde. C\'est souvent le canal le moins coûteux, à condition de le provoquer.' };
+  function diagnose(){
+    var d = data(), r = rates(d), leak = null, min = Infinity;
+    ['act','ret','rec'].forEach(function(k){ if(r[k] !== undefined && r[k] < min){ min = r[k]; leak = k; } });
+    return { d: d, r: r, leak: leak, measureFirst: d.unknown.length >= 3 || !leak };
+  }
+  function renderResult(res){
+    var label = document.getElementById('adgResultLabel'), title = document.getElementById('adgResultTitle'), intro = document.getElementById('adgResultIntro');
+    var list = document.getElementById('adgActions'), measure = document.getElementById('adgMeasure');
+    var acts;
+    if(res.measureFirst){
+      label.textContent = 'Votre diagnostic AARRR';
+      title.textContent = 'Votre premier chantier n\'est pas l\'acquisition, c\'est la mesure';
+      intro.textContent = res.d.unknown.length >= 3 ? 'Vous avez coché « Je ne sais pas » sur ' + res.d.unknown.length + ' étapes. Tant que vous ne savez pas où vous perdez vos clients, tout budget supplémentaire est un pari.' : 'Il manque des chiffres pour calculer vos taux de passage. Commencez par mesurer chaque étape.';
+      acts = ACTIONS.measure;
+      measure.hidden = !res.leak;
+      if(res.leak) measure.textContent = 'Sur les chiffres que vous avez saisis, la chute la plus forte apparaît à l\'étape ' + NAMES[res.leak] + '.';
+    } else {
+      label.textContent = 'Votre diagnostic AARRR';
+      title.textContent = TITLES[res.leak];
+      intro.textContent = INTROS[res.leak];
+      acts = ACTIONS[res.leak];
+      measure.hidden = res.d.unknown.length === 0;
+      measure.textContent = 'Vous avez coché « Je ne sais pas » sur ' + res.d.unknown.map(function(k){ return NAMES[k]; }).join(', ') + ' : ce sont les prochains chiffres à suivre.';
+    }
+    list.innerHTML = acts.map(function(a){ var li = document.createElement('li'); li.textContent = a; return li.outerHTML; }).join('');
+    paint(res.measureFirst ? null : res.leak);
+    capture.hidden = true; result.hidden = false; result.focus();
+  }
+  document.getElementById('adgSubmit').addEventListener('click', function(){
+    var email = document.getElementById('adgEmail').value.trim(), company = document.getElementById('adgCompany').value.trim();
+    var consent = document.getElementById('adgConsent').checked, err = document.getElementById('adgError');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent = 'Merci d\'indiquer un email valide.'; return; }
+    if(!company){ err.textContent = 'Merci d\'indiquer le nom de votre société.'; return; }
+    if(!consent){ err.textContent = 'Merci de cocher la case de consentement pour voir votre diagnostic.'; return; }
+    err.textContent = '';
+    var res = diagnose();
+    renderResult(res);
+    var d = res.d;
+    var payload = { email: email, company: company, consent: true, _hp: document.getElementById('adgHp').value || '',
+                    answers: { acquisition: d.acq, activation: d.act, retentionActive: d.retA, retentionTotal: d.retT, revenue: d.rev, referrals: d.rec },
+                    unknown: d.unknown, leak: res.measureFirst ? 'mesure' : res.leak };
+    try{ fetch('/api/diagnostic-aarrr', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(payload), keepalive:true }).catch(function(){}); }catch(e){}
+  });
+  show(0);
+})();</script>
 </body>
 </html>
