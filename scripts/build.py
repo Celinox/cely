@@ -343,6 +343,37 @@ def head_for(p, faq=None):
         out.append('<script type="application/ld+json">%s</script>' % json.dumps(graph, ensure_ascii=False, separators=(',', ':')))
     return '\n'.join(out)
 
+
+def minify_css(css):
+    """Minification prudente du CSS inline (sortie uniquement, la source reste lisible) :
+    commentaires retirés, espaces superflus supprimés autour de { } ; , > et après ':' dans les déclarations.
+    Les espaces dans calc(), les sélecteurs descendants et les chaînes sont conservés."""
+    segs, buf, i, n = [], [], 0, len(css)
+    while i < n:
+        c = css[i]
+        if c == '/' and css.startswith('/*', i):
+            j = css.find('*/', i + 2)
+            i = n if j < 0 else j + 2
+            buf.append(' ')
+        elif c in '"\'':
+            j = i + 1
+            while j < n and css[j] != c:
+                j += 2 if css[j] == '\\' else 1
+            segs.append(('c', ''.join(buf))); buf = []
+            segs.append(('s', css[i:j + 1])); i = j + 1
+        else:
+            buf.append(c); i += 1
+    segs.append(('c', ''.join(buf)))
+    res = []
+    for kind, seg in segs:
+        if kind == 'c':
+            seg = re.sub(r'\s+', ' ', seg)
+            seg = re.sub(r'\s*([{};,>])\s*', r'\1', seg)
+            seg = re.sub(r'(\{|;)([a-z-]+):\s+', r'\1\2:', seg)
+            seg = seg.replace(';}', '}')
+        res.append(seg)
+    return ''.join(res).strip()
+
 def main():
     src = open(SRC, encoding='utf-8').read()
     # blocs conditionnels <!--IF:FLAG--> … <!--/IF:FLAG--> pilotés par site-config.json
@@ -393,9 +424,13 @@ def main():
         page = src[:start] + '\n\n  ' + body_main + '\n\n' + src[end:]
         faq = faq_from_main(body_main, SITE + p['path']) if p['path'] and not p.get('no_faq') else None
         page = page.replace('<!--PAGE_HEAD-->', head_for(p, faq), 1)
+        if p.get('topbar'):
+            # classe posée dès le HTML : la place du bandeau est réservée avant que :has() ne le détecte (évite un décalage au chargement)
+            page = page.replace('<html lang="fr">', '<html lang="fr" class="has-topbar">', 1)
         assert page.count('<h1') == 1, ('un seul H1 attendu', p['out'], page.count('<h1'))
         if len(p['desc']) > 160:
             warnings_long.append('%s (%d car.)' % (p['out'], len(p['desc'])))
+        page = re.sub(r'(<style>)(.*?)(</style>)', lambda m: m.group(1) + minify_css(m.group(2)) + m.group(3), page, flags=re.S)
         dest = os.path.join(ROOT, p['out'])
         os.makedirs(os.path.dirname(dest), exist_ok=True)
         with open(dest, 'w', encoding='utf-8') as f:
