@@ -3441,6 +3441,89 @@ h2.hp-story-box-h{ margin:0; }
 @media (max-width:760px){ .adg-side{ position:static; } }
 .art-faq.hp-faq{ padding-block:0 !important; border-top:0 !important; }
 .art-content ol.adg-funnel, .art-content ol.afn{ padding-left:0 !important; margin-left:0 !important; }
+
+/* ---------- article lead magnet ---------- */
+.lm-fig{ margin-block:clamp(30px,4vw,44px); }
+.lmp{ list-style:none; margin:0 !important; padding:0 !important; display:grid; grid-template-columns:1fr 44px 1fr 44px 1fr; align-items:stretch; }
+.lmp-step{ display:flex; flex-direction:column; gap:10px; padding:16px; border:var(--hp-line); border-radius:var(--hp-r-sm); background:var(--white); margin:0 !important; }
+.lmp-temp{ align-self:flex-start; padding:4px 12px; border-radius:999px; font-family:var(--font-label); font-size:.78rem !important; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.lmp-step.is-cold .lmp-temp{ background:var(--off-white-2); color:var(--prune); border:1.5px solid var(--border); }
+.lmp-step.is-warm .lmp-temp{ background:var(--lavender); color:var(--violet-3); }
+.lmp-step.is-hot .lmp-temp{ background:var(--violet-3); color:var(--white); }
+.lmp-step.is-hot{ background:var(--prune); color:var(--off-white); }
+.lmp-who, .lmp-need{ display:flex; flex-direction:column; font-size:.92rem; line-height:1.4; font-weight:600; }
+.lmp-step small{ font-family:var(--font-label); font-size:.66rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; opacity:.7; }
+.lmp-arrow{ position:relative; margin:0 !important; list-style:none; }
+.lmp-arrow span{ position:absolute; left:8px; right:8px; top:50%; height:3px; background:var(--prune); border-radius:2px; }
+.lmp-arrow span::after{ content:""; position:absolute; right:-2px; top:-6px; border:7.5px solid transparent; border-left:10px solid var(--prune); border-right:0; }
+.lmp-arrow.is-key span{ background:var(--pink); height:5px; }
+.lmp-arrow.is-key span::after{ border-left-color:var(--pink); top:-5px; }
+.lmp-here{ margin:14px 0 0 !important; display:grid; grid-template-columns:1fr 44px 1fr 44px 1fr; }
+.lmp-here span{ grid-column:1 / 4; justify-self:center; position:relative; padding:8px 16px; border-radius:12px; background:var(--pink); color:var(--prune); font-family:var(--font-display); font-weight:800; font-size:.98rem; border:2px solid var(--prune); box-shadow:3px 3px 0 var(--prune); }
+.lmp-here span::before{ content:""; position:absolute; left:50%; top:-12px; width:2px; height:12px; background:var(--prune); }
+@media (max-width:720px){
+  .lmp{ grid-template-columns:1fr; }
+  .lmp-arrow{ height:30px; }
+  .lmp-arrow span{ left:50%; right:auto; top:4px; bottom:4px; width:3px; height:auto; }
+  .lmp-arrow.is-key span{ width:5px; height:auto; }
+  .lmp-arrow span::after{ right:auto; left:-6px; top:auto; bottom:-4px; border:7.5px solid transparent; border-top:10px solid var(--prune); border-bottom:0; }
+  .lmp-arrow.is-key span::after{ border-top-color:var(--pink); border-left-color:transparent; left:-5px; }
+  .lmp-here{ grid-template-columns:1fr; } .lmp-here span{ grid-column:1; }
+}
+.lm-fam th[scope="row"]{ font-family:var(--font-display); font-weight:800; color:var(--prune); text-align:left; padding:11px 16px; border-top:1px solid var(--border); }
+.lm-fam .lm-key{ background:var(--lavender) !important; color:var(--violet-3) !important; font-weight:700; }
+.lm-fam thead th.lm-key{ background:var(--violet-3) !important; color:var(--white) !important; }
+.lmt{ list-style:none; margin:0 !important; padding:0 !important; display:flex; flex-direction:column; gap:28px; }
+.lmt-q{ position:relative; margin:0 !important; }
+.lmt-q:not(:last-child)::after{ content:""; position:absolute; left:28px; bottom:-28px; height:28px; width:3px; background:var(--prune); }
+.lmt-ask{ margin:0 !important; padding:14px 18px; border:var(--hp-line); border-radius:var(--hp-r-sm); background:var(--prune); color:var(--off-white) !important; font-family:var(--font-display); font-weight:800; font-size:1.02rem !important; }
+.lmt-branches{ margin-top:10px; margin-left:28px; padding-left:20px; border-left:3px solid var(--prune); display:flex; flex-direction:column; gap:8px; }
+.lmt-branches p{ margin:0 !important; display:flex; gap:10px; align-items:baseline; padding:10px 14px; border-radius:12px; background:var(--white); border:1.5px solid var(--border); font-size:.95rem !important; line-height:1.45 !important; }
+.lmt-branches b{ flex:none; min-width:42px; text-align:center; padding:2px 8px; border-radius:999px; background:var(--lavender); color:var(--violet-3); font-family:var(--font-label); font-size:.76rem; }
+.lmt-branches .lmt-go{ background:transparent; border-style:dashed; color:var(--muted); }
+.lmt-branches .is-main{ border-color:var(--violet-3); background:var(--lavender); font-weight:700; }
+.lm-caps{ margin-block:clamp(22px,3vw,32px); display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.lm-cap{ display:flex; flex-direction:column; gap:8px; text-decoration:none !important; }
+.lm-cap img{ width:100%; height:auto; border:var(--hp-line); border-radius:var(--hp-r-sm); box-shadow:4px 4px 0 var(--violet); }
+.lm-cap span{ font-family:var(--font-label); font-size:.84rem; font-weight:700; color:var(--violet-3); }
+@media (max-width:640px){ .lm-caps{ grid-template-columns:1fr; } }
+/* générateur */
+.lmg{ margin-block:clamp(28px,3.6vw,40px); padding:clamp(22px,3vw,32px); background:var(--white); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:var(--hp-sh-violet); scroll-margin-top:calc(var(--nav-top) + var(--nav-h) + 20px); }
+.lmg-hook{ margin:0 0 18px !important; font-family:var(--font-display); font-weight:800; font-size:1.12rem !important; line-height:1.4 !important; color:var(--prune); }
+.lmg-step{ border:0; padding:0; margin:18px 0 0; }
+.lmg-step[hidden]{ display:none; }
+.lmg-step legend{ padding:0; font-family:var(--font-display); font-weight:800; font-size:1.12rem; line-height:1.35; color:var(--prune); }
+.lmg-text{ display:block; margin-top:14px; }
+.lmg-text input, .lmg-text textarea{ width:100%; padding:12px 14px; border:1.6px solid var(--border); border-radius:12px; font:inherit; font-size:1rem; resize:vertical; }
+.lmg-text input:focus, .lmg-text textarea:focus{ border-color:var(--violet-3); box-shadow:0 0 0 4px rgba(104,45,254,.14); outline:none; }
+.lmg-count{ margin-top:6px !important; font-family:var(--font-label); font-size:.76rem !important; color:var(--muted) !important; text-align:right; }
+.lmg-opts{ margin-top:14px; display:flex; flex-direction:column; gap:8px; }
+.lmg-opt{ position:relative; display:flex; align-items:center; gap:12px; padding:13px 16px; border:1.6px solid var(--border); border-radius:14px; cursor:pointer; font-weight:600; transition:border-color .2s, background .2s; }
+.lmg-opt:hover{ border-color:var(--violet); }
+.lmg-opt input{ width:18px; height:18px; accent-color:var(--violet-3); flex:none; }
+.lmg-opt:has(input:checked){ border-color:var(--violet-3); background:var(--lavender); }
+.lmg-opt:has(input:focus-visible){ outline:3px solid var(--violet); outline-offset:2px; }
+.lmg-panel{ list-style:none; margin:0 !important; padding:0 !important; display:flex; flex-direction:column; gap:8px; counter-reset:lp; }
+.lmg-panel li{ margin:0 !important; padding:10px 12px; border-radius:12px; border:1.5px dashed rgba(247,245,250,.25); background:rgba(247,245,250,.05); color:var(--off-white) !important; opacity:.45; transition:opacity .4s var(--ease-cely-out), background .4s, border-color .4s; counter-increment:lp; }
+.lmg-panel li.is-on{ opacity:1; border:1.5px solid var(--violet); background:rgba(139,91,255,.18); }
+.lmg-p-name{ display:block; font-family:var(--font-display); font-weight:800; font-size:.92rem !important; color:var(--off-white) !important; }
+.lmg-p-name::before{ content:counter(lp) ". "; color:var(--pink); }
+.lmg-p-val{ display:block; margin-top:4px; font-size:.8rem !important; color:var(--lavender) !important; filter:blur(4px); user-select:none; letter-spacing:.02em; }
+.lmg-panel li.is-on .lmg-p-val{ filter:blur(3px); }
+.lmg-result{ margin-top:22px; padding-top:20px; border-top:var(--hp-line); }
+.lmg-block{ margin-top:16px; padding:18px 20px; border:1.5px solid var(--border); border-radius:var(--hp-r-sm); background:var(--off-white); }
+.lmg-block h4{ margin:0 0 10px !important; display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:800; font-size:1.1rem; color:var(--prune); }
+.lmg-block h4 > span:first-child{ display:inline-grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--violet-3); color:var(--white); font-size:.85rem; flex:none; }
+.lmg-block p, .lmg-block li{ font-size:1rem !important; line-height:1.55 !important; }
+.lmg-block ol{ margin:6px 0 0 !important; padding-left:22px !important; }
+.lmg-block li + li{ margin-top:6px; }
+.lmg-format{ font-family:var(--font-display); font-weight:800; font-size:1.15rem !important; color:var(--violet-3) !important; }
+.lmg-defs li b{ display:block; font-family:var(--font-display); }
+.lmg-sent{ margin-top:14px !important; font-family:var(--font-label); font-size:.84rem !important; color:var(--muted) !important; }
+.lmg-cta{ margin-top:20px; padding:20px 22px; border-radius:var(--hp-r-sm); background:var(--prune); color:var(--off-white); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+.lmg-cta p{ margin:0 !important; color:var(--off-white) !important; font-family:var(--font-display); font-weight:800; font-size:1.1rem !important; }
+.lmg-cta .btn-hero{ background:var(--off-white); color:var(--prune); border-color:var(--off-white); box-shadow:4px 4px 0 var(--violet); }
+@media (prefers-reduced-motion:reduce){ .lmg-panel li, .lmg-opt{ transition:none; } }
 </style>
 </head>
 <body>
@@ -3784,7 +3867,7 @@ h2.hp-story-box-h{ margin:0; }
   if(!main) return;
   var key = main.getAttribute('data-page');
   var navKey = { hero:'home', growth:'growth', audit:'audit', 'audit-detail':'audit', services:'services', comparatif:'comparatif', actu:'actualites',
-                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact' }[key] || '';
+                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'article-lm':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact' }[key] || '';
   document.querySelectorAll('a[data-route]').forEach(function(el){
     if(navKey && el.getAttribute('data-route') === navKey) el.setAttribute('aria-current', 'page');
     else el.removeAttribute('aria-current');
@@ -5849,6 +5932,241 @@ h2.hp-story-box-h{ margin:0; }
     try{ fetch('/api/diagnostic-aarrr', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(payload), keepalive:true }).catch(function(){}); }catch(e){}
   });
   show(0);
+})();</script>
+
+<script>/* Moteur de recommandation du Générateur de lead magnet (règles déterministes, V1).
+   Partagé entre la page (/actualites/lead-magnet) et la fonction /api/generateur-lead-magnet. */
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.CelyLeadMagnet = factory();
+}(typeof self !== 'undefined' ? self : this, function () {
+  'use strict';
+  var OPTIONS = {
+    panier: { low: 'Moins de 1 000 €', mid: '1 000 à 10 000 €', high: 'Plus de 10 000 €' },
+    temps: { heures: 'Quelques heures', jours: 'Quelques jours', semaines: 'Plusieurs semaines' },
+    decideur: { one: 'Une seule personne', few: 'Deux ou trois', comite: 'Un comité' },
+    essai: { rien: 'Rien encore', doc: 'Un document à télécharger', webinaire: 'Un webinaire', autre: 'Autre chose' },
+    priorite: { volume: 'Du volume de contacts', qualif: 'Des contacts très qualifiés', credib: 'De la crédibilité' }
+  };
+  function clean(t, max) {
+    return String(t || '').replace(/[\u0000-\u001f<>]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max || 160);
+  }
+  function lc(t) { return t ? t.charAt(0).toLowerCase() + t.slice(1) : t; }
+  function noDot(t) { return t.replace(/[.!?…\s]+$/, ''); }
+
+  var PROFILES = {
+    checklist: { famille: 'Le document', format: 'Une checklist actionnable', kind: 'doc' },
+    modele: { famille: 'Le document', format: 'Un modèle prêt à l\'emploi', kind: 'doc' },
+    quiz: { famille: 'L\'outil', format: 'Un quiz de positionnement en 5 questions', kind: 'outil' },
+    diagnostic: { famille: 'L\'outil', format: 'Un diagnostic avec résultat personnalisé', kind: 'outil' },
+    calculateur: { famille: 'L\'outil', format: 'Un calculateur ou simulateur chiffré', kind: 'outil' },
+    audit: { famille: 'L\'humain', format: 'Un audit offert de 30 minutes', kind: 'humain' },
+    barometre: { famille: 'La donnée', format: 'Un baromètre construit à partir de vos réponses clients', kind: 'donnee' },
+    atelier: { famille: 'L\'humain', format: 'Un atelier en petit comité, en visio', kind: 'humain' }
+  };
+
+  function pick(a) {
+    var t = a.temps, p = a.panier, pr = a.priorite;
+    if (t === 'heures') {
+      if (pr === 'qualif' && p === 'high') return 'audit';
+      return pr === 'volume' ? 'checklist' : 'modele';
+    }
+    if (t === 'jours') {
+      if (pr === 'qualif' && p === 'high') return 'audit';
+      if (pr === 'credib') return a.decideur === 'comite' ? 'modele' : 'atelier';
+      if (pr === 'volume' && p === 'low') return 'quiz';
+      return 'diagnostic';
+    }
+    if (pr === 'credib') return 'barometre';
+    if (pr === 'volume') return p === 'low' ? 'quiz' : 'calculateur';
+    return p === 'low' ? 'diagnostic' : 'calculateur';
+  }
+
+  function build(raw) {
+    var a = {
+      offre: clean(raw.offre, 160), cible: clean(raw.cible, 160), probleme: clean(raw.probleme, 300),
+      panier: OPTIONS.panier[raw.panier] ? raw.panier : 'mid', temps: OPTIONS.temps[raw.temps] ? raw.temps : 'jours',
+      decideur: OPTIONS.decideur[raw.decideur] ? raw.decideur : 'few', essai: OPTIONS.essai[raw.essai] ? raw.essai : 'rien',
+      priorite: OPTIONS.priorite[raw.priorite] ? raw.priorite : 'qualif'
+    };
+    var key = pick(a), P = PROFILES[key];
+    var pb = noDot(a.probleme) || 'votre problème principal', pbl = lc(pb);
+    var cible = noDot(a.cible) || 'vos prospects', offre = noDot(a.offre) || 'votre offre';
+
+    var why = 'Avec un panier de ' + lc(OPTIONS.panier[a.panier]) + ', ' + (a.decideur === 'one' ? 'une seule personne qui décide' : a.decideur === 'few' ? 'deux ou trois personnes dans la décision' : 'un comité de décision') +
+      ' et ' + lc(OPTIONS.temps[a.temps]) + ' devant vous, le bon format pour vous est : ' + lc(P.format) + '. ';
+    var because = {
+      checklist: 'C\'est le format le plus rapide à produire qui reste utile, et il attire du volume : idéal quand le temps manque.',
+      modele: 'Un modèle fait gagner du temps tout de suite à votre prospect, et il se produit en quelques heures sans sacrifier la qualité.',
+      quiz: 'Un quiz court attire du volume, donne une réponse immédiate et vous dit déjà où en est chaque contact.',
+      diagnostic: 'Un diagnostic donne un résultat personnalisé et vous rapporte ses réponses : vous savez exactement comment relancer.',
+      calculateur: 'Un calculateur fait travailler votre prospect sur ses propres chiffres : c\'est le format qui qualifie le mieux, et le plus difficile à copier.',
+      audit: 'Avec un tel panier et un objectif de qualification, un échange humain vaut plus que n\'importe quel document : chaque rendez-vous compte.',
+      barometre: 'Pour gagner en crédibilité, rien ne remplace des données que vous êtes le seul à avoir. Plusieurs semaines permettent de les collecter proprement.',
+      atelier: 'Un atelier en petit comité installe votre expertise sans demander des semaines de production, et chaque participant est un contact chaud.'
+    }[key];
+    if (a.decideur === 'comite' && P.kind !== 'doc') because += ' Comme un comité décide chez vos clients, ajoutez une version transmissible : un récapitulatif propre que votre contact fera circuler en interne.';
+
+    var titles = {
+      doc: ['La checklist pour en finir avec « ' + pbl + ' »', cible + ' : le modèle pour régler « ' + pbl + ' » en une semaine', '« ' + pb + ' » : les 10 points à vérifier avant d\'aller plus loin'],
+      outil: ['« ' + pb + ' » : où en êtes-vous ? ' + ({ quiz: 'Le quiz', calculateur: 'Le calculateur' }[key] || 'Le diagnostic') + ' en 5 minutes', cible + ' : mesurez ce que « ' + pbl + ' » vous coûte vraiment', '5 questions pour savoir par où attaquer « ' + pbl + ' »'],
+      humain: ['30 minutes pour débloquer « ' + pbl + ' »', cible + ' : un regard extérieur sur « ' + pbl + ' », offert', 'On regarde ensemble « ' + pbl + ' » et vous repartez avec un plan'],
+      donnee: ['Baromètre : comment les ' + cible + ' gèrent « ' + pbl + ' »', '« ' + pb + ' » : ce que révèlent les réponses de vos pairs', 'Où vous situez-vous face à « ' + pbl + ' » ? Les chiffres du secteur']
+    }[P.kind];
+    if (key === 'checklist') titles[1] = cible + ' : la checklist en 10 points pour « ' + pbl + ' »';
+
+    var contenu = {
+      doc: { label: 'Le sommaire en 5 parties', items: ['Le constat : à quoi ressemble « ' + pbl + ' » quand on le vit', 'Les causes les plus fréquentes, en une page', 'La méthode pas à pas, avec les points de contrôle', 'Les erreurs à éviter, tirées de votre expérience terrain', 'Le passage à l\'action : ce que ' + lc(offre) + ' change concrètement'] },
+      outil: { label: 'Les 5 questions à poser à vos prospects', items: ['Où en êtes-vous aujourd\'hui sur « ' + pbl + ' » ? (échelle de 1 à 5)', 'Quel volume ou quel chiffre clé mesure ce problème chez vous ?', 'Qu\'avez-vous déjà tenté, et qu\'est-ce que ça a donné ?', 'Qui d\'autre est concerné par la décision ?', 'Dans combien de temps voulez-vous que ce soit réglé ?'] },
+      humain: { label: 'La trame du rendez-vous', items: ['5 min : la situation actuelle sur « ' + pbl + ' », racontée par votre prospect', '10 min : les chiffres et ce qui a déjà été tenté', '10 min : votre lecture, deux ou trois pistes concrètes', '3 min : ce qui se passe s\'il ne fait rien', '2 min : la prochaine étape, proposée clairement'] },
+      donnee: { label: 'Le plan de l\'étude', items: ['Définir la question centrale autour de « ' + pbl + ' »', 'Écrire un questionnaire de 8 à 10 questions', 'Le diffuser auprès de ' + cible + ' et viser un échantillon exploitable', 'Analyser et sortir 5 enseignements clairs', 'Publier une version courte en accès libre et la version complète en échange du contact'] }
+    }[P.kind];
+
+    var page = [
+      ['Le titre', 'La promesse du lead magnet, formulée comme un résultat : « ' + titles[0] + ' ».'],
+      ['Le sous-titre', 'Pour qui c\'est (' + cible + ') et ce qu\'on obtient, en une phrase.'],
+      ['Ce que vous allez obtenir', 'Trois puces concrètes, et un aperçu visuel du résultat.'],
+      ['Pourquoi vous faire confiance', 'Qui l\'a conçu, et votre expérience sur « ' + pbl + ' ».'],
+      ['Le formulaire', 'Email et société, pas plus. Finalité et lien vers votre politique de confidentialité.'],
+      ['Ce qui se passe ensuite', 'Le résultat arrive tout de suite, et ce que vous ferez du contact.']
+    ];
+    if (P.kind === 'humain') page[4] = ['La prise de rendez-vous', 'Un agenda intégré et deux questions de qualification, pas plus.'];
+
+    var sequence = [
+      ['Le jour même', 'Objet : « Votre ' + (P.kind === 'humain' ? 'rendez-vous est confirmé' : 'résultat est prêt') + ' »', 'Livrer ce qui a été promis, sans rien vendre. Une seule question en fin d\'email pour ouvrir la conversation.'],
+      ['J+3', 'Objet : « Ce que vos réponses disent de votre situation »', 'Une lecture personnalisée : une remarque précise tirée de ce que le contact a fourni.'],
+      ['J+10', 'Objet : « On en parle 30 minutes ? »', 'Proposer un échange court, en rappelant ce qu\'il y gagnerait concrètement avec ' + lc(offre) + '.']
+    ];
+
+    var kpi = { volume: 'Le nombre de contacts qui correspondent à votre cible, chaque mois.', qualif: 'Le nombre de rendez-vous obtenus à partir du lead magnet.', credib: 'Le nombre de reprises et de partages par votre cible, et les rendez-vous qui en découlent.' }[a.priorite];
+    var piege = {
+      rien: 'Comme c\'est votre premier lead magnet, ne visez pas la perfection : lancez une version simple, mesurez un mois, puis améliorez.',
+      doc: 'Vous avez déjà essayé un document : ne jugez pas celui-ci au nombre de téléchargements, mais aux conversations qu\'il ouvre.',
+      webinaire: 'Vous avez déjà fait un webinaire : ne comptez pas les inscrits mais les présents, et relancez-les dans les 48 heures.',
+      autre: 'Avant de comparer avec ce que vous avez déjà essayé, fixez le même indicateur pour les deux, sinon la comparaison ne veut rien dire.'
+    }[a.essai];
+
+    return { key: key, famille: P.famille, format: P.format, kind: P.kind, why: why + because, titles: titles, contenu: contenu, page: page, sequence: sequence, kpi: kpi, piege: piege, answers: a, labels: OPTIONS };
+  }
+  return { build: build, OPTIONS: OPTIONS, PROFILES: PROFILES };
+}));
+</script>
+<script>(function(){ "use strict";
+  /* Générateur de lead magnet */
+  var root = document.getElementById('generateur-lead-magnet');
+  if(!root || !window.CelyLeadMagnet) return;
+  var E = window.CelyLeadMagnet;
+  var steps = Array.prototype.slice.call(root.querySelectorAll('.lmg-step'));
+  var N = steps.length, idx = 0, STORE = 'cely-lmg-v1';
+  var bar = document.getElementById('lmgBar'), counter = document.getElementById('lmgCounter');
+  var prev = document.getElementById('lmgPrev'), next = document.getElementById('lmgNext'), err = document.getElementById('lmgStepError');
+  var form = document.getElementById('lmgForm'), capture = document.getElementById('lmgCapture'), result = document.getElementById('lmgResult');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function answers(){
+    var a = {};
+    steps.forEach(function(s){
+      var k = s.getAttribute('data-key'), t = s.querySelector('[data-key]');
+      if(t){ a[k] = t.value.trim(); }
+      else { var c = s.querySelector('input[type=radio]:checked'); a[k] = c ? c.value : ''; }
+    });
+    return a;
+  }
+  function save(){ try{ localStorage.setItem(STORE, JSON.stringify({ a: answers(), i: idx })); }catch(e){} }
+  function restore(){
+    try{
+      var d = JSON.parse(localStorage.getItem(STORE) || 'null'); if(!d || !d.a) return 0;
+      steps.forEach(function(s){
+        var k = s.getAttribute('data-key'), v = d.a[k]; if(!v) return;
+        var t = s.querySelector('[data-key]');
+        if(t){ t.value = v; t.dispatchEvent(new Event('input')); }
+        else { var r = s.querySelector('input[value="' + v + '"]'); if(r) r.checked = true; }
+      });
+      return Math.min(Math.max(0, d.i | 0), N - 1);
+    }catch(e){ return 0; }
+  }
+  var PANEL = ['format','titles','contenu','page','sequence','kpi'];
+  function panel(){
+    var a = answers(), filled = 0;
+    steps.forEach(function(s){ var k = s.getAttribute('data-key'); if(a[k]) filled++; });
+    var on = Math.min(6, Math.floor(filled * 6 / N));
+    root.querySelectorAll('#lmgPanel li').forEach(function(li, i){ li.classList.toggle('is-on', i < on); });
+    if(filled >= 4){
+      var plan = E.build(a);
+      var fmt = root.querySelector('#lmgPanel li[data-k="format"] .lmg-p-val');
+      if(fmt) fmt.textContent = plan.format;
+      var tl = root.querySelector('#lmgPanel li[data-k="titles"] .lmg-p-val');
+      if(tl) tl.textContent = plan.titles[0];
+    }
+  }
+  function show(i){
+    idx = i;
+    steps.forEach(function(s, j){ s.hidden = j !== i; });
+    bar.style.width = ((i + 1) / N * 100) + '%';
+    counter.textContent = 'Question ' + (i + 1) + ' sur ' + N;
+    prev.disabled = i === 0;
+    next.textContent = i === N - 1 ? 'Voir mon plan' : 'Question suivante';
+    err.textContent = ''; panel(); save();
+  }
+  function valid(){
+    var s = steps[idx], t = s.querySelector('[data-key]');
+    if(t){ if(t.value.trim().length < 3){ err.textContent = 'Quelques mots suffisent, mais il nous faut une réponse.'; t.focus(); return false; } return true; }
+    if(!s.querySelector('input[type=radio]:checked')){ err.textContent = 'Choisissez une réponse pour continuer.'; return false; }
+    return true;
+  }
+  root.querySelectorAll('[data-key]').forEach(function(t){
+    var c = document.getElementById(t.getAttribute('aria-describedby'));
+    t.addEventListener('input', function(){ if(c) c.querySelector('span').textContent = t.value.length; panel(); save(); });
+    if(t.tagName === 'INPUT') t.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); next.click(); } });
+  });
+  root.querySelectorAll('input[type=radio]').forEach(function(r){
+    r.addEventListener('change', function(){ err.textContent = ''; panel(); save(); });
+  });
+  prev.addEventListener('click', function(){ if(idx > 0) show(idx - 1); });
+  next.addEventListener('click', function(){
+    if(!valid()) return;
+    if(idx < N - 1){ show(idx + 1); var f = steps[idx].querySelector('[data-key], input[type=radio]'); if(f) f.focus(); return; }
+    form.hidden = true; capture.hidden = false; counter.textContent = 'Dernière étape : votre plan'; bar.style.width = '100%';
+    document.getElementById('lmgEmail').focus();
+  });
+  form.addEventListener('submit', function(e){ e.preventDefault(); });
+  function li(text){ var el = document.createElement('li'); el.textContent = text; return el; }
+  function def(t, d, extra){ var el = document.createElement('li'); var b = document.createElement('b'); b.textContent = t; el.appendChild(b); el.appendChild(document.createTextNode(extra ? extra + ' : ' + d : d)); return el; }
+  function fill(id, items){ var el = document.getElementById(id); el.innerHTML = ''; items.forEach(function(x){ el.appendChild(x); }); }
+  function render(plan){
+    document.getElementById('lmgRFormat').textContent = plan.format + ' (' + plan.famille.toLowerCase() + ')';
+    document.getElementById('lmgRWhy').textContent = plan.why;
+    fill('lmgRTitles', plan.titles.map(li));
+    document.getElementById('lmgRContenuLabel').textContent = 'Le contenu : ' + plan.contenu.label.charAt(0).toLowerCase() + plan.contenu.label.slice(1);
+    fill('lmgRContenu', plan.contenu.items.map(li));
+    fill('lmgRPage', plan.page.map(function(p){ return def(p[0], p[1]); }));
+    fill('lmgRSeq', plan.sequence.map(function(q){ return def(q[0] + ' · ' + q[1], q[2]); }));
+    document.getElementById('lmgRKpi').textContent = plan.kpi;
+    document.getElementById('lmgRPiege').textContent = 'Le piège à éviter : ' + plan.piege.charAt(0).toLowerCase() + plan.piege.slice(1);
+    root.querySelectorAll('#lmgPanel li').forEach(function(l){ l.classList.add('is-on'); var v = l.querySelector('.lmg-p-val'); v.style.filter = 'none'; });
+    document.getElementById('lmgSideNote').textContent = 'Votre plan est débloqué.';
+    capture.hidden = true; result.hidden = false;
+    result.focus({ preventScroll:true });
+    result.scrollIntoView({ block:'start', behavior: reduce ? 'auto' : 'smooth' });
+  }
+  document.getElementById('lmgSubmit').addEventListener('click', function(){
+    var email = document.getElementById('lmgEmail').value.trim(), company = document.getElementById('lmgCompany').value.trim();
+    var e2 = document.getElementById('lmgError');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ e2.textContent = 'Merci d\'indiquer un email valide.'; return; }
+    if(!company){ e2.textContent = 'Merci d\'indiquer le nom de votre société.'; return; }
+    if(!document.getElementById('lmgConsent').checked){ e2.textContent = 'Merci de cocher la case de consentement pour voir votre plan.'; return; }
+    e2.textContent = '';
+    var a = answers(), plan = E.build(a);
+    render(plan);
+    var sent = document.getElementById('lmgSent');
+    sent.textContent = 'Envoi de la version récapitulative à ' + email + '…';
+    var payload = { email: email, company: company, consent: true, _hp: document.getElementById('lmgHp').value || '', answers: a };
+    fetch('/api/generateur-lead-magnet', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(payload) })
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok && j.ok }; }); })
+      .then(function(r){ sent.textContent = r.ok ? 'Une version récapitulative vient de partir à ' + email + '.' : 'L\'email récapitulatif n\'a pas pu partir. Votre plan reste affiché ici.'; })
+      .catch(function(){ sent.textContent = 'L\'email récapitulatif n\'a pas pu partir. Votre plan reste affiché ici.'; });
+    try{ localStorage.removeItem(STORE); }catch(e){}
+  });
+  show(restore());
 })();</script>
 </body>
 </html>

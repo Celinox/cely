@@ -121,9 +121,10 @@ COLLECTION = {
     "@type": "CollectionPage", "@id": SITE + "/actualites#page", "url": SITE + "/actualites",
     "name": "Ressources growth marketing B2B", "inLanguage": "fr-FR", "isPartOf": {"@id": SITE + "/#site"},
     "mainEntity": {"@type": "ItemList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "url": SITE + "/actualites/framework-aarrr", "name": "Le framework AARRR, mais qu'est-ce que c'est ?"},
-        {"@type": "ListItem", "position": 2, "url": SITE + ARTICLE_IA_URL, "name": "Le référencement IA : la ruée vers l'or de 2026"},
-        {"@type": "ListItem", "position": 3, "url": SITE + ARTICLE_URL, "name": "Inbound vs outbound : quoi choisir pour son entreprise en 2026 ?"}]}
+        {"@type": "ListItem", "position": 1, "url": SITE + "/actualites/lead-magnet", "name": "Lead magnet : pourquoi votre PDF ne convertit plus (et par quoi le remplacer)"},
+        {"@type": "ListItem", "position": 2, "url": SITE + "/actualites/framework-aarrr", "name": "Le framework AARRR, mais qu'est-ce que c'est ?"},
+        {"@type": "ListItem", "position": 3, "url": SITE + ARTICLE_IA_URL, "name": "Le référencement IA : la ruée vers l'or de 2026"},
+        {"@type": "ListItem", "position": 4, "url": SITE + ARTICLE_URL, "name": "Inbound vs outbound : quoi choisir pour son entreprise en 2026 ?"}]}
 }
 
 MOTION_URL = '/motion-design'
@@ -169,6 +170,20 @@ ARTICLE_AARRR = {
     "keywords": ["aarrr", "framework aarrr", "funnel aarrr", "modèle aarrr", "pirate metrics", "dave mcclure", "rarra", "aaarrr", "growth marketing", "growth hacking"],
     "about": [{"@type": "Thing", "name": "Framework AARRR (pirate metrics)"}, {"@type": "Thing", "name": "Growth marketing"}],
     "mentions": [{"@type": "Person", "name": "Dave McClure"}]
+}
+ARTICLE_LM_URL = '/actualites/lead-magnet'
+ARTICLE_LM = {
+    "@type": "Article", "@id": SITE + ARTICLE_LM_URL + "#article",
+    "headline": "Lead magnet : pourquoi votre PDF ne convertit plus (et par quoi le remplacer)",
+    "alternativeHeadline": "Lead magnet : définition, types et ce qui marche en B2B",
+    "description": "Qu'est-ce qu'un lead magnet ? Définition, les 4 familles, pourquoi le PDF ne convertit plus et quoi faire à la place en B2B. Générateur gratuit.",
+    "image": [SITE + "/images/og-lead-magnet.png", SITE + "/images/lead-magnet/lead-magnet-4-familles.png"], "inLanguage": "fr-FR",
+    "datePublished": "2026-10-30", "dateModified": "2026-10-30",
+    "mainEntityOfPage": {"@type": "WebPage", "@id": SITE + ARTICLE_LM_URL},
+    "author": {"@id": PERSON_ID}, "publisher": PUBLISHER,
+    "articleSection": "Growth marketing B2B",
+    "keywords": ["lead magnet", "lead magnet définition", "lead magnet b2b", "exemple lead magnet", "aimant à prospects", "génération de leads", "inbound marketing"],
+    "about": [{"@type": "Thing", "name": "Lead magnet"}, {"@type": "Thing", "name": "Génération de leads B2B"}]
 }
 ORGANIZATION = {"@type": "Organization", "@id": ORG_ID, "name": "Cely", "url": SITE + "/",
                 "logo": {"@type": "ImageObject", "url": LOGO_HD}, "sameAs": [CONFIG["LINKEDIN_URL"], "https://www.google.com/maps?cid=7863789155467383060"]}
@@ -234,6 +249,14 @@ PAGES = [
          article=dict(published="2026-10-29", modified="2026-10-29", section="Growth marketing B2B",
                       tags=["Framework AARRR", "Growth marketing", "Stratégie B2B"]),
          ld=[ARTICLE_AARRR, PERSON_CELIEN, ORGANIZATION]),
+    dict(key='article-lm', out='actualites/lead-magnet.html', path=ARTICLE_LM_URL, prio='0.8', freq='monthly', og_type='article', no_faq=True,
+         crumbs=[H, ("Ressources", "/actualites"), ("Lead magnet", ARTICLE_LM_URL)],
+         title="Lead magnet : définition, types et ce qui marche en B2B",
+         desc="Qu'est-ce qu'un lead magnet ? Définition, les 4 familles, pourquoi le PDF ne convertit plus et quoi faire à la place en B2B. Générateur gratuit.",
+         img=SITE + "/images/og-lead-magnet.png",
+         article=dict(published="2026-10-30", modified="2026-10-30", section="Growth marketing B2B",
+                      tags=["Lead magnet", "Génération de leads", "Stratégie B2B"]),
+         ld=[ARTICLE_LM, PERSON_CELIEN, ORGANIZATION]),
     dict(key='motion-design', out='motion-design.html', path=MOTION_URL, prio='0.5', freq='monthly',
          crumbs=[H, ("Motion design", MOTION_URL)],
          title="Vidéo motion design à 500 € (offre de lancement) | Cely",

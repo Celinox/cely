@@ -3426,6 +3426,89 @@ h2.hp-story-box-h{ margin:0; }
 @media (max-width:760px){ .adg-side{ position:static; } }
 .art-faq.hp-faq{ padding-block:0 !important; border-top:0 !important; }
 .art-content ol.adg-funnel, .art-content ol.afn{ padding-left:0 !important; margin-left:0 !important; }
+
+/* ---------- article lead magnet ---------- */
+.lm-fig{ margin-block:clamp(30px,4vw,44px); }
+.lmp{ list-style:none; margin:0 !important; padding:0 !important; display:grid; grid-template-columns:1fr 44px 1fr 44px 1fr; align-items:stretch; }
+.lmp-step{ display:flex; flex-direction:column; gap:10px; padding:16px; border:var(--hp-line); border-radius:var(--hp-r-sm); background:var(--white); margin:0 !important; }
+.lmp-temp{ align-self:flex-start; padding:4px 12px; border-radius:999px; font-family:var(--font-label); font-size:.78rem !important; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.lmp-step.is-cold .lmp-temp{ background:var(--off-white-2); color:var(--prune); border:1.5px solid var(--border); }
+.lmp-step.is-warm .lmp-temp{ background:var(--lavender); color:var(--violet-3); }
+.lmp-step.is-hot .lmp-temp{ background:var(--violet-3); color:var(--white); }
+.lmp-step.is-hot{ background:var(--prune); color:var(--off-white); }
+.lmp-who, .lmp-need{ display:flex; flex-direction:column; font-size:.92rem; line-height:1.4; font-weight:600; }
+.lmp-step small{ font-family:var(--font-label); font-size:.66rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; opacity:.7; }
+.lmp-arrow{ position:relative; margin:0 !important; list-style:none; }
+.lmp-arrow span{ position:absolute; left:8px; right:8px; top:50%; height:3px; background:var(--prune); border-radius:2px; }
+.lmp-arrow span::after{ content:""; position:absolute; right:-2px; top:-6px; border:7.5px solid transparent; border-left:10px solid var(--prune); border-right:0; }
+.lmp-arrow.is-key span{ background:var(--pink); height:5px; }
+.lmp-arrow.is-key span::after{ border-left-color:var(--pink); top:-5px; }
+.lmp-here{ margin:14px 0 0 !important; display:grid; grid-template-columns:1fr 44px 1fr 44px 1fr; }
+.lmp-here span{ grid-column:1 / 4; justify-self:center; position:relative; padding:8px 16px; border-radius:12px; background:var(--pink); color:var(--prune); font-family:var(--font-display); font-weight:800; font-size:.98rem; border:2px solid var(--prune); box-shadow:3px 3px 0 var(--prune); }
+.lmp-here span::before{ content:""; position:absolute; left:50%; top:-12px; width:2px; height:12px; background:var(--prune); }
+@media (max-width:720px){
+  .lmp{ grid-template-columns:1fr; }
+  .lmp-arrow{ height:30px; }
+  .lmp-arrow span{ left:50%; right:auto; top:4px; bottom:4px; width:3px; height:auto; }
+  .lmp-arrow.is-key span{ width:5px; height:auto; }
+  .lmp-arrow span::after{ right:auto; left:-6px; top:auto; bottom:-4px; border:7.5px solid transparent; border-top:10px solid var(--prune); border-bottom:0; }
+  .lmp-arrow.is-key span::after{ border-top-color:var(--pink); border-left-color:transparent; left:-5px; }
+  .lmp-here{ grid-template-columns:1fr; } .lmp-here span{ grid-column:1; }
+}
+.lm-fam th[scope="row"]{ font-family:var(--font-display); font-weight:800; color:var(--prune); text-align:left; padding:11px 16px; border-top:1px solid var(--border); }
+.lm-fam .lm-key{ background:var(--lavender) !important; color:var(--violet-3) !important; font-weight:700; }
+.lm-fam thead th.lm-key{ background:var(--violet-3) !important; color:var(--white) !important; }
+.lmt{ list-style:none; margin:0 !important; padding:0 !important; display:flex; flex-direction:column; gap:28px; }
+.lmt-q{ position:relative; margin:0 !important; }
+.lmt-q:not(:last-child)::after{ content:""; position:absolute; left:28px; bottom:-28px; height:28px; width:3px; background:var(--prune); }
+.lmt-ask{ margin:0 !important; padding:14px 18px; border:var(--hp-line); border-radius:var(--hp-r-sm); background:var(--prune); color:var(--off-white) !important; font-family:var(--font-display); font-weight:800; font-size:1.02rem !important; }
+.lmt-branches{ margin-top:10px; margin-left:28px; padding-left:20px; border-left:3px solid var(--prune); display:flex; flex-direction:column; gap:8px; }
+.lmt-branches p{ margin:0 !important; display:flex; gap:10px; align-items:baseline; padding:10px 14px; border-radius:12px; background:var(--white); border:1.5px solid var(--border); font-size:.95rem !important; line-height:1.45 !important; }
+.lmt-branches b{ flex:none; min-width:42px; text-align:center; padding:2px 8px; border-radius:999px; background:var(--lavender); color:var(--violet-3); font-family:var(--font-label); font-size:.76rem; }
+.lmt-branches .lmt-go{ background:transparent; border-style:dashed; color:var(--muted); }
+.lmt-branches .is-main{ border-color:var(--violet-3); background:var(--lavender); font-weight:700; }
+.lm-caps{ margin-block:clamp(22px,3vw,32px); display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.lm-cap{ display:flex; flex-direction:column; gap:8px; text-decoration:none !important; }
+.lm-cap img{ width:100%; height:auto; border:var(--hp-line); border-radius:var(--hp-r-sm); box-shadow:4px 4px 0 var(--violet); }
+.lm-cap span{ font-family:var(--font-label); font-size:.84rem; font-weight:700; color:var(--violet-3); }
+@media (max-width:640px){ .lm-caps{ grid-template-columns:1fr; } }
+/* générateur */
+.lmg{ margin-block:clamp(28px,3.6vw,40px); padding:clamp(22px,3vw,32px); background:var(--white); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:var(--hp-sh-violet); scroll-margin-top:calc(var(--nav-top) + var(--nav-h) + 20px); }
+.lmg-hook{ margin:0 0 18px !important; font-family:var(--font-display); font-weight:800; font-size:1.12rem !important; line-height:1.4 !important; color:var(--prune); }
+.lmg-step{ border:0; padding:0; margin:18px 0 0; }
+.lmg-step[hidden]{ display:none; }
+.lmg-step legend{ padding:0; font-family:var(--font-display); font-weight:800; font-size:1.12rem; line-height:1.35; color:var(--prune); }
+.lmg-text{ display:block; margin-top:14px; }
+.lmg-text input, .lmg-text textarea{ width:100%; padding:12px 14px; border:1.6px solid var(--border); border-radius:12px; font:inherit; font-size:1rem; resize:vertical; }
+.lmg-text input:focus, .lmg-text textarea:focus{ border-color:var(--violet-3); box-shadow:0 0 0 4px rgba(104,45,254,.14); outline:none; }
+.lmg-count{ margin-top:6px !important; font-family:var(--font-label); font-size:.76rem !important; color:var(--muted) !important; text-align:right; }
+.lmg-opts{ margin-top:14px; display:flex; flex-direction:column; gap:8px; }
+.lmg-opt{ position:relative; display:flex; align-items:center; gap:12px; padding:13px 16px; border:1.6px solid var(--border); border-radius:14px; cursor:pointer; font-weight:600; transition:border-color .2s, background .2s; }
+.lmg-opt:hover{ border-color:var(--violet); }
+.lmg-opt input{ width:18px; height:18px; accent-color:var(--violet-3); flex:none; }
+.lmg-opt:has(input:checked){ border-color:var(--violet-3); background:var(--lavender); }
+.lmg-opt:has(input:focus-visible){ outline:3px solid var(--violet); outline-offset:2px; }
+.lmg-panel{ list-style:none; margin:0 !important; padding:0 !important; display:flex; flex-direction:column; gap:8px; counter-reset:lp; }
+.lmg-panel li{ margin:0 !important; padding:10px 12px; border-radius:12px; border:1.5px dashed rgba(247,245,250,.25); background:rgba(247,245,250,.05); color:var(--off-white) !important; opacity:.45; transition:opacity .4s var(--ease-cely-out), background .4s, border-color .4s; counter-increment:lp; }
+.lmg-panel li.is-on{ opacity:1; border:1.5px solid var(--violet); background:rgba(139,91,255,.18); }
+.lmg-p-name{ display:block; font-family:var(--font-display); font-weight:800; font-size:.92rem !important; color:var(--off-white) !important; }
+.lmg-p-name::before{ content:counter(lp) ". "; color:var(--pink); }
+.lmg-p-val{ display:block; margin-top:4px; font-size:.8rem !important; color:var(--lavender) !important; filter:blur(4px); user-select:none; letter-spacing:.02em; }
+.lmg-panel li.is-on .lmg-p-val{ filter:blur(3px); }
+.lmg-result{ margin-top:22px; padding-top:20px; border-top:var(--hp-line); }
+.lmg-block{ margin-top:16px; padding:18px 20px; border:1.5px solid var(--border); border-radius:var(--hp-r-sm); background:var(--off-white); }
+.lmg-block h4{ margin:0 0 10px !important; display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:800; font-size:1.1rem; color:var(--prune); }
+.lmg-block h4 > span:first-child{ display:inline-grid; place-items:center; width:28px; height:28px; border-radius:50%; background:var(--violet-3); color:var(--white); font-size:.85rem; flex:none; }
+.lmg-block p, .lmg-block li{ font-size:1rem !important; line-height:1.55 !important; }
+.lmg-block ol{ margin:6px 0 0 !important; padding-left:22px !important; }
+.lmg-block li + li{ margin-top:6px; }
+.lmg-format{ font-family:var(--font-display); font-weight:800; font-size:1.15rem !important; color:var(--violet-3) !important; }
+.lmg-defs li b{ display:block; font-family:var(--font-display); }
+.lmg-sent{ margin-top:14px !important; font-family:var(--font-label); font-size:.84rem !important; color:var(--muted) !important; }
+.lmg-cta{ margin-top:20px; padding:20px 22px; border-radius:var(--hp-r-sm); background:var(--prune); color:var(--off-white); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+.lmg-cta p{ margin:0 !important; color:var(--off-white) !important; font-family:var(--font-display); font-weight:800; font-size:1.1rem !important; }
+.lmg-cta .btn-hero{ background:var(--off-white); color:var(--prune); border-color:var(--off-white); box-shadow:4px 4px 0 var(--violet); }
+@media (prefers-reduced-motion:reduce){ .lmg-panel li, .lmg-opt{ transition:none; } }
 </style>
 </head>
 <body>
@@ -3634,12 +3717,13 @@ h2.hp-story-box-h{ margin:0; }
     <ul>
       <li><strong>Formulaire de contact</strong> (page Contact) : prénom, nom, e-mail professionnel, entreprise, stade, taille de l'équipe, tranche de revenu (facultative), organisation de l'acquisition, description de votre situation et auto-évaluation. Finalité : répondre à votre demande et préparer un premier échange.</li>
       <li><strong>Simulateur de l'article « Inbound vs outbound »</strong> : e-mail, réponses au questionnaire et profil obtenu, avec votre consentement explicite. Finalité : vous envoyer votre résultat et vous recontacter à ce sujet.</li>
+      <li><strong>Générateur de lead magnet de l'article « Lead magnet »</strong> : e-mail professionnel, nom de la société et réponses au générateur (dont votre offre, votre cible et le problème de vos clients), avec votre consentement explicite. Finalité : vous envoyer votre plan par e-mail et vous recontacter à ce sujet. Votre progression est enregistrée dans votre navigateur uniquement, le temps de remplir le générateur.</li>
       <li><strong>Diagnostic AARRR de l'article « Le framework AARRR »</strong> : e-mail professionnel, nom de la société et réponses chiffrées au diagnostic, avec votre consentement explicite. Finalité : vous envoyer votre diagnostic et vous recontacter à ce sujet.</li>
       <li><strong>Formulaire « Audit GEO » de l'article « Le référencement IA »</strong> : adresse de votre site et e-mail professionnel. Finalité : vous envoyer le diagnostic demandé. Le générateur de prompts du même article fonctionne entièrement dans votre navigateur : rien n'est transmis à Cely.</li>
       <li><strong>Formulaire de réservation de la page « Motion design »</strong> : prénom, e-mail professionnel, téléphone, entreprise, objectif de la vidéo et description facultative du projet. Finalité : répondre à votre demande et préparer votre projet vidéo.</li>
       <li><strong>Formulaire « Nous rejoindre »</strong> : prénom, nom, e-mail, domaine d'expertise, lien facultatif vers un portfolio ou un profil LinkedIn, et message. Finalité : étudier votre proposition de collaboration et vous recontacter.</li>
     </ul>
-    <p>Base légale : votre demande (mesures précontractuelles) pour le formulaire de contact, le formulaire « Audit GEO », le formulaire de réservation motion design et le formulaire « Nous rejoindre », votre consentement pour le simulateur et le diagnostic AARRR.</p>
+    <p>Base légale : votre demande (mesures précontractuelles) pour le formulaire de contact, le formulaire « Audit GEO », le formulaire de réservation motion design et le formulaire « Nous rejoindre », votre consentement pour le simulateur, le diagnostic AARRR et le générateur de lead magnet.</p>
     <h2 id="destinataires">Destinataires et sous-traitants</h2>
     <p>Les données sont transmises par e-mail à Cely via le service d'envoi Resend (Resend, Inc., États-Unis). Le site est hébergé par Vercel (États-Unis). La prise de rendez-vous directe utilise Calendly (Calendly LLC, États-Unis), soumis à sa propre politique de confidentialité. Les polices de caractères sont chargées depuis Google Fonts, ce qui transmet votre adresse IP à Google. Ces transferts hors Union européenne s'appuient sur les garanties prévues par le RGPD (clauses contractuelles types / Data Privacy Framework).</p>
     <h2 id="conservation">Durée de conservation</h2>
@@ -5167,8 +5251,19 @@ h2.hp-story-box-h{ margin:0; }
         <button type="button" class="rs-filter" data-filter="geo" aria-pressed="false">Visibilité IA</button>
       </div>
       <h2 class="sr-only">Le dernier guide publié</h2>
-      <a href="/actualites/framework-aarrr" data-route="actualites" class="rs-card is-featured hp-in" data-cat="growth">
-          <span class="rs-cover"><img src="/images/covers/cover-framework-aarrr.webp" alt="" width="1200" height="630" loading="eager"><span class="rs-badge">Outil gratuit inclus</span></span>
+      <a href="/actualites/lead-magnet" data-route="actualites" class="rs-card is-featured hp-in" data-cat="growth">
+          <span class="rs-cover"><img src="/images/covers/cover-lead-magnet.webp" alt="" width="1200" height="630" loading="eager"><span class="rs-badge">Outil gratuit inclus</span></span>
+          <span class="rs-body">
+            <span class="rs-meta"><span class="rs-cat">Growth marketing B2B</span><span>12 min de lecture</span><time datetime="2026-10-30">30 octobre 2026</time></span>
+            <h3 class="rs-title">Lead magnet&nbsp;: pourquoi votre PDF ne convertit plus (et par quoi le remplacer)</h3>
+            <span class="rs-dek">Définition, les 4 familles, ce qui marche vraiment en B2B, et un générateur qui construit le plan complet de votre lead magnet en 8 questions.</span>
+            <span class="rs-go">Lire l'article ↗</span>
+          </span>
+        </a>
+      <div class="rs-grid-head hp-in"><p class="hp-eyebrow">Tous les guides</p><h2 class="hp-h2 rs-h2">À lire aussi.</h2></div>
+      <div class="rs-grid" id="rsGrid">
+        <a href="/actualites/framework-aarrr" data-route="actualites" class="rs-card is-wide hp-in" data-cat="growth">
+          <span class="rs-cover"><img src="/images/covers/cover-framework-aarrr.webp" alt="" width="1200" height="630" loading="lazy"><span class="rs-badge">Outil gratuit inclus</span></span>
           <span class="rs-body">
             <span class="rs-meta"><span class="rs-cat">Growth marketing B2B</span><span>12 min de lecture</span><time datetime="2026-10-29">29 octobre 2026</time></span>
             <h3 class="rs-title">Le framework AARRR, mais qu'est-ce que c'est&nbsp;?</h3>
@@ -5176,8 +5271,6 @@ h2.hp-story-box-h{ margin:0; }
             <span class="rs-go">Lire l'article ↗</span>
           </span>
         </a>
-      <div class="rs-grid-head hp-in"><p class="hp-eyebrow">Tous les guides</p><h2 class="hp-h2 rs-h2">À lire aussi.</h2></div>
-      <div class="rs-grid" id="rsGrid">
         <a href="/actualites/referencement-ia" data-route="actualites" class="rs-card is-wide hp-in" data-cat="geo">
           <span class="rs-cover"><img src="/images/covers/cover-referencement-ia.webp" alt="" width="1200" height="630" loading="lazy"><span class="rs-badge">Outil gratuit inclus</span></span>
           <span class="rs-body">
@@ -5838,7 +5931,7 @@ h2.hp-story-box-h{ margin:0; }
 
         <h4>Les lead magnets et webinaires</h4>
 
-        <p>Guides, templates, audits gratuits, webinaires&nbsp;: vous offrez de la valeur en échange d'un contact.</p>
+        <p>Guides, templates, audits gratuits, webinaires&nbsp;: vous offrez de la valeur en échange d'un contact. On détaille ce qui marche vraiment en B2B dans <a href="/actualites/lead-magnet" data-route="actualites">notre article sur les lead magnets</a>.</p>
 
         <p><strong>Avantages&nbsp;:</strong> vous récupérez des leads identifiés, et vous prouvez votre expertise concrètement.</p>
 
@@ -7097,7 +7190,7 @@ Allow: /</code></pre>
 
         <p><strong>Acquisition</strong> — comment les gens vous découvrent. SEO, publicité, LinkedIn, bouche-à-oreille, salons. C'est l'étape sur laquelle tout le monde se concentre.</p>
 
-        <p><strong>Activation</strong> — leur premier vrai moment de valeur. Ils ne font pas que passer&nbsp;: ils font quelque chose. Ils demandent un devis, réservent un appel, créent un compte, testent le produit.</p>
+        <p><strong>Activation</strong> — leur premier vrai moment de valeur. Ils ne font pas que passer&nbsp;: ils font quelque chose. Ils demandent un devis, réservent un appel, créent un compte, testent le produit, ou récupèrent <a href="/actualites/lead-magnet" data-route="actualites">un lead magnet</a>.</p>
 
         <p><strong>Rétention</strong> — ils restent. Ils reviennent, ils renouvellent, ils ne partent pas chez le concurrent au bout de trois mois.</p>
 
@@ -7437,6 +7530,452 @@ Allow: /</code></pre>
             <span class="rs-meta"><span class="rs-cat">Visibilité IA</span><span>30 min de lecture</span><time datetime="2026-10-01">1er octobre 2026</time></span>
             <h3 class="rs-title">Le référencement IA : la ruée vers l'or de 2026</h3>
             <span class="rs-dek">GEO, mythe ou réalité ? Ce que disent les études, l'arrivée des Aperçus IA en France et la méthode pour être cité par ChatGPT, avec un générateur de prompts gratuit.</span>
+            <span class="rs-go">Lire l'article ↗</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!--CTA_FINAL-->
+
+</main>
+
+  <main class="site-page" data-page="article-lm" hidden>
+
+  <div class="art-progress" aria-hidden="true"><span id="artProgress"></span></div>
+
+  <section class="art-header">
+    <div class="section-wrap reveal">
+      <span class="art-header-cat">Growth marketing B2B</span>
+      <h1 class="art-header-h1">Lead magnet&nbsp;: pourquoi votre PDF ne convertit plus (et par quoi le remplacer)</h1>
+      <div class="art-meta-row"><span class="art-readtime">12 min de lecture</span><span class="art-share"><a class="art-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fwww.celygrowth.com%2Factualites%2Flead-magnet" target="_blank" rel="noopener" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg>LinkedIn</a><button type="button" class="art-share-btn" data-copy="https://www.celygrowth.com/actualites/lead-magnet"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Copier le lien</span></button></span></div>
+    </div>
+  </section>
+
+  <section class="art-authorhead-wrap">
+    <div class="section-wrap reveal">
+      <div class="art-authorhead">
+        <img src="/images/celien-boillot-112.webp" alt="Photo de Célien Boillot" class="art-author-avatar art-authorhead-avatar" width="56" height="56">
+        <div class="art-authorhead-body">
+          <div class="art-authorhead-top">
+            <span class="art-authorhead-by">Écrit par</span>
+            <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" class="art-authorhead-name">Célien Boillot</a>
+            <span class="art-authorhead-role">Fondateur de Cely, growth marketing à temps partagé</span>
+            <span class="art-authorhead-dates"><time datetime="2026-10-30">Publié le 30 octobre 2026</time> · <time datetime="2026-10-30">Mis à jour le 30 octobre 2026</time></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="art-tldr-wrap">
+    <div class="section-wrap reveal">
+      <div class="art-answer" id="reponse-directe">
+        <span class="art-answer-label">Réponse directe</span>
+        <p>Un lead magnet est un contenu ou un outil offert en échange des coordonnées d'un visiteur&nbsp;: guide, modèle, checklist, calculateur, diagnostic. Son rôle n'est pas de vendre, mais de transformer un inconnu de passage en contact identifié. En B2B, les formats qui convertissent le mieux aujourd'hui ne sont plus les documents à télécharger, mais les outils qui donnent un résultat personnalisé.</p>
+      </div>
+      <div class="art-tldr">
+        <span class="art-tldr-label">À retenir</span>
+        <ul>
+          <li><strong>Un lead magnet</strong> échange de la valeur contre un contact. Pas contre une vente.</li>
+          <li><strong>Quatre familles existent&nbsp;:</strong> le document, l'outil, l'humain, la donnée. Elles ne demandent pas le même effort et ne rapportent pas la même chose.</li>
+          <li><strong>Le PDF s'est effondré</strong> parce que l'IA permet d'en produire un en dix minutes&nbsp;: ce qui était rare est devenu infini.</li>
+          <li><strong>En B2B, ce qui marche</strong> donne un résultat personnalisé et vous apprend quelque chose sur le prospect.</li>
+          <li><strong>Un lead magnet se mesure</strong> au nombre de rendez-vous qu'il produit, pas au nombre de téléchargements.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="art-body-wrap">
+    <div class="section-wrap art-layout">
+
+      <aside class="art-toc reveal" aria-label="Sommaire de l'article">
+        <span class="art-toc-label">Dans cet article</span>
+        <nav class="art-toc-list">
+          <a href="#lm-intro">Intro</a>
+          <a href="#lm-definition">C'est quoi un lead magnet&nbsp;?</a>
+          <a href="#lm-familles">Les 4 familles</a>
+          <a href="#lm-pdf">Pourquoi le PDF ne convertit plus</a>
+          <a href="#lm-b2b">Ce qui marche en B2B</a>
+          <a href="#lm-creer">Comment créer le vôtre</a>
+          <a href="#lm-erreurs">Les erreurs</a>
+          <a href="#lm-mesure">Le mesurer</a>
+          <a href="#lm-faq">FAQ</a>
+        </nav>
+      </aside>
+
+      <article class="art-content reveal">
+
+        <h2 id="lm-intro">Intro</h2>
+
+        <p class="art-lead">Lead magnet, lead magnet, lead magnet&nbsp;!!! De partout. Des réels, des posts LinkedIn, des carrousels.</p>
+
+        <p>Mais franchement, qui utilise réellement les lead magnets de la bonne manière&nbsp;?</p>
+
+        <p>Spoiler&nbsp;: pas beaucoup de monde.</p>
+
+        <p>Il en existe plein, avec plein de techniques différentes, et un seul but&nbsp;: «&nbsp;magnet&nbsp;» des leads. Oui, aimanter. Boom. Vous attirez, ils viennent, c'est magnétique.</p>
+
+        <p>Enfin… en théorie.</p>
+
+        <p>Parce que dans la vraie vie, la plupart des lead magnets aimantent surtout des gens qui ne reviendront jamais. Vous passez trois semaines sur un guide de trente pages, vous récoltez douze emails, et zéro rendez-vous. Votre chef-d'œuvre dort maintenant paisiblement dans un dossier Téléchargements, quelque part entre une facture et une photo de chat.</p>
+
+        <p>Ça vous parle&nbsp;?</p>
+
+        <p>On va voir pourquoi, et surtout quoi faire à la place. Et si vous êtes pressé, <a href="#generateur-lead-magnet">sautez directement au générateur</a>&nbsp;: il construit le plan du vôtre en huit questions.</p>
+
+        <h2 id="lm-definition">C'est quoi un lead magnet&nbsp;?</h2>
+
+        <p><strong>Un lead magnet, c'est un contenu ou un outil que vous offrez en échange des coordonnées d'un visiteur.</strong> Un guide, un modèle, une checklist, un calculateur, un diagnostic, un audit. Vous donnez quelque chose d'utile, la personne laisse son email.</p>
+
+        <p>En français, on dit parfois «&nbsp;aimant à prospects&nbsp;». C'est moins classe, mais c'est exactement ça.</p>
+
+        <p>Voilà pour la définition. Maintenant, le truc que tout le monde rate.</p>
+
+        <p><strong>Un lead magnet ne sert pas à vendre.</strong> Il sert à faire passer quelqu'un de froid à tiède.</p>
+
+        <p>Froid, c'est quelqu'un qui ne vous connaît pas et qui passe. Tiède, c'est quelqu'un qui a un nom, un problème identifié, et une raison de vous écouter. Chaud, c'est quelqu'un qui est prêt à parler affaires. Votre lead magnet joue sur la première marche, pas la dernière.</p>
+
+        <p>Et c'est pour ça que «&nbsp;téléchargez notre plaquette&nbsp;» ne marche pas&nbsp;: personne ne s'est jamais réchauffé devant une plaquette.</p>
+
+        <figure class="art-figure lm-fig" id="schema-parcours-lead-magnet">
+          <ol class="lmp" aria-label="Le parcours d'un prospect : froid, tiède, chaud">
+            <li class="lmp-step is-cold"><span class="lmp-temp">Froid</span><span class="lmp-who"><small>Qui c'est</small>Ne vous connaît pas, passe sur votre site</span><span class="lmp-need"><small>Ce qu'il lui faut</small>Une raison de s'arrêter</span></li>
+            <li class="lmp-arrow is-key" aria-hidden="true"><span></span></li>
+            <li class="lmp-step is-warm"><span class="lmp-temp">Tiède</span><span class="lmp-who"><small>Qui c'est</small>A un nom, un problème identifié</span><span class="lmp-need"><small>Ce qu'il lui faut</small>De la preuve et du contexte</span></li>
+            <li class="lmp-arrow" aria-hidden="true"><span></span></li>
+            <li class="lmp-step is-hot"><span class="lmp-temp">Chaud</span><span class="lmp-who"><small>Qui c'est</small>Prêt à parler affaires</span><span class="lmp-need"><small>Ce qu'il lui faut</small>Une proposition claire</span></li>
+          </ol>
+          <p class="lmp-here"><span>C'est ici que joue le lead magnet</span></p>
+          <figcaption class="art-figure-cap">Un lead magnet ne vend pas&nbsp;: il fait franchir la première marche.</figcaption>
+          <details class="art-figure-img"><summary>Voir ce schéma en image</summary><img src="/images/lead-magnet/lead-magnet-parcours-froid-tiede-chaud.png" alt="Schéma du parcours froid, tiède, chaud : le lead magnet joue sur la première marche, du visiteur froid au contact tiède" width="1440" height="1306" loading="lazy" decoding="async"></details>
+        </figure>
+
+        <h3>À quoi ça sert concrètement&nbsp;?</h3>
+
+        <p>Trois choses, dans cet ordre.</p>
+
+        <p><strong>Identifier.</strong> Vous passez d'un visiteur anonyme à un contact que vous pouvez recontacter.</p>
+
+        <p><strong>Qualifier.</strong> Selon ce que la personne télécharge et ce qu'elle vous dit, vous savez où elle en est.</p>
+
+        <p><strong>Légitimer.</strong> Vous avez donné avant de demander. La prochaine conversation ne part pas de zéro.</p>
+
+        <p>Si votre lead magnet ne fait pas les trois, il ne travaille qu'à un tiers.</p>
+
+        <h2 id="lm-familles">Les 4 familles de lead magnets</h2>
+
+        <p>Toutes ne demandent pas le même travail. Et surtout, toutes ne vous rapportent pas la même chose.</p>
+
+        <figure class="art-figure lm-fig" id="schema-4-familles-lead-magnet">
+          <div class="art-table-wrap sch-table-wrap">
+            <table class="art-table sch-table lm-fam">
+              <caption class="sr-only">Les 4 familles de lead magnets : exemples, effort de production et ce que chaque famille vous apprend du prospect</caption>
+              <thead><tr><th scope="col">Famille</th><th scope="col">Exemples</th><th scope="col">Effort</th><th scope="col" class="lm-key">Ce que ça vous apprend du prospect</th></tr></thead>
+              <tbody><tr><th scope="row">Le document</th><td>Guide, checklist, modèle, template</td><td>Faible à moyen</td><td class="lm-key">Son email, et c'est tout</td></tr><tr><th scope="row">L'outil</th><td>Calculateur, simulateur, diagnostic</td><td>Élevé</td><td class="lm-key">Ses chiffres, sa situation, son problème</td></tr><tr><th scope="row">L'humain</th><td>Audit offert, webinaire, consultation</td><td>Élevé et récurrent</td><td class="lm-key">Tout, mais ça ne passe pas à l'échelle</td></tr><tr><th scope="row">La donnée</th><td>Benchmark, étude, baromètre sectoriel</td><td>Très élevé</td><td class="lm-key">Peu, mais ça crée de l'autorité</td></tr></tbody>
+            </table>
+          </div>
+          <details class="art-figure-img"><summary>Voir ce schéma en image</summary><img src="/images/lead-magnet/lead-magnet-4-familles.png" alt="Tableau des 4 familles de lead magnet : le document, l'outil, l'humain et la donnée, avec ce que chacune vous apprend du prospect" width="1440" height="1030" loading="lazy" decoding="async"></details>
+        </figure>
+
+        <p>Regardez bien la dernière colonne. C'est elle qui change tout, et c'est celle que personne ne regarde.</p>
+
+        <p>La plupart des entreprises choisissent leur lead magnet par la colonne «&nbsp;effort&nbsp;». C'est humain, et c'est l'erreur. Vous choisissez le moins cher à produire, donc celui qui vous apprend le moins, donc celui qui vous donne le moins de raisons de rappeler. Félicitations&nbsp;: vous avez optimisé le mauvais chiffre.</p>
+
+        <h2 id="lm-pdf">Pourquoi le PDF ne convertit plus</h2>
+
+        <p>Oui, le guide PDF à télécharger, ça marchait. C'était en 2017.</p>
+
+        <p>Aujourd'hui, avec l'IA, on peut faire des choses extraordinaires&nbsp;: du personnalisé, qui va chercher des infos à plein d'endroits, et qui donne un résultat propre au prospect en trente secondes. Le problème du PDF, c'est justement que n'importe qui peut en produire un en dix minutes. Ce qui était rare est devenu gratuit et infini. C'est d'ailleurs exactement ce que <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content?hl=fr" target="_blank" rel="noopener">Google demande d'éviter</a>&nbsp;: du contenu produit en masse, sans expertise réelle derrière.</p>
+
+        <p>Ça peut encore convertir dans certains cas, mais franchement, ce n'est plus le meilleur.</p>
+
+        <p>Et il y a deux autres raisons, moins évidentes.</p>
+
+        <p><strong>Personne ne lit ce qu'il télécharge.</strong> Soyez honnête&nbsp;: combien de guides avez-vous téléchargés cette année, et combien avez-vous ouverts&nbsp;? Un lead magnet non lu ne crée aucune relation. Vous avez un email, pas un prospect.</p>
+
+        <p><strong>Un PDF ne vous dit rien.</strong> Vous savez qu'une personne a téléchargé. Vous ne savez ni son problème, ni ses chiffres, ni où elle en est. Donc votre relance commence par «&nbsp;avez-vous eu le temps de parcourir notre guide&nbsp;?&nbsp;», et vous savez très bien comment ça finit. Par rien.</p>
+
+        <div class="art-callout art-callout-tip">
+          <span class="art-callout-tag">Conseil Cély</span>
+          <p class="art-callout-title">Quand le PDF garde du sens</p>
+          <p>Quand votre contact doit faire circuler quelque chose en interne. Sur un sujet technique, avec un comité de décision, un document propre qu'il transmet à son patron reste redoutable. Là, le format fichier est un avantage, pas un défaut.</p>
+          <p>Donc&nbsp;: pas de PDF par défaut. Un PDF quand il voyage.</p>
+        </div>
+
+        <h2 id="lm-b2b">Ce qui marche en B2B</h2>
+
+        <p><strong>Les lead magnets qui font faire quelque chose au prospect.</strong></p>
+
+        <p>Le principe est simple&nbsp;: au lieu de donner un document, vous donnez un résultat. La personne répond à quelques questions, et elle obtient quelque chose qui parle d'elle. Pas de vous.</p>
+
+        <p>Et je vais vous dire pourquoi c'est tellement supérieur&nbsp;: <strong>vous repartez avec ses chiffres.</strong></p>
+
+        <p>Pas juste un email. Son volume, son panier moyen, son blocage, son niveau de maturité. Quand vous le recontactez, vous ne demandez pas s'il a lu le guide. Vous lui dites ce que ses propres réponses révèlent. Le rendez-vous se prend presque tout seul.</p>
+
+        <p>Ça tombe bien&nbsp;: <a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-09-gartner-sales-survey-finds-67-percent-of-b2b-buyers-prefer-a-rep-free-experience" target="_blank" rel="noopener">les acheteurs B2B préfèrent très largement se renseigner par eux-mêmes</a> avant de parler à un commercial. Un outil qui leur donne une réponse sans passer par vous, c'est exactement ce qu'ils cherchent. Et c'est vous qui le leur offrez.</p>
+
+        <p>Deux exemples que j'ai construits, et que vous pouvez tester&nbsp;:</p>
+
+        <ul>
+          <li><strong>Le simulateur inbound/outbound</strong>&nbsp;: huit questions, et le dirigeant sait par quelle stratégie commencer. Il est en fin de <a href="/actualites/inbound-vs-outbound" data-route="actualites">l'article sur l'inbound et l'outbound</a>.</li>
+          <li><strong>Le diagnostic AARRR</strong>&nbsp;: cinq questions, et il voit à quelle étape il perd ses clients. Il est dans <a href="/actualites/framework-aarrr" data-route="actualites">l'article sur le framework AARRR</a>.</li>
+        </ul>
+
+        <div class="lm-caps">
+          <a class="lm-cap" href="/actualites/inbound-vs-outbound#art-s5" data-route="actualites"><img src="/images/lead-magnet/capture-simulateur-inbound-outbound.webp" alt="Capture d'écran du simulateur inbound / outbound de Cely, question 2 sur 8" width="1442" height="922" loading="lazy"><span>Le simulateur inbound/outbound</span></a>
+          <a class="lm-cap" href="/actualites/framework-aarrr#diagnostic-aarrr" data-route="actualites"><img src="/images/lead-magnet/capture-diagnostic-aarrr.webp" alt="Capture d'écran du diagnostic AARRR de Cely, avec l'entonnoir qui se remplit" width="1442" height="998" loading="lazy"><span>Le diagnostic AARRR</span></a>
+        </div>
+
+        <p>Dans les deux cas, la personne obtient une vraie réponse. Et moi, j'obtiens un contexte de relance que trois mois de cold email ne m'auraient jamais donné.</p>
+
+        <h3>Et comme on n'allait pas écrire un article sur les lead magnets sans lead magnet…</h3>
+
+        <p>On aurait pu vous faire un PDF. On s'est retenus.</p>
+
+        <p>À la place, on a construit <strong>le truc qu'on aurait voulu trouver quand on a commencé</strong>&nbsp;: un générateur qui ne vous explique pas comment créer un lead magnet, mais qui construit le vôtre avec vous.</p>
+
+        <p>Huit questions sur votre offre, votre cible et vos moyens. Et vous repartez avec <strong>le plan complet</strong>&nbsp;: le format adapté à votre cas et pourquoi, trois titres possibles, le contenu étape par étape, la structure de votre page, votre séquence de relance en trois emails, et le seul chiffre à suivre.</p>
+
+        <p>Oui, c'est beaucoup. C'est fait exprès&nbsp;: c'est aussi la meilleure façon de vous montrer ce qu'un bon lead magnet devrait faire.</p>
+
+        <div class="lmg" id="generateur-lead-magnet" data-lmg>
+          <p class="lmg-hook">Répondez à 8 questions. Repartez avec le plan complet de votre lead magnet&nbsp;: le format, le titre, le contenu, la page et la séquence de relance.</p>
+          <div class="adg-grid lmg-grid">
+            <div class="lmg-main">
+              <div class="artsim-progress"><div class="artsim-progress-bar" id="lmgBar" style="width:12.5%;"></div></div>
+              <p class="artsim-counter" id="lmgCounter" aria-live="polite">Question 1 sur 8</p>
+              <form id="lmgForm" novalidate>
+                <input aria-label="Ne pas remplir ce champ" type="text" name="_hp" id="lmgHp" class="sr-only" tabindex="-1" autocomplete="off">
+                <fieldset class="lmg-step" data-step="0" data-key="offre">
+                  <legend id="lmgQ0">Qu'est-ce que vous vendez, en une phrase&nbsp;?</legend>
+                  <label class="lmg-text"><span class="sr-only">Votre réponse</span><input type="text" id="lmg_offre" data-key="offre" maxlength="160" placeholder="Ex. : un logiciel de planning pour les cabinets d'architectes" autocomplete="off" aria-describedby="lmgC0"></label><p class="lmg-count" id="lmgC0"><span>0</span> / 160 caractères</p>
+                </fieldset>
+                <fieldset class="lmg-step" data-step="1" data-key="cible" hidden>
+                  <legend id="lmgQ1">À qui&nbsp;? Soyez précis&nbsp;: fonction et taille d'entreprise</legend>
+                  <label class="lmg-text"><span class="sr-only">Votre réponse</span><input type="text" id="lmg_cible" data-key="cible" maxlength="160" placeholder="Ex. : dirigeants de cabinets de 10 à 50 personnes" autocomplete="off" aria-describedby="lmgC1"></label><p class="lmg-count" id="lmgC1"><span>0</span> / 160 caractères</p>
+                </fieldset>
+                <fieldset class="lmg-step" data-step="2" data-key="probleme" hidden>
+                  <legend id="lmgQ2">Quel est LE problème n°1 de cette personne, avant même de penser à vous&nbsp;?</legend>
+                  <label class="lmg-text"><span class="sr-only">Votre réponse</span><textarea id="lmg_probleme" data-key="probleme" maxlength="300" rows="3" placeholder="Ex. : ses projets dépassent toujours le budget prévu" aria-describedby="lmgC2"></textarea></label><p class="lmg-count" id="lmgC2"><span>0</span> / 300 caractères</p>
+                </fieldset>
+                <fieldset class="lmg-step" data-step="3" data-key="panier" hidden>
+                  <legend id="lmgQ3">Combien vous rapporte un client en moyenne&nbsp;?</legend>
+                  <div class="lmg-opts" role="radiogroup" aria-labelledby="lmgQ3"><label class="lmg-opt"><input type="radio" name="lmg_panier" value="low"><span>Moins de 1&nbsp;000&nbsp;€</span></label><label class="lmg-opt"><input type="radio" name="lmg_panier" value="mid"><span>1&nbsp;000 à 10&nbsp;000&nbsp;€</span></label><label class="lmg-opt"><input type="radio" name="lmg_panier" value="high"><span>Plus de 10&nbsp;000&nbsp;€</span></label></div>
+                </fieldset>
+                <fieldset class="lmg-step" data-step="4" data-key="temps" hidden>
+                  <legend id="lmgQ4">Combien de temps pouvez-vous consacrer à créer ce lead magnet&nbsp;?</legend>
+                  <div class="lmg-opts" role="radiogroup" aria-labelledby="lmgQ4"><label class="lmg-opt"><input type="radio" name="lmg_temps" value="heures"><span>Quelques heures</span></label><label class="lmg-opt"><input type="radio" name="lmg_temps" value="jours"><span>Quelques jours</span></label><label class="lmg-opt"><input type="radio" name="lmg_temps" value="semaines"><span>Plusieurs semaines</span></label></div>
+                </fieldset>
+                <fieldset class="lmg-step" data-step="5" data-key="decideur" hidden>
+                  <legend id="lmgQ5">Qui décide chez votre client&nbsp;?</legend>
+                  <div class="lmg-opts" role="radiogroup" aria-labelledby="lmgQ5"><label class="lmg-opt"><input type="radio" name="lmg_decideur" value="one"><span>Une seule personne</span></label><label class="lmg-opt"><input type="radio" name="lmg_decideur" value="few"><span>Deux ou trois</span></label><label class="lmg-opt"><input type="radio" name="lmg_decideur" value="comite"><span>Un comité</span></label></div>
+                </fieldset>
+                <fieldset class="lmg-step" data-step="6" data-key="essai" hidden>
+                  <legend id="lmgQ6">Qu'avez-vous déjà essayé&nbsp;?</legend>
+                  <div class="lmg-opts" role="radiogroup" aria-labelledby="lmgQ6"><label class="lmg-opt"><input type="radio" name="lmg_essai" value="rien"><span>Rien encore</span></label><label class="lmg-opt"><input type="radio" name="lmg_essai" value="doc"><span>Un document à télécharger</span></label><label class="lmg-opt"><input type="radio" name="lmg_essai" value="webinaire"><span>Un webinaire</span></label><label class="lmg-opt"><input type="radio" name="lmg_essai" value="autre"><span>Autre chose</span></label></div>
+                </fieldset>
+                <fieldset class="lmg-step" data-step="7" data-key="priorite" hidden>
+                  <legend id="lmgQ7">Ce que vous voulez en priorité</legend>
+                  <div class="lmg-opts" role="radiogroup" aria-labelledby="lmgQ7"><label class="lmg-opt"><input type="radio" name="lmg_priorite" value="volume"><span>Du volume de contacts</span></label><label class="lmg-opt"><input type="radio" name="lmg_priorite" value="qualif"><span>Des contacts très qualifiés</span></label><label class="lmg-opt"><input type="radio" name="lmg_priorite" value="credib"><span>De la crédibilité</span></label></div>
+                </fieldset>
+                <p class="adg-error" id="lmgStepError" aria-live="assertive"></p>
+                <div class="adg-nav">
+                  <button type="button" class="artsim-btn-secondary" id="lmgPrev" disabled>Précédent</button>
+                  <button type="button" class="btn-hero" id="lmgNext">Question suivante</button>
+                </div>
+              </form>
+              <div class="artsim-capture" id="lmgCapture" hidden>
+                <p class="artsim-capture-title">Votre plan est prêt.</p>
+                <label class="artsim-field"><span>Votre email professionnel</span><input type="email" id="lmgEmail" placeholder="vous@entreprise.com" autocomplete="email"></label>
+                <label class="artsim-field"><span>Votre société</span><input type="text" id="lmgCompany" autocomplete="organization"></label>
+                <label class="artsim-consent"><input type="checkbox" id="lmgConsent"><span>J'accepte que mes réponses, mon email et le nom de ma société soient utilisés par Cely pour m'envoyer mon plan par email et me recontacter à ce sujet. <a href="/confidentialite">Politique de confidentialité</a>.</span></label>
+                <button type="button" class="btn-hero" id="lmgSubmit">Voir mon plan</button>
+                <p class="artsim-error" id="lmgError" aria-live="assertive"></p>
+              </div>
+            </div>
+            <aside class="adg-side lmg-side" aria-label="Aperçu de votre plan">
+              <p class="adg-side-h">Votre lead magnet prend forme…</p>
+              <ol class="lmg-panel" id="lmgPanel"><li data-k="format"><span class="lmg-p-name">Votre format recommandé</span><span class="lmg-p-val" aria-hidden="true">●●●●●●●● ●●●●● ●●●●●●</span></li><li data-k="titles"><span class="lmg-p-name">Trois titres possibles</span><span class="lmg-p-val" aria-hidden="true">●●●●●●●● ●●●●● ●●●●●●</span></li><li data-k="contenu"><span class="lmg-p-name">Le contenu, étape par étape</span><span class="lmg-p-val" aria-hidden="true">●●●●●●●● ●●●●● ●●●●●●</span></li><li data-k="page"><span class="lmg-p-name">La structure de votre page</span><span class="lmg-p-val" aria-hidden="true">●●●●●●●● ●●●●● ●●●●●●</span></li><li data-k="sequence"><span class="lmg-p-name">Votre séquence de relance</span><span class="lmg-p-val" aria-hidden="true">●●●●●●●● ●●●●● ●●●●●●</span></li><li data-k="kpi"><span class="lmg-p-name">Le seul chiffre à suivre</span><span class="lmg-p-val" aria-hidden="true">●●●●●●●● ●●●●● ●●●●●●</span></li></ol>
+              <p class="adg-side-note" id="lmgSideNote">Les éléments apparaissent au fil de vos réponses.</p>
+            </aside>
+          </div>
+          <div class="lmg-result" id="lmgResult" hidden tabindex="-1">
+            <div aria-live="polite">
+              <p class="artsim-result-label">Le plan de votre lead magnet</p>
+              <section class="lmg-block"><h4><span>1</span>Votre format recommandé</h4><p class="lmg-format" id="lmgRFormat"></p><p id="lmgRWhy"></p></section>
+              <section class="lmg-block"><h4><span>2</span>Trois titres possibles</h4><ol id="lmgRTitles"></ol></section>
+              <section class="lmg-block"><h4><span>3</span><span id="lmgRContenuLabel">Le contenu, étape par étape</span></h4><ol id="lmgRContenu"></ol></section>
+              <section class="lmg-block"><h4><span>4</span>La structure de votre page</h4><ol class="lmg-defs" id="lmgRPage"></ol></section>
+              <section class="lmg-block"><h4><span>5</span>Votre séquence de relance</h4><ol class="lmg-defs" id="lmgRSeq"></ol></section>
+              <section class="lmg-block"><h4><span>6</span>Le seul chiffre à suivre</h4><p class="lmg-format" id="lmgRKpi"></p><p id="lmgRPiege"></p></section>
+              <p class="lmg-sent" id="lmgSent"></p>
+            </div>
+            <div class="lmg-cta">
+              <p>Ce plan vous paraît juste&nbsp;? On peut le construire ensemble.</p>
+              <a href="/contact#formulaire" data-route="contact" class="btn-hero">Faire le point avec Célien<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="lm-creer">Comment créer le vôtre&nbsp;?</h2>
+
+        <p>Si vous préférez le faire à la main, voici la méthode. Cinq étapes, et l'ordre compte plus que les étapes.</p>
+
+        <p><strong>1. Partez d'un problème précis, pas d'un format.</strong> «&nbsp;Guide du growth marketing&nbsp;» n'intéresse personne. «&nbsp;Où fuit votre acquisition&nbsp;» intéresse. Le format vient après, toujours.</p>
+
+        <p><strong>2. Choisissez le format selon l'effort que vous pouvez tenir.</strong> Un diagnostic bâclé est pire qu'une bonne checklist. Soyez honnête sur votre temps.</p>
+
+        <p><strong>3. Décidez de ce que vous voulez apprendre sur le prospect.</strong> C'est cette décision qui dicte les questions, et c'est elle qui rend la relance possible.</p>
+
+        <p><strong>4. Soignez la page autant que le contenu.</strong> Un excellent lead magnet sur une mauvaise page ne convertit pas. <em>(On y consacrera un article dédié.)</em></p>
+
+        <p><strong>5. Prévoyez la suite dès le départ.</strong> Un lead magnet sans séquence derrière, c'est une boîte aux lettres. Jolie, mais vide.</p>
+
+        <figure class="art-figure lm-fig" id="schema-arbre-lead-magnet">
+          <ol class="lmt" aria-label="Arbre de décision pour choisir le format de votre lead magnet">
+            <li class="lmt-q"><p class="lmt-ask">Votre cible cherche-t-elle déjà une solution&nbsp;?</p>
+              <div class="lmt-branches">
+                <p class="lmt-out"><b>Non</b>Visez la prise de conscience&nbsp;: diagnostic, quiz.</p>
+                <p class="lmt-go"><b>Oui</b>Passez à la question suivante.</p>
+              </div></li>
+            <li class="lmt-q"><p class="lmt-ask">Avez-vous du temps de développement&nbsp;?</p>
+              <div class="lmt-branches">
+                <p class="lmt-out"><b>Non</b>Document ou modèle.</p>
+                <p class="lmt-out is-main"><b>Oui</b>Outil interactif.</p>
+              </div></li>
+            <li class="lmt-q"><p class="lmt-ask">Vendez-vous à un comité de décision&nbsp;?</p>
+              <div class="lmt-branches">
+                <p class="lmt-out"><b>Oui</b>Ajoutez une version transmissible (document) en plus de l'outil.</p>
+              </div></li>
+          </ol>
+          <figcaption class="art-figure-cap">Le format se choisit après le problème, jamais avant.</figcaption>
+          <details class="art-figure-img"><summary>Voir ce schéma en image</summary><img src="/images/lead-magnet/lead-magnet-arbre-de-decision.png" alt="Arbre de décision pour choisir le format de votre lead magnet en trois questions : demande existante, temps de développement, comité de décision" width="1440" height="1120" loading="lazy" decoding="async"></details>
+        </figure>
+
+        <h2 id="lm-erreurs">Les erreurs qui tuent un lead magnet</h2>
+
+        <ul>
+          <li><strong>Trop généraliste.</strong> S'il peut servir à tout le monde, il n'attire personne.</li>
+          <li><strong>Trop long.</strong> Trente pages, c'est un livre, pas un aimant.</li>
+          <li><strong>Déconnecté de ce que vous vendez.</strong> Vous attirez des gens que vous ne pouvez pas aider.</li>
+          <li><strong>Un formulaire à huit champs.</strong> Chaque champ supplémentaire coûte des inscriptions. Demandez ce dont vous avez besoin pour relancer, rien de plus. Et si vous collectez des données personnelles, la <a href="https://cnil.fr/fr/exemples-de-formulaire-de-collecte-de-donnees-caractere-personnel" target="_blank" rel="noopener">CNIL rappelle ce qu'un formulaire doit afficher</a>&nbsp;: la finalité, le destinataire et les droits de la personne.</li>
+          <li><strong>Aucun suivi après le téléchargement.</strong> La pire des cinq, et la plus répandue.</li>
+        </ul>
+
+        <h2 id="lm-mesure">Comment savoir si le vôtre marche&nbsp;?</h2>
+
+        <p>Pas au nombre de téléchargements. <strong>Au nombre de rendez-vous qu'il produit.</strong></p>
+
+        <p>Dans <a href="/actualites/framework-aarrr" data-route="actualites">le framework AARRR</a>, votre lead magnet joue sur l'activation&nbsp;: il fait passer quelqu'un du statut de visiteur à celui de contact engagé. Si vous collectez beaucoup d'emails et obtenez peu de rendez-vous, votre problème n'est pas l'acquisition. Il est exactement là.</p>
+
+        <p>Trois chiffres suffisent à le piloter&nbsp;: le taux de conversion de la page, la part de contacts qui correspondent vraiment à votre cible, et le nombre de rendez-vous obtenus. Le reste est décoratif.</p>
+
+        <h2 id="lm-faq">FAQ</h2>
+
+        <div class="art-faq hp-faq">
+        <details class="art-faq-item" open>
+          <summary><h3>C'est quoi un lead magnet en marketing&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Un lead magnet est un contenu ou un outil offert en échange des coordonnées d'un visiteur, dans le but de transformer un inconnu en contact identifié. On parle aussi d'aimant à prospects.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Quelle différence entre un lead magnet et un contenu gratuit&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>La contrepartie. Un article de blog est accessible à tous sans rien demander. Un lead magnet demande un échange&nbsp;: vous donnez de la valeur, la personne donne un moyen de la recontacter.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Quels sont les meilleurs lead magnets en B2B&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Ceux qui donnent un résultat personnalisé&nbsp;: diagnostics, simulateurs, calculateurs, audits. Ils convertissent mieux que les documents à télécharger, et surtout ils vous apprennent quelque chose sur le prospect, ce qui rend la relance possible.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Quel format de lead magnet choisir&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Celui qui répond au problème le plus précis de votre cible, et que vous pouvez tenir dans la durée. Le format se décide après le problème, jamais avant. <a href="#generateur-lead-magnet">Le générateur</a> en fin d'article le détermine pour votre cas.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Combien de champs mettre dans le formulaire&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Le minimum qui rende la relance possible. En B2B, email et société suffisent presque toujours. Chaque champ supplémentaire coûte des inscriptions.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Faut-il demander le numéro de téléphone&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Rarement. Ça fait chuter les conversions et ça change la nature de l'échange. Réservez-le aux lead magnets à forte implication, type audit ou consultation.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Quel taux de conversion viser pour un lead magnet&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Il dépend trop du trafic, du format et du secteur pour qu'un chiffre universel ait du sens. Mesurez l'évolution du vôtre dans le temps, et surtout le nombre de rendez-vous générés.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Un lead magnet fonctionne-t-il avec un cycle de vente long&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Oui, et c'est là qu'il est le plus utile&nbsp;: il crée un point de contact légitime bien avant que le besoin soit formulé, dans une période où vous n'auriez rien eu à dire autrement.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Un lead magnet et le RGPD, comment faire&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Finalité explicite, consentement clair, désinscription facile, et information sur l'usage des données au moment de la collecte. Vous collectez pour recontacter&nbsp;: dites-le, simplement. La <a href="https://www.cnil.fr/fr/la-prospection-commerciale" target="_blank" rel="noopener">CNIL détaille les règles applicables à la prospection</a>.</p></div>
+        </details>
+        <details class="art-faq-item">
+          <summary><h3>Faut-il un lead magnet différent par cible&nbsp;?</h3><span class="art-faq-icon" aria-hidden="true"></span></summary>
+          <div class="art-faq-answer"><p>Idéalement oui, mais commencez par un seul, sur votre cible principale. Un bon lead magnet bien relancé vaut mieux que trois à moitié finis.</p></div>
+        </details>
+        </div>
+
+        <h2 id="lm-conclusion">Conclusion</h2>
+
+        <p>Un lead magnet, ce n'est pas un cadeau. C'est le premier échange d'une relation commerciale.</p>
+
+        <p>Donc arrêtez de vous demander quel document offrir, et posez-vous la vraie question&nbsp;: <strong>qu'est-ce que je peux donner qui soit vraiment utile, et qui m'apprenne quelque chose sur la personne en face&nbsp;?</strong></p>
+
+        <p>Répondez à ça, et le format se choisit tout seul. Et là, oui, ça aimante.</p>
+
+        <p>Si vous voulez qu'on regarde votre acquisition de bout en bout, <a href="/contact#formulaire" data-route="contact">c'est par ici</a>.</p>
+
+        <div class="art-final-cta">
+          <h3>Premier échange offert</h3>
+          <p><strong>30 minutes pour regarder votre acquisition de bout en bout.</strong> Vous repartez avec 2 à 3 pistes concrètes, que vous travailliez avec nous ou pas.</p>
+          <a href="/contact#formulaire" data-route="contact" class="btn-hero">Faire le point avec Célien
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="art-tags">
+          <span class="art-tag">Lead magnet</span>
+          <span class="art-tag">Growth marketing</span>
+          <span class="art-tag">Stratégie B2B</span>
+        </div>
+
+        <div class="art-author-card">
+          <img src="/images/celien-boillot-112.webp" alt="Photo de Célien Boillot" class="art-author-avatar" width="52" height="52">
+          <div>
+            <div class="art-author-card-name">Célien Boillot</div>
+            <div class="art-author-card-role">Fondateur de Cely, growth marketing à temps partagé pour startups et PME B2B, basé près de Grenoble</div>
+            <p class="art-author-card-bio">Il pilote l'acquisition de ses clients de l'intérieur, intégré à leur équipe. <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener">Profil LinkedIn</a>.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="hp-sec art-next">
+    <div class="section-wrap">
+      <div class="hp-head hp-in">
+        <p class="hp-eyebrow">À lire ensuite</p>
+        <h2 class="hp-h2">Pour aller plus loin.</h2>
+      </div>
+      <div class="rs-grid art-next-grid art-next-2">
+        <a href="/actualites/framework-aarrr" data-route="actualites" class="rs-card hp-in" data-cat="growth">
+          <span class="rs-cover"><img src="/images/covers/cover-framework-aarrr.webp" alt="" width="1200" height="630" loading="lazy"><span class="rs-badge">Outil gratuit inclus</span></span>
+          <span class="rs-body">
+            <span class="rs-meta"><span class="rs-cat">Growth marketing B2B</span><span>12 min de lecture</span><time datetime="2026-10-29">29 octobre 2026</time></span>
+            <h3 class="rs-title">Le framework AARRR, mais qu'est-ce que c'est&nbsp;?</h3>
+            <span class="rs-dek">Les cinq étapes, l'origine, ce que le modèle vaut vraiment et comment l'adapter au B2B, avec un diagnostic gratuit pour trouver où fuit votre acquisition.</span>
+            <span class="rs-go">Lire l'article ↗</span>
+          </span>
+        </a>
+        <a href="/actualites/inbound-vs-outbound" data-route="actualites" class="rs-card hp-in" data-cat="growth">
+          <span class="rs-cover"><img src="/images/covers/cover-inbound-vs-outbound.webp" alt="" width="1200" height="630" loading="lazy"><span class="rs-badge">Outil gratuit inclus</span></span>
+          <span class="rs-body">
+            <span class="rs-meta"><span class="rs-cat">Growth marketing B2B</span><span>25 min de lecture</span><time datetime="2026-09-18">18 septembre 2026</time></span>
+            <h3 class="rs-title">Inbound vs outbound : quoi choisir pour son entreprise en 2026 ?</h3>
+            <span class="rs-dek">Avantages, canaux, ratios et méthode pour choisir la bonne stratégie B2B, avec un simulateur gratuit en fin d'article.</span>
             <span class="rs-go">Lire l'article ↗</span>
           </span>
         </a>
@@ -8015,7 +8554,7 @@ Allow: /</code></pre>
   if(!main) return;
   var key = main.getAttribute('data-page');
   var navKey = { hero:'home', growth:'growth', audit:'audit', 'audit-detail':'audit', services:'services', comparatif:'comparatif', actu:'actualites',
-                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact' }[key] || '';
+                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'article-lm':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact' }[key] || '';
   document.querySelectorAll('a[data-route]').forEach(function(el){
     if(navKey && el.getAttribute('data-route') === navKey) el.setAttribute('aria-current', 'page');
     else el.removeAttribute('aria-current');
@@ -10080,6 +10619,241 @@ Allow: /</code></pre>
     try{ fetch('/api/diagnostic-aarrr', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(payload), keepalive:true }).catch(function(){}); }catch(e){}
   });
   show(0);
+})();</script>
+
+<script>/* Moteur de recommandation du Générateur de lead magnet (règles déterministes, V1).
+   Partagé entre la page (/actualites/lead-magnet) et la fonction /api/generateur-lead-magnet. */
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.CelyLeadMagnet = factory();
+}(typeof self !== 'undefined' ? self : this, function () {
+  'use strict';
+  var OPTIONS = {
+    panier: { low: 'Moins de 1 000 €', mid: '1 000 à 10 000 €', high: 'Plus de 10 000 €' },
+    temps: { heures: 'Quelques heures', jours: 'Quelques jours', semaines: 'Plusieurs semaines' },
+    decideur: { one: 'Une seule personne', few: 'Deux ou trois', comite: 'Un comité' },
+    essai: { rien: 'Rien encore', doc: 'Un document à télécharger', webinaire: 'Un webinaire', autre: 'Autre chose' },
+    priorite: { volume: 'Du volume de contacts', qualif: 'Des contacts très qualifiés', credib: 'De la crédibilité' }
+  };
+  function clean(t, max) {
+    return String(t || '').replace(/[\u0000-\u001f<>]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max || 160);
+  }
+  function lc(t) { return t ? t.charAt(0).toLowerCase() + t.slice(1) : t; }
+  function noDot(t) { return t.replace(/[.!?…\s]+$/, ''); }
+
+  var PROFILES = {
+    checklist: { famille: 'Le document', format: 'Une checklist actionnable', kind: 'doc' },
+    modele: { famille: 'Le document', format: 'Un modèle prêt à l\'emploi', kind: 'doc' },
+    quiz: { famille: 'L\'outil', format: 'Un quiz de positionnement en 5 questions', kind: 'outil' },
+    diagnostic: { famille: 'L\'outil', format: 'Un diagnostic avec résultat personnalisé', kind: 'outil' },
+    calculateur: { famille: 'L\'outil', format: 'Un calculateur ou simulateur chiffré', kind: 'outil' },
+    audit: { famille: 'L\'humain', format: 'Un audit offert de 30 minutes', kind: 'humain' },
+    barometre: { famille: 'La donnée', format: 'Un baromètre construit à partir de vos réponses clients', kind: 'donnee' },
+    atelier: { famille: 'L\'humain', format: 'Un atelier en petit comité, en visio', kind: 'humain' }
+  };
+
+  function pick(a) {
+    var t = a.temps, p = a.panier, pr = a.priorite;
+    if (t === 'heures') {
+      if (pr === 'qualif' && p === 'high') return 'audit';
+      return pr === 'volume' ? 'checklist' : 'modele';
+    }
+    if (t === 'jours') {
+      if (pr === 'qualif' && p === 'high') return 'audit';
+      if (pr === 'credib') return a.decideur === 'comite' ? 'modele' : 'atelier';
+      if (pr === 'volume' && p === 'low') return 'quiz';
+      return 'diagnostic';
+    }
+    if (pr === 'credib') return 'barometre';
+    if (pr === 'volume') return p === 'low' ? 'quiz' : 'calculateur';
+    return p === 'low' ? 'diagnostic' : 'calculateur';
+  }
+
+  function build(raw) {
+    var a = {
+      offre: clean(raw.offre, 160), cible: clean(raw.cible, 160), probleme: clean(raw.probleme, 300),
+      panier: OPTIONS.panier[raw.panier] ? raw.panier : 'mid', temps: OPTIONS.temps[raw.temps] ? raw.temps : 'jours',
+      decideur: OPTIONS.decideur[raw.decideur] ? raw.decideur : 'few', essai: OPTIONS.essai[raw.essai] ? raw.essai : 'rien',
+      priorite: OPTIONS.priorite[raw.priorite] ? raw.priorite : 'qualif'
+    };
+    var key = pick(a), P = PROFILES[key];
+    var pb = noDot(a.probleme) || 'votre problème principal', pbl = lc(pb);
+    var cible = noDot(a.cible) || 'vos prospects', offre = noDot(a.offre) || 'votre offre';
+
+    var why = 'Avec un panier de ' + lc(OPTIONS.panier[a.panier]) + ', ' + (a.decideur === 'one' ? 'une seule personne qui décide' : a.decideur === 'few' ? 'deux ou trois personnes dans la décision' : 'un comité de décision') +
+      ' et ' + lc(OPTIONS.temps[a.temps]) + ' devant vous, le bon format pour vous est : ' + lc(P.format) + '. ';
+    var because = {
+      checklist: 'C\'est le format le plus rapide à produire qui reste utile, et il attire du volume : idéal quand le temps manque.',
+      modele: 'Un modèle fait gagner du temps tout de suite à votre prospect, et il se produit en quelques heures sans sacrifier la qualité.',
+      quiz: 'Un quiz court attire du volume, donne une réponse immédiate et vous dit déjà où en est chaque contact.',
+      diagnostic: 'Un diagnostic donne un résultat personnalisé et vous rapporte ses réponses : vous savez exactement comment relancer.',
+      calculateur: 'Un calculateur fait travailler votre prospect sur ses propres chiffres : c\'est le format qui qualifie le mieux, et le plus difficile à copier.',
+      audit: 'Avec un tel panier et un objectif de qualification, un échange humain vaut plus que n\'importe quel document : chaque rendez-vous compte.',
+      barometre: 'Pour gagner en crédibilité, rien ne remplace des données que vous êtes le seul à avoir. Plusieurs semaines permettent de les collecter proprement.',
+      atelier: 'Un atelier en petit comité installe votre expertise sans demander des semaines de production, et chaque participant est un contact chaud.'
+    }[key];
+    if (a.decideur === 'comite' && P.kind !== 'doc') because += ' Comme un comité décide chez vos clients, ajoutez une version transmissible : un récapitulatif propre que votre contact fera circuler en interne.';
+
+    var titles = {
+      doc: ['La checklist pour en finir avec « ' + pbl + ' »', cible + ' : le modèle pour régler « ' + pbl + ' » en une semaine', '« ' + pb + ' » : les 10 points à vérifier avant d\'aller plus loin'],
+      outil: ['« ' + pb + ' » : où en êtes-vous ? ' + ({ quiz: 'Le quiz', calculateur: 'Le calculateur' }[key] || 'Le diagnostic') + ' en 5 minutes', cible + ' : mesurez ce que « ' + pbl + ' » vous coûte vraiment', '5 questions pour savoir par où attaquer « ' + pbl + ' »'],
+      humain: ['30 minutes pour débloquer « ' + pbl + ' »', cible + ' : un regard extérieur sur « ' + pbl + ' », offert', 'On regarde ensemble « ' + pbl + ' » et vous repartez avec un plan'],
+      donnee: ['Baromètre : comment les ' + cible + ' gèrent « ' + pbl + ' »', '« ' + pb + ' » : ce que révèlent les réponses de vos pairs', 'Où vous situez-vous face à « ' + pbl + ' » ? Les chiffres du secteur']
+    }[P.kind];
+    if (key === 'checklist') titles[1] = cible + ' : la checklist en 10 points pour « ' + pbl + ' »';
+
+    var contenu = {
+      doc: { label: 'Le sommaire en 5 parties', items: ['Le constat : à quoi ressemble « ' + pbl + ' » quand on le vit', 'Les causes les plus fréquentes, en une page', 'La méthode pas à pas, avec les points de contrôle', 'Les erreurs à éviter, tirées de votre expérience terrain', 'Le passage à l\'action : ce que ' + lc(offre) + ' change concrètement'] },
+      outil: { label: 'Les 5 questions à poser à vos prospects', items: ['Où en êtes-vous aujourd\'hui sur « ' + pbl + ' » ? (échelle de 1 à 5)', 'Quel volume ou quel chiffre clé mesure ce problème chez vous ?', 'Qu\'avez-vous déjà tenté, et qu\'est-ce que ça a donné ?', 'Qui d\'autre est concerné par la décision ?', 'Dans combien de temps voulez-vous que ce soit réglé ?'] },
+      humain: { label: 'La trame du rendez-vous', items: ['5 min : la situation actuelle sur « ' + pbl + ' », racontée par votre prospect', '10 min : les chiffres et ce qui a déjà été tenté', '10 min : votre lecture, deux ou trois pistes concrètes', '3 min : ce qui se passe s\'il ne fait rien', '2 min : la prochaine étape, proposée clairement'] },
+      donnee: { label: 'Le plan de l\'étude', items: ['Définir la question centrale autour de « ' + pbl + ' »', 'Écrire un questionnaire de 8 à 10 questions', 'Le diffuser auprès de ' + cible + ' et viser un échantillon exploitable', 'Analyser et sortir 5 enseignements clairs', 'Publier une version courte en accès libre et la version complète en échange du contact'] }
+    }[P.kind];
+
+    var page = [
+      ['Le titre', 'La promesse du lead magnet, formulée comme un résultat : « ' + titles[0] + ' ».'],
+      ['Le sous-titre', 'Pour qui c\'est (' + cible + ') et ce qu\'on obtient, en une phrase.'],
+      ['Ce que vous allez obtenir', 'Trois puces concrètes, et un aperçu visuel du résultat.'],
+      ['Pourquoi vous faire confiance', 'Qui l\'a conçu, et votre expérience sur « ' + pbl + ' ».'],
+      ['Le formulaire', 'Email et société, pas plus. Finalité et lien vers votre politique de confidentialité.'],
+      ['Ce qui se passe ensuite', 'Le résultat arrive tout de suite, et ce que vous ferez du contact.']
+    ];
+    if (P.kind === 'humain') page[4] = ['La prise de rendez-vous', 'Un agenda intégré et deux questions de qualification, pas plus.'];
+
+    var sequence = [
+      ['Le jour même', 'Objet : « Votre ' + (P.kind === 'humain' ? 'rendez-vous est confirmé' : 'résultat est prêt') + ' »', 'Livrer ce qui a été promis, sans rien vendre. Une seule question en fin d\'email pour ouvrir la conversation.'],
+      ['J+3', 'Objet : « Ce que vos réponses disent de votre situation »', 'Une lecture personnalisée : une remarque précise tirée de ce que le contact a fourni.'],
+      ['J+10', 'Objet : « On en parle 30 minutes ? »', 'Proposer un échange court, en rappelant ce qu\'il y gagnerait concrètement avec ' + lc(offre) + '.']
+    ];
+
+    var kpi = { volume: 'Le nombre de contacts qui correspondent à votre cible, chaque mois.', qualif: 'Le nombre de rendez-vous obtenus à partir du lead magnet.', credib: 'Le nombre de reprises et de partages par votre cible, et les rendez-vous qui en découlent.' }[a.priorite];
+    var piege = {
+      rien: 'Comme c\'est votre premier lead magnet, ne visez pas la perfection : lancez une version simple, mesurez un mois, puis améliorez.',
+      doc: 'Vous avez déjà essayé un document : ne jugez pas celui-ci au nombre de téléchargements, mais aux conversations qu\'il ouvre.',
+      webinaire: 'Vous avez déjà fait un webinaire : ne comptez pas les inscrits mais les présents, et relancez-les dans les 48 heures.',
+      autre: 'Avant de comparer avec ce que vous avez déjà essayé, fixez le même indicateur pour les deux, sinon la comparaison ne veut rien dire.'
+    }[a.essai];
+
+    return { key: key, famille: P.famille, format: P.format, kind: P.kind, why: why + because, titles: titles, contenu: contenu, page: page, sequence: sequence, kpi: kpi, piege: piege, answers: a, labels: OPTIONS };
+  }
+  return { build: build, OPTIONS: OPTIONS, PROFILES: PROFILES };
+}));
+</script>
+<script>(function(){ "use strict";
+  /* Générateur de lead magnet */
+  var root = document.getElementById('generateur-lead-magnet');
+  if(!root || !window.CelyLeadMagnet) return;
+  var E = window.CelyLeadMagnet;
+  var steps = Array.prototype.slice.call(root.querySelectorAll('.lmg-step'));
+  var N = steps.length, idx = 0, STORE = 'cely-lmg-v1';
+  var bar = document.getElementById('lmgBar'), counter = document.getElementById('lmgCounter');
+  var prev = document.getElementById('lmgPrev'), next = document.getElementById('lmgNext'), err = document.getElementById('lmgStepError');
+  var form = document.getElementById('lmgForm'), capture = document.getElementById('lmgCapture'), result = document.getElementById('lmgResult');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function answers(){
+    var a = {};
+    steps.forEach(function(s){
+      var k = s.getAttribute('data-key'), t = s.querySelector('[data-key]');
+      if(t){ a[k] = t.value.trim(); }
+      else { var c = s.querySelector('input[type=radio]:checked'); a[k] = c ? c.value : ''; }
+    });
+    return a;
+  }
+  function save(){ try{ localStorage.setItem(STORE, JSON.stringify({ a: answers(), i: idx })); }catch(e){} }
+  function restore(){
+    try{
+      var d = JSON.parse(localStorage.getItem(STORE) || 'null'); if(!d || !d.a) return 0;
+      steps.forEach(function(s){
+        var k = s.getAttribute('data-key'), v = d.a[k]; if(!v) return;
+        var t = s.querySelector('[data-key]');
+        if(t){ t.value = v; t.dispatchEvent(new Event('input')); }
+        else { var r = s.querySelector('input[value="' + v + '"]'); if(r) r.checked = true; }
+      });
+      return Math.min(Math.max(0, d.i | 0), N - 1);
+    }catch(e){ return 0; }
+  }
+  var PANEL = ['format','titles','contenu','page','sequence','kpi'];
+  function panel(){
+    var a = answers(), filled = 0;
+    steps.forEach(function(s){ var k = s.getAttribute('data-key'); if(a[k]) filled++; });
+    var on = Math.min(6, Math.floor(filled * 6 / N));
+    root.querySelectorAll('#lmgPanel li').forEach(function(li, i){ li.classList.toggle('is-on', i < on); });
+    if(filled >= 4){
+      var plan = E.build(a);
+      var fmt = root.querySelector('#lmgPanel li[data-k="format"] .lmg-p-val');
+      if(fmt) fmt.textContent = plan.format;
+      var tl = root.querySelector('#lmgPanel li[data-k="titles"] .lmg-p-val');
+      if(tl) tl.textContent = plan.titles[0];
+    }
+  }
+  function show(i){
+    idx = i;
+    steps.forEach(function(s, j){ s.hidden = j !== i; });
+    bar.style.width = ((i + 1) / N * 100) + '%';
+    counter.textContent = 'Question ' + (i + 1) + ' sur ' + N;
+    prev.disabled = i === 0;
+    next.textContent = i === N - 1 ? 'Voir mon plan' : 'Question suivante';
+    err.textContent = ''; panel(); save();
+  }
+  function valid(){
+    var s = steps[idx], t = s.querySelector('[data-key]');
+    if(t){ if(t.value.trim().length < 3){ err.textContent = 'Quelques mots suffisent, mais il nous faut une réponse.'; t.focus(); return false; } return true; }
+    if(!s.querySelector('input[type=radio]:checked')){ err.textContent = 'Choisissez une réponse pour continuer.'; return false; }
+    return true;
+  }
+  root.querySelectorAll('[data-key]').forEach(function(t){
+    var c = document.getElementById(t.getAttribute('aria-describedby'));
+    t.addEventListener('input', function(){ if(c) c.querySelector('span').textContent = t.value.length; panel(); save(); });
+    if(t.tagName === 'INPUT') t.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); next.click(); } });
+  });
+  root.querySelectorAll('input[type=radio]').forEach(function(r){
+    r.addEventListener('change', function(){ err.textContent = ''; panel(); save(); });
+  });
+  prev.addEventListener('click', function(){ if(idx > 0) show(idx - 1); });
+  next.addEventListener('click', function(){
+    if(!valid()) return;
+    if(idx < N - 1){ show(idx + 1); var f = steps[idx].querySelector('[data-key], input[type=radio]'); if(f) f.focus(); return; }
+    form.hidden = true; capture.hidden = false; counter.textContent = 'Dernière étape : votre plan'; bar.style.width = '100%';
+    document.getElementById('lmgEmail').focus();
+  });
+  form.addEventListener('submit', function(e){ e.preventDefault(); });
+  function li(text){ var el = document.createElement('li'); el.textContent = text; return el; }
+  function def(t, d, extra){ var el = document.createElement('li'); var b = document.createElement('b'); b.textContent = t; el.appendChild(b); el.appendChild(document.createTextNode(extra ? extra + ' : ' + d : d)); return el; }
+  function fill(id, items){ var el = document.getElementById(id); el.innerHTML = ''; items.forEach(function(x){ el.appendChild(x); }); }
+  function render(plan){
+    document.getElementById('lmgRFormat').textContent = plan.format + ' (' + plan.famille.toLowerCase() + ')';
+    document.getElementById('lmgRWhy').textContent = plan.why;
+    fill('lmgRTitles', plan.titles.map(li));
+    document.getElementById('lmgRContenuLabel').textContent = 'Le contenu : ' + plan.contenu.label.charAt(0).toLowerCase() + plan.contenu.label.slice(1);
+    fill('lmgRContenu', plan.contenu.items.map(li));
+    fill('lmgRPage', plan.page.map(function(p){ return def(p[0], p[1]); }));
+    fill('lmgRSeq', plan.sequence.map(function(q){ return def(q[0] + ' · ' + q[1], q[2]); }));
+    document.getElementById('lmgRKpi').textContent = plan.kpi;
+    document.getElementById('lmgRPiege').textContent = 'Le piège à éviter : ' + plan.piege.charAt(0).toLowerCase() + plan.piege.slice(1);
+    root.querySelectorAll('#lmgPanel li').forEach(function(l){ l.classList.add('is-on'); var v = l.querySelector('.lmg-p-val'); v.style.filter = 'none'; });
+    document.getElementById('lmgSideNote').textContent = 'Votre plan est débloqué.';
+    capture.hidden = true; result.hidden = false;
+    result.focus({ preventScroll:true });
+    result.scrollIntoView({ block:'start', behavior: reduce ? 'auto' : 'smooth' });
+  }
+  document.getElementById('lmgSubmit').addEventListener('click', function(){
+    var email = document.getElementById('lmgEmail').value.trim(), company = document.getElementById('lmgCompany').value.trim();
+    var e2 = document.getElementById('lmgError');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ e2.textContent = 'Merci d\'indiquer un email valide.'; return; }
+    if(!company){ e2.textContent = 'Merci d\'indiquer le nom de votre société.'; return; }
+    if(!document.getElementById('lmgConsent').checked){ e2.textContent = 'Merci de cocher la case de consentement pour voir votre plan.'; return; }
+    e2.textContent = '';
+    var a = answers(), plan = E.build(a);
+    render(plan);
+    var sent = document.getElementById('lmgSent');
+    sent.textContent = 'Envoi de la version récapitulative à ' + email + '…';
+    var payload = { email: email, company: company, consent: true, _hp: document.getElementById('lmgHp').value || '', answers: a };
+    fetch('/api/generateur-lead-magnet', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify(payload) })
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok: r.ok && j.ok }; }); })
+      .then(function(r){ sent.textContent = r.ok ? 'Une version récapitulative vient de partir à ' + email + '.' : 'L\'email récapitulatif n\'a pas pu partir. Votre plan reste affiché ici.'; })
+      .catch(function(){ sent.textContent = 'L\'email récapitulatif n\'a pas pu partir. Votre plan reste affiché ici.'; });
+    try{ localStorage.removeItem(STORE); }catch(e){}
+  });
+  show(restore());
 })();</script>
 </body>
 </html>

@@ -4,16 +4,20 @@
   "hash": "ee5d937d4f74c6c62354b7d62b3484a6"
  },
  "/actualites": {
-  "date": "2026-10-29",
-  "hash": "7949b5c42c4b0fcd2fa1cbc6e44a1ba2"
+  "date": "2026-10-30",
+  "hash": "ee3ce88825f5e53d511a33bf5a23ccd7"
  },
  "/actualites/framework-aarrr": {
-  "date": "2026-10-29",
-  "hash": "4293ca8d54d3b77d3a186a097fd11fba"
+  "date": "2026-10-30",
+  "hash": "9100e5956166609ee18df056448dc1e8"
  },
  "/actualites/inbound-vs-outbound": {
-  "date": "2026-10-29",
-  "hash": "8000a7d0c89c5fe29d4bd64d496fc2f1"
+  "date": "2026-10-30",
+  "hash": "bca03dba723aa8321fde0d0be3abfa0a"
+ },
+ "/actualites/lead-magnet": {
+  "date": "2026-10-30",
+  "hash": "7fdfc26d11ed0295c5c426bb87a3c3fa"
  },
  "/actualites/referencement-ia": {
   "date": "2026-10-28",
@@ -32,8 +36,8 @@
   "hash": "b048d57e3018f8072899c1e53da36855"
  },
  "/confidentialite": {
-  "date": "2026-10-29",
-  "hash": "1f006c4e0b6200c29c49dce97e2ef593"
+  "date": "2026-10-30",
+  "hash": "6d4ffbc764cf8b2aece7de408da5ea41"
  },
  "/contact": {
   "date": "2026-10-24",
