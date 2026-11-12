@@ -3526,6 +3526,63 @@ h2.hp-story-box-h{ margin:0; }
 
 /* Les listes déroulantes gardent l'ancienne pile de polices : Chrome calcule leur hauteur avec toute la pile, la police de secours ajustée la modifiait de 2 px. */
 .field select, .md-field select{ font-family:'Manrope', -apple-system, sans-serif; }
+
+/* ============================================================
+   NAVBAR — bouton « Offre découverte » (plein violet, toutes les pages)
+   ============================================================ */
+.nav-offer{ display:inline-flex; align-items:center; gap:8px; padding:11px 18px; border-radius:16px; font-family:var(--font-label); font-weight:700; font-size:.9rem; line-height:1.2; color:var(--white); white-space:nowrap; background:var(--violet-3); box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 2px 8px rgba(104,45,254,.32); transition:background .2s var(--ease-cely-out), transform .15s var(--ease-cely-out), box-shadow .2s var(--ease-cely-out); }
+.nav-offer:hover{ background:#5B22E0; transform:translateY(-1px); box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 4px 14px rgba(104,45,254,.42); }
+.nav-offer:active{ transform:none; }
+.nav-offer:focus-visible{ outline:2.5px solid var(--prune); outline-offset:3px; }
+.nav-offer-dot{ flex:none; width:7px; height:7px; border-radius:50%; background:var(--pink); }
+.nav-offer[aria-current="page"]{ background:var(--prune); box-shadow:inset 0 0 0 2px var(--violet); }
+.nav-offer[aria-current="page"]:hover{ transform:none; }
+.nmp-offer{ width:100%; justify-content:center; padding-block:15px; margin-bottom:10px; font-size:1rem; border-radius:999px; }
+@media (max-width:1180px){ .nav-right .nav-offer:not(.nmp-offer){ padding:9px 14px; font-size:.84rem; border-radius:13px; } }
+@media (max-width:359px){ .nav-right .nav-offer{ display:none; } }
+@media (prefers-reduced-motion:reduce){ .nav-offer, .nav-offer:hover{ transition:none; transform:none; } }
+
+/* ============================================================
+   PAGE /offre-decouverte (préfixe od-) — composants du site, tokens existants
+   ============================================================ */
+.od-ticket-price{ margin-top:6px; font-family:var(--font-display); font-weight:800; font-size:clamp(2.8rem,2rem + 3vw,4.2rem); line-height:1; letter-spacing:-.04em; color:var(--prune); }
+.od-ticket-price span{ display:block; margin-top:8px; font-family:var(--font-label); font-size:.86rem; font-weight:600; letter-spacing:0; color:var(--muted); }
+.od-ticket-list{ list-style:none; margin:22px 0 0; padding:20px 0 0; border-top:1.5px dashed rgba(26,17,40,.18); display:flex; flex-direction:column; gap:12px; }
+.od-ticket-list li{ position:relative; padding-left:30px; font-size:.98rem; line-height:1.4; color:var(--prune); }
+.od-ticket-list li::before{ content:""; position:absolute; left:0; top:1px; width:20px; height:20px; border-radius:50%; background:var(--violet-3) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.2 5 8.2 9 4' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/12px no-repeat; }
+.od-ticket-foot{ margin-top:22px; padding:12px 14px; border-radius:var(--hp-r-sm); background:var(--lavender); font-family:var(--font-label); font-size:.86rem; font-weight:600; line-height:1.4; color:var(--violet-3); }
+
+.od-lists{ list-style:none; margin:clamp(40px,5vw,60px) 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,2vw,24px); }
+.od-list{ display:flex; flex-direction:column; padding:clamp(22px,2.6vw,32px); border:2px solid rgba(247,245,250,.9); border-radius:var(--hp-r); background:rgba(247,245,250,.04); box-shadow:6px 6px 0 var(--violet); }
+.od-list-n{ font-family:var(--font-display); font-weight:800; font-size:clamp(3rem,2.2rem + 3vw,4.6rem); line-height:.95; letter-spacing:-.04em; color:var(--off-white); }
+.od-list-k{ margin-top:6px; font-family:var(--font-label); font-size:.86rem; font-weight:600; color:rgba(247,245,250,.7); }
+.od-list-t{ margin-top:18px; align-self:flex-start; padding:5px 12px; border-radius:999px; background:var(--pink); color:var(--prune); font-family:var(--font-label); font-size:.78rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
+.od-why-foot{ margin-top:clamp(28px,3.4vw,40px); max-width:60ch; font-size:1.02rem; line-height:1.6; color:rgba(247,245,250,.78); }
+
+.od-inc{ list-style:none; margin:clamp(36px,4.4vw,52px) 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,2vw,24px); }
+.od-inc-item{ display:flex; gap:14px; padding:clamp(22px,2.4vw,28px); border:var(--hp-line); border-radius:var(--hp-r); background:var(--white); box-shadow:var(--hp-sh); }
+.od-inc-ic{ flex:none; width:12px; height:12px; margin-top:7px; border-radius:3px; background:var(--violet-3); transform:rotate(45deg); }
+.od-inc-item h3{ margin:0; font-family:var(--font-display); font-weight:800; font-size:1.12rem; line-height:1.25; color:var(--prune); }
+.od-inc-item p{ margin:8px 0 0; font-size:.95rem; line-height:1.5; color:var(--muted); }
+
+.od-guarantee{ padding-block:clamp(40px,5vw,72px); }
+.od-guarantee .gpt-guarantee.is-hero{ margin-top:0; }
+.od-guarantee .gpt-guarantee-title{ margin:0; }
+.od-guarantee .hp-eyebrow{ margin-bottom:10px; }
+.od-guarantee .gpt-guarantee.is-hero .gpt-guarantee-copy{ max-width:62ch; margin-top:10px; }
+.od-cta-row{ margin-top:clamp(28px,3.4vw,40px); }
+.od-cta-row .hp-btn{ margin-top:0; }
+.od-cta-row .hp-micro{ margin-top:0; }
+
+.od-next .hp-lede a, .od-fit a{ color:var(--violet-3); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+
+@media (max-width:900px){
+  .od-lists{ grid-template-columns:1fr; }
+  .od-list{ flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:4px 12px; }
+  .od-list-t{ margin-top:0; margin-left:auto; align-self:center; }
+  .od-inc{ grid-template-columns:1fr; }
+}
+@media (min-width:901px) and (max-width:1100px){ .od-inc{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
 </style>
 </head>
 <body>
@@ -3586,6 +3643,7 @@ h2.hp-story-box-h{ margin:0; }
         <span>Faire le point</span>
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
+      <a href="/offre-decouverte" data-route="offre-decouverte" class="nav-offer"><span class="nav-offer-dot" aria-hidden="true"></span>Offre découverte</a>
       <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
         <span class="bars"><span></span><span></span><span></span></span>
       </button>
@@ -3600,6 +3658,7 @@ h2.hp-story-box-h{ margin:0; }
         <a href="/actualites" data-route="actualites">Ressources</a>
       </div>
       <div class="nmp-foot">
+        <a href="/offre-decouverte" data-route="offre-decouverte" class="nav-offer nmp-offer"><span class="nav-offer-dot" aria-hidden="true"></span>Offre découverte</a>
         <a href="/contact#formulaire" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Faire le point avec Célien</a>
       </div>
     </nav>
@@ -8004,6 +8063,202 @@ Allow: /</code></pre>
 
 </main>
 
+  <main class="site-page od-page" data-page="offre-decouverte" hidden>
+
+  <section class="gpt-hero od-hero">
+    <div class="section-wrap gpt-hero-grid">
+      <div class="reveal">
+        <span class="section-label">Offre découverte</span>
+        <h1 class="gpt-hero-h1">Testez votre marché en 28&nbsp;jours, pour 500&nbsp;€.</h1>
+        <p class="gpt-hero-sub">300 décideurs de vos cibles, contactés par email et LinkedIn avec des messages entièrement personnalisés. On s'occupe de tout, jusqu'au rendez-vous. Vous repartez avec une réponse claire&nbsp;: votre marché répond, ou pas.</p>
+        <div class="gpt-hero-chips">
+          <span class="gpt-chip">500&nbsp;€ · 28 jours</span>
+          <span class="gpt-chip">300 contacts · 3 cibles</span>
+          <span class="gpt-chip">Email + LinkedIn</span>
+        </div>
+        <div class="gpt-hero-actions">
+          <a href="{{CALENDLY_URL}}" target="_blank" rel="noopener" class="hp-btn od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <p class="hp-micro">Appel de 30 min · Si aucun rendez-vous, 100 contacts de plus offerts</p>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <div class="sx-card od-ticket">
+          <p class="hp-eyebrow">Ce que vous obtenez</p>
+          <p class="od-ticket-price">500&nbsp;€ <span>pour 28 jours de test</span></p>
+          <ul class="od-ticket-list">
+            <li><strong>300 contacts</strong> en 3 listes de 100, une par cible</li>
+            <li><strong>Email + LinkedIn</strong> sur chaque contact</li>
+            <li><strong>Messages entièrement personnalisés</strong></li>
+            <li><strong>Tout est géré</strong>, jusqu'au rendez-vous</li>
+            <li><strong>Une réponse claire</strong> sur votre marché</li>
+          </ul>
+          <p class="od-ticket-foot">Aucun rendez-vous&nbsp;? On teste 100 contacts de plus, sans frais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec hp-dark od-why" aria-labelledby="odWhyTitle">
+    <div class="section-wrap">
+      <div class="hp-head hp-in">
+        <p class="hp-eyebrow">Le principe</p>
+        <h2 class="hp-h2" id="odWhyTitle">Vous n'achetez pas des rendez-vous. <span>Vous achetez une réponse.</span></h2>
+        <p class="hp-lede">Avant d'investir des mois dans la prospection, un test court et cadré vous dit si votre marché répond, et quelle cible répond le mieux. Trois cibles, le même volume pour chacune&nbsp;: la comparaison est directe.</p>
+      </div>
+      <ol class="od-lists" aria-label="Les 3 listes du test">
+        <li class="od-list hp-in" style="--i:0"><span class="od-list-n">100</span><span class="od-list-k">contacts</span><span class="od-list-t">Cible n°1</span></li>
+        <li class="od-list hp-in" style="--i:1"><span class="od-list-n">100</span><span class="od-list-k">contacts</span><span class="od-list-t">Cible n°2</span></li>
+        <li class="od-list hp-in" style="--i:2"><span class="od-list-n">100</span><span class="od-list-k">contacts</span><span class="od-list-t">Cible n°3</span></li>
+      </ol>
+      <p class="od-why-foot hp-in">Chaque contact reçoit des messages écrits pour lui, par email et sur LinkedIn. Pas de modèle envoyé en masse.</p>
+    </div>
+  </section>
+
+  <section class="hp-sec od-included" aria-labelledby="odIncTitle">
+    <div class="section-wrap">
+      <div class="hp-head hp-in">
+        <p class="hp-eyebrow">Ce qui est inclus</p>
+        <h2 class="hp-h2" id="odIncTitle">Vous validez les cibles. On fait le reste.</h2>
+      </div>
+      <ul class="od-inc">
+        <li class="od-inc-item hp-in" style="--i:0"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>3 cibles définies avec vous</h3><p>Les trois profils de clients que vous voulez tester.</p></div></li>
+        <li class="od-inc-item hp-in" style="--i:1"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>3 listes de 100 contacts</h3><p>Une liste par cible, 300 décideurs au total.</p></div></li>
+        <li class="od-inc-item hp-in" style="--i:2"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>Des messages entièrement personnalisés</h3><p>Écrits pour chaque contact, pas un modèle avec un prénom changé.</p></div></li>
+        <li class="od-inc-item hp-in" style="--i:3"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>Email et LinkedIn</h3><p>Deux canaux sur chaque contact, pour multiplier les chances de réponse.</p></div></li>
+        <li class="od-inc-item hp-in" style="--i:4"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>Les échanges, jusqu'au rendez-vous</h3><p>On gère les réponses et on cale le rendez-vous. Vous n'intervenez qu'au moment de parler à votre prospect.</p></div></li>
+        <li class="od-inc-item hp-in" style="--i:5"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>Une réponse claire à J+28</h3><p>Quelle cible répond, laquelle ne répond pas, et ce que ça dit de votre marché.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="gpt-days od-days">
+    <div class="section-wrap">
+      <div class="reveal">
+        <span class="section-label">28 jours</span>
+        <h2 class="section-h2" style="max-width:20ch;">Le déroulé du test, semaine par semaine.</h2>
+        <p class="gpt-days-note">Un déroulé type&nbsp;: les dates exactes se calent avec vous au démarrage.</p>
+      </div>
+      <ol class="hp-steps" id="hpTimeline">
+        <li class="hp-steps-line" aria-hidden="true"><span class="hp-tl-fill"></span></li>
+        <li class="hp-step hp-in" style="--i:0"><span class="hp-step-when">Semaine 1</span><span class="hp-step-key" aria-hidden="true">Cibles</span><h3 class="hp-step-title">Cibles et listes</h3><ul class="hp-step-list"><li>Les 3 cibles validées avec vous</li><li>3 listes de 100 contacts constituées</li></ul></li>
+        <li class="hp-step hp-in" style="--i:1"><span class="hp-step-when">Semaine 2</span><span class="hp-step-key" aria-hidden="true">Envoi</span><h3 class="hp-step-title">Messages et lancement</h3><ul class="hp-step-list"><li>Messages personnalisés pour chaque contact</li><li>Premiers envois par email et LinkedIn</li></ul></li>
+        <li class="hp-step hp-in" style="--i:2"><span class="hp-step-when">Semaine 3</span><span class="hp-step-key" aria-hidden="true">Réponses</span><h3 class="hp-step-title">Réponses et rendez-vous</h3><ul class="hp-step-list"><li>Les réponses traitées au fil de l'eau</li><li>Les rendez-vous calés avec vous</li></ul></li>
+        <li class="hp-step hp-in" style="--i:3"><span class="hp-step-when">Semaine 4</span><span class="hp-step-key" aria-hidden="true">Verdict</span><h3 class="hp-step-title">La réponse sur votre marché</h3><ul class="hp-step-list"><li>Quelle cible répond, et laquelle non</li><li>La suite à donner, chiffres en main</li></ul></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="hp-sec od-guarantee" id="garantie" aria-labelledby="odGarTitle">
+    <div class="section-wrap">
+      <div class="gpt-guarantee is-hero hp-in">
+        <div class="gpt-guarantee-text">
+          <img class="gpt-guarantee-photo" src="/images/photos/celien-portrait-garantie.webp" alt="Célien Boillot" width="96" height="96" loading="lazy">
+          <div>
+            <p class="hp-eyebrow">La garantie</p>
+            <h2 class="gpt-guarantee-title" id="odGarTitle">Aucun rendez-vous&nbsp;? On teste <span class="hp-select hp-select-sm"><span class="hp-select-txt">100 contacts</span><i></i><i></i><i></i><i></i></span> de plus, sans frais.</h2>
+            <p class="gpt-guarantee-copy">Si le test ne débouche sur aucun rendez-vous, on relance avec 100 nouveaux contacts. Vous ne payez rien de plus.</p>
+            <p class="gpt-guarantee-copy"><strong>Et si ça ne donne toujours rien&nbsp;?</strong> Alors le canal n'est pas en cause&nbsp;: le signal pointe vers votre positionnement ou votre offre. C'est une réponse utile, obtenue en 28 jours pour 500&nbsp;€, avant d'investir des mois dans le mauvais chantier.</p>
+            <p class="gpt-guarantee-sign"><em>Un test qui ne marche pas vous apprend quelque chose. C'est tout l'intérêt.</em> — Célien</p>
+          </div>
+        </div>
+      </div>
+      <div class="hp-cta-row od-cta-row hp-in">
+        <a href="{{CALENDLY_URL}}" target="_blank" rel="noopener" class="hp-btn od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="hp-micro">30 min pour voir si le test a du sens pour vous.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec fit od-fit" aria-labelledby="odFitTitle">
+    <div class="section-wrap">
+      <div class="hp-head hp-in">
+        <p class="hp-eyebrow">Pour qui</p>
+        <h2 class="hp-h2" id="odFitTitle">L'offre découverte, c'est pour vous si…</h2>
+      </div>
+      <div class="fit-grid">
+        <div class="fit-card is-yes hp-in">
+          <p class="fit-head">C'est pour vous si&nbsp;:</p>
+          <ul><li><span class="fit-ic" aria-hidden="true"></span><span>Vous vendez à des entreprises.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous voulez savoir si la prospection peut marcher pour vous, avant d'y mettre plus.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous hésitez entre plusieurs cibles.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous n'avez pas le temps de prospecter vous-même.</span></li></ul>
+        </div>
+        <div class="fit-card is-no hp-in" style="--i:1">
+          <p class="fit-head">Ce n'est pas pour vous si&nbsp;:</p>
+          <ul><li><span class="fit-ic" aria-hidden="true"></span><span>Vous attendez un nombre de rendez-vous garanti.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous vendez aux particuliers.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous voulez déjà un accompagnement complet&nbsp;: <a href="/growth" data-route="growth">Growth Part-Time</a>.</span></li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec od-next" aria-labelledby="odNextTitle">
+    <div class="section-wrap hp-in">
+      <p class="hp-eyebrow">Et après&nbsp;?</p>
+      <h2 class="hp-h2" id="odNextTitle">Une première étape, pas un engagement.</h2>
+      <p class="hp-lede">L'offre découverte est une porte d'entrée. Si le test est concluant, on peut aller plus loin ensemble avec un accompagnement plus large&nbsp;: <a href="/growth" data-route="growth">Growth Part-Time</a>. Sinon, vous gardez la réponse, et vous savez où porter vos efforts.</p>
+    </div>
+  </section>
+
+  <section class="gpt-faq hp-faq" id="faq">
+    <div class="section-wrap">
+      <div class="gpt-faq-layout">
+        <div class="gpt-faq-side reveal">
+          <span class="section-label">Questions fréquentes</span>
+          <h2 class="section-h2" style="max-width:14ch; margin-top:12px;">Vos questions, en clair.</h2>
+          <p>Une autre question&nbsp;? Posez-la pendant l'appel.</p>
+        </div>
+        <div class="gpt-faq-list reveal">
+          <details class="gpt-faq-item">
+            <summary>Combien de rendez-vous vais-je obtenir&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
+            <p class="gpt-faq-answer">Personne ne peut vous le promettre honnêtement, et ce n'est pas ce que vous achetez. Vous achetez une réponse claire sur votre marché. Si le test ne donne aucun rendez-vous, on teste 100 contacts de plus, sans frais.</p>
+          </details>
+          <details class="gpt-faq-item">
+            <summary>Pourquoi 3 listes de 100 contacts&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
+            <p class="gpt-faq-answer">Pour comparer trois cibles à volume égal. À la fin du test, vous voyez laquelle répond le mieux, et laquelle ne vaut pas la peine d'insister.</p>
+          </details>
+          <details class="gpt-faq-item">
+            <summary>Les messages sont-ils vraiment personnalisés&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
+            <p class="gpt-faq-answer">Oui, entièrement. Chaque contact reçoit des messages écrits pour lui, par email et sur LinkedIn. Pas de modèle envoyé en masse avec un prénom changé.</p>
+          </details>
+          <details class="gpt-faq-item">
+            <summary>Qu'est-ce que je dois faire, de mon côté&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
+            <p class="gpt-faq-answer">Valider les cibles au départ, puis vous présenter aux rendez-vous. On s'occupe de tout le reste, jusqu'au rendez-vous.</p>
+          </details>
+          <details class="gpt-faq-item">
+            <summary>Et si le test ne donne rien du tout&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
+            <p class="gpt-faq-answer">On teste d'abord 100 contacts supplémentaires, sans frais. Si ça ne donne toujours rien, le problème ne vient pas du canal&nbsp;: le signal pointe vers votre positionnement ou votre offre. C'est une réponse précieuse, obtenue en 28 jours pour 500&nbsp;€.</p>
+          </details>
+          <details class="gpt-faq-item">
+            <summary>Que se passe-t-il après les 28 jours&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
+            <p class="gpt-faq-answer">Vous décidez. L'offre découverte est une première étape&nbsp;: si le test est concluant, on peut continuer avec un accompagnement plus large. Rien ne vous oblige à continuer.</p>
+          </details>
+          <details class="gpt-faq-item">
+            <summary>Comment se passe l'appel&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
+            <p class="gpt-faq-answer">30 minutes avec Célien pour comprendre votre offre et vos cibles, et voir si le test a du sens pour vous. Si ce n'est pas le cas, on vous le dit.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec hp-dark hp-final od-final" aria-labelledby="odFinalTitle">
+    <div class="section-wrap hp-final-wrap hp-in">
+      <h2 class="hp-final-h2" id="odFinalTitle">Votre marché répond-il&nbsp;? <span>Réponse à J+28.</span></h2>
+      <p class="hp-final-text">500&nbsp;€, 300 contacts, 3 cibles, email et LinkedIn. On s'occupe de tout, jusqu'au rendez-vous. Et si aucun rendez-vous ne tombe, 100 contacts de plus, sans frais.</p>
+      <div class="hp-final-actions">
+        <span class="hp-final-btnwrap">
+          <a href="{{CALENDLY_URL}}" target="_blank" rel="noopener" class="hp-btn hp-btn-light hp-btn-xl od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <span class="cely-spot hp-final-cely" data-cely="celebrate" data-cely-threshold="0.6"></span>
+        </span>
+        <span class="hp-final-person">
+          <img src="/images/celien-boillot-112.webp" srcset="/images/v/celien-boillot-46.5e71097f.webp 46w, /images/v/celien-boillot-92.a54f4868.webp 92w, /images/celien-boillot-112.webp 112w" sizes="46px" alt="" width="44" height="44" loading="lazy">
+          <span>Célien Boillot<br><em>Fondateur de Cely</em></span>
+        </span>
+      </div>
+      <p class="hp-final-small">Appel de 30 min · Réponse sur votre marché en 28 jours</p>
+    </div>
+  </section>
+
+  </main>
+
   <main class="site-page md-page" data-page="motion-design" hidden>
 
   <!-- ============================================================
@@ -8572,7 +8827,7 @@ Allow: /</code></pre>
   if(!main) return;
   var key = main.getAttribute('data-page');
   var navKey = { hero:'home', growth:'growth', audit:'audit', 'audit-detail':'audit', services:'services', comparatif:'comparatif', actu:'actualites',
-                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'article-lm':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact' }[key] || '';
+                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'article-lm':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact', 'offre-decouverte':'offre-decouverte' }[key] || '';
   document.querySelectorAll('a[data-route]').forEach(function(el){
     if(navKey && el.getAttribute('data-route') === navKey) el.setAttribute('aria-current', 'page');
     else el.removeAttribute('aria-current');
