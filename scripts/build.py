@@ -185,6 +185,15 @@ ARTICLE_LM = {
     "keywords": ["lead magnet", "lead magnet définition", "lead magnet b2b", "exemple lead magnet", "aimant à prospects", "génération de leads", "inbound marketing"],
     "about": [{"@type": "Thing", "name": "Lead magnet"}, {"@type": "Thing", "name": "Génération de leads B2B"}]
 }
+OD_URL = '/offre-decouverte'
+SERVICE_OD = {
+    "@type": "Service", "@id": SITE + OD_URL + "#service",
+    "name": "Offre découverte : test de prospection multicanal",
+    "serviceType": "Prospection B2B multicanal",
+    "description": "Test de prospection multicanal en 28 jours : 300 contacts répartis en 3 listes de 100 (une par cible), contactés par email et LinkedIn avec des messages entièrement personnalisés, gestion des échanges jusqu'au rendez-vous. Si aucun rendez-vous n'est obtenu, 100 contacts supplémentaires sont testés sans frais.",
+    "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "France"}, "url": SITE + OD_URL,
+    "offers": {"@type": "Offer", "price": "500", "priceCurrency": "EUR", "url": SITE + OD_URL, "availability": "https://schema.org/InStock"}
+}
 ORGANIZATION = {"@type": "Organization", "@id": ORG_ID, "name": "Cely", "url": SITE + "/",
                 "logo": {"@type": "ImageObject", "url": LOGO_HD}, "sameAs": [CONFIG["LINKEDIN_URL"], "https://www.google.com/maps?cid=7863789155467383060"]}
 H = ("Accueil", "/")
@@ -257,6 +266,12 @@ PAGES = [
          article=dict(published="2026-10-30", modified="2026-10-30", section="Growth marketing B2B",
                       tags=["Lead magnet", "Génération de leads", "Stratégie B2B"]),
          ld=[ARTICLE_LM, PERSON_CELIEN, ORGANIZATION]),
+    dict(key='offre-decouverte', out='offre-decouverte.html', path=OD_URL, prio='0.9', freq='monthly', cta=False,
+         crumbs=[H, ("Offre découverte", OD_URL)],
+         title="Offre découverte : testez votre marché en 28 jours | Cely",
+         desc="Test de prospection multicanal pour 500 € : 300 décideurs contactés par email et LinkedIn, messages personnalisés, réponse en 28 jours. Garantie incluse.",
+         img=OG + 'og-offre-decouverte.png',
+         ld=[SERVICE_OD, ORGANIZATION]),
     dict(key='motion-design', out='motion-design.html', path=MOTION_URL, prio='0.5', freq='monthly',
          crumbs=[H, ("Motion design", MOTION_URL)],
          title="Vidéo motion design à 500 € (offre de lancement) | Cely",
