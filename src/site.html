@@ -3545,26 +3545,134 @@ h2.hp-story-box-h{ margin:0; }
 /* ============================================================
    PAGE /offre-decouverte (préfixe od-) — composants du site, tokens existants
    ============================================================ */
-.od-ticket-price{ margin-top:6px; font-family:var(--font-display); font-weight:800; font-size:clamp(2.8rem,2rem + 3vw,4.2rem); line-height:1; letter-spacing:-.04em; color:var(--prune); }
-.od-ticket-price span{ display:block; margin-top:8px; font-family:var(--font-label); font-size:.86rem; font-weight:600; letter-spacing:0; color:var(--muted); }
-.od-ticket-list{ list-style:none; margin:22px 0 0; padding:20px 0 0; border-top:1.5px dashed rgba(26,17,40,.18); display:flex; flex-direction:column; gap:12px; }
-.od-ticket-list li{ position:relative; padding-left:30px; font-size:.98rem; line-height:1.4; color:var(--prune); }
-.od-ticket-list li::before{ content:""; position:absolute; left:0; top:1px; width:20px; height:20px; border-radius:50%; background:var(--violet-3) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.2 5 8.2 9 4' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/12px no-repeat; }
-.od-ticket-foot{ margin-top:22px; padding:12px 14px; border-radius:var(--hp-r-sm); background:var(--lavender); font-family:var(--font-label); font-size:.86rem; font-weight:600; line-height:1.4; color:var(--violet-3); }
 
-.od-lists{ list-style:none; margin:clamp(40px,5vw,60px) 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,2vw,24px); }
-.od-list{ display:flex; flex-direction:column; padding:clamp(22px,2.6vw,32px); border:2px solid rgba(247,245,250,.9); border-radius:var(--hp-r); background:rgba(247,245,250,.04); box-shadow:6px 6px 0 var(--violet); }
-.od-list-n{ font-family:var(--font-display); font-weight:800; font-size:clamp(3rem,2.2rem + 3vw,4.6rem); line-height:.95; letter-spacing:-.04em; color:var(--off-white); }
-.od-list-k{ margin-top:6px; font-family:var(--font-label); font-size:.86rem; font-weight:600; color:rgba(247,245,250,.7); }
-.od-list-t{ margin-top:18px; align-self:flex-start; padding:5px 12px; border-radius:999px; background:var(--pink); color:var(--prune); font-family:var(--font-label); font-size:.78rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
-.od-why-foot{ margin-top:clamp(28px,3.4vw,40px); max-width:60ch; font-size:1.02rem; line-height:1.6; color:rgba(247,245,250,.78); }
+/* --- hero : le prix, mis en avant une seule fois --- */
+.od-price{ position:relative; padding:clamp(28px,3.4vw,44px); background:var(--violet-3); color:var(--white); border:var(--hp-line); border-radius:var(--hp-r); box-shadow:12px 12px 0 var(--prune); overflow:hidden; }
+.od-price::before{ content:""; position:absolute; inset:0; background:radial-gradient(circle at 1px 1px, rgba(255,255,255,.18) 1px, transparent 1.5px) 0 0/22px 22px, radial-gradient(70% 70% at 100% 0%, rgba(232,139,247,.45), transparent 70%); pointer-events:none; }
+.od-price > *{ position:relative; }
+.od-price-stamp{ position:absolute; top:22px; right:-38px; transform:rotate(18deg); padding:7px 48px; background:var(--pink); color:var(--prune); border-block:2px solid var(--prune); font-family:var(--font-label); font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.od-price-label{ margin:0; font-family:var(--font-label); font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--lavender); }
+.od-price-num{ margin:6px 0 0; font-family:var(--font-display); font-weight:900; font-size:clamp(5.4rem,3.4rem + 8vw,9.6rem); line-height:.88; letter-spacing:-.05em; color:var(--white); text-shadow:5px 5px 0 var(--prune); }
+.od-price-num span{ font-size:.5em; letter-spacing:-.02em; }
+.od-price-sub{ margin:14px 0 0; font-family:var(--font-label); font-size:.9rem; font-weight:600; color:var(--lavender); }
+.od-price-list{ list-style:none; margin:22px 0 0; padding:20px 0 0; border-top:1.5px dashed rgba(255,255,255,.35); display:flex; flex-direction:column; gap:11px; }
+.od-price-list li{ position:relative; padding-left:28px; font-size:.97rem; line-height:1.4; color:var(--white); }
+.od-price-list li::before{ content:""; position:absolute; left:0; top:2px; width:18px; height:18px; border-radius:50%; background:var(--white) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.2 5 8.2 9 4' fill='none' stroke='%23682DFE' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/12px no-repeat; }
 
-.od-inc{ list-style:none; margin:clamp(36px,4.4vw,52px) 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,2vw,24px); }
-.od-inc-item{ display:flex; gap:14px; padding:clamp(22px,2.4vw,28px); border:var(--hp-line); border-radius:var(--hp-r); background:var(--white); box-shadow:var(--hp-sh); }
-.od-inc-ic{ flex:none; width:12px; height:12px; margin-top:7px; border-radius:3px; background:var(--violet-3); transform:rotate(45deg); }
-.od-inc-item h3{ margin:0; font-family:var(--font-display); font-weight:800; font-size:1.12rem; line-height:1.25; color:var(--prune); }
-.od-inc-item p{ margin:8px 0 0; font-size:.95rem; line-height:1.5; color:var(--muted); }
+/* --- différenciation --- */
+.od-diff-grid{ margin-top:clamp(36px,4.4vw,52px); display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.3fr); gap:clamp(16px,2vw,28px); }
+.od-diff-card{ padding:clamp(26px,3.2vw,40px); border:var(--hp-line); border-radius:var(--hp-r); background:var(--white); box-shadow:var(--hp-sh); }
+.od-diff-card.is-price{ background:var(--lavender); }
+.od-diff-k{ margin:0; font-family:var(--font-label); font-size:.8rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--violet-3); }
+.od-diff-card h3{ margin:12px 0 0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem); line-height:1.15; letter-spacing:-.02em; color:var(--prune); text-wrap:balance; }
+.od-diff-card > p:not(.od-diff-k){ margin:14px 0 0; font-size:1rem; line-height:1.6; color:var(--muted); max-width:46ch; }
+.od-vs{ margin-top:22px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.od-vs-col{ display:flex; flex-direction:column; gap:8px; padding:18px; border-radius:var(--hp-r-sm); }
+.od-vs-col.is-them{ background:var(--off-white-2); }
+.od-vs-col.is-us{ background:var(--prune); color:var(--off-white); box-shadow:5px 5px 0 var(--violet); }
+.od-vs-h{ font-family:var(--font-label); font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.od-vs-col.is-us .od-vs-h{ color:var(--pink); }
+.od-vs-row{ font-family:var(--font-display); font-weight:700; font-size:1rem; line-height:1.3; }
+.od-vs-col.is-them .od-vs-row{ color:var(--muted); text-decoration:line-through; text-decoration-color:rgba(107,97,120,.5); }
 
+/* --- la machine --- */
+.od-machine{ list-style:none; margin:clamp(44px,5vw,64px) 0 0; padding:0; display:grid; grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr)); gap:clamp(14px,1.8vw,26px); position:relative; }
+.od-m-step{ position:relative; display:flex; flex-direction:column; padding:20px 18px 18px; border:2px solid rgba(247,245,250,.85); border-radius:var(--hp-r); background:rgba(247,245,250,.04); box-shadow:6px 6px 0 var(--violet); }
+.od-m-step:not(:last-child)::after{ content:""; position:absolute; top:50%; right:calc(-1 * clamp(14px,1.8vw,26px) - 2px); width:calc(clamp(14px,1.8vw,26px) + 4px); height:2px; background:repeating-linear-gradient(90deg, var(--pink) 0 6px, transparent 6px 10px); }
+.od-m-k{ font-family:var(--font-label); font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--pink); }
+.od-m-t{ margin:8px 0 0; font-family:var(--font-display); font-weight:800; font-size:1.18rem; line-height:1.2; color:var(--off-white); }
+.od-m-c{ margin:auto 0 0; padding-top:16px; font-size:.86rem; line-height:1.45; color:rgba(247,245,250,.72); }
+.od-m-c small{ display:block; font-size:.74rem; color:rgba(247,245,250,.5); }
+
+.od-m-grids{ margin-top:16px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.od-grid{ position:relative; display:block; }
+.od-grid i{ position:relative; display:block; aspect-ratio:1; border-radius:6px; background:radial-gradient(circle, rgba(247,245,250,.28) 34%, transparent 38%) 0 0/10% 10%; overflow:hidden; }
+.od-grid i::after{ content:""; position:absolute; inset:0; background:radial-gradient(circle, var(--pink) 34%, transparent 38%) 0 0/10% 10%; clip-path:inset(0 0 100% 0); animation:odScan 3.6s steps(10,end) infinite; animation-delay:var(--d,0s); }
+.od-grid b{ display:block; margin-top:6px; font-family:var(--font-label); font-size:.62rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; color:rgba(247,245,250,.7); text-align:center; }
+@keyframes odScan{ 0%{ clip-path:inset(0 0 100% 0); } 80%{ clip-path:inset(0 0 0 0); } 100%{ clip-path:inset(0 0 0 0); } }
+
+.od-research{ margin-top:16px; display:flex; flex-direction:column; gap:6px; }
+.od-research span{ align-self:flex-start; padding:5px 10px; border-radius:999px; background:rgba(247,245,250,.1); border:1px solid rgba(247,245,250,.25); font-family:var(--font-label); font-size:.74rem; font-weight:600; color:var(--off-white); animation:odTag 4s var(--ease-cely-out) infinite; animation-delay:calc(var(--n) * .35s); }
+.od-research em{ margin-top:4px; padding:8px 10px; border-radius:10px; background:var(--pink); color:var(--prune); font-style:normal; font-family:var(--font-label); font-size:.78rem; font-weight:700; animation:odPop 4s var(--ease-cely-out) infinite; }
+@keyframes odTag{ 0%,6%{ opacity:.25; transform:translateX(-6px); } 16%,82%{ opacity:1; transform:none; } 100%{ opacity:.25; transform:translateX(-6px); } }
+@keyframes odPop{ 0%,42%{ opacity:.3; transform:scale(.94); } 52%,86%{ opacity:1; transform:none; } 100%{ opacity:.3; transform:scale(.94); } }
+
+.od-lanes{ margin-top:16px; display:flex; flex-direction:column; gap:12px; }
+.od-lane{ display:flex; align-items:center; gap:10px; color:var(--off-white); }
+.od-lane svg{ flex:none; width:30px; height:30px; padding:6px; border-radius:9px; background:var(--violet-3); }
+.od-track{ position:relative; flex:1; height:2px; background:rgba(247,245,250,.22); overflow:hidden; }
+.od-track i{ position:absolute; top:-3px; left:0; width:8px; height:8px; border-radius:50%; background:var(--pink); animation:odRun 2.4s linear infinite; }
+.od-track i:nth-child(2){ animation-delay:-.8s; }
+.od-track i:nth-child(3){ animation-delay:-1.6s; }
+.od-track.is-b i{ animation-duration:2.9s; }
+@keyframes odRun{ from{ transform:translateX(-10px); } to{ transform:translateX(160px); } }
+
+.od-inbox{ margin-top:16px; display:flex; flex-direction:column; gap:7px; }
+.od-inbox span{ display:flex; align-items:center; gap:8px; padding:7px 9px; border-radius:10px; background:rgba(247,245,250,.08); animation:odTag 4.4s var(--ease-cely-out) infinite; animation-delay:calc(var(--n) * .45s); }
+.od-inbox span i{ flex:none; width:16px; height:16px; border-radius:50%; background:var(--lavender); }
+.od-inbox span b{ flex:1; height:6px; border-radius:4px; background:rgba(247,245,250,.3); }
+.od-inbox em{ margin-top:2px; align-self:flex-start; padding:7px 11px; border-radius:999px; background:var(--white); color:var(--violet-3); font-style:normal; font-family:var(--font-label); font-size:.76rem; font-weight:700; animation:odPop 4.4s var(--ease-cely-out) infinite; animation-delay:.4s; }
+
+.od-bars{ margin-top:16px; display:flex; align-items:flex-end; gap:12px; }
+.od-bars span{ flex:1; display:flex; flex-direction:column; align-items:center; gap:6px; }
+.od-bars i{ display:block; width:100%; height:72px; border-radius:6px 6px 2px 2px; background:var(--pink); transform-origin:bottom; transform:scaleY(var(--h)); animation:odGrow 4.8s var(--ease-cely-out) infinite; }
+.od-bars span:nth-child(2) i{ background:var(--white); }
+.od-bars b{ font-family:var(--font-label); font-size:.66rem; font-weight:700; color:rgba(247,245,250,.7); }
+@keyframes odGrow{ 0%,10%{ transform:scaleY(.08); } 45%,88%{ transform:scaleY(var(--h)); } 100%{ transform:scaleY(.08); } }
+
+.hp-anim .od-machine:not(.is-on) *, .hp-anim .od-machine:not(.is-on) *::after{ animation-play-state:paused; }
+
+.od-page .hp-h2 .hp-select-txt{ color:var(--violet-3); }
+.od-diff .hp-h2, .od-next .hp-h2{ max-width:24ch; }
+.od-flow{ position:relative; margin-top:22px; height:30px; }
+.od-flow::before{ content:""; position:absolute; left:0; right:0; top:14px; height:2px; background:linear-gradient(90deg, rgba(232,139,247,.15), var(--pink), rgba(255,255,255,.9)); }
+.od-flow b{ position:absolute; inset:0; animation:odFlow 6s cubic-bezier(.45,.05,.55,.95) infinite; }
+.od-flow i{ position:absolute; top:7px; right:0; width:16px; height:16px; border-radius:50%; background:var(--pink); box-shadow:0 0 0 6px rgba(232,139,247,.25), 0 0 22px 6px rgba(232,139,247,.55); }
+.od-flow span{ position:absolute; top:-2px; font-family:var(--font-label); font-size:.72rem; font-weight:700; color:rgba(247,245,250,.6); background:var(--prune); padding:0 6px; }
+.od-flow span:first-of-type{ left:0; padding-left:0; } .od-flow span:last-of-type{ right:0; padding-right:0; }
+@keyframes odFlow{ from{ transform:translateX(calc(-100% + 16px)); } to{ transform:translateX(0); } }
+.hp-anim .od-flow:not(.is-on) b{ animation-play-state:paused; }
+@media (prefers-reduced-motion:reduce){ .od-flow b{ animation:none; } }
+.od-stats{ list-style:none; margin:clamp(36px,4.4vw,52px) 0 0; padding:clamp(20px,2.4vw,28px) 0 0; border-top:1px solid rgba(247,245,250,.18); display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; }
+.od-stats li{ display:flex; flex-direction:column; font-family:var(--font-label); font-size:.84rem; font-weight:600; line-height:1.35; color:rgba(247,245,250,.72); }
+.od-stats b{ font-family:var(--font-display); font-weight:800; font-size:clamp(2rem,1.4rem + 1.8vw,2.8rem); line-height:1; letter-spacing:-.03em; color:var(--off-white); margin-bottom:6px; }
+
+/* --- inclus : bento --- */
+.od-bento{ margin-top:clamp(36px,4.4vw,52px); display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:clamp(14px,1.8vw,22px); }
+.od-b{ position:relative; display:flex; flex-direction:column; padding:clamp(22px,2.6vw,30px); border:var(--hp-line); border-radius:var(--hp-r); background:var(--white); box-shadow:var(--hp-sh); overflow:hidden; }
+.od-b h3{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.15rem,1rem + .5vw,1.35rem); line-height:1.2; color:var(--prune); }
+.od-b > p:not(.od-b-big){ margin:8px 0 0; font-size:.95rem; line-height:1.5; color:var(--muted); max-width:44ch; }
+.od-b-msg{ grid-column:span 3; grid-row:span 2; background:var(--lavender); }
+.od-b-targets{ grid-column:span 3; }
+.od-b-channels{ grid-column:span 3; }
+.od-b-count, .od-b-rdv, .od-b-verdict{ grid-column:span 2; }
+.od-b-count{ background:var(--prune); }
+.od-b-count h3{ color:var(--off-white); }
+.od-b-count > p:not(.od-b-big){ color:rgba(247,245,250,.72); }
+.od-b-verdict{ background:var(--violet-3); }
+.od-b-verdict h3{ color:var(--white); }
+.od-b-verdict > p:not(.od-b-big){ color:rgba(255,255,255,.82); }
+.od-b-big{ margin:0 0 10px; font-family:var(--font-display); font-weight:900; font-size:clamp(3.4rem,2.4rem + 3vw,5rem); line-height:.9; letter-spacing:-.04em; color:var(--pink); }
+.od-b-verdict .od-b-big{ color:var(--white); }
+.od-mail{ position:relative; margin-top:auto; padding:22px 20px 18px; border:var(--hp-line); border-radius:var(--hp-r-sm); background:var(--white); box-shadow:5px 5px 0 var(--violet-3); }
+.od-b-msg .od-mail{ margin-top:24px; }
+.od-mail-tag{ position:absolute; top:-12px; left:16px; padding:3px 10px; border-radius:999px; background:var(--prune); color:var(--off-white); font-family:var(--font-label); font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+.od-mail-to{ margin:0; padding-bottom:10px; border-bottom:1px solid var(--border); font-family:var(--font-label); font-size:.8rem; color:var(--muted); }
+.od-mail-to b{ color:var(--prune); }
+.od-mail-body{ margin:12px 0 0; font-size:.98rem; line-height:1.6; color:var(--prune); }
+.od-mail mark{ padding:0 .15em; border-radius:4px; background:rgba(232,139,247,.45); color:inherit; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+.od-mail-legend{ margin:12px 0 0; font-family:var(--font-label); font-size:.74rem; color:var(--muted); }
+.od-b-chips{ margin-top:auto; padding-top:18px; display:flex; flex-wrap:wrap; gap:8px; }
+.od-b-chips span{ padding:7px 13px; border-radius:999px; border:1.5px solid var(--prune); background:var(--pink); font-family:var(--font-label); font-size:.78rem; font-weight:700; color:var(--prune); }
+.od-b-chips span:nth-child(2){ background:var(--lavender); }
+.od-b-chips span:nth-child(3){ background:var(--off-white-2); }
+.od-b-icons{ margin-top:auto; padding-top:18px; display:flex; align-items:center; gap:10px; }
+.od-b-icons span{ display:inline-flex; width:44px; height:44px; padding:10px; border-radius:12px; background:var(--violet-3); color:var(--white); border:var(--hp-line); }
+.od-b-icons i{ flex:1; max-width:120px; height:2px; background:repeating-linear-gradient(90deg, var(--violet-3) 0 6px, transparent 6px 10px); }
+.od-b-pill{ margin-top:auto; padding-top:18px; align-self:flex-start; display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-size:.82rem; font-weight:700; color:var(--violet-3); }
+.od-b-pill i{ width:10px; height:10px; border-radius:50%; background:var(--violet-3); box-shadow:0 0 0 4px var(--lavender); }
+
+/* --- garantie --- */
 .od-guarantee{ padding-block:clamp(40px,5vw,72px); }
 .od-guarantee .gpt-guarantee.is-hero{ margin-top:0; }
 .od-guarantee .gpt-guarantee-title{ margin:0; }
@@ -3574,15 +3682,74 @@ h2.hp-story-box-h{ margin:0; }
 .od-cta-row .hp-btn{ margin-top:0; }
 .od-cta-row .hp-micro{ margin-top:0; }
 
-.od-next .hp-lede a, .od-fit a{ color:var(--violet-3); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+/* --- pour qui --- */
+.od-fit-yes{ list-style:none; margin:clamp(36px,4.4vw,52px) 0 0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:clamp(14px,1.8vw,22px); }
+.od-fit-yes li{ display:flex; flex-direction:column; gap:16px; padding:clamp(22px,2.4vw,28px); border:var(--hp-line); border-radius:var(--hp-r); background:var(--white); box-shadow:var(--hp-sh); }
+.od-fit-yes li:nth-child(odd){ background:var(--lavender); }
+.od-fit-ic{ width:40px; height:40px; border-radius:50%; border:var(--hp-line); background:var(--violet-3) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.2 5 8.2 9 4' fill='none' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/20px no-repeat; }
+.od-fit-yes p{ margin:0; font-size:1rem; line-height:1.5; color:var(--muted); }
+.od-fit-yes b{ display:block; margin-bottom:4px; font-family:var(--font-display); font-weight:800; font-size:1.12rem; line-height:1.25; color:var(--prune); }
+.od-fit-no{ margin:22px 0 0; font-size:.95rem; color:var(--muted); }
+.od-fit-no span{ font-family:var(--font-label); font-weight:700; color:var(--prune); }
+.od-upsell{ margin-top:clamp(36px,4.4vw,52px); display:flex; align-items:center; justify-content:space-between; gap:24px 40px; flex-wrap:wrap; padding:clamp(28px,3.6vw,48px); border:var(--hp-line); border-radius:var(--hp-r); background:var(--prune) radial-gradient(60% 90% at 100% 0%, rgba(139,91,255,.45), transparent 70%); color:var(--off-white); box-shadow:10px 10px 0 var(--violet); }
+.od-upsell-txt{ max-width:60ch; }
+.od-upsell .hp-eyebrow{ color:var(--pink); margin-bottom:10px; }
+.od-upsell h3{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.6rem,1.2rem + 1.6vw,2.4rem); line-height:1.1; letter-spacing:-.02em; color:var(--white); text-wrap:balance; }
+.od-upsell-txt > p:not(.hp-eyebrow){ margin:12px 0 0; font-size:1.02rem; line-height:1.6; color:rgba(247,245,250,.78); }
+.od-upsell .hp-btn{ margin-top:0; flex:none; }
 
-@media (max-width:900px){
-  .od-lists{ grid-template-columns:1fr; }
-  .od-list{ flex-direction:row; flex-wrap:wrap; align-items:baseline; gap:4px 12px; }
-  .od-list-t{ margin-top:0; margin-left:auto; align-self:center; }
-  .od-inc{ grid-template-columns:1fr; }
+/* --- et après : l'escalier --- */
+.od-stairs{ list-style:none; margin:clamp(44px,5vw,64px) 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(14px,1.8vw,22px); align-items:end; }
+.od-stair{ position:relative; display:flex; flex-direction:column; padding:clamp(22px,2.6vw,32px); border:var(--hp-line); border-radius:var(--hp-r); background:var(--white); box-shadow:var(--hp-sh); }
+.od-stair:nth-child(1){ min-height:220px; }
+.od-stair:nth-child(2){ min-height:290px; background:var(--lavender); }
+.od-stair:nth-child(3){ min-height:360px; background:var(--prune); color:var(--off-white); box-shadow:8px 8px 0 var(--violet); }
+.od-stair-k{ font-family:var(--font-label); font-size:.76rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--violet-3); }
+.od-stair:nth-child(3) .od-stair-k{ color:var(--pink); }
+.od-stair h3{ margin:10px 0 0; font-family:var(--font-display); font-weight:900; font-size:clamp(1.8rem,1.3rem + 1.6vw,2.6rem); line-height:1; letter-spacing:-.03em; color:var(--prune); }
+.od-stair:nth-child(3) h3{ color:var(--white); }
+.od-stair p{ margin:auto 0 0; padding-top:18px; font-size:.97rem; line-height:1.55; color:var(--muted); }
+.od-stair:nth-child(3) p{ color:rgba(247,245,250,.8); }
+.od-stair a{ color:var(--violet-3); font-weight:700; text-decoration:underline; text-underline-offset:3px; }
+.od-here{ position:absolute; top:-16px; left:22px; padding:5px 12px; border-radius:999px; border:2px solid var(--prune); background:var(--pink); color:var(--prune); font-family:var(--font-label); font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; transform:rotate(-3deg); }
+
+@media (max-width:1100px){
+  .od-machine{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .od-m-step:not(:last-child)::after{ display:none; }
+  .od-m-verdict{ grid-column:1 / -1; }
+  .od-stats{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .od-fit-yes{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .od-bento{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .od-b-msg{ grid-column:1 / -1; grid-row:auto; }
+  .od-b-targets, .od-b-channels, .od-b-count, .od-b-rdv{ grid-column:span 1; }
+  .od-b-verdict{ grid-column:1 / -1; }
 }
-@media (min-width:901px) and (max-width:1100px){ .od-inc{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:900px){
+  .od-diff-grid{ grid-template-columns:1fr; }
+  .od-stairs{ grid-template-columns:1fr; align-items:stretch; }
+  .od-stair:nth-child(n){ min-height:0; }
+  .od-stair:nth-child(2){ margin-left:clamp(12px,4vw,28px); }
+  .od-stair:nth-child(3){ margin-left:clamp(24px,8vw,56px); }
+  .od-stair.is-here{ margin-top:12px; }
+}
+@media (max-width:640px){
+  .od-machine{ grid-template-columns:1fr; }
+  .od-m-verdict{ grid-column:auto; }
+  .od-m-step:not(:last-child)::after{ display:block; top:auto; bottom:calc(-1 * clamp(14px,1.8vw,26px) - 2px); right:auto; left:50%; width:2px; height:calc(clamp(14px,1.8vw,26px) + 4px); background:repeating-linear-gradient(180deg, var(--pink) 0 6px, transparent 6px 10px); }
+  .od-stats{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .od-fit-yes{ grid-template-columns:1fr; }
+  .od-bento{ grid-template-columns:1fr; }
+  .od-b-targets, .od-b-channels, .od-b-count, .od-b-rdv{ grid-column:auto; }
+  .od-vs{ grid-template-columns:1fr; }
+  .od-price-stamp{ right:-46px; font-size:.66rem; }
+}
+@media (prefers-reduced-motion:reduce){
+  .od-grid i::after{ animation:none; clip-path:none; }
+  .od-research span, .od-research em, .od-inbox span, .od-inbox em{ animation:none; opacity:1; transform:none; }
+  .od-track i{ animation:none; }
+  .od-track i:nth-child(1){ transform:translateX(20px); } .od-track i:nth-child(2){ transform:translateX(70px); } .od-track i:nth-child(3){ transform:translateX(120px); }
+  .od-bars i{ animation:none; }
+}
 </style>
 </head>
 <body>
@@ -8069,12 +8236,12 @@ Allow: /</code></pre>
     <div class="section-wrap gpt-hero-grid">
       <div class="reveal">
         <span class="section-label">Offre découverte</span>
-        <h1 class="gpt-hero-h1">Testez votre marché en 28&nbsp;jours, pour 500&nbsp;€.</h1>
-        <p class="gpt-hero-sub">300 décideurs de vos cibles, contactés par email et LinkedIn avec des messages entièrement personnalisés. On s'occupe de tout, jusqu'au rendez-vous. Vous repartez avec une réponse claire&nbsp;: votre marché répond, ou pas.</p>
+        <h1 class="gpt-hero-h1">Testez votre marché en 28&nbsp;jours.</h1>
+        <p class="gpt-hero-sub">300 décideurs de vos cibles, contactés par email et LinkedIn avec des messages écrits pour chacun d'eux. On s'occupe de tout, jusqu'au rendez-vous. Vous repartez avec une réponse claire&nbsp;: votre marché répond, ou pas.</p>
         <div class="gpt-hero-chips">
-          <span class="gpt-chip">500&nbsp;€ · 28 jours</span>
           <span class="gpt-chip">300 contacts · 3 cibles</span>
           <span class="gpt-chip">Email + LinkedIn</span>
+          <span class="gpt-chip">Messages 100&nbsp;% personnalisés</span>
         </div>
         <div class="gpt-hero-actions">
           <a href="{{CALENDLY_URL}}" target="_blank" rel="noopener" class="hp-btn od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -8083,18 +8250,43 @@ Allow: /</code></pre>
       </div>
 
       <div class="reveal">
-        <div class="sx-card od-ticket">
-          <p class="hp-eyebrow">Ce que vous obtenez</p>
-          <p class="od-ticket-price">500&nbsp;€ <span>pour 28 jours de test</span></p>
-          <ul class="od-ticket-list">
-            <li><strong>300 contacts</strong> en 3 listes de 100, une par cible</li>
-            <li><strong>Email + LinkedIn</strong> sur chaque contact</li>
-            <li><strong>Messages entièrement personnalisés</strong></li>
-            <li><strong>Tout est géré</strong>, jusqu'au rendez-vous</li>
-            <li><strong>Une réponse claire</strong> sur votre marché</li>
+        <div class="od-price">
+          <span class="od-price-stamp" aria-hidden="true">Test complet</span>
+          <p class="od-price-label">Le test, tout compris</p>
+          <p class="od-price-num">500<span>&nbsp;€</span></p>
+          <p class="od-price-sub">28 jours · 300 contacts · 3 cibles · 2 canaux</p>
+          <ul class="od-price-list">
+            <li>3 listes de 100 contacts, une par cible</li>
+            <li>Messages entièrement personnalisés</li>
+            <li>Tout est géré, jusqu'au rendez-vous</li>
+            <li>Garantie&nbsp;: 100 contacts de plus si aucun rendez-vous</li>
           </ul>
-          <p class="od-ticket-foot">Aucun rendez-vous&nbsp;? On teste 100 contacts de plus, sans frais.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec od-diff" aria-labelledby="odDiffTitle">
+    <div class="section-wrap">
+      <div class="hp-head hp-in">
+        <p class="hp-eyebrow">Ce qui nous différencie</p>
+        <h2 class="hp-h2" id="odDiffTitle">Pas d'arrosage. <span class="hp-select hp-select-sm"><span class="hp-select-txt">Que des bons coups.</span><i></i><i></i><i></i><i></i></span></h2>
+        <p class="hp-lede">C'est ça, Cely&nbsp;: un prix d'entrée qui permet de tester sans se poser de question, et des messages écrits pour chaque personne. Deux choix qui changent tout.</p>
+      </div>
+      <div class="od-diff-grid">
+        <article class="od-diff-card is-price hp-in">
+          <p class="od-diff-k">01 · Le prix</p>
+          <h3>Un vrai test, sans le budget d'une campagne.</h3>
+          <p>Le prix est pensé pour que la décision soit facile&nbsp;: vous testez votre marché avant d'engager quoi que ce soit de plus gros. Et la garantie couvre le cas où rien ne tombe.</p>
+        </article>
+        <article class="od-diff-card is-perso hp-in" style="--i:1">
+          <p class="od-diff-k">02 · La personnalisation</p>
+          <h3>300 contacts, 300 approches écrites une à une.</h3>
+          <div class="od-vs" aria-label="Comparaison">
+            <div class="od-vs-col is-them"><span class="od-vs-h">Le réflexe courant</span><span class="od-vs-row">1 message</span><span class="od-vs-row">copié pour toute la liste</span><span class="od-vs-row">un prénom qui change</span></div>
+            <div class="od-vs-col is-us"><span class="od-vs-h">Avec Cely</span><span class="od-vs-row">1 message par personne</span><span class="od-vs-row">écrit pour son poste et son entreprise</span><span class="od-vs-row">par email et sur LinkedIn</span></div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -8102,16 +8294,74 @@ Allow: /</code></pre>
   <section class="hp-sec hp-dark od-why" aria-labelledby="odWhyTitle">
     <div class="section-wrap">
       <div class="hp-head hp-in">
-        <p class="hp-eyebrow">Le principe</p>
-        <h2 class="hp-h2" id="odWhyTitle">Vous n'achetez pas des rendez-vous. <span>Vous achetez une réponse.</span></h2>
-        <p class="hp-lede">Avant d'investir des mois dans la prospection, un test court et cadré vous dit si votre marché répond, et quelle cible répond le mieux. Trois cibles, le même volume pour chacune&nbsp;: la comparaison est directe.</p>
+        <p class="hp-eyebrow">La machine derrière le test</p>
+        <h2 class="hp-h2" id="odWhyTitle">Vous voyez un rendez-vous. <span>Derrière, il y a toute une machine.</span></h2>
+        <p class="hp-lede">Vous n'achetez pas des rendez-vous&nbsp;: vous achetez une réponse sur votre marché. Voici tout ce qui tourne pendant 28 jours pour vous la donner.</p>
       </div>
-      <ol class="od-lists" aria-label="Les 3 listes du test">
-        <li class="od-list hp-in" style="--i:0"><span class="od-list-n">100</span><span class="od-list-k">contacts</span><span class="od-list-t">Cible n°1</span></li>
-        <li class="od-list hp-in" style="--i:1"><span class="od-list-n">100</span><span class="od-list-k">contacts</span><span class="od-list-t">Cible n°2</span></li>
-        <li class="od-list hp-in" style="--i:2"><span class="od-list-n">100</span><span class="od-list-k">contacts</span><span class="od-list-t">Cible n°3</span></li>
+
+      <ol class="od-machine hp-in" aria-label="Les étapes du test">
+        <li class="od-m-step od-m-lists">
+          <span class="od-m-k">1 · Ciblage</span>
+          <h3 class="od-m-t">300 décideurs</h3>
+          <div class="od-m-grids" aria-hidden="true">
+            <span class="od-grid"><i></i><b>Cible n°1</b></span>
+            <span class="od-grid" style="--d:-1.2s"><i></i><b>Cible n°2</b></span>
+            <span class="od-grid" style="--d:-2.4s"><i></i><b>Cible n°3</b></span>
+          </div>
+          <p class="od-m-c">3 listes de 100 contacts, une par cible.</p>
+        </li>
+        <li class="od-m-step od-m-perso">
+          <span class="od-m-k">2 · Personnalisation</span>
+          <h3 class="od-m-t">1 contact, 1 message</h3>
+          <div class="od-research" aria-hidden="true">
+            <span style="--n:0">Son poste</span>
+            <span style="--n:1">Son entreprise</span>
+            <span style="--n:2">Son actualité</span>
+            <span style="--n:3">Son enjeu</span>
+            <em>Message écrit pour lui</em>
+          </div>
+          <p class="od-m-c">Chaque message est rédigé pour la personne qui le reçoit.</p>
+        </li>
+        <li class="od-m-step od-m-channels">
+          <span class="od-m-k">3 · Multicanal</span>
+          <h3 class="od-m-t">Email + LinkedIn</h3>
+          <div class="od-lanes" aria-hidden="true">
+            <span class="od-lane"><svg viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="od-track"><i></i><i></i><i></i></span></span>
+            <span class="od-lane"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg><span class="od-track is-b"><i></i><i></i><i></i></span></span>
+          </div>
+          <p class="od-m-c">Deux canaux sur chaque contact, au bon rythme.</p>
+        </li>
+        <li class="od-m-step od-m-replies">
+          <span class="od-m-k">4 · Réponses</span>
+          <h3 class="od-m-t">Jusqu'au rendez-vous</h3>
+          <div class="od-inbox" aria-hidden="true">
+            <span style="--n:0"><i></i><b></b></span>
+            <span style="--n:1"><i></i><b></b></span>
+            <span style="--n:2"><i></i><b></b></span>
+            <em>Rendez-vous calé</em>
+          </div>
+          <p class="od-m-c">On gère les échanges et on cale le rendez-vous avec vous.</p>
+        </li>
+        <li class="od-m-step od-m-verdict">
+          <span class="od-m-k">5 · Verdict</span>
+          <h3 class="od-m-t">Une réponse à J+28</h3>
+          <div class="od-bars" aria-hidden="true">
+            <span><i style="--h:.35"></i><b>C1</b></span>
+            <span><i style="--h:.9"></i><b>C2</b></span>
+            <span><i style="--h:.55"></i><b>C3</b></span>
+          </div>
+          <p class="od-m-c">Quelle cible répond, laquelle non. <small>(barres illustratives)</small></p>
+        </li>
       </ol>
-      <p class="od-why-foot hp-in">Chaque contact reçoit des messages écrits pour lui, par email et sur LinkedIn. Pas de modèle envoyé en masse.</p>
+
+      <div class="od-flow hp-in" aria-hidden="true"><span>J1</span><b><i></i></b><span>J28</span></div>
+      <ul class="od-stats hp-in">
+        <li><b>3</b>cibles comparées</li>
+        <li><b>300</b>décideurs contactés</li>
+        <li><b>300</b>approches écrites une à une</li>
+        <li><b>2</b>canaux par contact</li>
+        <li><b>28</b>jours pour trancher</li>
+      </ul>
     </div>
   </section>
 
@@ -8121,14 +8371,47 @@ Allow: /</code></pre>
         <p class="hp-eyebrow">Ce qui est inclus</p>
         <h2 class="hp-h2" id="odIncTitle">Vous validez les cibles. On fait le reste.</h2>
       </div>
-      <ul class="od-inc">
-        <li class="od-inc-item hp-in" style="--i:0"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>3 cibles définies avec vous</h3><p>Les trois profils de clients que vous voulez tester.</p></div></li>
-        <li class="od-inc-item hp-in" style="--i:1"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>3 listes de 100 contacts</h3><p>Une liste par cible, 300 décideurs au total.</p></div></li>
-        <li class="od-inc-item hp-in" style="--i:2"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>Des messages entièrement personnalisés</h3><p>Écrits pour chaque contact, pas un modèle avec un prénom changé.</p></div></li>
-        <li class="od-inc-item hp-in" style="--i:3"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>Email et LinkedIn</h3><p>Deux canaux sur chaque contact, pour multiplier les chances de réponse.</p></div></li>
-        <li class="od-inc-item hp-in" style="--i:4"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>Les échanges, jusqu'au rendez-vous</h3><p>On gère les réponses et on cale le rendez-vous. Vous n'intervenez qu'au moment de parler à votre prospect.</p></div></li>
-        <li class="od-inc-item hp-in" style="--i:5"><span class="od-inc-ic" aria-hidden="true"></span><div><h3>Une réponse claire à J+28</h3><p>Quelle cible répond, laquelle ne répond pas, et ce que ça dit de votre marché.</p></div></li>
-      </ul>
+      <div class="od-bento">
+        <article class="od-b od-b-msg hp-in">
+          <h3>Des messages entièrement personnalisés</h3>
+          <p>Écrits pour chaque contact, pas un modèle avec un prénom changé.</p>
+          <div class="od-mail" aria-label="Exemple de message personnalisé (fictif)">
+            <span class="od-mail-tag">Exemple fictif</span>
+            <p class="od-mail-to"><b>À&nbsp;:</b> Claire, DRH d'un groupe de distribution</p>
+            <p class="od-mail-body">Bonjour Claire, j'ai vu que <mark>votre groupe ouvre deux nouveaux sites cette année</mark>. Recruter vite sans fragiliser <mark>l'intégration des nouvelles équipes</mark>, c'est souvent là que ça coince…</p>
+            <p class="od-mail-legend"><mark>Surligné</mark>&nbsp;: ce qui est écrit pour elle seule.</p>
+          </div>
+        </article>
+        <article class="od-b od-b-targets hp-in" style="--i:1">
+          <h3>3 cibles, définies avec vous</h3>
+          <p>Les trois profils de clients que vous voulez tester.</p>
+          <div class="od-b-chips" aria-hidden="true"><span>Cible n°1</span><span>Cible n°2</span><span>Cible n°3</span></div>
+        </article>
+        <article class="od-b od-b-channels hp-in" style="--i:2">
+          <h3>Email et LinkedIn</h3>
+          <p>Deux canaux sur chaque contact, pour multiplier les chances de réponse.</p>
+          <div class="od-b-icons" aria-hidden="true">
+            <span><svg viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m4 7 8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <i></i>
+            <span><svg viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg></span>
+          </div>
+        </article>
+        <article class="od-b od-b-count hp-in" style="--i:3">
+          <p class="od-b-big">300</p>
+          <h3>décideurs contactés</h3>
+          <p>3 listes de 100, une par cible.</p>
+        </article>
+        <article class="od-b od-b-rdv hp-in" style="--i:4">
+          <h3>Les échanges, jusqu'au rendez-vous</h3>
+          <p>On gère les réponses et on cale le rendez-vous. Vous intervenez au moment de parler à votre prospect.</p>
+          <span class="od-b-pill" aria-hidden="true"><i></i>Rendez-vous calé</span>
+        </article>
+        <article class="od-b od-b-verdict hp-in" style="--i:5">
+          <p class="od-b-big">J+28</p>
+          <h3>Une réponse claire</h3>
+          <p>Quelle cible répond, laquelle ne répond pas, et ce que ça dit de votre marché.</p>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -8158,7 +8441,7 @@ Allow: /</code></pre>
             <p class="hp-eyebrow">La garantie</p>
             <h2 class="gpt-guarantee-title" id="odGarTitle">Aucun rendez-vous&nbsp;? On teste <span class="hp-select hp-select-sm"><span class="hp-select-txt">100 contacts</span><i></i><i></i><i></i><i></i></span> de plus, sans frais.</h2>
             <p class="gpt-guarantee-copy">Si le test ne débouche sur aucun rendez-vous, on relance avec 100 nouveaux contacts. Vous ne payez rien de plus.</p>
-            <p class="gpt-guarantee-copy"><strong>Et si ça ne donne toujours rien&nbsp;?</strong> Alors le canal n'est pas en cause&nbsp;: le signal pointe vers votre positionnement ou votre offre. C'est une réponse utile, obtenue en 28 jours pour 500&nbsp;€, avant d'investir des mois dans le mauvais chantier.</p>
+            <p class="gpt-guarantee-copy"><strong>Et si ça ne donne toujours rien&nbsp;?</strong> Alors le canal n'est pas en cause&nbsp;: le signal pointe vers votre positionnement ou votre offre. C'est une réponse utile, obtenue en 28 jours pour le prix d'un test, avant d'investir des mois dans le mauvais chantier.</p>
             <p class="gpt-guarantee-sign"><em>Un test qui ne marche pas vous apprend quelque chose. C'est tout l'intérêt.</em> — Célien</p>
           </div>
         </div>
@@ -8170,30 +8453,56 @@ Allow: /</code></pre>
     </div>
   </section>
 
-  <section class="hp-sec fit od-fit" aria-labelledby="odFitTitle">
+  <section class="hp-sec od-fit" aria-labelledby="odFitTitle">
     <div class="section-wrap">
       <div class="hp-head hp-in">
         <p class="hp-eyebrow">Pour qui</p>
-        <h2 class="hp-h2" id="odFitTitle">L'offre découverte, c'est pour vous si…</h2>
+        <h2 class="hp-h2" id="odFitTitle">Le test est fait pour vous si…</h2>
       </div>
-      <div class="fit-grid">
-        <div class="fit-card is-yes hp-in">
-          <p class="fit-head">C'est pour vous si&nbsp;:</p>
-          <ul><li><span class="fit-ic" aria-hidden="true"></span><span>Vous vendez à des entreprises.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous voulez savoir si la prospection peut marcher pour vous, avant d'y mettre plus.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous hésitez entre plusieurs cibles.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous n'avez pas le temps de prospecter vous-même.</span></li></ul>
+      <ul class="od-fit-yes">
+        <li class="hp-in" style="--i:0"><span class="od-fit-ic" aria-hidden="true"></span><p><b>Vous vendez à des entreprises.</b>Le test est pensé pour la vente B2B.</p></li>
+        <li class="hp-in" style="--i:1"><span class="od-fit-ic" aria-hidden="true"></span><p><b>Vous voulez savoir si la prospection marche pour vous.</b>Avant d'y mettre plus de temps et de budget.</p></li>
+        <li class="hp-in" style="--i:2"><span class="od-fit-ic" aria-hidden="true"></span><p><b>Vous hésitez entre plusieurs cibles.</b>Le test vous dit laquelle répond.</p></li>
+        <li class="hp-in" style="--i:3"><span class="od-fit-ic" aria-hidden="true"></span><p><b>Vous n'avez pas le temps de prospecter.</b>On s'en occupe, de A à Z.</p></li>
+      </ul>
+      <p class="od-fit-no hp-in"><span>Pas pour vous si&nbsp;:</span> vous attendez un nombre de rendez-vous garanti, ou vous vendez aux particuliers.</p>
+
+      <div class="od-upsell hp-in">
+        <div class="od-upsell-txt">
+          <p class="hp-eyebrow">Besoin de plus qu'un test&nbsp;?</p>
+          <h3>Vous voulez déjà un accompagnement complet&nbsp;?</h3>
+          <p>Growth Part-Time&nbsp;: un growth marketer qui pilote et exécute votre acquisition chaque semaine. Prospection, inbound, automatisation, avec un seul interlocuteur.</p>
         </div>
-        <div class="fit-card is-no hp-in" style="--i:1">
-          <p class="fit-head">Ce n'est pas pour vous si&nbsp;:</p>
-          <ul><li><span class="fit-ic" aria-hidden="true"></span><span>Vous attendez un nombre de rendez-vous garanti.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous vendez aux particuliers.</span></li><li><span class="fit-ic" aria-hidden="true"></span><span>Vous voulez déjà un accompagnement complet&nbsp;: <a href="/growth" data-route="growth">Growth Part-Time</a>.</span></li></ul>
-        </div>
+        <a href="/growth" data-route="growth" class="hp-btn hp-btn-light"><span class="hp-btn-dot" aria-hidden="true"></span>Découvrir Growth Part-Time<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>
 
   <section class="hp-sec od-next" aria-labelledby="odNextTitle">
-    <div class="section-wrap hp-in">
-      <p class="hp-eyebrow">Et après&nbsp;?</p>
-      <h2 class="hp-h2" id="odNextTitle">Une première étape, pas un engagement.</h2>
-      <p class="hp-lede">L'offre découverte est une porte d'entrée. Si le test est concluant, on peut aller plus loin ensemble avec un accompagnement plus large&nbsp;: <a href="/growth" data-route="growth">Growth Part-Time</a>. Sinon, vous gardez la réponse, et vous savez où porter vos efforts.</p>
+    <div class="section-wrap">
+      <div class="hp-head hp-in">
+        <p class="hp-eyebrow">Et après&nbsp;?</p>
+        <h2 class="hp-h2" id="odNextTitle">Le test, c'est le début. <span class="hp-select hp-select-sm"><span class="hp-select-txt">On grandit avec vous.</span><i></i><i></i><i></i><i></i></span></h2>
+        <p class="hp-lede">Cely n'est pas là pour une campagne et puis s'en va. L'idée, c'est d'évoluer avec vous, jusqu'à devenir une vraie pièce de votre équipe.</p>
+      </div>
+      <ol class="od-stairs">
+        <li class="od-stair is-here hp-in" style="--i:0">
+          <span class="od-here" aria-hidden="true">Vous êtes ici</span>
+          <span class="od-stair-k">Étape 1 · 28 jours</span>
+          <h3>Tester</h3>
+          <p>L'offre découverte&nbsp;: votre marché répond-il, et quelle cible en priorité&nbsp;?</p>
+        </li>
+        <li class="od-stair hp-in" style="--i:1">
+          <span class="od-stair-k">Étape 2 · Chaque semaine</span>
+          <h3>Accélérer</h3>
+          <p>Avec <a href="/growth" data-route="growth">Growth Part-Time</a>, on pilote et on exécute votre acquisition&nbsp;: prospection, inbound, automatisation.</p>
+        </li>
+        <li class="od-stair hp-in" style="--i:2">
+          <span class="od-stair-k">Étape 3 · Dans la durée</span>
+          <h3>S'intégrer</h3>
+          <p>On devient complémentaire de votre équipe. Et le jour où vous recrutez votre growth, on l'aide à prendre le relais et on lui transmet tout.</p>
+        </li>
+      </ol>
     </div>
   </section>
 
@@ -8224,7 +8533,7 @@ Allow: /</code></pre>
           </details>
           <details class="gpt-faq-item">
             <summary>Et si le test ne donne rien du tout&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
-            <p class="gpt-faq-answer">On teste d'abord 100 contacts supplémentaires, sans frais. Si ça ne donne toujours rien, le problème ne vient pas du canal&nbsp;: le signal pointe vers votre positionnement ou votre offre. C'est une réponse précieuse, obtenue en 28 jours pour 500&nbsp;€.</p>
+            <p class="gpt-faq-answer">On teste d'abord 100 contacts supplémentaires, sans frais. Si ça ne donne toujours rien, le problème ne vient pas du canal&nbsp;: le signal pointe vers votre positionnement ou votre offre. C'est une réponse précieuse, obtenue en 28 jours.</p>
           </details>
           <details class="gpt-faq-item">
             <summary>Que se passe-t-il après les 28 jours&nbsp;? <span class="pm" aria-hidden="true"></span></summary>
@@ -8242,7 +8551,7 @@ Allow: /</code></pre>
   <section class="hp-sec hp-dark hp-final od-final" aria-labelledby="odFinalTitle">
     <div class="section-wrap hp-final-wrap hp-in">
       <h2 class="hp-final-h2" id="odFinalTitle">Votre marché répond-il&nbsp;? <span>Réponse à J+28.</span></h2>
-      <p class="hp-final-text">500&nbsp;€, 300 contacts, 3 cibles, email et LinkedIn. On s'occupe de tout, jusqu'au rendez-vous. Et si aucun rendez-vous ne tombe, 100 contacts de plus, sans frais.</p>
+      <p class="hp-final-text">300 contacts, 3 cibles, des messages écrits pour chacun, par email et LinkedIn. On s'occupe de tout, jusqu'au rendez-vous. Et si aucun rendez-vous ne tombe, 100 contacts de plus, sans frais.</p>
       <div class="hp-final-actions">
         <span class="hp-final-btnwrap">
           <a href="{{CALENDLY_URL}}" target="_blank" rel="noopener" class="hp-btn hp-btn-light hp-btn-xl od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -8256,7 +8565,6 @@ Allow: /</code></pre>
       <p class="hp-final-small">Appel de 30 min · Réponse sur votre marché en 28 jours</p>
     </div>
   </section>
-
   </main>
 
   <main class="site-page md-page" data-page="motion-design" hidden>
