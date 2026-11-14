@@ -3750,6 +3750,12 @@ h2.hp-story-box-h{ margin:0; }
   .od-track i:nth-child(1){ transform:translateX(20px); } .od-track i:nth-child(2){ transform:translateX(70px); } .od-track i:nth-child(3){ transform:translateX(120px); }
   .od-bars i{ animation:none; }
 }
+
+/* Réservation Cely Growth (outil maison) */
+.rdv-inline{ min-height:640px; }
+[data-cely-rdv="floating"]{ position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+.rdv-inline > a{ display:inline-flex; margin:20px; font-family:var(--font-label); font-weight:700; color:var(--violet-3); text-decoration:underline; text-underline-offset:3px; }
+:root:has([data-cely-rdv="floating"]) .hp-memo{ bottom:calc(clamp(16px,2vw,28px) + 64px); }
 </style>
 </head>
 <body>
@@ -3760,6 +3766,11 @@ h2.hp-story-box-h{ margin:0; }
     <a href="/contact#formulaire" data-route="contact" class="hp-topbar-link">Faire le point avec Célien</a>
   </div>
 <!--/COMPONENT:TOPBAR-->
+<!--COMPONENT:RDV_FLOAT-->
+<!-- Réservation Cely Growth : bouton flottant -->
+<div data-cely-rdv="floating" data-url="{{RDV_URL}}" data-text="Prendre rendez-vous"><a href="{{RDV_URL}}">Prendre rendez-vous</a></div>
+<script src="{{RDV_WIDGET}}" async></script>
+<!--/COMPONENT:RDV_FLOAT-->
 <!--COMPONENT:CTA_FINAL-->
 <section class="hp-sec hp-dark hp-final" aria-labelledby="hpFinalTitle">
     <div class="section-wrap hp-final-wrap hp-in">
@@ -3968,7 +3979,7 @@ h2.hp-story-box-h{ margin:0; }
     </ul>
     <p>Base légale : votre demande (mesures précontractuelles) pour le formulaire de contact, le formulaire « Audit GEO », le formulaire de réservation motion design et le formulaire « Nous rejoindre », votre consentement pour le simulateur, le diagnostic AARRR et le générateur de lead magnet.</p>
     <h2 id="destinataires">Destinataires et sous-traitants</h2>
-    <p>Les données sont transmises par e-mail à Cely via le service d'envoi Resend (Resend, Inc., États-Unis). Le site est hébergé par Vercel (États-Unis). La prise de rendez-vous directe utilise Calendly (Calendly LLC, États-Unis), soumis à sa propre politique de confidentialité. Les polices de caractères sont chargées depuis Google Fonts, ce qui transmet votre adresse IP à Google. Ces transferts hors Union européenne s'appuient sur les garanties prévues par le RGPD (clauses contractuelles types / Data Privacy Framework).</p>
+    <p>Les données sont transmises par e-mail à Cely via le service d'envoi Resend (Resend, Inc., États-Unis). Le site est hébergé par Vercel (États-Unis). La prise de rendez-vous directe (calendrier de la page Contact et bouton « Prendre rendez-vous ») utilise l'outil de réservation de Cely, hébergé par Vercel (États-Unis). Les polices de caractères sont chargées depuis Google Fonts, ce qui transmet votre adresse IP à Google. Ces transferts hors Union européenne s'appuient sur les garanties prévues par le RGPD (clauses contractuelles types / Data Privacy Framework).</p>
     <h2 id="conservation">Durée de conservation</h2>
     <p>Les données de contact sont conservées le temps nécessaire au traitement de votre demande, puis au maximum 3 ans après le dernier échange.</p>
     <h2 id="droits">Vos droits</h2>
@@ -3984,7 +3995,7 @@ h2.hp-story-box-h{ margin:0; }
     <h2>Cookies déposés par Cely</h2>
     <p>Le site n'utilise aucun cookie de mesure d'audience ni de publicité.</p>
     <h2>Services tiers</h2>
-    <p>Sur la page Contact, le module de réservation Calendly peut déposer ses propres cookies, nécessaires à son fonctionnement ou à ses statistiques. Ils sont gérés par Calendly (<a href="https://calendly.com/privacy" target="_blank" rel="noopener">politique de Calendly</a>). Vous pouvez aussi réserver sans ce module, en passant par le formulaire de contact.</p>
+    <p>Le module de prise de rendez-vous (calendrier de la page Contact et bouton « Prendre rendez-vous ») est l'outil de réservation de Cely, chargé depuis cely-crm.vercel.app. Vous pouvez aussi demander un rendez-vous sans ce module, en passant par le formulaire de contact.</p>
     <h2>Paramétrer votre navigateur</h2>
     <p>Vous pouvez à tout moment bloquer ou supprimer les cookies depuis les réglages de votre navigateur.</p>
   </div>
@@ -5882,7 +5893,9 @@ h2.hp-story-box-h{ margin:0; }
           <h2 class="calendly-title">Choisissez un créneau</h2>
           <p class="calendly-copy">30&nbsp;minutes en visio, confirmation immédiate.</p>
           <div class="calendly-embed-wrap">
-            <div class="calendly-inline-widget" data-url="{{CALENDLY_URL}}?hide_event_type_details=1&amp;hide_gdpr_banner=1&amp;primary_color=950895" style="min-width:280px;height:660px;"></div>
+            <!-- Réservation Cely Growth : calendrier dans la page -->
+            <div class="rdv-inline" data-cely-rdv="inline" data-url="{{RDV_URL}}"><a href="{{RDV_URL}}">Prendre rendez-vous</a></div>
+            <script src="{{RDV_WIDGET}}" async></script>
           </div>
         </aside>
         </div>
@@ -8244,7 +8257,7 @@ Allow: /</code></pre>
           <span class="gpt-chip">Messages 100&nbsp;% personnalisés</span>
         </div>
         <div class="gpt-hero-actions">
-          <a href="{{CALENDLY_URL}}" target="_blank" rel="noopener" class="hp-btn od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="{{RDV_URL}}" target="_blank" rel="noopener" class="hp-btn od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <p class="hp-micro">Appel de 30 min · Si aucun rendez-vous, 100 contacts de plus offerts</p>
         </div>
       </div>
@@ -8447,7 +8460,7 @@ Allow: /</code></pre>
         </div>
       </div>
       <div class="hp-cta-row od-cta-row hp-in">
-        <a href="{{CALENDLY_URL}}" target="_blank" rel="noopener" class="hp-btn od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="{{RDV_URL}}" target="_blank" rel="noopener" class="hp-btn od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <p class="hp-micro">30 min pour voir si le test a du sens pour vous.</p>
       </div>
     </div>
@@ -8554,7 +8567,7 @@ Allow: /</code></pre>
       <p class="hp-final-text">300 contacts, 3 cibles, des messages écrits pour chacun, par email et LinkedIn. On s'occupe de tout, jusqu'au rendez-vous. Et si aucun rendez-vous ne tombe, 100 contacts de plus, sans frais.</p>
       <div class="hp-final-actions">
         <span class="hp-final-btnwrap">
-          <a href="{{CALENDLY_URL}}" target="_blank" rel="noopener" class="hp-btn hp-btn-light hp-btn-xl od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="{{RDV_URL}}" target="_blank" rel="noopener" class="hp-btn hp-btn-light hp-btn-xl od-book"><span class="hp-btn-dot" aria-hidden="true"></span>Réserver un appel<span class="sr-only"> (ouvre un nouvel onglet)</span><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <span class="cely-spot hp-final-cely" data-cely="celebrate" data-cely-threshold="0.6"></span>
         </span>
         <span class="hp-final-person">
@@ -9142,12 +9155,6 @@ Allow: /</code></pre>
   });
   main.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-in'); });
   main.querySelectorAll('.gpt-pillar-system, .gpt-frise, .aud-report-deploy, .aud-method').forEach(function(el){ el.classList.add('is-in'); });
-  if(key === 'contact'){
-    var cs = document.createElement('script');
-    cs.src = 'https://assets.calendly.com/assets/external/widget.js';
-    cs.async = true;
-    document.body.appendChild(cs);
-  }
 })();</script>
 
 <script>(function(){ "use strict";

@@ -430,6 +430,8 @@ def main():
         if inject:
             body_main = re.sub(r'(<main class="site-page[^"]*" data-page="[^"]+"[^>]*>)', lambda m: m.group(1) + inject, body_main, count=1)
         cta = comps['CTA_FINAL'] if p.get('cta', True) else ''
+        # bouton flottant de réservation (outil Cely) : partout sauf contact (calendrier déjà dans la page) et motion design (CTA flottant propre)
+        rdv_float = p.get('rdv_float', p['key'] not in ('contact', 'motion-design'))
         body_main = body_main.replace('<!--CTA_FINAL-->', cta)
         h = __import__('hashlib').md5(body_main.encode('utf-8')).hexdigest()
         if p['path']:
@@ -437,6 +439,8 @@ def main():
             if not rec or rec['hash'] != h:
                 lastmod[p['path']] = {'hash': h, 'date': TODAY}
         page = src[:start] + '\n\n  ' + body_main + '\n\n' + src[end:]
+        if rdv_float:
+            page = page.replace('</body>', comps['RDV_FLOAT'] + '\n</body>', 1)
         faq = faq_from_main(body_main, SITE + p['path']) if p['path'] and not p.get('no_faq') else None
         page = page.replace('<!--PAGE_HEAD-->', head_for(p, faq), 1)
         if p.get('topbar'):
