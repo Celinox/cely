@@ -3756,6 +3756,35 @@ h2.hp-story-box-h{ margin:0; }
 [data-cely-rdv="floating"]{ position:absolute; width:1px; height:1px; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
 .rdv-inline > a{ display:inline-flex; margin:20px; font-family:var(--font-label); font-weight:700; color:var(--violet-3); text-decoration:underline; text-underline-offset:3px; }
 :root:has([data-cely-rdv="floating"]) .hp-memo{ bottom:calc(clamp(16px,2vw,28px) + 64px); }
+
+/* ---------- clients : logos qui défilent (animation reprise de wenoble.fr : défilement linéaire 30 s, pause au survol, fondu sur les bords) ---------- */
+.hp-clients{ position:relative; padding-block:clamp(64px,7vw,96px) clamp(8px,2vw,24px); background:var(--off-white); }
+.hp-clients-head{ text-align:center; }
+.hp-clients-title{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.5rem,1.2rem + 1.2vw,2.2rem); line-height:1.1; letter-spacing:-.02em; color:var(--prune); }
+.hp-clients-sub{ margin:6px 0 0; font-family:var(--font-label); font-size:.9rem; font-weight:600; color:var(--muted); }
+.hp-clients-row{ margin-top:clamp(26px,3vw,40px); display:flex; align-items:center; gap:clamp(16px,2vw,28px); }
+.hp-clients-marquee{ position:relative; flex:1; min-width:0; display:flex; overflow:hidden; mask-image:linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%); -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 10%, #000 90%, transparent 100%); }
+.hp-clients-track{ flex:none; display:flex; align-items:center; gap:56px; padding:0 28px 0 28px; margin:0; list-style:none; animation:hpClientsScroll 30s linear infinite; }
+.hp-clients-marquee:hover .hp-clients-track{ animation-play-state:paused; }
+.hp-clients-track li{ flex:none; display:flex; align-items:center; height:76px; }
+.hp-clients-track img{ display:block; width:auto; height:var(--lh,32px); max-width:none; opacity:.55; transition:opacity .2s; }
+.hp-clients-track li:hover img{ opacity:1; }
+@keyframes hpClientsScroll{ from{ transform:translateX(0); } to{ transform:translateX(-100%); } }
+.hp-clients-next{ position:relative; flex:none; display:flex; align-items:center; gap:12px; padding:12px 18px 12px 12px; border:var(--hp-line); border-radius:var(--hp-r-sm); background:var(--white); box-shadow:var(--hp-sh); color:var(--prune); transition:transform .2s var(--ease-cely-out), box-shadow .2s var(--ease-cely-out); }
+.hp-clients-next:hover{ transform:translate(-2px,-2px); box-shadow:8px 8px 0 var(--violet-3); }
+.hp-clients-next:focus-visible{ outline:2.5px solid var(--violet-3); outline-offset:3px; }
+.hp-clients-cely-wrap{ position:relative; flex:none; width:64px; height:56px; border-radius:12px; background:var(--lavender); }
+.hp-clients-cely{ position:absolute; left:2px; bottom:0; width:60px; height:51px; }
+.hp-clients-cely .cely-svg{ position:static; width:100%; height:100%; }
+.hp-clients-next-txt{ display:flex; flex-direction:column; line-height:1.2; }
+.hp-clients-next-txt b{ font-family:var(--font-display); font-weight:800; font-size:1.08rem; }
+.hp-clients-next-txt small{ margin-top:3px; font-family:var(--font-label); font-size:.76rem; font-weight:600; color:var(--violet-3); }
+@media (max-width:760px){
+  .hp-clients-row{ flex-direction:column; }
+  .hp-clients-marquee{ width:100%; }
+  .hp-clients-track{ gap:40px; padding-inline:20px; }
+}
+@media (prefers-reduced-motion:reduce){ .hp-clients-track{ animation:none; } }
 </style>
 </head>
 <body>
@@ -4080,6 +4109,25 @@ h2.hp-story-box-h{ margin:0; }
   </div>
   <p class="sr-only">Un growth dédié chaque semaine · Sans engagement · 1er mois satisfait ou remboursé · Un seul interlocuteur · Startups B2B de 5 à 30 personnes · Partout en France</p>
 
+  <!-- ============ CLIENTS : logos qui défilent ============ -->
+  <section class="hp-clients" aria-labelledby="hpClientsTitle">
+    <div class="section-wrap">
+      <div class="hp-clients-head hp-in">
+        <h2 class="hp-clients-title" id="hpClientsTitle">Ils ont dit oui avant vous.</h2>
+        <p class="hp-clients-sub">(La place juste à côté est libre.)</p>
+      </div>
+      <div class="hp-clients-row hp-in">
+        <div class="hp-clients-marquee">
+          <ul class="hp-clients-track" aria-label="Clients de Cely"><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="Biux" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="Registre Général" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="Hexagone AI" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="Maison Soléa" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li></ul><ul class="hp-clients-track" aria-hidden="true"><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li></ul>
+        </div>
+        <a class="hp-clients-next" href="/offre-decouverte" data-route="offre-decouverte">
+          <span class="hp-clients-cely-wrap" aria-hidden="true"><span class="cely-spot hp-clients-cely" data-cely="wave" data-cely-threshold="0.3"></span></span>
+          <span class="hp-clients-next-txt"><b>Et bientôt vous&nbsp;?</b><small>Testez votre marché en 28 jours</small></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ VIDÉO ============ -->
   <section class="hp-sec hp-video" aria-labelledby="hpVidTitle">
     <div class="section-wrap">
@@ -4383,15 +4431,6 @@ h2.hp-story-box-h{ margin:0; }
     </div>
   </section>
 
-  <!-- PREUVES : désactivé (SHOW_REFERENCES dans src/site-config.json). Remplacer par 2 à 4 logos autorisés et un vrai témoignage avant d'activer. -->
-<!--IF:SHOW_REFERENCES-->
-  <section class="hp-sec hp-proofs" id="references" aria-labelledby="hpProofTitle">
-    <div class="section-wrap">
-      <h2 class="hp-h2" id="hpProofTitle">Ils nous font confiance.</h2>
-      <div class="hp-logos"><span>Biux</span><span>Neuf Seizième</span><span>Agence Motion</span><span>Pharmagreen</span></div>
-    </div>
-  </section>
-<!--/IF:SHOW_REFERENCES-->
 
   <!-- ============ FAQ ============ -->
   <section class="gpt-faq hp-faq" id="faq" aria-labelledby="hpFaqTitle">
