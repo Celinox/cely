@@ -3785,6 +3785,11 @@ h2.hp-story-box-h{ margin:0; }
   .hp-clients-track{ gap:40px; padding-inline:20px; }
 }
 @media (prefers-reduced-motion:reduce){ .hp-clients-track{ animation:none; } }
+
+/* hub des services : entrée Offre découverte (réutilise le bandeau .od-upsell) */
+.sv-od{ padding-block:clamp(40px,5vw,64px) 0; }
+.sv-od .od-upsell{ margin-top:0; }
+.sv-od h2{ margin:0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.6rem,1.2rem + 1.6vw,2.4rem); line-height:1.1; letter-spacing:-.02em; color:var(--white); text-wrap:balance; }
 </style>
 </head>
 <body>
@@ -3850,7 +3855,7 @@ h2.hp-story-box-h{ margin:0; }
         <span>Faire le point</span>
         <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
-      <a href="/offre-decouverte" data-route="offre-decouverte" class="nav-offer"><span class="nav-offer-dot" aria-hidden="true"></span>Offre découverte</a>
+      <a href="/services/offre-decouverte" data-route="offre-decouverte" class="nav-offer"><span class="nav-offer-dot" aria-hidden="true"></span>Offre découverte</a>
       <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
         <span class="bars"><span></span><span></span><span></span></span>
       </button>
@@ -3865,7 +3870,7 @@ h2.hp-story-box-h{ margin:0; }
         <a href="/actualites" data-route="actualites">Ressources</a>
       </div>
       <div class="nmp-foot">
-        <a href="/offre-decouverte" data-route="offre-decouverte" class="nav-offer nmp-offer"><span class="nav-offer-dot" aria-hidden="true"></span>Offre découverte</a>
+        <a href="/services/offre-decouverte" data-route="offre-decouverte" class="nav-offer nmp-offer"><span class="nav-offer-dot" aria-hidden="true"></span>Offre découverte</a>
         <a href="/contact#formulaire" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Faire le point avec Célien</a>
       </div>
     </nav>
@@ -4120,7 +4125,7 @@ h2.hp-story-box-h{ margin:0; }
         <div class="hp-clients-marquee">
           <ul class="hp-clients-track" aria-label="Clients de Cely"><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="Biux" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="Registre Général" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="Hexagone AI" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="Maison Soléa" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li></ul><ul class="hp-clients-track" aria-hidden="true"><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:48px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:36px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:72px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li></ul>
         </div>
-        <a class="hp-clients-next" href="/offre-decouverte" data-route="offre-decouverte">
+        <a class="hp-clients-next" href="/services/offre-decouverte" data-route="offre-decouverte">
           <span class="hp-clients-cely-wrap" aria-hidden="true"><span class="cely-spot hp-clients-cely" data-cely="wave" data-cely-threshold="0.3"></span></span>
           <span class="hp-clients-next-txt"><b>Et bientôt vous&nbsp;?</b><small>Testez votre marché en 28 jours</small></span>
         </a>
@@ -5205,8 +5210,21 @@ h2.hp-story-box-h{ margin:0; }
         <p class="hub-hero-sub">Tout est piloté par un seul interlocuteur, dans le cadre de Growth Part-Time ou en complément, selon vos besoins.</p>
         <nav class="sv-toc" aria-label="Sur cette page">
           <a href="#strategie">Stratégie</a><a href="#outbound">Outbound</a><a href="#inbound">Inbound</a><a href="#automatisation">Automatisation</a>
-          <a href="#publicite">Publicité</a><a href="#lead-scoring">Lead scoring</a><a href="#crm-tracking">CRM et tracking</a><a href="#audit">Audit</a>
+          <a href="#publicite">Publicité</a><a href="#lead-scoring">Lead scoring</a><a href="#crm-tracking">CRM et tracking</a><a href="#audit">Audit</a><a href="#offre-decouverte">Offre découverte</a>
         </nav>
+      </div>
+    </div>
+  </section>
+
+  <section class="hp-sec sv-od" id="offre-decouverte" aria-labelledby="svOdTitle">
+    <div class="section-wrap">
+      <div class="od-upsell hp-in">
+        <div class="od-upsell-txt">
+          <p class="hp-eyebrow">Pour commencer</p>
+          <h2 id="svOdTitle">Offre découverte&nbsp;: testez votre marché en 28 jours.</h2>
+          <p>300 décideurs de vos cibles, contactés par email et LinkedIn avec des messages entièrement personnalisés. On s'occupe de tout, jusqu'au rendez-vous. 500&nbsp;€, avec une garantie si aucun rendez-vous ne tombe.</p>
+        </div>
+        <a href="/services/offre-decouverte" data-route="offre-decouverte" class="hp-btn hp-btn-light"><span class="hp-btn-dot" aria-hidden="true"></span>Voir l'offre découverte<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>

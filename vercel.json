@@ -25,6 +25,16 @@
       "statusCode": 301
     },
     {
+      "source": "/offre-decouverte",
+      "destination": "/services/offre-decouverte",
+      "statusCode": 301
+    },
+    {
+      "source": "/offre-decouverte.html",
+      "destination": "/services/offre-decouverte",
+      "statusCode": 301
+    },
+    {
       "source": "/index.html",
       "destination": "/",
       "statusCode": 301

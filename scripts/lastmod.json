@@ -1,7 +1,7 @@
 {
  "/": {
   "date": "2026-11-15",
-  "hash": "bacc4352412363a9539fa479a3ca39f4"
+  "hash": "e71ce8aba20774ea3dbeb160d37eaf17"
  },
  "/actualites": {
   "date": "2026-10-30",
@@ -67,12 +67,12 @@
   "date": "2026-10-23",
   "hash": "3d530f68bbdcb77bb0fe83ef7eb11ad6"
  },
- "/offre-decouverte": {
-  "date": "2026-11-14",
-  "hash": "8bdf51fc82e85dccc367e4ccd6b02266"
- },
  "/services": {
-  "date": "2026-10-28",
-  "hash": "b4d6185f7ac733aae1eb630d33f9b61d"
+  "date": "2026-11-15",
+  "hash": "eee865bb135ad6a10584760d7e95a729"
+ },
+ "/services/offre-decouverte": {
+  "date": "2026-11-15",
+  "hash": "c564d392969ca16265c963223fd32764"
  }
 }

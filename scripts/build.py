@@ -138,10 +138,11 @@ SERVICE_MOTION = {
                "url": SITE + MOTION_URL, "description": "Offre de lancement limitée à 5 projets (prix habituel : 1 000 €)."}
 }
 
+OD_URL = '/services/offre-decouverte'
 SERVICES_LIST = {
     "@type": "ItemList", "@id": SITE + "/services#services", "name": "Services Cely",
     "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "Service", "name": n, "url": SITE + u, "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "France"}}}
-                        for i, (n, u) in enumerate([("Growth Part-Time", "/growth"), ("Stratégie d'acquisition", "/services#strategie"), ("Prospection outbound", "/services#outbound"),
+                        for i, (n, u) in enumerate([("Growth Part-Time", "/growth"), ("Offre découverte", OD_URL), ("Stratégie d'acquisition", "/services#strategie"), ("Prospection outbound", "/services#outbound"),
                                                     ("Stratégie inbound", "/services#inbound"), ("Automatisation marketing et commerciale", "/services#automatisation"),
                                                     ("Publicité LinkedIn Ads et Google Ads", "/services#publicite"), ("Lead scoring", "/services#lead-scoring"),
                                                     ("CRM et tracking", "/services#crm-tracking"), ("Audit Marketing Digital", "/audit/audit-marketing-digital")])]
@@ -185,7 +186,6 @@ ARTICLE_LM = {
     "keywords": ["lead magnet", "lead magnet définition", "lead magnet b2b", "exemple lead magnet", "aimant à prospects", "génération de leads", "inbound marketing"],
     "about": [{"@type": "Thing", "name": "Lead magnet"}, {"@type": "Thing", "name": "Génération de leads B2B"}]
 }
-OD_URL = '/offre-decouverte'
 SERVICE_OD = {
     "@type": "Service", "@id": SITE + OD_URL + "#service",
     "name": "Offre découverte : test de prospection multicanal",
@@ -266,8 +266,8 @@ PAGES = [
          article=dict(published="2026-10-30", modified="2026-10-30", section="Growth marketing B2B",
                       tags=["Lead magnet", "Génération de leads", "Stratégie B2B"]),
          ld=[ARTICLE_LM, PERSON_CELIEN, ORGANIZATION]),
-    dict(key='offre-decouverte', out='offre-decouverte.html', path=OD_URL, prio='0.9', freq='monthly', cta=False,
-         crumbs=[H, ("Offre découverte", OD_URL)],
+    dict(key='offre-decouverte', out='services/offre-decouverte.html', path=OD_URL, prio='0.9', freq='monthly', cta=False,
+         crumbs=[H, ("Services", "/services"), ("Offre découverte", OD_URL)],
          title="Offre découverte : testez votre marché en 28 jours | Cely",
          desc="Test de prospection multicanal pour 500 € : 300 décideurs contactés par email et LinkedIn, messages personnalisés, réponse en 28 jours. Garantie incluse.",
          img=OG + 'og-offre-decouverte.png',
