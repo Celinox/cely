@@ -1,0 +1,247 @@
+{
+  "_lisez_moi": [
+    "Source unique des cas clients. Ajouter un cas = ajouter une entrée dans « cas », puis lancer python3 scripts/build.py.",
+    "offre : « decouverte » (gabarit court) ou « growth » (gabarit développé). statut : « en_cours » ou « termine ».",
+    "Un texte non confirmé s'écrit {\"t\": \"le texte\", \"a_valider\": \"source\"} : la page affiche la mention À valider et le build la liste.",
+    "Les cas sont affichés dans l'ordre de cette liste."
+  ],
+  "cas": [
+    {
+      "slug": "hexagone-ai",
+      "client": "Hexagone AI",
+      "site": "https://hexagone.ai",
+      "logo": {
+        "src": "/images/clients/hexagone.webp",
+        "w": 401,
+        "h": 84,
+        "h_carte": 26,
+        "h_page": 40
+      },
+      "offre": "decouverte",
+      "statut": "en_cours",
+      "debut": "novembre 2026",
+      "etiquettes": [
+        "EEAT",
+        "Conversion"
+      ],
+      "accroche": "Trouver, parmi quatre profils de décideurs, celui qui ouvre la porte des grands comptes",
+      "seo": {
+        "title": "Hexagone AI : cas client Offre découverte | Cely",
+        "desc": "Hexagone AI permet d'utiliser l'IA sans exposer les données de ses clients. Ce qu'on a lancé : 350 décideurs ciblés et un travail EEAT et conversion.",
+        "og": "og-cas-hexagone-ai.png",
+        "og_titre": "Hexagone AI compare quatre profils de décideurs"
+      },
+      "decouverte": {
+        "client_phrase": "Hexagone AI anonymise les données pour que les avocats, les experts-comptables et les directions juridiques utilisent Claude ou ChatGPT sans exposer celles de leurs clients.",
+        "hypothese": "Une approche personnalisée, par LinkedIn et par email, peut décrocher des démos auprès de quatre profils de décideurs. Le test doit dire lequel répond le mieux.",
+        "lance_intro": "Un premier mois pour comparer les cibles entre elles, avec les mêmes canaux et des messages écrits pour chaque contact.",
+        "chiffres": [
+          {
+            "n": "350",
+            "label": "décideurs ciblés au premier mois"
+          },
+          {
+            "n": "4",
+            "label": "profils comparés"
+          },
+          {
+            "n": "2",
+            "label": "canaux, LinkedIn et email"
+          }
+        ],
+        "cibles": [
+          {
+            "nom": "Avocats d'affaires",
+            "n": 100
+          },
+          {
+            "nom": "Expertise comptable",
+            "n": 100
+          },
+          {
+            "nom": "Cabinets de conseil",
+            "n": 100
+          },
+          {
+            "nom": "Directions juridiques",
+            "n": 50
+          }
+        ],
+        "actions": [
+          "Quatre listes de décideurs, croisées avec la base clients d'Hexagone AI pour ne contacter personne deux fois",
+          "Une séquence LinkedIn et email par cible, envoyée depuis le profil de la dirigeante",
+          {
+            "t": "Lancement des campagnes à partir du 16 novembre 2026",
+            "a_valider": "CRM, planning du projet : jalon « Lancement des campagnes » prévu le 16/11/2026, non coché"
+          },
+          "Un audit EEAT et conversion du site, avec un plan d'action pour l'équipe technique"
+        ],
+        "blocs": [
+          {
+            "type": "eeat",
+            "titre": "Le travail EEAT et conversion",
+            "intro": "Pour un outil qui touche aux données confidentielles des cabinets, la confiance se gagne avant la démo. On a passé le site au crible, avec une question : un associé qui découvre Hexagone AI a-t-il assez de raisons de demander une démo ?",
+            "piliers": [
+              {
+                "l": "E",
+                "nom": "Expérience",
+                "t": "Ce que le site montre de l'usage réel de l'outil, dans le quotidien d'un cabinet."
+              },
+              {
+                "l": "E",
+                "nom": "Expertise",
+                "t": "Qui parle, avec quelle légitimité sur l'IA et sur la confidentialité des données."
+              },
+              {
+                "l": "A",
+                "nom": "Autorité",
+                "t": "Les repères que reconnaît une profession réglementée : cadre, références, prises de position."
+              },
+              {
+                "l": "T",
+                "nom": "Fiabilité",
+                "t": "Les preuves qu'on peut confier des données sensibles : sécurité, transparence, contact."
+              }
+            ],
+            "conversion": {
+              "titre": "Conversion",
+              "t": "Le chemin entre la première visite et la demande de démo : ce qui freine, ce qui manque, ce qu'il faut corriger en premier."
+            },
+            "statut": {
+              "t": "Restitution de l'audit à l'équipe technique prévue le 19 novembre 2026",
+              "a_valider": "CRM, planning du projet : jalon « Restitution de l'audit · jeu. 19 nov. » non coché"
+            }
+          }
+        ],
+        "etapes": [
+          {
+            "nom": "Cadrer et préparer",
+            "dates": "5 – 13 nov."
+          },
+          {
+            "nom": "Restituer et lancer",
+            "dates": "16 – 20 nov."
+          },
+          {
+            "nom": "Suivre et ajuster",
+            "dates": "23 – 27 nov."
+          },
+          {
+            "nom": "Mesurer et décider",
+            "dates": "30 nov. – 4 déc."
+          },
+          {
+            "nom": "Accélérer",
+            "dates": "déc. – fév."
+          }
+        ],
+        "etape_actuelle": {
+          "t": "Restituer et lancer",
+          "a_valider": "Déduit des dates du planning CRM (16–20 nov.). Le CRM affiche encore « S1 · Cadrer et préparer »"
+        },
+        "appris": [],
+        "appris_attente": "Les premiers enseignements par cible arrivent au bilan du premier mois, début décembre 2026."
+      }
+    },
+    {
+      "slug": "registre-general",
+      "client": "Registre Général",
+      "site": "https://www.registregeneral.com",
+      "logo": {
+        "src": "/images/clients/registre-general.webp",
+        "w": 224,
+        "h": 77,
+        "h_carte": 34,
+        "h_page": 52
+      },
+      "offre": "decouverte",
+      "statut": "en_cours",
+      "debut": "novembre 2026",
+      "etiquettes": [
+        {
+          "t": "Salon",
+          "a_valider": "Étiquette proposée par Claude d'après le projet « Sprint TransfoDroit » (CRM)"
+        },
+        {
+          "t": "Prospection",
+          "a_valider": "Étiquette proposée par Claude d'après le projet « Sprint TransfoDroit » (CRM)"
+        }
+      ],
+      "accroche": "Remplir l'agenda d'un stand de salon avant même l'ouverture des portes",
+      "seo": {
+        "title": "Registre Général : cas client Offre découverte | Cely",
+        "desc": "Registre Général tient les registres légaux des sociétés en ligne. Ce qu'on a lancé : 300 décideurs ciblés et invités sur son stand du salon TransfoDroit.",
+        "og": "og-cas-registre-general.png",
+        "og_titre": "Registre Général invite 300 décideurs sur son stand"
+      },
+      "decouverte": {
+        "client_phrase": "Registre Général tient en ligne les registres légaux des sociétés : mouvements de titres, assemblées, dirigeants, personnel, avec une certification et un coffre-fort horodaté.",
+        "hypothese": "Inviter les bonnes cibles avant TransfoDroit peut remplir l'agenda du stand de rendez-vous qualifiés, au lieu d'attendre que les visiteurs passent.",
+        "lance_intro": "Un sprint de trois semaines autour du salon TransfoDroit, les 24 et 25 novembre 2026 à la Cité des Sciences, à Paris.",
+        "chiffres": [
+          {
+            "n": "300",
+            "label": "décideurs ciblés pour le stand"
+          },
+          {
+            "n": "15 min",
+            "label": "de rendez-vous proposés sur place"
+          },
+          {
+            "n": "3",
+            "label": "posts LinkedIn autour du salon"
+          }
+        ],
+        "cibles": [
+          {
+            "nom": "Experts-comptables",
+            "n": 150
+          },
+          {
+            "nom": "Avocats d'affaires",
+            "n": 100
+          },
+          {
+            "nom": "Directions juridiques",
+            "n": 50
+          }
+        ],
+        "actions": [
+          "Trois listes construites sur des cabinets d'au moins 5 à 10 collaborateurs, croisées avec les clients existants",
+          "Les contacts du salon de l'année précédente relancés en premier",
+          {
+            "t": "Les nouveaux agents IA de Registre Général en avant-première, comme raison de passer au stand",
+            "a_valider": "CRM, projet : accroche « agents IA en avant-première ». Vérifier que Registre Général accepte de citer ces offres publiquement"
+          },
+          "Des invitations LinkedIn et email envoyées chaque jour depuis le profil du dirigeant, tout restant dans son propre compte",
+          "Après le salon, les visiteurs relancés puis transmis à l'équipe pour les devis"
+        ],
+        "blocs": [],
+        "etapes": [
+          {
+            "nom": "Préparer",
+            "dates": "11 – 12 nov."
+          },
+          {
+            "nom": "Inviter",
+            "dates": "12 – 23 nov."
+          },
+          {
+            "nom": "Le salon",
+            "dates": "24 – 25 nov."
+          },
+          {
+            "nom": "Relancer et bilan",
+            "dates": "26 – 27 nov."
+          }
+        ],
+        "etape_actuelle": {
+          "t": "Inviter",
+          "a_valider": "Déduit des dates du planning CRM (12–23 nov.). Le CRM affiche encore « Préparer »"
+        },
+        "appris": [],
+        "appris_attente": "Les résultats par cible et les rendez-vous obtenus arrivent au bilan du sprint, le 27 novembre 2026."
+      }
+    }
+  ]
+}

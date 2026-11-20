@@ -31,6 +31,18 @@
   "date": "2026-11-20",
   "hash": "f2c88d0024660fc0874146d0113c15da"
  },
+ "/cas-clients": {
+  "date": "2026-11-20",
+  "hash": "54e3c8a95e0484e2e9a22f66bf97a803"
+ },
+ "/cas-clients/hexagone-ai": {
+  "date": "2026-11-20",
+  "hash": "1ed7fbfb5854a24e8b1e6acb50e04fb0"
+ },
+ "/cas-clients/registre-general": {
+  "date": "2026-11-20",
+  "hash": "a94fc67cc66d8167f899fa00ff0809e4"
+ },
  "/comparatif-growth-marketing": {
   "date": "2026-11-20",
   "hash": "bdcb3856e0241820dec07a733d60714f"

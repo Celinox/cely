@@ -409,10 +409,16 @@ def main():
     src = re.sub(r'\n?<!--COMPONENT:([A-Z_]+)-->.*?<!--/COMPONENT:\1-->\n?', '\n', src, flags=re.S)
     start = src.index('<div id="site-content">') + len('<div id="site-content">')
     end = src.rindex('</div>', start, src.index('<footer class="site-footer"'))
+    # cas clients : générés depuis src/cas-clients.json (voir scripts/cas_clients.py)
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    import cas_clients
+    cc_mains, cc_pages, cc_a_valider = cas_clients.generate(CONFIG, H, OG, ORGANIZATION, os.environ.get('CAS_CLIENTS_DATA'))
+    mains.update(cc_mains)
+    all_pages = PAGES + cc_pages
     lastmod_path = os.path.join(ROOT, 'scripts', 'lastmod.json')
     lastmod = json.load(open(lastmod_path, encoding='utf-8')) if os.path.exists(lastmod_path) else {}
     warnings = []
-    for p in PAGES:
+    for p in all_pages:
         assert p['key'] in mains, 'page absente de la source : ' + p['key']
         assert len(p['title']) <= 60, ('title > 60', p['title'])
         assert len(p['desc']) <= 210, ('description > 210', p['desc'], len(p['desc']))
@@ -459,13 +465,17 @@ def main():
         print('  %-40s %6d Ko  %s' % (p['out'], len(page.encode('utf-8')) // 1024, p['path'] or '(404)'))
     # sitemap : uniquement les URL canoniques indexables
     rows = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for p in PAGES:
+    for p in all_pages:
         if p.get('sitemap', True) and p['path'] and p.get('robots', 'index, follow').startswith('index'):
             rows += ['  <url>', '    <loc>%s%s</loc>' % (SITE, p['path']), '    <lastmod>%s</lastmod>' % lastmod[p['path']]['date'],
                      '    <changefreq>%s</changefreq>' % p['freq'], '    <priority>%s</priority>' % p['prio'], '  </url>']
     rows.append('</urlset>')
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write('\n'.join(rows) + '\n')
+    if cc_a_valider:
+        print('  Cas clients : %d élément(s) « À valider » affichés sur les pages :' % len(cc_a_valider))
+        for pg, txt, src_ in cc_a_valider:
+            print('    - %s : %s  [source : %s]' % (pg, txt, src_))
     with open(lastmod_path, 'w', encoding='utf-8') as f:
         json.dump(lastmod, f, ensure_ascii=False, indent=1, sort_keys=True)
     print('  sitemap.xml mis à jour (lastmod réel par page, voir scripts/lastmod.json)')
