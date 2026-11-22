@@ -113,6 +113,11 @@
       "source": "/og-inbound-vs-outbound.png",
       "destination": "/images/og-inbound-vs-outbound.png",
       "statusCode": 301
+    },
+    {
+      "source": "/api/_cms/:path*",
+      "destination": "/actualites",
+      "statusCode": 301
     }
   ],
   "headers": [
@@ -152,5 +157,34 @@
         }
       ]
     }
-  ]
+  ],
+  "rewrites": [
+    {
+      "source": "/actualites",
+      "destination": "/api/cms-actualites"
+    },
+    {
+      "source": "/actualites/:slug",
+      "destination": "/api/cms-article?slug=:slug"
+    },
+    {
+      "source": "/apercu",
+      "destination": "/api/cms-apercu"
+    },
+    {
+      "source": "/sitemap-articles.xml",
+      "destination": "/api/cms-sitemap"
+    }
+  ],
+  "functions": {
+    "api/cms-article.js": {
+      "includeFiles": "{api/_cms/**,404.html}"
+    },
+    "api/cms-apercu.js": {
+      "includeFiles": "api/_cms/**"
+    },
+    "api/cms-actualites.js": {
+      "includeFiles": "api/_cms/**"
+    }
+  }
 }

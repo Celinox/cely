@@ -3,3 +3,4 @@ Allow: /
 Disallow: /api/
 
 Sitemap: https://www.celygrowth.com/sitemap.xml
+Sitemap: https://www.celygrowth.com/sitemap-articles.xml
