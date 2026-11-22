@@ -229,7 +229,7 @@ PAGES = [
          title="Freelance, agence ou directeur marketing externalisé ?",
          desc="Growth marketer freelance, agence, salarié ou directeur marketing externalisé : avantages, limites et coûts pour bien choisir en startup B2B.",
          ld=[ARTICLE_COMP, PERSON_CELIEN]),
-    dict(key='actu', out='actualites.html', path='/actualites', prio='0.6', freq='weekly', img=OG + 'og-ressources.png',
+    dict(key='actu', out='api/_cms/actualites.html', path='/actualites', prio='0.6', freq='weekly', img=OG + 'og-ressources.png',
          crumbs=[H, ("Ressources", "/actualites")],
          title="Ressources growth marketing B2B : guides et outils | Cely",
          desc="Guides, analyses et outils gratuits sur le growth marketing B2B : acquisition, prospection, SEO et GEO. Écrits à partir de ce qu'on applique sur le terrain.",
@@ -299,6 +299,10 @@ PAGES = [
     dict(key='cookies', out='cookies.html', path='/cookies', robots='noindex, follow', sitemap=False,
          crumbs=[H, ("Cookies", "/cookies")],
          title="Cookies | Cely", desc="Les cookies sur celygrowth.com : aucun cookie de mesure d'audience ni de publicité, les services tiers concernés et comment paramétrer votre navigateur."),
+    # Gabarit des articles du CMS (Cely Growth) : servi par api/cms-article.js, qui remplit les marqueurs <!--CMS:…-->.
+    # La page Ressources ci-dessus est aussi un gabarit (api/cms-actualites.js y ajoute les articles du CMS).
+    dict(key='cms-article', out='api/_cms/article.html', path=None, robots='noindex, follow', sitemap=False, raw_head=True,
+         title="Article | Cely", desc="Gabarit des articles publiés depuis le CMS de Cely Growth."),
     dict(key='404', out='404.html', path=None, robots='noindex, follow', sitemap=False,
          title="Page introuvable | Cely", desc="Cette page n'existe pas ou plus. Retrouvez l'accueil de Cely, l'offre Growth Part-Time ou nos ressources growth marketing B2B, ou réservez un diagnostic."),
 ]
@@ -478,7 +482,7 @@ def main():
         if rdv_float:
             page = page.replace('</body>', comps['RDV_FLOAT'] + '\n</body>', 1)
         faq = faq_from_main(body_main, SITE + p['path']) if p['path'] and not p.get('no_faq') else None
-        page = page.replace('<!--PAGE_HEAD-->', head_for(p, faq), 1)
+        page = page.replace('<!--PAGE_HEAD-->', '<!--CMS:HEAD-->' if p.get('raw_head') else head_for(p, faq), 1)
         if p.get('topbar'):
             # classe posée dès le HTML : la place du bandeau est réservée avant que :has() ne le détecte (évite un décalage au chargement)
             page = page.replace('<html lang="fr">', '<html lang="fr" class="has-topbar">', 1)
