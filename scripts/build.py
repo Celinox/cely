@@ -201,30 +201,30 @@ OG = SITE + "/images/og/"
 
 # key = data-page dans src/site.html ; out = fichier généré ; path = URL canonique
 PAGES = [
-    dict(key='hero', out='index.html', path='/', prio='1.0', freq='weekly', topbar=True, img=OG + 'og-accueil.png',
+    dict(key='hero', out='index.html', path='/', prio='1.0', freq='weekly', img=OG + 'og-accueil.png',
          title="Agence growth marketing B2B pour startups | Cely",
          desc="Cely, l'agence growth marketing des startups B2B qui n'ont pas encore de growth : stratégie, outbound, inbound et automatisation. Sans engagement.",
          ld=[LOCAL_BUSINESS, WEBSITE, PERSON_CELIEN]),
-    dict(key='growth', out='growth.html', path='/growth', prio='0.9', freq='monthly', topbar=True, img=OG + 'og-growth.png',
+    dict(key='growth', out='growth.html', path='/growth', prio='0.9', freq='monthly', img=OG + 'og-growth.png',
          crumbs=[H, ("Growth Part-Time", "/growth")],
          title="Growth marketer freelance pour startups B2B | Cely",
          desc="Un growth marketer freelance intégré à votre équipe : stratégie, outbound, inbound, automatisation. Sans engagement, 1er mois remboursé.",
          ld=[SERVICE_GROWTH]),
-    dict(key='audit', out='audit.html', path='/audit', prio='0.8', freq='monthly', topbar=True, img=OG + 'og-audit.png',
+    dict(key='audit', out='audit.html', path='/audit', prio='0.8', freq='monthly', img=OG + 'og-audit.png',
          crumbs=[H, ("Audits", "/audit")],
          title="Audits marketing digital pour startups B2B | Cely",
          desc="Les audits Cely : des diagnostics écrits et actionnables sur votre acquisition digitale. Découvrez l'Audit Marketing Digital, notre premier format."),
-    dict(key='audit-detail', out='audit/audit-marketing-digital.html', path='/audit/audit-marketing-digital', prio='0.8', freq='monthly', topbar=True,
+    dict(key='audit-detail', out='audit/audit-marketing-digital.html', path='/audit/audit-marketing-digital', prio='0.8', freq='monthly',
          img=OG + 'og-audit-marketing-digital.png', crumbs=[H, ("Audits", "/audit"), ("Audit Marketing Digital", "/audit/audit-marketing-digital")],
          title="Audit Marketing Digital complet (1 250 €) | Cely",
          desc="Audit Marketing Digital Cely : diagnostic complet de votre acquisition et plan d'action priorisé, en rapport écrit de 50 pages avec suivi — 1 250 €.",
          ld=[SERVICE_AUDIT]),
-    dict(key='services', out='services.html', path='/services', prio='0.6', freq='monthly', topbar=True, img=OG + 'og-services.png',
+    dict(key='services', out='services.html', path='/services', prio='0.6', freq='monthly', img=OG + 'og-services.png',
          crumbs=[H, ("Services", "/services")],
          title="Services growth marketing B2B | Cely",
          desc="Les services Cely pour la croissance digitale des startups B2B : stratégie, outbound, inbound, automatisation, publicité, lead scoring et audit.",
          ld=[SERVICES_LIST]),
-    dict(key='comparatif', out='comparatif-growth-marketing.html', path='/comparatif-growth-marketing', prio='0.7', freq='monthly', topbar=True, img=OG + 'og-services.png',
+    dict(key='comparatif', out='comparatif-growth-marketing.html', path='/comparatif-growth-marketing', prio='0.7', freq='monthly', img=OG + 'og-services.png',
          crumbs=[H, ("Comparatif", "/comparatif-growth-marketing")],
          title="Freelance, agence ou directeur marketing externalisé ?",
          desc="Growth marketer freelance, agence, salarié ou directeur marketing externalisé : avantages, limites et coûts pour bien choisir en startup B2B.",
@@ -286,7 +286,7 @@ PAGES = [
          crumbs=[H, ("Nous rejoindre", "/nous-rejoindre")],
          title="Nous rejoindre : réseau d'experts growth | Cely",
          desc="Rejoindre le réseau Cely : experts outbound, paid, SEO, tracking et contenu, mobilisés selon les besoins réels de chaque mission client, dans la durée."),
-    dict(key='contact', out='contact.html', path='/contact', prio='0.6', freq='yearly', topbar=True, img=OG + 'og-contact.png', cta=False,
+    dict(key='contact', out='contact.html', path='/contact', prio='0.6', freq='yearly', img=OG + 'og-contact.png', cta=False,
          crumbs=[H, ("Contact", "/contact")],
          title="Contact : premier rendez-vous offert | Cely",
          desc="Parlez de votre croissance avec Cely : un premier rendez-vous offert de 30 minutes pour identifier vos blocages et repartir avec des pistes concrètes."),
@@ -389,6 +389,35 @@ def minify_css(css):
         res.append(seg)
     return ''.join(res).strip()
 
+def latest_articles(src):
+    """Les deux derniers articles (date de la page Ressources) : cartes du panneau
+    Ressources de la navigation et section « Derniers articles » de l'accueil.
+    Mis à jour à chaque build, sans chargement côté navigateur."""
+    actu = re.search(r'<main class="site-page[^"]*" data-page="actu".*?</main>', src, re.S).group(0)
+    arts = []
+    for m in re.finditer(r'<a href="(/actualites/[^"]+)"[^>]*class="rs-card[^"]*"[^>]*>(.*?)</a>', actu, re.S):
+        b = m.group(2)
+        def g(pat):
+            f = re.search(pat, b, re.S)
+            return f.group(1) if f else ''
+        arts.append(dict(url=m.group(1), img=g(r'<img src="([^"]+)"'), date=g(r'<time datetime="([^"]+)"'),
+                         date_txt=g(r'<time[^>]*>([^<]+)</time>'), title=g(r'<h3 class="rs-title">(.*?)</h3>'),
+                         dek=g(r'<span class="rs-dek">(.*?)</span>')))
+    arts.sort(key=lambda a: a['date'], reverse=True)
+    arts = arts[:2]
+    nav = ''.join(
+        '<a class="np-card" href="%s" data-route="actualites"><span class="np-vis"><img src="%s" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>'
+        '<span class="np-t">%s</span><span class="np-d">%s</span></a>' % (a['url'], a['img'], a['title'], a['date_txt']) for a in arts)
+    home = ''.join(
+        '\n        <a href="%s" data-route="actualites" class="hp-news-card hp-in" style="--i:%d">'
+        '\n          <span class="h-news-cover"><img src="%s" alt="" width="1200" height="630" loading="lazy" decoding="async"></span>'
+        '\n          <span class="hp-news-meta">%s · Célien Boillot</span>'
+        '\n          <span class="hp-news-title">%s</span>'
+        '\n          <span class="hp-news-dek">%s</span>'
+        '\n          <span class="hp-news-go">Lire l\'article ↗</span>'
+        '\n        </a>' % (a['url'], i, a['img'], a['date_txt'], a['title'], a['dek']) for i, a in enumerate(arts))
+    return src.replace('<!--LATEST_ARTICLES:NAV-->', nav).replace('<!--LATEST_ARTICLES:HOME-->', home + '\n      ')
+
 def main():
     src = open(SRC, encoding='utf-8').read()
     # blocs conditionnels <!--IF:FLAG--> … <!--/IF:FLAG--> pilotés par site-config.json
@@ -397,6 +426,7 @@ def main():
     src = re.sub(r'<!--IF:([A-Z_]+)-->(.*?)<!--/IF:\1-->\n?', _if, src, flags=re.S)
     # constantes {{NOM}}
     src = re.sub(r'\{\{([A-Z_]+)\}\}', lambda m: str(CONFIG[m.group(1)]), src)
+    src = latest_articles(src)
     warnings_long = []
     assert '<!--PAGE_HEAD-->' in src, 'marqueur <!--PAGE_HEAD--> absent de src/site.html'
     start = src.index('<div id="site-content">') + len('<div id="site-content">')

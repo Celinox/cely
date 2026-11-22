@@ -97,60 +97,91 @@ img{ max-width:100%; display:block; }
 }
 
 /* ============================================================
-   NAV — composant "liquid glass" repris du site en ligne (validé)
+   NAV — barre transparente sur le hero, fond blanc au survol,
+   panneaux Services / Ressources, version compacte au défilement
    ============================================================ */
-html.supports-glass-displace .glass-refraction{ backdrop-filter: blur(calc(3px + 7px * var(--nav-scroll,0))) url(#glassDisplace) saturate(1.08); }
-.nav-shell{ position:fixed; left:50%; top:var(--nav-top); z-index:100; transform:translateX(-50%); width:fit-content; max-width:calc(100vw - 32px); border-radius:var(--nav-r); isolation:isolate; transition:border-radius .4s var(--ease-cely-soft), top .3s var(--ease-cely-soft); }
-.nav-glass{ position:absolute; inset:0; z-index:0; border-radius:inherit; overflow:hidden; pointer-events:none; }
-.glass-refraction{ position:absolute; inset:0; backdrop-filter: blur(calc(4px + 9px * var(--nav-scroll,0))) saturate(1.08); -webkit-backdrop-filter: blur(calc(4px + 9px * var(--nav-scroll,0))) saturate(1.08); }
-.glass-tint{ position:absolute; inset:0; background:linear-gradient(165deg, rgba(255,255,255,.72), rgba(233,215,255,.38) 60%, rgba(255,255,255,.5)); opacity:calc(.34 + .5 * var(--nav-scroll,0)); transition:opacity .2s linear; }
-.nav-shell.menu-open .glass-tint{ opacity:1; background:linear-gradient(165deg, rgba(250,249,252,.97), rgba(238,231,250,.95)); }
-.nav-shell.menu-open .glass-refraction{ backdrop-filter: blur(22px) saturate(1.05); -webkit-backdrop-filter: blur(22px) saturate(1.05); }
-.nav-shell.menu-open .glass-specular{ opacity:.25; }
-.glass-specular{ position:absolute; inset:0; opacity:.55; mix-blend-mode:overlay; background:radial-gradient(220px 120px at var(--light-x,50%) var(--light-y,-10%), rgba(255,255,255,.6), transparent 72%); transition:opacity .3s var(--ease-cely-out); }
-.glass-edge{ position:absolute; inset:0; border-radius:inherit; box-shadow: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(26,17,40,.09), inset 0 0 0 1px rgba(255,255,255,.32); }
-.glass-edge::after{ content:""; position:absolute; inset:0; border-radius:inherit; opacity:.55; mix-blend-mode:overlay; background: linear-gradient(96deg, rgba(139,91,255,.22), transparent 16%), linear-gradient(266deg, rgba(232,139,247,.18), transparent 16%); }
-.nav-shell::after{ content:""; position:absolute; left:8%; right:8%; bottom:-14px; height:16px; z-index:-1; background:radial-gradient(closest-side, rgba(26,17,40,.16), transparent 75%); opacity:calc(.4 + .5 * var(--nav-scroll,0)); filter:blur(4px); }
-.nav-inner{ position:relative; z-index:2; display:flex; align-items:center; gap:clamp(20px,3vw,44px); height:calc(var(--nav-h) - 8px * var(--nav-scroll,0)); padding-inline:clamp(14px,2vw,22px); transition:height .3s var(--ease-cely-soft); }
-.nav-logo-link{ position:relative; z-index:3; display:flex; align-items:center; padding:6px 4px 6px 8px; }
+:root{ --nav-top:12px; --nav-h:68px; }
+.nav-shell{ position:fixed; top:0; left:0; right:0; z-index:100; padding:var(--nav-top) clamp(10px,1.6vw,20px) 0; pointer-events:none; }
+.nav-frame{ position:relative; max-width:1280px; margin-inline:auto; pointer-events:auto; }
+.nav-bg{ position:absolute; left:0; right:0; top:0; height:var(--nav-bg-h, var(--nav-h)); border-radius:22px; background:var(--white); border:1px solid transparent; opacity:0; transition:opacity .25s var(--ease-cely-soft), height .4s var(--ease-cely-out), box-shadow .3s var(--ease-cely-soft), border-color .3s var(--ease-cely-soft), background-color .3s var(--ease-cely-soft); }
+.nav-shell:hover .nav-bg, .nav-shell:focus-within .nav-bg, .nav-shell.is-scrolled .nav-bg, .nav-shell.is-open .nav-bg, .nav-shell.menu-open .nav-bg{ opacity:1; }
+.nav-shell.is-scrolled .nav-bg{ background:rgba(255,255,255,.88); -webkit-backdrop-filter:blur(14px) saturate(1.2); backdrop-filter:blur(14px) saturate(1.2); border-color:var(--border); box-shadow:0 18px 40px -28px rgba(26,17,40,.4); }
+.nav-shell.is-open .nav-bg, .nav-shell.menu-open .nav-bg{ background:var(--white); border-color:var(--border); box-shadow:0 34px 70px -34px rgba(26,17,40,.5); }
+.nav-shell.menu-open .nav-bg{ height:auto; bottom:0; }
+.nav-shell.is-scrolled{ --nav-h:60px; }
+.nav-inner{ position:relative; z-index:2; display:flex; align-items:center; gap:clamp(14px,2vw,32px); height:var(--nav-h); padding-inline:clamp(12px,1.4vw,20px); transition:height .3s var(--ease-cely-soft); }
+.nav-logo-link{ display:flex; align-items:center; padding:6px 4px; border-radius:10px; }
 .nav-logo-link img{ display:block; height:30px; width:auto; max-width:none; }
-.nav-links{ position:relative; display:flex; align-items:center; gap:clamp(4px,1vw,10px); }
-.nav-links a{ position:relative; z-index:1; display:inline-flex; align-items:center; gap:1px; font-family:var(--font-label); font-size:.92rem; font-weight:500; color:var(--prune); padding:9px 13px; border-radius:13px; white-space:nowrap; }
-.nl-slash{ display:inline-block; width:0; height:7px; border-radius:50%; background:var(--violet); vertical-align:middle; margin-right:0; overflow:hidden; opacity:0; transform:translateX(-4px); transition:width .2s var(--ease-cely-out), opacity .16s var(--ease-cely-out), transform .2s var(--ease-cely-out); }
-.nav-links a:hover .nl-slash, .nav-links a:focus-visible .nl-slash{ width:7px; margin-right:7px; opacity:1; transform:translateX(0); }
-.nl-priority{ font-weight:600; }
-.nl-slash.is-permanent{ width:7px; margin-right:7px; opacity:1; transform:translateX(0); }
-.nl-quiet{ opacity:.72; }
-.nl-quiet:hover{ opacity:1; }
-.nav-links a[aria-current="page"]{ font-weight:600; }
-.nav-links a[aria-current="page"] .nl-slash{ width:7px; margin-right:7px; opacity:1; transform:translateX(0); }
-.footer-nav a[aria-current="page"]{ color:var(--off-white); }
-.footer-nav a[aria-current="page"]::after{ transform:scaleX(1); }
-.nav-right{ display:flex; align-items:center; gap:10px; }
-.nav-cta{ position:relative; display:inline-flex; align-items:center; gap:9px; padding:11px 19px; border-radius:16px; font-family:var(--font-label); font-weight:600; font-size:.9rem; color:var(--prune); white-space:nowrap; background:linear-gradient(180deg, rgba(255,255,255,.62), rgba(233,215,255,.42)); box-shadow:inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 1px rgba(122,70,255,.16), 0 1px 3px rgba(26,17,40,.07); transition:background .25s var(--ease-cely-out), transform .15s var(--ease-cely-out); }
-.nav-cta:hover{ background:linear-gradient(180deg, rgba(255,255,255,.78), rgba(122,70,255,.26)); }
-.nav-cta svg{ width:14px; height:14px; flex:none; transition:transform .22s var(--ease-cely-out); }
-.nav-cta:hover svg{ transform:translate(3px,-2px) scale(1.06); }
-.burger{ display:none; width:40px; height:40px; border-radius:13px; background:rgba(255,255,255,.4); box-shadow:inset 0 1px 0 rgba(255,255,255,.7), inset 0 0 0 1px rgba(122,70,255,.12); align-items:center; justify-content:center; flex:none; position:relative; z-index:1; }
+.nav-logo-link:focus-visible{ outline:2.5px solid var(--violet-3); outline-offset:2px; }
+.nav-links{ display:flex; align-items:center; gap:2px; height:100%; }
+.nl-item{ display:flex; align-items:center; height:100%; }
+.nl{ display:inline-flex; align-items:center; gap:7px; height:42px; padding:0 14px; border-radius:12px; font-family:var(--font-label); font-size:.95rem; font-weight:600; color:var(--prune); white-space:nowrap; transition:background-color .2s var(--ease-cely-soft), color .2s var(--ease-cely-soft); }
+.nl:hover, .nl[aria-expanded="true"]{ background:var(--off-white-2); }
+.nl:focus-visible{ outline:2.5px solid var(--violet-3); outline-offset:2px; }
+.nl[aria-current="page"]{ color:var(--violet-3); }
+.nl-chev{ width:10px; height:10px; flex:none; transition:transform .25s var(--ease-cely-out); }
+.nl[aria-expanded="true"] .nl-chev{ transform:rotate(180deg); }
+.nav-right{ margin-left:auto; display:flex; align-items:center; gap:10px; }
+.nav-btn{ display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 18px; border:2px solid var(--prune); border-radius:999px; font-family:var(--font-label); font-weight:700; font-size:.92rem; line-height:1; white-space:nowrap; transition:transform .2s var(--ease-cely-out), box-shadow .2s var(--ease-cely-out), background-color .2s var(--ease-cely-out); }
+.nav-btn svg{ flex:none; width:13px; height:13px; }
+.nav-btn:focus-visible{ outline:2.5px solid var(--pink); outline-offset:3px; }
+.nav-btn-ghost{ background:transparent; color:var(--prune); }
+.nav-btn-ghost:hover{ background:var(--white); transform:translate(-1px,-1px); box-shadow:3px 3px 0 var(--prune); }
+.nav-btn-primary{ background:var(--violet-3); color:var(--white); box-shadow:3px 3px 0 var(--prune); }
+.nav-btn-primary:hover{ background:var(--violet-2); transform:translate(-1px,-1px); box-shadow:4px 4px 0 var(--prune); }
+.nav-btn-primary:active, .nav-btn-ghost:active{ transform:translate(2px,2px); box-shadow:none; }
+
+/* panneaux */
+.nav-panel{ position:absolute; left:0; right:0; top:var(--nav-h); z-index:1; display:grid; grid-template-columns:minmax(110px,.55fr) minmax(0,1.3fr) minmax(0,2fr); align-items:start; padding:clamp(18px,2vw,28px) clamp(24px,2.6vw,40px) clamp(28px,3vw,40px); opacity:0; visibility:hidden; transform:translateY(-6px); transition:opacity .18s var(--ease-cely-soft), transform .22s var(--ease-cely-soft), visibility 0s linear .22s; }
+.nav-panel.is-open{ opacity:1; visibility:visible; transform:none; transition:opacity .25s var(--ease-cely-out) .08s, transform .3s var(--ease-cely-out) .08s, visibility 0s; }
+.np-label{ margin:0; padding-top:12px; font-family:var(--font-label); font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--violet-3); }
+.np-links{ list-style:none; margin:0; padding:0 clamp(20px,3vw,48px) 0 0; display:flex; flex-direction:column; }
+.np-links a{ display:inline-block; padding:7px 0; font-family:var(--font-display); font-weight:800; font-size:clamp(1.3rem,1rem + .7vw,1.75rem); line-height:1.15; letter-spacing:-.02em; color:var(--prune); transition:color .2s var(--ease-cely-soft), transform .2s var(--ease-cely-out); }
+.np-links a:hover{ color:var(--violet-3); transform:translateX(4px); }
+.np-links a:focus-visible{ outline:2.5px solid var(--violet-3); outline-offset:3px; border-radius:6px; }
+.np-cards{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; padding-left:clamp(20px,3vw,48px); border-left:1px solid var(--border); }
+.np-card{ display:flex; flex-direction:column; gap:6px; padding:10px 10px 14px; border:1px solid var(--border); border-radius:var(--hp-r-sm); color:var(--prune); background:var(--white); transition:transform .22s var(--ease-cely-out), box-shadow .22s var(--ease-cely-out), border-color .22s var(--ease-cely-out); }
+.np-card:hover{ transform:translate(-2px,-2px); border-color:var(--prune); box-shadow:5px 5px 0 var(--prune); }
+.np-card:focus-visible{ outline:2.5px solid var(--violet-3); outline-offset:3px; }
+.np-vis{ display:block; aspect-ratio:1200 / 630; margin-bottom:6px; border-radius:10px; overflow:hidden; background:var(--lavender); }
+.np-vis img{ display:block; width:100%; height:100%; object-fit:cover; }
+.np-t{ padding-inline:4px; font-family:var(--font-display); font-weight:800; font-size:1.02rem; line-height:1.25; }
+.np-d{ padding-inline:4px; font-size:.9rem; line-height:1.45; color:var(--muted); }
+.nav-scrim{ position:fixed; inset:0; z-index:-1; background:rgba(26,17,40,.3); opacity:0; pointer-events:none; transition:opacity .3s var(--ease-cely-soft); }
+.nav-shell.is-open .nav-scrim{ opacity:1; pointer-events:auto; }
+
+/* menu mobile */
+.burger{ display:none; width:44px; height:44px; border-radius:13px; background:transparent; border:1.5px solid var(--prune); align-items:center; justify-content:center; flex:none; }
+.burger:focus-visible{ outline:2.5px solid var(--violet-3); outline-offset:2px; }
 .burger .bars{ position:relative; width:16px; height:11px; }
-.burger .bars span{ position:absolute; left:0; right:0; height:1.6px; background:var(--prune); border-radius:2px; transition:transform .25s var(--ease-cely-out), opacity .2s; }
+.burger .bars span{ position:absolute; left:0; right:0; height:1.8px; background:var(--prune); border-radius:2px; transition:transform .25s var(--ease-cely-out), opacity .2s; }
 .burger .bars span:nth-child(1){ top:0; } .burger .bars span:nth-child(2){ top:4.5px; } .burger .bars span:nth-child(3){ top:9px; }
 .burger[aria-expanded="true"] .bars span:nth-child(1){ transform:translateY(4.5px) rotate(45deg); }
 .burger[aria-expanded="true"] .bars span:nth-child(2){ opacity:0; }
 .burger[aria-expanded="true"] .bars span:nth-child(3){ transform:translateY(-4.5px) rotate(-45deg); }
-.nav-mobile-panel-wrap{ display:grid; grid-template-rows:0fr; transition:grid-template-rows .55s cubic-bezier(.19,1,.22,1); }
+.nav-mobile-panel-wrap{ position:relative; z-index:2; display:grid; grid-template-rows:0fr; transition:grid-template-rows .45s cubic-bezier(.19,1,.22,1); }
 .nav-shell.menu-open .nav-mobile-panel-wrap{ grid-template-rows:1fr; }
-.nav-mobile-panel{ overflow:hidden; min-height:0; position:relative; z-index:1; background:var(--off-white); }
-.nmp-links{ display:flex; flex-direction:column; gap:2px; padding:8px clamp(14px,3vw,22px) 6px; }
-.nmp-links a{ font-family:var(--font-display); font-weight:800; font-size:clamp(1.4rem,7vw,1.8rem); color:var(--prune); padding-block:11px; border-bottom:1px solid rgba(122,70,255,.14); display:flex; justify-content:space-between; align-items:center; }
-.nmp-links a:last-child{ border-bottom:0; }
-.nmp-foot{ padding:10px clamp(14px,3vw,22px) clamp(18px,4vw,26px); }
+.nav-mobile-panel{ overflow:hidden; min-height:0; }
+.nmp-scroll{ max-height:calc(100svh - var(--nav-top) - var(--nav-h) - 16px); overflow-y:auto; overscroll-behavior:contain; }
+.nmp-links{ display:flex; flex-direction:column; padding:4px clamp(14px,3vw,22px) 6px; }
+.nmp-links > a, .nmp-acc{ display:flex; align-items:center; justify-content:space-between; width:100%; padding:14px 0; border-bottom:1px solid var(--border); font-family:var(--font-display); font-weight:800; font-size:clamp(1.3rem,6vw,1.65rem); color:var(--prune); text-align:left; }
+.nmp-acc .nl-chev{ width:14px; height:14px; }
+.nmp-acc[aria-expanded="true"] .nl-chev{ transform:rotate(180deg); }
+.nmp-acc:focus-visible, .nmp-links a:focus-visible{ outline:2.5px solid var(--violet-3); outline-offset:2px; border-radius:6px; }
+.nmp-sub{ display:flex; flex-direction:column; padding:6px 0 12px 14px; border-bottom:1px solid var(--border); }
+.nmp-sub[hidden]{ display:none; }
+.nmp-sub a{ padding:9px 0; font-family:var(--font-label); font-weight:600; font-size:1rem; color:var(--prune); }
+.nmp-foot{ display:flex; flex-direction:column; gap:10px; padding:14px clamp(14px,3vw,22px) clamp(18px,4vw,24px); }
+.nmp-foot .nav-btn{ justify-content:center; min-height:52px; font-size:1rem; }
 @media (max-width:1180px){
-  .nav-links{ display:none; } .nav-right .nav-cta{ display:none; } .burger{ display:flex; }
-  .nav-shell{ width:calc(100vw - 32px); max-width:420px; } .nav-inner{ justify-content:space-between; }
-  :root{ --nav-h:56px; --nav-top:14px; }
+  .nav-links, .nav-right .nav-btn-ghost{ display:none; }
+  .burger{ display:flex; }
+  .nav-panel{ display:none; }
+  :root{ --nav-h:60px; --nav-top:8px; }
 }
+@media (max-width:600px){ .nav-right .nav-btn-primary{ display:none; } }
 @media (min-width:1181px){ .nav-mobile-panel-wrap{ display:none; } }
+@media (prefers-reduced-motion:reduce){ .nav-bg, .nav-panel, .nav-panel.is-open, .nav-btn, .np-card, .np-links a, .nav-scrim{ transition:none; } }
 
 /* ============================================================
    HERO — mise en scène
@@ -4004,6 +4035,25 @@ a.cc-offre:focus-visible{ outline:2.5px solid var(--prune); outline-offset:2px; 
   .cc-card:hover::before{ transform:none; }
 }
 
+/* accueil : bande de logos clients (fine, entre le hero et la suite) */
+.hp .h-logos{ background:var(--off-white); }
+.hp .h-logos-in{ display:flex; align-items:center; gap:clamp(20px,3vw,48px); padding-block:clamp(18px,2vw,26px); border-block:1px solid var(--border); }
+.hp .h-label{ flex:none; max-width:15ch; margin:0; font-family:var(--font-label); font-size:.78rem; font-weight:700; letter-spacing:.1em; line-height:1.4; text-transform:uppercase; color:#5E546C; }
+.hp .h-logos-list{ flex:1; list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-around; gap:20px clamp(28px,4vw,56px); }
+.hp .h-logos-list li{ display:flex; align-items:center; height:52px; }
+.hp .h-logos-list img{ display:block; width:auto; height:var(--lh,28px); filter:grayscale(1); opacity:.6; transition:opacity .2s var(--ease-cely-soft), filter .2s var(--ease-cely-soft); }
+.hp .h-logos-list li:hover img{ opacity:1; filter:none; }
+.hp .h-logos-next{ flex:none; display:inline-flex; align-items:center; gap:6px; font-family:var(--font-label); font-weight:700; font-size:.92rem; color:var(--violet-3); text-decoration:underline; text-decoration-thickness:1.5px; text-underline-offset:4px; }
+.hp .h-logos-next svg{ width:12px; height:12px; }
+.hp .h-logos-next:hover{ color:var(--prune); }
+.hp .h-logos + .hp-sec{ border-top:0; }
+@media (max-width:860px){
+  .hp .h-logos-in{ flex-direction:column; align-items:flex-start; gap:14px; }
+  .hp .h-label{ max-width:none; }
+  .hp .h-logos-list{ justify-content:flex-start; gap:12px 32px; }
+}
+@media (prefers-reduced-motion:reduce){ .hp .h-logos-list img{ transition:none; } }
+
 /* hub des services : entrée Offre découverte (réutilise le bandeau .od-upsell) */
 .sv-od{ padding-block:clamp(40px,5vw,64px) 0; }
 .sv-od .od-upsell{ margin-top:0; }
@@ -4021,7 +4071,7 @@ a.cc-offre:focus-visible{ outline:2.5px solid var(--prune); outline-offset:2px; 
 <!--COMPONENT:RDV_FLOAT-->
 <!-- Réservation Cely Growth : bouton flottant -->
 <div data-cely-rdv="floating" data-url="{{RDV_URL}}" data-text="Prendre rendez-vous"><a href="{{RDV_URL}}">Prendre rendez-vous</a></div>
-<script src="{{RDV_WIDGET}}" async></script>
+<script>(function(){ if(window.matchMedia("(max-width:1180px)").matches){ var s=document.createElement("script"); s.src="{{RDV_WIDGET}}"; s.async=true; document.body.appendChild(s); } })();</script>
 <!--/COMPONENT:RDV_FLOAT-->
 <!--COMPONENT:CTA_FINAL-->
 <section class="hp-sec hp-dark hp-final" aria-labelledby="hpFinalTitle">
@@ -4044,53 +4094,81 @@ a.cc-offre:focus-visible{ outline:2.5px solid var(--prune); outline-offset:2px; 
 <!--/COMPONENT:CTA_FINAL-->
 <a class="skip-link" href="#site-content">Aller au contenu</a>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <filter id="glassDisplace" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-    <feTurbulence type="fractalNoise" baseFrequency="0.01 0.045" numOctaves="2" seed="7" result="noise"/>
-    <feGaussianBlur in="noise" stdDeviation="2.4" result="softNoise"/>
-    <feDisplacementMap in="SourceGraphic" in2="softNoise" scale="7" xChannelSelector="R" yChannelSelector="G"/>
-  </filter>
-</svg>
 
 <header class="nav-shell" id="siteNav">
-  <div class="nav-glass" aria-hidden="true">
-    <div class="glass-refraction"></div>
-    <div class="glass-tint"></div>
-    <div class="glass-specular"></div>
-    <div class="glass-edge"></div>
-  </div>
-  <div class="nav-inner">
-    <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely — accueil"><img src="/images/cely-logo.svg" alt="Cely" width="676" height="230"></a>
-    <nav class="nav-links" aria-label="Navigation principale">
-      <a href="/growth" data-route="growth" class="nl-priority"><span class="nl-slash is-permanent" aria-hidden="true"></span><span>Growth Part-Time</span></a>
-      <a href="/services" data-route="services"><span class="nl-slash" aria-hidden="true"></span><span>Services</span></a>
-      <a href="/#histoire"><span class="nl-slash" aria-hidden="true"></span><span>À propos</span></a>
-      <a href="/actualites" data-route="actualites"><span class="nl-slash" aria-hidden="true"></span><span>Ressources</span></a>
-    </nav>
-    <div class="nav-right">
-      <a href="/contact#formulaire" data-route="contact" class="nav-cta">
-        <span>Faire le point avec Célien</span>
-        <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="/services/offre-decouverte" data-route="offre-decouverte" class="nav-offer"><span class="nav-offer-dot" aria-hidden="true"></span>Offre découverte</a>
-      <button class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
-        <span class="bars"><span></span><span></span><span></span></span>
-      </button>
+  <div class="nav-scrim" aria-hidden="true"></div>
+  <div class="nav-frame">
+    <div class="nav-bg" aria-hidden="true"></div>
+    <div class="nav-inner">
+      <a href="/" data-route="home" class="nav-logo-link" aria-label="Cely, accueil"><img src="/images/cely-logo.svg" alt="Cely" width="676" height="230"></a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="/growth" data-route="growth" class="nl">Growth Part-Time</a>
+        <div class="nl-item has-panel">
+          <a href="/services" data-route="services" class="nl" aria-expanded="false" aria-controls="navPanelServices">Services<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="nav-panel" id="navPanelServices" inert>
+            <p class="np-label">Services</p>
+            <ul class="np-links">
+              <li><a href="/growth" data-route="growth">Growth Part-Time</a></li>
+              <li><a href="/services/offre-decouverte" data-route="offre-decouverte">Offre découverte</a></li>
+              <li><a href="/audit/audit-marketing-digital" data-route="audit">Audit Marketing Digital</a></li>
+              <li><a href="/comparatif-growth-marketing" data-route="comparatif">Comparatif</a></li>
+            </ul>
+            <div class="np-cards">
+              <a class="np-card" href="/growth" data-route="growth"><span class="np-vis"><img src="/images/og/og-growth.png" alt="" width="1200" height="630" loading="lazy" decoding="async"></span><span class="np-t">Growth Part-Time</span><span class="np-d">Un growth dédié chaque semaine, à partir de 750&nbsp;€&nbsp;HT par mois.</span></a>
+              <a class="np-card" href="/services/offre-decouverte" data-route="offre-decouverte"><span class="np-vis"><img src="/images/og/og-offre-decouverte.png" alt="" width="1200" height="630" loading="lazy" decoding="async"></span><span class="np-t">Offre découverte</span><span class="np-d">300 décideurs contactés, une réponse sur votre marché en 28 jours.</span></a>
+            </div>
+          </div>
+        </div>
+        <a href="/#histoire" class="nl">À propos</a>
+        <div class="nl-item has-panel">
+          <a href="/actualites" data-route="actualites" class="nl" aria-expanded="false" aria-controls="navPanelRessources">Ressources<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="nav-panel" id="navPanelRessources" inert>
+            <p class="np-label">Ressources</p>
+            <ul class="np-links">
+              <li><a href="/actualites" data-route="actualites">Tous les articles</a></li>
+              <li><a href="/cas-clients" data-route="cas-clients">Cas clients</a></li>
+              <li><a href="/manifeste" data-route="manifeste">Manifeste</a></li>
+            </ul>
+            <div class="np-cards"><!--LATEST_ARTICLES:NAV--></div>
+          </div>
+        </div>
+      </nav>
+      <div class="nav-right">
+        <a href="/services/offre-decouverte" data-route="offre-decouverte" class="nav-btn nav-btn-ghost">Offre découverte</a>
+        <a href="/contact#formulaire" data-route="contact" class="nav-btn nav-btn-primary">Faire le point avec Célien<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <button type="button" class="burger" id="burgerBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Ouvrir le menu">
+          <span class="bars"><span></span><span></span><span></span></span>
+        </button>
+      </div>
     </div>
-  </div>
-  <div class="nav-mobile-panel-wrap">
-    <nav class="nav-mobile-panel" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true" inert>
-      <div class="nmp-links">
-        <a href="/growth" data-route="growth">Growth Part-Time</a>
-        <a href="/services" data-route="services">Services</a>
-        <a href="/#histoire">À propos</a>
-        <a href="/actualites" data-route="actualites">Ressources</a>
-      </div>
-      <div class="nmp-foot">
-        <a href="/services/offre-decouverte" data-route="offre-decouverte" class="nav-offer nmp-offer"><span class="nav-offer-dot" aria-hidden="true"></span>Offre découverte</a>
-        <a href="/contact#formulaire" data-route="contact" class="btn-hero" style="width:100%; justify-content:center;">Faire le point avec Célien</a>
-      </div>
-    </nav>
+    <div class="nav-mobile-panel-wrap">
+      <nav class="nav-mobile-panel" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true" inert>
+        <div class="nmp-scroll">
+          <div class="nmp-links">
+            <a href="/growth" data-route="growth">Growth Part-Time</a>
+            <button type="button" class="nmp-acc" aria-expanded="false" aria-controls="nmpServices">Services<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="nmp-sub" id="nmpServices" hidden>
+              <a href="/services" data-route="services">Tous les services</a>
+              <a href="/growth" data-route="growth">Growth Part-Time</a>
+              <a href="/services/offre-decouverte" data-route="offre-decouverte">Offre découverte</a>
+              <a href="/audit/audit-marketing-digital" data-route="audit">Audit Marketing Digital</a>
+              <a href="/comparatif-growth-marketing" data-route="comparatif">Comparatif</a>
+            </div>
+            <a href="/#histoire">À propos</a>
+            <button type="button" class="nmp-acc" aria-expanded="false" aria-controls="nmpRessources">Ressources<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="nmp-sub" id="nmpRessources" hidden>
+              <a href="/actualites" data-route="actualites">Tous les articles</a>
+              <a href="/cas-clients" data-route="cas-clients">Cas clients</a>
+              <a href="/manifeste" data-route="manifeste">Manifeste</a>
+            </div>
+          </div>
+          <div class="nmp-foot">
+            <a href="/contact#formulaire" data-route="contact" class="nav-btn nav-btn-primary">Faire le point avec Célien</a>
+            <a href="/services/offre-decouverte" data-route="offre-decouverte" class="nav-btn nav-btn-ghost">Offre découverte</a>
+          </div>
+        </div>
+      </nav>
+    </div>
   </div>
 </header>
 
@@ -4307,26 +4385,19 @@ a.cc-offre:focus-visible{ outline:2.5px solid var(--prune); outline-offset:2px; 
     </div>
   </section>
 
-  <!-- ============ CLIENTS : logos qui défilent ============ -->
-  <section class="hp-clients" aria-labelledby="hpClientsTitle">
+  <!-- ============ CLIENTS : bande de logos ============ -->
+  <section class="h-logos" aria-label="Clients de Cely">
     <div class="section-wrap">
-      <div class="hp-head hp-head-center hp-in">
-<h2 class="hp-h2" id="hpClientsTitle">Ils ont dit oui avant vous</h2>
-        <p class="hp-clients-sub">(La place juste à côté est libre.)</p>
-      </div>
-      <div class="hp-clients-row hp-in">
-        <div class="hp-clients-marquee">
-          <ul class="hp-clients-track" aria-label="Clients de Cely"><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="Biux" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:35px"><img src="/images/clients/registre-general.webp" alt="Registre Général" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:27px"><img src="/images/clients/hexagone.webp" alt="Hexagone AI" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:58px"><img src="/images/clients/maison-solea.webp" alt="Maison Soléa" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:35px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:27px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:58px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:35px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:27px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:58px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li></ul><ul class="hp-clients-track" aria-hidden="true"><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:35px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:27px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:58px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:35px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:27px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:58px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li><li style="--lh:34px"><img src="/images/clients/biux.svg" alt="" width="1099" height="368" loading="lazy" decoding="async"></li><li style="--lh:35px"><img src="/images/clients/registre-general.webp" alt="" width="224" height="77" loading="lazy" decoding="async"></li><li style="--lh:27px"><img src="/images/clients/hexagone.webp" alt="" width="401" height="84" loading="lazy" decoding="async"></li><li style="--lh:58px"><img src="/images/clients/maison-solea.webp" alt="" width="136" height="135" loading="lazy" decoding="async"></li></ul>
-        </div>
-        <a class="hp-clients-next" href="/services/offre-decouverte" data-route="offre-decouverte">
-          <span class="hp-clients-cely-wrap" aria-hidden="true"><span class="cely-spot hp-clients-cely" data-cely="wave" data-cely-threshold="0.3"></span></span>
-          <span class="hp-clients-next-txt"><b>Et bientôt vous&nbsp;?</b><small>Testez votre marché en 28 jours</small></span>
-        </a>
+      <div class="h-logos-in">
+        <p class="h-label">Ils ont dit oui avant vous</p>
+        <ul class="h-logos-list"><li><img src="/images/clients/biux.svg" alt="Biux" width="1099" height="368" style="--lh:28px" loading="lazy" decoding="async"></li><li><img src="/images/clients/registre-general.webp" alt="Registre Général" width="224" height="77" style="--lh:30px" loading="lazy" decoding="async"></li><li><img src="/images/clients/hexagone.webp" alt="Hexagone AI" width="401" height="84" style="--lh:23px" loading="lazy" decoding="async"></li><li><img src="/images/clients/maison-solea.webp" alt="Maison Soléa" width="136" height="135" style="--lh:46px" loading="lazy" decoding="async"></li></ul>
+        <a class="h-logos-next" href="/services/offre-decouverte" data-route="offre-decouverte">Et bientôt vous&nbsp;?<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>
 
-  <!-- ============ VIDÉO ============ -->
+  <!-- ============ VIDÉO (désactivée : sortir la section du <template> pour la réactiver) ============ -->
+  <template id="hpVideoSection">
   <section class="hp-sec hp-video" aria-labelledby="hpVidTitle">
     <div class="section-wrap">
       <div class="hp-head hp-head-center hp-in">
@@ -4344,6 +4415,7 @@ a.cc-offre:focus-visible{ outline:2.5px solid var(--prune); outline-offset:2px; 
       </div>
     </div>
   </section>
+  </template>
 
   <!-- ============ SYMPTÔMES (sombre) ============ -->
   <section class="hp-sec hp-dark hp-symptoms" id="diagnostic" aria-labelledby="hpSymTitle">
@@ -9287,39 +9359,81 @@ Allow: /</code></pre>
 <script>
 (function(){
   "use strict";
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.getElementById('siteNav');
+  if(!nav) return;
+  var inner = nav.querySelector('.nav-inner');
+  var desk = window.matchMedia('(min-width:1181px)');
 
-  var navShell = document.getElementById('siteNav');
-  (function detectGlassDisplace(){
-    try{
-      var probe = document.createElement('div');
-      probe.style.cssText = 'position:absolute;opacity:0;pointer-events:none;';
-      document.body.appendChild(probe);
-      probe.style.backdropFilter = 'blur(1px) url(#glassDisplace)';
-      var applied = !!probe.style.backdropFilter && probe.style.backdropFilter.indexOf('url') !== -1;
-      document.body.removeChild(probe);
-      if(applied && !reduceMotion) document.documentElement.classList.add('supports-glass-displace');
-    }catch(e){}
-  })();
+  /* barre compacte et fond blanc dès qu'on quitte le haut de page */
   var ticking = false;
-  function updateNavScroll(){
-    var p = Math.min(1, Math.max(0, window.scrollY / 200));
-    navShell.style.setProperty('--nav-scroll', p.toFixed(3));
+  function onScroll(){ ticking = false; nav.classList.toggle('is-scrolled', window.scrollY > 24); }
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, { passive:true });
+  onScroll();
+
+  /* panneaux Services / Ressources : survol avec délai d'intention, focus clavier, Échap */
+  var items = Array.prototype.slice.call(nav.querySelectorAll('.nl-item.has-panel'));
+  var current = null, tOpen = 0, tClose = 0, skipFocus = false;
+  function trig(it){ return it.querySelector('.nl'); }
+  function panel(it){ return it.querySelector('.nav-panel'); }
+  function fit(){ if(current) nav.style.setProperty('--nav-bg-h', (inner.offsetHeight + panel(current).offsetHeight) + 'px'); }
+  function open(it){
+    clearTimeout(tClose);
+    if(current === it) return;
+    if(current) shut(current, true);
+    current = it;
+    var p = panel(it); p.removeAttribute('inert'); p.classList.add('is-open');
+    trig(it).setAttribute('aria-expanded', 'true');
+    nav.classList.add('is-open'); fit();
   }
-  window.addEventListener('scroll', function(){
-    if(ticking) return; ticking = true;
-    requestAnimationFrame(function(){ updateNavScroll(); ticking = false; });
-  }, {passive:true});
-  /* pas de lecture de scrollY au chargement : elle forçait un recalcul de mise en page synchrone.
-     --nav-scroll vaut 0 par défaut en CSS, et une position restaurée par le navigateur déclenche l'événement scroll ci-dessus. */
+  function shut(it, swapping){
+    var p = panel(it); p.classList.remove('is-open'); p.setAttribute('inert', '');
+    trig(it).setAttribute('aria-expanded', 'false');
+    if(current === it) current = null;
+    if(!swapping){ nav.classList.remove('is-open'); nav.style.removeProperty('--nav-bg-h'); }
+  }
+  function closeAll(){ clearTimeout(tOpen); if(current) shut(current); }
+  items.forEach(function(it){
+    var t = trig(it);
+    it.addEventListener('mouseenter', function(){
+      if(!desk.matches) return;
+      clearTimeout(tClose); clearTimeout(tOpen);
+      tOpen = setTimeout(function(){ open(it); }, current ? 0 : 140);
+    });
+    it.addEventListener('mouseleave', function(){ clearTimeout(tOpen); });
+    t.addEventListener('focus', function(){ if(skipFocus){ skipFocus = false; return; } if(desk.matches) open(it); });
+    it.addEventListener('focusout', function(e){ if(current === it && !it.contains(e.relatedTarget)) shut(it); });
+  });
+  nav.querySelectorAll('.nav-links > .nl').forEach(function(a){
+    a.addEventListener('mouseenter', function(){ if(desk.matches){ clearTimeout(tOpen); if(current) shut(current); } });
+  });
+  var frame = nav.querySelector('.nav-frame');
+  frame.addEventListener('mouseleave', function(){ clearTimeout(tOpen); tClose = setTimeout(closeAll, 180); });
+  frame.addEventListener('mouseenter', function(){ clearTimeout(tClose); });
+  nav.querySelector('.nav-scrim').addEventListener('click', closeAll);
+  window.addEventListener('resize', function(){ if(!desk.matches) closeAll(); else fit(); });
 
+  /* menu mobile, sous-menus en accordéon */
   var burger = document.getElementById('burgerBtn');
-  var mobileMenu = document.getElementById('mobileMenu');
-  function openMobileMenu(){ navShell.classList.add('menu-open'); mobileMenu.setAttribute('aria-hidden','false'); mobileMenu.removeAttribute('inert'); burger.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
-  function closeMobileMenu(){ navShell.classList.remove('menu-open'); mobileMenu.setAttribute('aria-hidden','true'); mobileMenu.setAttribute('inert',''); burger.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
-  burger.addEventListener('click', function(){ (this.getAttribute('aria-expanded')==='true') ? closeMobileMenu() : openMobileMenu(); });
-  mobileMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMobileMenu); });
+  var menu = document.getElementById('mobileMenu');
+  function openMenu(){ nav.classList.add('menu-open'); menu.setAttribute('aria-hidden', 'false'); menu.removeAttribute('inert'); burger.setAttribute('aria-expanded', 'true'); burger.setAttribute('aria-label', 'Fermer le menu'); }
+  function closeMenu(){ nav.classList.remove('menu-open'); menu.setAttribute('aria-hidden', 'true'); menu.setAttribute('inert', ''); burger.setAttribute('aria-expanded', 'false'); burger.setAttribute('aria-label', 'Ouvrir le menu'); }
+  burger.addEventListener('click', function(){ burger.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu(); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  menu.querySelectorAll('.nmp-acc').forEach(function(b){
+    b.addEventListener('click', function(){
+      var sub = document.getElementById(b.getAttribute('aria-controls')), on = b.getAttribute('aria-expanded') !== 'true';
+      b.setAttribute('aria-expanded', on ? 'true' : 'false'); sub.hidden = !on;
+    });
+  });
+  desk.addEventListener ? desk.addEventListener('change', function(){ if(desk.matches) closeMenu(); }) : null;
 
+  document.addEventListener('keydown', function(e){
+    if(e.key !== 'Escape') return;
+    if(current){ var t = trig(current); closeAll(); if(document.activeElement !== t){ skipFocus = true; t.focus({ preventScroll:true }); } }
+    else if(nav.classList.contains('menu-open')){ closeMenu(); burger.focus(); }
+  });
+
+  /* apparitions génériques (autres pages) */
   var revealEls = document.querySelectorAll('.reveal');
   if('IntersectionObserver' in window && revealEls.length){
     var io = new IntersectionObserver(function(entries){
