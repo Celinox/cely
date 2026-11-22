@@ -3,13 +3,17 @@
 Les articles du blog se rédigent, se programment et se publient dans le CMS de Cely Growth (le CRM fait foi).
 Le site les lit à chaque visite, sans redéploiement. Les 4 articles statiques existants restent inchangés.
 
-| Adresse | Servi par | Rôle |
+Une seule fonction Vercel, `api/cms.js` (l'offre Hobby limite un déploiement à 12 fonctions), aiguille vers le code
+de chaque page, dans `api/_lib/route-*.js`. Les réécritures sont dans `vercel.json`.
+
+| Adresse | Code | Rôle |
 | --- | --- | --- |
-| `/actualites` | `api/cms-actualites.js` | Page Ressources (gabarit `api/_cms/actualites.html`) avec les articles du CMS en tête de grille |
-| `/actualites/{slug}` | fichier statique, sinon `api/cms-article.js` | Article du CMS ; ancien slug → 301 ; non publié → 404 |
-| `/apercu?jeton=…` | `api/cms-apercu.js` | Aperçu d'un brouillon (lien du CMS, 24 h au plus), jamais indexé ni mis en cache |
-| `/sitemap-articles.xml` | `api/cms-sitemap.js` | Articles publiés et indexables (déclaré dans `robots.txt`) |
-| `POST /api/cms/revalidate` | `api/cms/revalidate.js` | Appel du CRM quand un contenu change (secret vérifié) |
+| `/actualites` | `route-actualites.js` | Page Ressources (gabarit `api/_cms/actualites.html`) avec les articles du CMS en tête de grille |
+| `/actualites/{slug}` | fichier statique, sinon `route-article.js` | Article du CMS ; ancien slug → 301 ; non publié → 404 |
+| `/apercu?jeton=…` | `route-apercu.js` | Aperçu d'un brouillon (lien du CMS, 24 h au plus), jamais indexé ni mis en cache |
+| `/sitemap-articles.xml` | `route-sitemap.js` | Articles publiés et indexables (déclaré dans `robots.txt`) |
+| `POST /api/cms/revalidate` | `route-revalidate.js` | Appel du CRM quand un contenu change (secret vérifié) |
+| `/api/cms/sante` | `route-sante.js` | Diagnostic de la liaison (variables présentes, réponse du CMS), sans aucun secret |
 
 - Cache : le CDN de Vercel garde chaque page du CMS une minute au plus (`s-maxage=60`). Un article publié,
   modifié ou dépublié est donc à jour sur le site en une minute au plus ; un article programmé apparaît dans la

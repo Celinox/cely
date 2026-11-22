@@ -46,7 +46,7 @@ async function cmsGet(p) {
 const cache = {};
 function template(name) {
   if (cache[name]) return cache[name];
-  const candidates = [path.join(__dirname, '..', '_cms', name), path.join(process.cwd(), 'api', '_cms', name)];
+  const candidates = [path.join(__dirname, '..', '_cms', name), path.join(__dirname, '_cms', name), path.join(process.cwd(), 'api', '_cms', name)];
   for (const f of candidates) {
     try { return (cache[name] = fs.readFileSync(f, 'utf8')); } catch (e) { /* suivant */ }
   }

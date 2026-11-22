@@ -2,7 +2,7 @@
  * GET /actualites (réécrit vers /api/cms-actualites) — page Ressources : les articles du CMS (les plus récents d'abord)
  * sont ajoutés en tête de la grille, devant les guides statiques. CMS indisponible : la page statique seule.
  */
-const { safe, CDN_CACHE, cmsGet, template, card } = require('./_lib/cms');
+const { safe, CDN_CACHE, cmsGet, template, card } = require('./cms');
 
 module.exports = safe(async (req, res) => {
   const page = template('actualites.html');

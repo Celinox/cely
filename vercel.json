@@ -161,30 +161,32 @@
   "rewrites": [
     {
       "source": "/actualites",
-      "destination": "/api/cms-actualites"
+      "destination": "/api/cms?route=actualites"
     },
     {
       "source": "/actualites/:slug",
-      "destination": "/api/cms-article?slug=:slug"
+      "destination": "/api/cms?route=article&slug=:slug"
     },
     {
       "source": "/apercu",
-      "destination": "/api/cms-apercu"
+      "destination": "/api/cms?route=apercu"
     },
     {
       "source": "/sitemap-articles.xml",
-      "destination": "/api/cms-sitemap"
+      "destination": "/api/cms?route=sitemap"
+    },
+    {
+      "source": "/api/cms/revalidate",
+      "destination": "/api/cms?route=revalidate"
+    },
+    {
+      "source": "/api/cms/sante",
+      "destination": "/api/cms?route=sante"
     }
   ],
   "functions": {
-    "api/cms-article.js": {
+    "api/cms.js": {
       "includeFiles": "{api/_cms/**,404.html}"
-    },
-    "api/cms-apercu.js": {
-      "includeFiles": "api/_cms/**"
-    },
-    "api/cms-actualites.js": {
-      "includeFiles": "api/_cms/**"
     }
   }
 }

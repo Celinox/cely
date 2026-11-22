@@ -2,7 +2,7 @@
  * GET /apercu?jeton=… (réécrit vers /api/cms-apercu) — aperçu d'un article du CMS quel que soit son statut.
  * Jamais mis en cache, jamais indexé ; le jeton n'est ni journalisé ni renvoyé.
  */
-const { safe, NO_CACHE, cmsGet, renderArticle } = require('./_lib/cms');
+const { safe, NO_CACHE, cmsGet, renderArticle } = require('./cms');
 
 module.exports = safe(async (req, res) => {
   res.setHeader('Cache-Control', NO_CACHE);

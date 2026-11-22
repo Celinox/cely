@@ -5,11 +5,11 @@
  */
 const fs = require('fs');
 const path = require('path');
-const { safe, BLOG, CDN_CACHE, NO_CACHE, cmsGet, isSlug, renderArticle } = require('./_lib/cms');
+const { safe, BLOG, CDN_CACHE, NO_CACHE, cmsGet, isSlug, renderArticle } = require('./cms');
 
 function notFound(res) {
   let body = '<!doctype html><title>Page introuvable</title><h1>Page introuvable</h1>';
-  for (const f of [path.join(__dirname, '..', '404.html'), path.join(process.cwd(), '404.html')]) {
+  for (const f of [path.join(__dirname, '..', '..', '404.html'), path.join(process.cwd(), '404.html')]) {
     try { body = fs.readFileSync(f, 'utf8'); break; } catch (e) { /* suivant */ }
   }
   res.statusCode = 404;

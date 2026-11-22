@@ -2,7 +2,7 @@
  * GET /sitemap-articles.xml (réécrit vers /api/cms-sitemap) — articles publiés et indexables du CMS.
  * Déclaré dans robots.txt à côté de sitemap.xml (pages statiques, généré par scripts/build.py).
  */
-const { safe, SITE, BLOG, CDN_CACHE, cmsGet, esc, isSlug } = require('./_lib/cms');
+const { safe, SITE, BLOG, CDN_CACHE, cmsGet, esc, isSlug } = require('./cms');
 
 module.exports = safe(async (req, res) => {
   const r = await cmsGet('/sitemap');

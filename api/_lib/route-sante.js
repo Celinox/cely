@@ -2,7 +2,7 @@
  * GET /api/cms-sante — diagnostic de la liaison avec le CMS, sans aucun secret :
  * variables présentes ou non (jamais leur valeur), réponse du CMS, nombre d'articles publiés lus.
  */
-const { safe, config, cmsGet } = require('./_lib/cms');
+const { safe, config, cmsGet } = require('./cms');
 
 module.exports = safe(async (req, res) => {
   const c = config();
