@@ -15,6 +15,12 @@ de chaque page, dans `api/_lib/route-*.js`. Les réécritures sont dans `vercel.
 | `POST /api/cms/revalidate` | `route-revalidate.js` | Appel du CRM quand un contenu change (secret vérifié) |
 | `/api/cms/sante` | `route-sante.js` | Diagnostic de la liaison (variables présentes, réponse du CMS), sans aucun secret |
 
+- Articles riches : le gabarit `api/_cms/article.html` reprend la structure des articles statiques (en-tête et
+  partage, bloc auteur, « Réponse directe » et « À retenir » remontés en haut, sommaire, encadré final, tags, carte
+  auteur, « À lire ensuite »). Les blocs du Markdown (`:::reponse`, `:::faq`, `:::outil`… : modèle dans
+  `docs/cms-modele-article.md` du dépôt cely-crm) arrivent avec les classes `art-*` du site ; la FAQ produit les
+  données FAQPage. `:::outil nom` est remplacé par le balisage de l'outil (`api/_cms/outils/<nom>.html`, exporté par
+  `scripts/build.py`) ; les scripts des outils sont déjà présents sur toutes les pages.
 - Cache : le CDN de Vercel garde chaque page du CMS une minute au plus (`s-maxage=60`). Un article publié,
   modifié ou dépublié est donc à jour sur le site en une minute au plus ; un article programmé apparaît dans la
   minute qui suit son heure.
