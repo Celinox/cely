@@ -309,6 +309,27 @@ PAGES = [
 
 def esc(v): return html.escape(v, quote=True)
 
+# Outils interactifs insérables dans un article du CMS (« :::outil nom ») : leur balisage est exporté dans
+# api/_cms/outils/<nom>.html ; leurs scripts sont déjà présents sur toutes les pages.
+OUTILS = {
+    'simulateur-inbound-outbound': ('article', 'artSim'),
+    'generateur-prompts': ('article-ia', 'generateur-prompts'),
+    'audit-geo': ('article-ia', 'audit-geo'),
+    'diagnostic-aarrr': ('article-aarrr', 'diagnostic-aarrr'),
+    'generateur-lead-magnet': ('article-lm', 'generateur-lead-magnet'),
+}
+
+def element_by_id(text, el_id):
+    """Élément complet (balises imbriquées comprises) portant cet id."""
+    m = re.search(r'<(\w+)\b[^>]*\bid="%s"[^>]*>' % re.escape(el_id), text)
+    assert m, 'outil introuvable : ' + el_id
+    tag, depth = m.group(1), 0
+    for t in re.finditer(r'<(/?)%s\b[^>]*>' % tag, text[m.start():]):
+        depth += -1 if t.group(1) else 1
+        if depth == 0:
+            return text[m.start():m.start() + t.end()]
+    raise AssertionError('outil mal fermé : ' + el_id)
+
 def faq_from_main(main_html, page_url):
     """FAQPage construit à partir de la FAQ réellement affichée : questions et
     réponses identiques mot pour mot au texte de la page (règle Google)."""
@@ -497,6 +518,12 @@ def main():
         if '[À compléter' in body_main:
             warnings.append(p['out'])
         print('  %-40s %6d Ko  %s' % (p['out'], len(page.encode('utf-8')) // 1024, p['path'] or '(404)'))
+    # outils pour les articles du CMS
+    os.makedirs(os.path.join(ROOT, 'api', '_cms', 'outils'), exist_ok=True)
+    for nom, (key, el_id) in OUTILS.items():
+        with open(os.path.join(ROOT, 'api', '_cms', 'outils', nom + '.html'), 'w', encoding='utf-8') as f:
+            f.write(element_by_id(mains[key], el_id) + '\n')
+    print('  api/_cms/outils/ : %d outils exportés pour les articles du CMS' % len(OUTILS))
     # sitemap : uniquement les URL canoniques indexables
     rows = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for p in all_pages:

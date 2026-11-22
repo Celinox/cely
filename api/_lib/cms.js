@@ -116,50 +116,123 @@ function articleHead(a, opts) {
     const ld = { '@context': 'https://schema.org', '@graph': [
       { '@type': 'BlogPosting', '@id': url + '#article', headline: a.title, description: desc, url: url, mainEntityOfPage: url,
         datePublished: a.published_at, dateModified: a.updated_at, image: img, inLanguage: 'fr-FR',
-        author: a.author ? { '@type': 'Person', name: a.author } : { '@id': PERSON_ID }, publisher: { '@id': ORG_ID },
+        author: !a.author || /c[ée]lien/i.test(a.author) ? { '@id': PERSON_ID } : { '@type': 'Person', name: a.author }, publisher: { '@id': ORG_ID },
         keywords: (a.keywords || []).join(', ') || undefined, articleSection: a.category || undefined },
       { '@type': 'BreadcrumbList', itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE + '/' },
         { '@type': 'ListItem', position: 2, name: 'Ressources', item: SITE + BLOG },
         { '@type': 'ListItem', position: 3, name: a.title, item: url }] },
-    ] };
+    ].concat(o.faq ? [o.faq] : []) };
     // « </ » échappé : le JSON ne peut pas fermer la balise script
     out.push('<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>');
   }
   return out.join('\n');
 }
 
-/** Page d'article complète à partir du gabarit. */
+/** Élément complet (balises imbriquées comprises) qui commence à l'index i du texte. */
+function elementAt(text, i) {
+  const tag = /^<(\w+)/.exec(text.slice(i))[1];
+  const rx = new RegExp('<(/?)' + tag + '\\b[^>]*>', 'g');
+  rx.lastIndex = i;
+  let depth = 0, m;
+  while ((m = rx.exec(text))) {
+    depth += m[1] ? -1 : 1;
+    if (depth === 0) return text.slice(i, rx.lastIndex);
+  }
+  return text.slice(i);
+}
+
+/** Retire du contenu le premier élément qui commence par ce début de balise ; renvoie [élément, reste]. */
+function takeBlock(html, start) {
+  const i = html.indexOf(start);
+  if (i < 0) return ['', html];
+  const el = elementAt(html, i);
+  return [el, html.slice(0, i) + html.slice(i + el.length)];
+}
+
+/** Code d'un outil du site (api/_cms/outils/<nom>.html, généré par scripts/build.py). */
+function outil(nom) {
+  try { return template('outils/' + nom + '.html'); } catch (e) { return ''; }
+}
+
+/** FAQPage à partir de la FAQ affichée (mêmes règles que scripts/build.py : texte identique à la page). */
+function faqLd(html, url) {
+  const txt = (h) => h.replace(/<[^>]+>/g, '').replace(/&nbsp;| /g, ' ').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+  const items = [...html.matchAll(/<details class="art-faq-item"[^>]*><summary><h3>([\s\S]*?)<\/h3>[\s\S]*?<\/summary><div class="art-faq-answer">([\s\S]*?)<\/div><\/details>/g)];
+  if (!items.length) return null;
+  return { '@type': 'FAQPage', '@id': url + '#faq', mainEntity: items.map((m) => ({ '@type': 'Question', name: txt(m[1]), acceptedAnswer: { '@type': 'Answer', text: txt(m[2]) } })) };
+}
+
+const isCelien = (a) => !a.author || /c[ée]lien/i.test(a.author);
+const SVG_LI = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.6 8.65 21 11.2 21 14.5V21h-4v-5.6c0-1.34-.03-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21H9z"/></svg>';
+const SVG_LINK = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+
+/** Cartes statiques de la page Ressources (les 4 guides historiques), pour compléter « À lire ensuite ». */
+function staticCards() {
+  try {
+    const page = template('actualites.html');
+    return [...page.matchAll(/<a href="(\/actualites\/[^"]+)"[^>]*class="rs-card[^"]*"[^>]*>[\s\S]*?<\/a>/g)]
+      .map((m) => ({ href: m[1], html: m[0].replace(/class="rs-card[^"]*"/, 'class="rs-card hp-in"') }));
+  } catch (e) { return []; }
+}
+
+/** Page d'article complète à partir du gabarit. o.next : autres articles du CMS (liste), o.preview, o.status. */
 function renderArticle(a, opts) {
   const o = opts || {};
   const url = SITE + BLOG + '/' + a.slug;
   const d = parisDate(a.published_at);
   const u = parisDate(a.updated_at);
-  const img = safeUrl(a.cover_image && a.cover_image.url);
+
+  // contenu : « Réponse directe » et « À retenir » remontent en haut, les outils sont injectés
+  let body = a.content_html || '';
+  let answer, tldr;
+  [answer, body] = takeBlock(body, '<div class="art-answer"');
+  [tldr, body] = takeBlock(body, '<div class="art-tldr"');
+  body = body.replace(/<div data-cms-outil="([a-z-]+)"><\/div>/g, (m, nom) => outil(nom));
+
   const h2 = (a.headings || []).filter((h) => h.level === 2);
-  const toc = h2.length >= 3
+  const toc = h2.length >= 2
     ? '<aside class="art-toc reveal" aria-label="Sommaire de l\'article"><span class="art-toc-label">Dans cet article</span><nav class="art-toc-list">'
-      + h2.map((h, i) => '<a href="#' + esc(h.id) + '">' + (i + 1) + '. ' + esc(h.text) + '</a>').join('') + '</nav></aside>'
+      + h2.map((h) => '<a href="#' + esc(h.id) + '">' + esc(h.text) + '</a>').join('') + '</nav></aside>'
     : '';
   const share = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(url);
+  const dates = d.iso
+    ? '<time datetime="' + d.iso + '">Publié le ' + esc(d.label) + '</time>' + (u.iso ? ' · <time datetime="' + u.iso + '">Mis à jour le ' + esc(u.label) + '</time>' : '')
+    : 'Non publié';
+
+  // « À lire ensuite » : deux autres articles du CMS, complétés par les guides historiques
+  const cards = (o.next || []).filter((n) => n.slug !== a.slug).slice(0, 2).map((n) => card(n));
+  for (const c of staticCards()) { if (cards.length >= 2) break; cards.push(c.html); }
+  const next = cards.length
+    ? '<section class="hp-sec art-next"><div class="section-wrap"><div class="hp-head hp-in"><p class="hp-eyebrow">À lire ensuite</p><h2 class="hp-h2">Pour aller plus loin.</h2></div>'
+      + '<div class="rs-grid art-next-grid art-next-2">' + cards.join('\n') + '</div></div></section>'
+    : '';
+
   const values = {
-    'CMS:HEAD': articleHead(a, o),
+    'CMS:HEAD': articleHead(a, Object.assign({}, o, { faq: faqLd(body, url) })),
     'CMS:BANNER': o.preview ? '<div class="cms-preview-banner" role="status">Aperçu — non publié (' + esc(o.status || '') + ')</div>' : '',
     'CMS:CATEGORY': esc(a.category || 'Ressources'),
     'CMS:TITLE': esc(a.title),
-    'CMS:DEK': a.excerpt ? '<p class="art-header-dek">' + esc(a.excerpt) + '</p>' : '',
-    'CMS:META': '<span class="art-readtime">' + esc(a.reading_minutes) + ' min de lecture</span>'
-      + '<span class="art-share"><a class="art-share-btn" href="' + esc(share) + '" target="_blank" rel="noopener" aria-label="Partager sur LinkedIn">LinkedIn</a></span>',
-    'CMS:DATES': (a.author ? 'Par ' + esc(a.author) + ' · ' : '')
-      + (d.iso ? '<time datetime="' + d.iso + '">Publié le ' + esc(d.label) + '</time>' : 'Non publié')
-      + (u.iso && u.iso !== d.iso ? ' · <time datetime="' + u.iso + '">Mis à jour le ' + esc(u.label) + '</time>' : ''),
-    'CMS:COVER': img ? '<figure class="cms-cover"><img src="' + esc(img) + '" alt="' + esc(a.cover_image.alt || '') + '" width="1200" height="630" decoding="async"></figure>' : '',
-    'CMS:TOC': toc,
-    // content_html est déjà nettoyé par le CMS (aucun script, liste fermée de balises)
-    'CMS:CONTENT': a.content_html || '',
     'CMS:CRUMB': esc(a.title),
+    'CMS:DEK': a.excerpt ? '<p class="art-header-dek">' + esc(a.excerpt) + '</p>' : '',
+    'CMS:META': '<span class="art-readtime">' + esc(a.reading_minutes) + ' min de lecture</span><span class="art-share">'
+      + '<a class="art-share-btn" href="' + esc(share) + '" target="_blank" rel="noopener" aria-label="Partager sur LinkedIn">' + SVG_LI + 'LinkedIn</a>'
+      + '<button type="button" class="art-share-btn" data-copy="' + esc(url) + '">' + SVG_LINK + '<span>Copier le lien</span></button></span>',
+    'CMS:DATES': dates,
+    'CMS:TLDR': answer || tldr ? '<section class="art-tldr-wrap"><div class="section-wrap reveal">' + answer + tldr + '</div></section>' : '',
+    'CMS:TOC': toc,
+    // content_html est déjà nettoyé par le CMS (aucun script, liste fermée de balises et de classes)
+    'CMS:CONTENT': body,
+    'CMS:TAGS': (a.tags || []).length ? '<div class="art-tags">' + a.tags.map((t) => '<span class="art-tag">' + esc(t) + '</span>').join('\n') + '</div>' : '',
+    'CMS:NEXT': next,
   };
-  return template('article.html').replace(/<!--(CMS:[A-Z]+)-->/g, (m, k) => (k in values ? values[k] : m));
+  let page = template('article.html');
+  // autre auteur que Célien : signature simple à la place de son bloc et de sa carte
+  if (!isCelien(a)) {
+    page = page.replace(/<!--CMS:AUTHOR-->[\s\S]*?<!--\/CMS:AUTHOR-->/, '<p class="art-authorhead-dates">Par ' + esc(a.author) + ' · <!--CMS:DATES--></p>')
+      .replace(/<!--CMS:AUTHORCARD-->[\s\S]*?<!--\/CMS:AUTHORCARD-->/, '');
+  }
+  return page.replace(/<!--(CMS:[A-Z]+)-->/g, (m, k) => (k in values ? values[k] : ''));
 }
 
 /** Enveloppe une fonction : une erreur inattendue donne une 503 non mise en cache, jamais une page cassée. */

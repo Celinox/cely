@@ -22,7 +22,8 @@ module.exports = safe(async (req, res) => {
   if (req.method !== 'GET' && req.method !== 'HEAD') { res.statusCode = 405; res.setHeader('Allow', 'GET, HEAD'); return res.end(); }
   const slug = new URL(req.url, 'https://x').searchParams.get('slug') || '';
   if (!isSlug(slug)) return notFound(res);
-  const r = await cmsGet('/articles/' + slug);
+  const [r, list] = await Promise.all([cmsGet('/articles/' + slug), cmsGet('/articles?par_page=4')]);
+  const next = list.status === 200 && list.body && Array.isArray(list.body.items) ? list.body.items : [];
   if (r.status === 200 && r.body && r.body.redirect && isSlug(r.body.redirect.to)) {
     res.statusCode = 301;
     res.setHeader('Location', BLOG + '/' + r.body.redirect.to);
@@ -33,7 +34,7 @@ module.exports = safe(async (req, res) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', CDN_CACHE);
-    return res.end(req.method === 'HEAD' ? undefined : renderArticle(r.body.article));
+    return res.end(req.method === 'HEAD' ? undefined : renderArticle(r.body.article, { next }));
   }
   if (r.status === 404) return notFound(res);
   // CMS injoignable, non configuré, limite atteinte… : jamais mis en cache, le CDN réessaiera

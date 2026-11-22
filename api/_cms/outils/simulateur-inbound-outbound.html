@@ -1,0 +1,44 @@
+<div class="artsim" id="artSim" data-artsim>
+          <div class="artsim-gauge" aria-hidden="true">
+            <span class="artsim-gauge-label artsim-gauge-label-i">Inbound</span>
+            <div class="artsim-gauge-track">
+              <div class="artsim-gauge-cursor" id="artsimCursor" style="left:50%;"></div>
+            </div>
+            <span class="artsim-gauge-label artsim-gauge-label-o">Outbound</span>
+          </div>
+
+          <div class="artsim-progress"><div class="artsim-progress-bar" id="artsimProgressBar" style="width:12.5%;"></div></div>
+          <p class="artsim-counter" id="artsimCounter" aria-live="polite">Question 1 sur 8</p>
+
+          <form id="artsimForm" novalidate>
+            <input aria-label="Ne pas remplir ce champ" type="text" name="_hp" id="artsimHp" class="sr-only" tabindex="-1" autocomplete="off">
+            <fieldset class="artsim-question" id="artsimQuestionHost"></fieldset>
+            <div class="artsim-nav">
+              <button type="button" id="artsimBack" class="artsim-btn-secondary" disabled>Précédent</button>
+            </div>
+          </form>
+
+          <div class="artsim-capture" id="artsimCapture" hidden>
+            <p class="artsim-capture-title">Votre profil est prêt.</p>
+            <label class="artsim-field">
+              <span>Votre email</span>
+              <input type="email" id="artsimEmail" placeholder="vous@entreprise.com" autocomplete="email">
+            </label>
+            <label class="artsim-consent">
+              <input type="checkbox" id="artsimConsent">
+              <span>J'accepte que mes réponses et mon email soient utilisés par Cely pour m'envoyer mon résultat et me recontacter à ce sujet. <a href="/confidentialite">Politique de confidentialité</a>.</span>
+            </label>
+            <button type="button" id="artsimSubmit" class="btn-hero">Voir mon résultat</button>
+            <p class="artsim-error" id="artsimError" aria-live="assertive"></p>
+          </div>
+
+          <div class="artsim-result" id="artsimResult" hidden aria-live="polite">
+            <span class="artsim-result-label" id="artsimResultLabel"></span>
+            <h3 id="artsimResultTitle"></h3>
+            <p id="artsimResultDesc"></p>
+            <p id="artsimResultBonus" class="artsim-result-bonus" hidden></p>
+            <a href="/contact#formulaire" data-route="contact" class="btn-hero">Parler de ma situation avec Cely
+              <svg viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>

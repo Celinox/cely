@@ -1862,19 +1862,13 @@ img{ max-width:100%; display:block; }
 .art-content h4{ margin:28px 0 0; font-family:var(--font-display); font-weight:800; font-size:1.06rem; line-height:1.35; color:var(--prune); }
 .art-content h4 + p{ margin-top:8px; }
 .art-content code{ font-family:var(--font-label); font-size:.88em; background:var(--off-white-2); border:1px solid var(--border); border-radius:6px; padding:1px 6px; }
-/* Articles du CMS (contenu Markdown rendu par le CRM) */
-.cms-dates{ margin-top:12px; font-size:.86rem; color:var(--prune); opacity:.75; }
-.cms-cover{ margin:0 0 8px; }
-.cms-cover img{ width:100%; height:auto; border-radius:16px; display:block; }
-.cms-content img{ max-width:100%; height:auto; border-radius:12px; margin-top:18px; }
-.cms-content h3{ margin-top:28px; font-family:var(--font-display); font-weight:800; font-size:1.15rem; color:var(--prune); line-height:1.3; }
-.cms-content blockquote{ margin-top:18px; padding-left:16px; border-left:3px solid var(--violet-2); color:var(--prune); font-style:italic; }
-.cms-content pre{ margin-top:18px; padding:14px 16px; overflow-x:auto; border-radius:12px; background:var(--off-white-2); font-size:.88rem; }
-.cms-content pre code{ background:none; border:0; padding:0; }
-.cms-content table{ margin-top:18px; width:100%; border-collapse:collapse; font-size:.95rem; }
-.cms-content th, .cms-content td{ border:1px solid rgba(0,0,0,.12); padding:8px 10px; text-align:left; }
-.cms-content hr{ margin:32px 0; border:0; border-top:1px solid rgba(0,0,0,.12); }
-.cms-content a{ color:var(--violet-2); text-decoration:underline; }
+/* Articles du CMS : éléments Markdown sans équivalent dans les articles statiques (les blocs utilisent les classes art-*) */
+.art-content.cms > p img{ max-width:100%; height:auto; border-radius:12px; margin-top:18px; }
+.art-content.cms > h3{ margin-top:28px; font-family:var(--font-display); font-weight:800; font-size:1.15rem; color:var(--prune); line-height:1.3; }
+.art-content.cms blockquote{ margin-top:18px; padding-left:16px; border-left:3px solid var(--violet-2); color:var(--prune); font-style:italic; }
+.art-content.cms pre{ margin-top:18px; padding:14px 16px; overflow-x:auto; border-radius:12px; background:var(--off-white-2); font-size:.88rem; }
+.art-content.cms pre code{ background:none; border:0; padding:0; }
+.art-content.cms hr{ margin:32px 0; border:0; border-top:1px solid rgba(0,0,0,.12); }
 .cms-preview-banner{ position:sticky; top:0; z-index:1000; padding:10px 16px; text-align:center; font-weight:700; background:#ffe8a3; color:#3b2a00; }
 .art-code{ margin:16px 0 0; background:var(--prune); color:#EDE6FA; border-radius:14px; padding:16px 18px; overflow-x:auto; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:.84rem; line-height:1.6; tab-size:2; white-space:pre; }
 .art-code code{ font:inherit; background:none; border:0; padding:0; color:inherit; }
@@ -4349,19 +4343,56 @@ a.cc-offre:focus-visible{ outline:2.5px solid var(--prune); outline-offset:2px; 
       <h1 class="art-header-h1"><!--CMS:TITLE--></h1>
       <!--CMS:DEK-->
       <div class="art-meta-row"><!--CMS:META--></div>
-      <p class="cms-dates"><!--CMS:DATES--></p>
     </div>
   </section>
+
+  <section class="art-authorhead-wrap">
+    <div class="section-wrap reveal">
+      <!--CMS:AUTHOR--><div class="art-authorhead">
+        <img src="/images/celien-boillot-112.webp" srcset="/images/v/celien-boillot-46.5e71097f.webp 46w, /images/v/celien-boillot-92.a54f4868.webp 92w, /images/celien-boillot-112.webp 112w" sizes="56px" alt="Photo de Célien Boillot" class="art-author-avatar art-authorhead-avatar" width="56" height="56">
+        <div class="art-authorhead-body">
+          <div class="art-authorhead-top">
+            <span class="art-authorhead-by">Écrit par</span>
+            <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener" class="art-authorhead-name">Célien Boillot</a>
+            <span class="art-authorhead-role">Fondateur de Cely, growth marketing à temps partagé</span>
+            <span class="art-authorhead-dates"><!--CMS:DATES--></span>
+          </div>
+        </div>
+      </div><!--/CMS:AUTHOR-->
+    </div>
+  </section>
+
+  <!--CMS:TLDR-->
 
   <section class="art-body-wrap">
     <div class="section-wrap art-layout">
       <!--CMS:TOC-->
-      <article class="art-content cms-content reveal">
-        <!--CMS:COVER-->
+      <article class="art-content cms reveal">
         <!--CMS:CONTENT-->
+
+        <div class="art-final-cta">
+          <h3>Premier échange offert</h3>
+          <p><strong>30 minutes pour regarder votre acquisition de bout en bout.</strong> Vous repartez avec 2 à 3 pistes concrètes, que vous travailliez avec nous ou pas.</p>
+          <a href="/contact#formulaire" data-route="contact" class="btn-hero">Faire le point avec Célien
+            <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <!--CMS:TAGS-->
+
+        <!--CMS:AUTHORCARD--><div class="art-author-card">
+          <img src="/images/celien-boillot-112.webp" srcset="/images/v/celien-boillot-46.5e71097f.webp 46w, /images/v/celien-boillot-92.a54f4868.webp 92w, /images/celien-boillot-112.webp 112w" sizes="52px" alt="Photo de Célien Boillot" class="art-author-avatar" width="52" height="52">
+          <div>
+            <div class="art-author-card-name">Célien Boillot</div>
+            <div class="art-author-card-role">Fondateur de Cely, growth marketing à temps partagé pour startups et PME B2B, basé près de Grenoble</div>
+            <p class="art-author-card-bio">Il pilote l'acquisition de ses clients de l'intérieur, intégré à leur équipe. <a href="{{LINKEDIN_URL}}" target="_blank" rel="noopener">Profil LinkedIn</a>.</p>
+          </div>
+        </div><!--/CMS:AUTHORCARD-->
       </article>
     </div>
   </section>
+
+  <!--CMS:NEXT-->
 
   <!--CTA_FINAL-->
 

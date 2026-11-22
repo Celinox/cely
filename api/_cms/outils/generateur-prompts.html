@@ -1,0 +1,68 @@
+<div class="cely-gen" id="generateur-prompts">
+          <p class="cely-gen__kicker">Générateur de prompts de test</p>
+          <h3 class="cely-gen__title">Quelles questions vos clients posent-ils aux IA&nbsp;?</h3>
+          <p class="cely-gen__intro">Décrivez votre activité en quelques mots. Le générateur écrit les questions qu'un prospect poserait à ChatGPT, Perplexity ou Gemini au moment où il cherche quelqu'un comme vous, et vous pouvez les tester en un clic.</p>
+
+          <form class="cely-gen__form" novalidate>
+            <div class="cely-gen__grid">
+              <label class="cely-gen__field cely-gen__field--wide">
+                <span class="cely-gen__label">Votre spécialité <span class="cely-gen__req">obligatoire</span></span>
+                <input type="text" id="celyGenActivite" data-key="activite" placeholder="recrutement tech" autocomplete="off" required>
+                <span class="cely-gen__hint">En deux ou trois mots, comme un client le dirait. Exemples&nbsp;: expertise comptable, développement web, formation management.</span>
+              </label>
+
+              <fieldset class="cely-gen__field cely-gen__field--wide cely-gen__chips">
+                <legend class="cely-gen__label">Vos clients</legend>
+                <div class="cely-gen__chiprow">
+                  <label class="cely-gen__chip"><input type="radio" name="celyGenCible" id="celyGenCibleStartup" value="startup"><span>Startups</span></label>
+                  <label class="cely-gen__chip"><input type="radio" name="celyGenCible" id="celyGenCiblePme" value="pme" checked><span>PME</span></label>
+                  <label class="cely-gen__chip"><input type="radio" name="celyGenCible" id="celyGenCibleEti" value="eti"><span>ETI</span></label>
+                  <label class="cely-gen__chip"><input type="radio" name="celyGenCible" id="celyGenCibleGroupe" value="groupe"><span>Grands groupes</span></label>
+                  <label class="cely-gen__chip"><input type="radio" name="celyGenCible" id="celyGenCibleIndep" value="independant"><span>Indépendants</span></label>
+                  <label class="cely-gen__chip"><input type="radio" name="celyGenCible" id="celyGenCiblePart" value="particulier"><span>Particuliers</span></label>
+                </div>
+              </fieldset>
+
+              <label class="cely-gen__field">
+                <span class="cely-gen__label">Le problème que vous résolvez</span>
+                <input type="text" id="celyGenProbleme" data-key="probleme" placeholder="recruter des développeurs rapidement" autocomplete="off">
+                <span class="cely-gen__hint">Commencez par un verbe.</span>
+              </label>
+              <label class="cely-gen__field">
+                <span class="cely-gen__label">Votre ville</span>
+                <input type="text" id="celyGenZone" data-key="zone" placeholder="Lyon" autocomplete="off">
+                <span class="cely-gen__hint">Laissez vide si vous travaillez partout en France.</span>
+              </label>
+              <label class="cely-gen__field cely-gen__field--wide">
+                <span class="cely-gen__label">Le nom de votre entreprise</span>
+                <input type="text" id="celyGenMarque" data-key="marque" placeholder="Nom de votre entreprise" autocomplete="organization">
+                <span class="cely-gen__hint">Pour vérifier ce que les IA savent déjà de vous.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="cely-gen__btn">Générer mes prompts</button>
+            <p class="cely-gen__error" role="alert" hidden>Indiquez au moins votre spécialité pour générer les prompts.</p>
+          </form>
+
+          <div class="cely-gen__results" hidden>
+            <div class="cely-gen__results-head">
+              <p class="cely-gen__count" aria-live="polite"></p>
+              <div class="cely-gen__results-actions">
+                <button type="button" class="cely-gen__ghost" data-action="copy-all">Tout copier</button>
+                <button type="button" class="cely-gen__ghost" data-action="csv">Télécharger le tableau de suivi</button>
+              </div>
+            </div>
+            <div class="cely-gen__groups"></div>
+
+            <div class="cely-gen__howto">
+              <p class="cely-gen__howto-title">Comment s'en servir</p>
+              <ol>
+                <li>Posez chaque question dans une nouvelle conversation sur ChatGPT, Perplexity et Gemini. Les boutons ouvrent directement ChatGPT et Perplexity avec la question déjà saisie.</li>
+                <li>Notez dans le tableau de suivi les entreprises citées, et si vous en faites partie.</li>
+                <li>Recommencez le mois prochain avec exactement les mêmes questions pour mesurer vos progrès.</li>
+              </ol>
+              <p class="cely-gen__howto-note">Les entreprises citées à votre place sont vos vrais concurrents sur ce terrain. Regardez ce qu'elles font&nbsp;: c'est souvent plus simple que vous ne le pensez.</p>
+              <a class="cely-gen__next" href="#audit-geo">Vous n'apparaissez dans aucune réponse&nbsp;? Recevez un audit GEO offert</a>
+            </div>
+          </div>
+        </div>

@@ -1,0 +1,75 @@
+<div class="adg" id="diagnostic-aarrr" data-adg>
+          <div class="adg-grid">
+            <div class="adg-main">
+              <div class="artsim-progress"><div class="artsim-progress-bar" id="adgBar" style="width:20%;"></div></div>
+              <p class="artsim-counter" id="adgCounter" aria-live="polite">Étape 1 sur 5</p>
+              <form id="adgForm" novalidate>
+                <input aria-label="Ne pas remplir ce champ" type="text" name="_hp" id="adgHp" class="sr-only" tabindex="-1" autocomplete="off">
+                <fieldset class="adg-step is-on" data-step="0">
+                  <legend><span class="adg-step-k">Acquisition</span>Sur les 90 derniers jours, combien de personnes ont découvert votre entreprise&nbsp;?</legend>
+                  <p class="adg-help">Visiteurs du site, contacts entrants, prospects touchés.</p>
+                  <label class="adg-field"><span>Nombre de personnes</span><input type="text" inputmode="numeric" pattern="[0-9 ]*" id="adgAcq" data-key="acq" autocomplete="off"></label>
+                  <label class="adg-unknown"><input type="checkbox" data-unknown="acq"><span>Je ne sais pas</span></label>
+                </fieldset>
+                <fieldset class="adg-step" data-step="1" hidden>
+                  <legend><span class="adg-step-k">Activation</span>Parmi elles, combien ont fait un premier pas concret&nbsp;?</legend>
+                  <p class="adg-help">Demande de devis, rendez-vous pris, inscription.</p>
+                  <label class="adg-field"><span>Nombre de personnes</span><input type="text" inputmode="numeric" pattern="[0-9 ]*" id="adgAct" data-key="act" autocomplete="off"></label>
+                  <label class="adg-unknown"><input type="checkbox" data-unknown="act"><span>Je ne sais pas</span></label>
+                </fieldset>
+                <fieldset class="adg-step" data-step="2" hidden>
+                  <legend><span class="adg-step-k">Rétention</span>Sur vos clients signés il y a plus de six mois, combien sont encore actifs aujourd'hui&nbsp;?</legend>
+                  <div class="adg-two">
+                    <label class="adg-field"><span>Encore actifs</span><input type="text" inputmode="numeric" pattern="[0-9 ]*" id="adgRetA" data-key="retA" autocomplete="off"></label>
+                    <label class="adg-field"><span>Sur un total de</span><input type="text" inputmode="numeric" pattern="[0-9 ]*" id="adgRetT" data-key="retT" autocomplete="off"></label>
+                  </div>
+                  <label class="adg-unknown"><input type="checkbox" data-unknown="ret"><span>Je ne sais pas</span></label>
+                </fieldset>
+                <fieldset class="adg-step" data-step="3" hidden>
+                  <legend><span class="adg-step-k">Revenu</span>Quel est votre panier moyen par client sur la période&nbsp;?</legend>
+                  <label class="adg-field"><span>Montant en euros</span><input type="text" inputmode="decimal" pattern="[0-9 ,.]*" id="adgRev" data-key="rev" autocomplete="off"></label>
+                  <label class="adg-unknown"><input type="checkbox" data-unknown="rev"><span>Je ne sais pas</span></label>
+                </fieldset>
+                <fieldset class="adg-step" data-step="4" hidden>
+                  <legend><span class="adg-step-k">Recommandation</span>Combien de nouveaux clients sont venus par recommandation&nbsp;?</legend>
+                  <label class="adg-field"><span>Nombre de clients</span><input type="text" inputmode="numeric" pattern="[0-9 ]*" id="adgRec" data-key="rec" autocomplete="off"></label>
+                  <label class="adg-unknown"><input type="checkbox" data-unknown="rec"><span>Je ne sais pas</span></label>
+                </fieldset>
+                <p class="adg-error" id="adgStepError" aria-live="assertive"></p>
+                <div class="adg-nav">
+                  <button type="button" class="artsim-btn-secondary" id="adgPrev" disabled>Précédent</button>
+                  <button type="button" class="btn-hero" id="adgNext">Étape suivante</button>
+                </div>
+              </form>
+              <div class="artsim-capture adg-capture" id="adgCapture" hidden>
+                <p class="artsim-capture-title">Votre entonnoir est prêt.</p>
+                <label class="artsim-field"><span>Votre email professionnel</span><input type="email" id="adgEmail" placeholder="vous@entreprise.com" autocomplete="email"></label>
+                <label class="artsim-field"><span>Votre société</span><input type="text" id="adgCompany" autocomplete="organization"></label>
+                <label class="artsim-consent"><input type="checkbox" id="adgConsent"><span>J'accepte que mes réponses, mon email et le nom de ma société soient utilisés par Cely pour m'envoyer mon diagnostic et me recontacter à ce sujet. <a href="/confidentialite">Politique de confidentialité</a>.</span></label>
+                <button type="button" class="btn-hero" id="adgSubmit">Voir mon diagnostic</button>
+                <p class="artsim-error" id="adgError" aria-live="assertive"></p>
+              </div>
+              <div class="adg-result" id="adgResult" hidden tabindex="-1">
+                <div aria-live="polite" id="adgResultLive">
+                  <span class="artsim-result-label" id="adgResultLabel"></span>
+                  <h3 id="adgResultTitle"></h3>
+                  <p id="adgResultIntro"></p>
+                  <ul class="hp-bul adg-actions" id="adgActions"></ul>
+                  <p class="adg-measure" id="adgMeasure" hidden></p>
+                </div>
+                <a href="/contact#formulaire" data-route="contact" class="btn-hero">Faire le point avec Célien<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              </div>
+            </div>
+            <div class="adg-side">
+              <p class="adg-side-h">Votre entonnoir</p>
+              <ol class="adg-funnel" id="adgFunnel">
+                <li data-k="acq" style="--w:100%"><span class="adg-f-name">Acquisition</span><b class="adg-f-val">—</b><small class="adg-f-rate"></small></li>
+                <li data-k="act" style="--w:84%"><span class="adg-f-name">Activation</span><b class="adg-f-val">—</b><small class="adg-f-rate"></small></li>
+                <li data-k="ret" style="--w:68%"><span class="adg-f-name">Rétention</span><b class="adg-f-val">—</b><small class="adg-f-rate"></small></li>
+                <li data-k="rev" style="--w:54%"><span class="adg-f-name">Revenu</span><b class="adg-f-val">—</b><small class="adg-f-rate"></small></li>
+                <li data-k="rec" style="--w:42%"><span class="adg-f-name">Recommandation</span><b class="adg-f-val">—</b><small class="adg-f-rate"></small></li>
+              </ol>
+              <p class="adg-side-note">Il se remplit au fil de vos réponses.</p>
+            </div>
+          </div>
+        </div>
