@@ -178,7 +178,7 @@ def page(s, by_slug, cas):
     chips = ''.join('<li%s><a href="%s">%s</a></li>' % (' class="on"' if c == k else '', url(by_slug[c]), by_slug[c]['nom']) for c in core)
     petit = {'lead-scoring': 'lead scoring', 'crm-tracking': 'CRM et tracking', 'publicite-ads': 'publicité'}
     opt = ', '.join('<a href="%s"%s>%s</a>' % (url(by_slug[c]), ' class="on"' if c == k else '', n) for c, n in petit.items())
-    od = ('<a class="go" href="/services/offre-decouverte">Tester d\'abord avec l\'Offre découverte %s</a>' % CHEV) if s.get('bridge_od') else ''
+    od = ('<a class="go" href="/services/offre-decouverte">Tester d\'abord&nbsp;: 28 jours, 500&nbsp;€&nbsp;HT %s</a>' % CHEV) if s.get('bridge_od') else ''
     out.append('''
   <section class="row dark sp-bridge" aria-labelledby="sp-gpt">
     <div class="frame sp-bridge-f">

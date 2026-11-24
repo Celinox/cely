@@ -194,7 +194,9 @@ SERVICE_OD = {
     "serviceType": "Prospection B2B multicanal",
     "description": "Test de prospection multicanal en 28 jours : 300 contacts répartis en 3 listes de 100 (une par cible), contactés par email et LinkedIn avec des messages entièrement personnalisés, gestion des échanges jusqu'au rendez-vous. Si aucun rendez-vous n'est obtenu, 100 contacts supplémentaires sont testés sans frais.",
     "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "France"}, "url": SITE + OD_URL,
-    "offers": {"@type": "Offer", "price": "500", "priceCurrency": "EUR", "url": SITE + OD_URL, "availability": "https://schema.org/InStock"}
+    "offers": {"@type": "Offer", "price": "500", "priceCurrency": "EUR", "url": SITE + OD_URL, "availability": "https://schema.org/InStock",
+               "priceSpecification": {"@type": "PriceSpecification", "price": "500", "priceCurrency": "EUR", "valueAddedTaxIncluded": False},
+               "description": "Test de prospection de 28 jours, 500 € HT."}
 }
 ORGANIZATION = {"@type": "Organization", "@id": ORG_ID, "name": "Cely", "url": SITE + "/",
                 "logo": {"@type": "ImageObject", "url": LOGO_HD}, "sameAs": [CONFIG["LINKEDIN_URL"], "https://www.google.com/maps?cid=7863789155467383060"]}
@@ -272,8 +274,8 @@ PAGES = [
          ld=[ARTICLE_LM, PERSON_CELIEN, ORGANIZATION]),
     dict(key='offre-decouverte', out='services/offre-decouverte.html', path=OD_URL, prio='0.9', freq='monthly', cta=False,
          crumbs=[H, ("Services", "/services"), ("Offre découverte", OD_URL)],
-         title="Offre découverte : testez votre marché en 28 jours | Cely",
-         desc="Test de prospection multicanal pour 500 € : 300 décideurs contactés par email et LinkedIn, messages personnalisés, réponse en 28 jours. Garantie incluse.",
+         title="Test de prospection B2B en 28 jours — 500 € | Cely",
+         desc="300 décideurs contactés sur 3 cibles, par email et LinkedIn, avec un message écrit pour chacun. Verdict en 28 jours pour 500 € HT. Garantie : 100 contacts offerts si aucun rendez-vous.",
          img=OG + 'og-offre-decouverte.png',
          ld=[SERVICE_OD, ORGANIZATION]),
     dict(key='motion-design', out='motion-design.html', path=MOTION_URL, prio='0.5', freq='monthly',
