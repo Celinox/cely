@@ -1,0 +1,840 @@
+{
+ "_lisez_moi": [
+  "Source des pages services (/services/<slug>). Modifier un texte ici puis lancer python3 scripts/build.py.",
+  "h1 et les titres H2 sont en deux parties : la seconde s'affiche en violet.",
+  "related : slugs d'autres services, ou @audit, @article-lm, @growth.",
+  "vis : visuel du haut de page (plan, seq, post, flow, score, crm, ads). tiles : couleur de la mosaïque."
+ ],
+ "services": [
+  {
+   "slug": "strategie-acquisition",
+   "nom": "Stratégie",
+   "nom_long": "Stratégie d'acquisition",
+   "vis": "plan",
+   "tiles": "butter",
+   "service_type": "Stratégie d'acquisition B2B",
+   "title": "Stratégie d'acquisition B2B pour startups | Cely",
+   "desc": "Cibles, positionnement, choix des canaux et plan d'action à 90 jours : Cely construit la stratégie d'acquisition de votre startup B2B, puis la lance avec vous.",
+   "h1": [
+    "Une stratégie d'acquisition B2B",
+    "pensée pour être lancée"
+   ],
+   "lead": "Qui sont vos meilleurs clients, quel message leur parle, sur quels canaux les trouver&nbsp;: on pose les bases, puis on en tire un plan d'action à 90 jours, priorisé. Pas un document de 80 pages qui dort dans un dossier.",
+   "def_h2": [
+    "La stratégie d'acquisition,",
+    "concrètement"
+   ],
+   "def_p": [
+    "Une stratégie d'acquisition B2B décide de trois choses&nbsp;: à qui vous vendez, ce que vous leur dites et par quel canal vous les atteignez. Tout le reste en découle&nbsp;: la prospection, le contenu, la publicité, les automatisations.",
+    "Chez Cely, elle part de ce qui marche déjà. On regarde d'où viennent vos clients actuels, pourquoi ils ont signé et ce qui freine les autres, avant de choisir le moindre canal. On suit pour ça chaque étape du parcours client, comme dans <a href=\"/actualites/framework-aarrr\">le framework AARRR</a>."
+   ],
+   "signs_h3": "Vous en avez besoin si",
+   "signs": [
+    "Vos clients viennent surtout du réseau et du bouche-à-oreille",
+    "Vous avez testé plusieurs canaux sans savoir lequel garder",
+    "Votre message change selon la personne qui présente l'offre",
+    "Personne ne décide des priorités d'acquisition"
+   ],
+   "del_h2": [
+    "Ce que vous",
+    "obtenez"
+   ],
+   "deliver": [
+    [
+     "target",
+     "Des cibles prioritaires",
+     "Les segments et les décideurs qui ont le plus de chances d'acheter, classés par potentiel."
+    ],
+    [
+     "message",
+     "Un positionnement clair",
+     "Ce qui vous différencie, formulé avec les mots de vos clients et décliné par cible."
+    ],
+    [
+     "layers",
+     "Les bons canaux",
+     "Les deux ou trois canaux à lancer en premier, et ceux à laisser de côté pour l'instant."
+    ],
+    [
+     "calendar",
+     "Un plan à 90 jours",
+     "Les actions semaine par semaine, avec qui fait quoi et ce qu'on mesure."
+    ],
+    [
+     "chart",
+     "Des indicateurs simples",
+     "Quelques chiffres pour savoir, chaque semaine, si on avance dans la bonne direction."
+    ],
+    [
+     "refresh",
+     "Un rythme de pilotage",
+     "Un point hebdomadaire pour arbitrer, ajuster et décider ensemble."
+    ]
+   ],
+   "steps_h2": [
+    "Comment on construit",
+    "votre stratégie"
+   ],
+   "steps": [
+    [
+     "Comprendre",
+     "L'existant",
+     "Vos clients, vos chiffres, vos outils, et des échanges avec votre équipe commerciale."
+    ],
+    [
+     "Choisir",
+     "Cibles et messages",
+     "On tranche sur les segments prioritaires et sur ce qu'on leur dit."
+    ],
+    [
+     "Planifier",
+     "Le plan à 90 jours",
+     "Canaux, actions et indicateurs, priorisés selon l'effort et l'impact attendu."
+    ],
+    [
+     "Lancer",
+     "Les premiers canaux",
+     "La stratégie ne reste pas sur papier&nbsp;: les premiers canaux partent dans le mois."
+    ]
+   ],
+   "bridge": "La stratégie est la première brique de Growth Part-Time&nbsp;: on la construit, puis on la met en œuvre avec vous, semaine après semaine. C'est ce qui évite le plan qui dort dans un dossier.",
+   "faq": [
+    [
+     "Combien de temps faut-il pour construire la stratégie&nbsp;?",
+     "Deux semaines en général&nbsp;: une première pour comprendre votre situation, une deuxième pour choisir les cibles, les messages et les canaux. Les premiers canaux sont lancés dans la foulée."
+    ],
+    [
+     "Peut-on demander uniquement la stratégie, sans la mise en œuvre&nbsp;?",
+     "On le fait rarement&nbsp;: une stratégie qui n'est pas lancée perd vite sa valeur. Pour un diagnostic écrit à un instant donné, l'Audit Marketing Digital est fait pour ça. Sinon, la stratégie est incluse dans Growth Part-Time."
+    ],
+    [
+     "Quelle différence avec un audit marketing&nbsp;?",
+     "L'audit dresse un état des lieux écrit de votre acquisition. La stratégie décide de la suite&nbsp;: qui cibler, avec quel message et sur quels canaux, puis on la met en œuvre."
+    ],
+    [
+     "Faut-il déjà avoir des clients&nbsp;?",
+     "C'est préférable&nbsp;: la stratégie part de ce qui fait signer vos clients actuels. Si vous voulez d'abord vérifier qu'un marché répond, l'Offre découverte le teste en 28 jours."
+    ]
+   ],
+   "related": [
+    "prospection-outbound",
+    "inbound-marketing",
+    "@audit"
+   ],
+   "cas": [
+    "hexagone-ai"
+   ]
+  },
+  {
+   "slug": "prospection-outbound",
+   "nom": "Outbound",
+   "nom_long": "Prospection outbound",
+   "vis": "seq",
+   "tiles": "lav",
+   "service_type": "Prospection B2B outbound",
+   "title": "Prospection B2B outbound : email et LinkedIn | Cely",
+   "desc": "Fichiers ciblés, séquences email et LinkedIn personnalisées, messages testés chaque semaine : Cely lance la prospection outbound de votre startup B2B.",
+   "h1": [
+    "Prospection B2B outbound,",
+    "jusqu'au rendez-vous"
+   ],
+   "lead": "On va chercher vos prochains clients directement&nbsp;: fichiers ciblés, séquences email et LinkedIn, messages testés et améliorés chaque semaine. C'est le levier le plus rapide pour obtenir vos premiers rendez-vous.",
+   "def_h2": [
+    "L'outbound,",
+    "concrètement"
+   ],
+   "def_p": [
+    "La prospection outbound consiste à contacter des décideurs qui ne vous connaissent pas encore, plutôt que d'attendre qu'ils viennent à vous. En B2B, elle passe surtout par l'email et LinkedIn.",
+    "Ce qui fait la différence, ce n'est pas le volume&nbsp;: c'est la précision du fichier et la justesse du message. On écrit pour chaque cible, on envoie depuis vos propres comptes et on mesure ce qui déclenche des réponses. Pour la comparer à l'inbound, lisez <a href=\"/actualites/inbound-vs-outbound\">inbound vs outbound</a>."
+   ],
+   "signs_h3": "Vous en avez besoin si",
+   "signs": [
+    "Votre agenda commercial dépend du bouche-à-oreille",
+    "Vous savez qui vous voulez atteindre, mais personne n'a le temps de prospecter",
+    "Vos campagnes passées ont envoyé beaucoup de messages pour peu de réponses",
+    "Vous voulez tester vite un nouveau segment"
+   ],
+   "del_h2": [
+    "Ce qu'on met",
+    "en place"
+   ],
+   "deliver": [
+    [
+     "users",
+     "Des fichiers ciblés",
+     "Les bons décideurs, dans les bonnes entreprises, croisés avec vos clients pour ne contacter personne deux fois."
+    ],
+    [
+     "mail",
+     "Des séquences email et LinkedIn",
+     "Plusieurs points de contact, espacés et cohérents, écrits pour chaque cible."
+    ],
+    [
+     "message",
+     "Des messages personnalisés",
+     "Une accroche qui parle du contexte du prospect, pas un modèle envoyé à des milliers de contacts."
+    ],
+    [
+     "shield",
+     "Des envois depuis vos comptes",
+     "Les messages partent de votre profil et de votre domaine. Tout reste dans vos comptes."
+    ],
+    [
+     "split",
+     "Des tests chaque semaine",
+     "Objets, accroches, angles&nbsp;: on garde ce qui fait répondre, on corrige le reste."
+    ],
+    [
+     "calendar",
+     "Jusqu'au rendez-vous",
+     "Les réponses sont traitées et les rendez-vous posés dans l'agenda de vos commerciaux."
+    ]
+   ],
+   "steps_h2": [
+    "Comment on lance",
+    "votre prospection"
+   ],
+   "steps": [
+    [
+     "Cibler",
+     "Segments et décideurs",
+     "On définit les profils à contacter et on construit les fichiers."
+    ],
+    [
+     "Écrire",
+     "Messages et séquences",
+     "Une séquence par cible, validée avec vous avant le premier envoi."
+    ],
+    [
+     "Envoyer",
+     "Chaque jour",
+     "Des volumes raisonnables, envoyés chaque jour pour protéger vos comptes."
+    ],
+    [
+     "Ajuster",
+     "Tests et bilan",
+     "Chaque semaine, on compare les cibles et les messages, et on déplace l'effort vers ce qui marche."
+    ]
+   ],
+   "bridge": "L'outbound donne des résultats rapides, mais il marche mieux appuyé sur une stratégie claire, relayé par du contenu et prolongé par des automatisations. C'est exactement ce que réunit Growth Part-Time.",
+   "bridge_od": true,
+   "faq": [
+    [
+     "La prospection à froid fonctionne-t-elle encore en B2B&nbsp;?",
+     "Oui, quand elle est ciblée et personnalisée. Ce qui ne fonctionne plus, ce sont les envois de masse avec un message générique."
+    ],
+    [
+     "Les messages partent de quel compte&nbsp;?",
+     "Des vôtres&nbsp;: votre profil LinkedIn et votre domaine email. Vous gardez l'historique et les contacts."
+    ],
+    [
+     "Combien de prospects contactez-vous&nbsp;?",
+     "Cela dépend de votre marché et de vos cibles. À titre de repère, l'Offre découverte contacte 300 décideurs en 28 jours."
+    ],
+    [
+     "Est-ce compatible avec le RGPD&nbsp;?",
+     "La prospection B2B par email est encadrée&nbsp;: on contacte des professionnels sur des sujets liés à leur fonction, on se présente clairement et chaque message permet de ne plus être contacté."
+    ],
+    [
+     "Quand arrivent les premiers rendez-vous&nbsp;?",
+     "Les premières réponses arrivent dans les jours qui suivent le lancement. On se donne en général deux à trois mois pour confirmer qu'un segment et une méthode fonctionnent."
+    ]
+   ],
+   "related": [
+    "strategie-acquisition",
+    "automatisation-marketing",
+    "lead-scoring"
+   ],
+   "cas": [
+    "hexagone-ai",
+    "registre-general"
+   ]
+  },
+  {
+   "slug": "inbound-marketing",
+   "nom": "Inbound",
+   "nom_long": "Inbound marketing",
+   "vis": "post",
+   "tiles": "mint",
+   "service_type": "Inbound marketing B2B",
+   "title": "Inbound marketing B2B : contenu, SEO et GEO | Cely",
+   "desc": "Stratégie de contenu, LinkedIn, pages qui convertissent, SEO et visibilité dans les IA (GEO) : Cely construit l'inbound marketing de votre startup B2B.",
+   "h1": [
+    "Inbound marketing B2B&nbsp;:",
+    "que vos prospects viennent à vous"
+   ],
+   "lead": "On construit une stratégie inbound complète, pas juste du contenu&nbsp;: ce que vous publiez, où, et comment ça se transforme en demandes. Pour que vos prospects vous trouvent sur Google, sur LinkedIn et dans les réponses des IA.",
+   "def_h2": [
+    "L'inbound,",
+    "concrètement"
+   ],
+   "def_p": [
+    "L'inbound marketing attire des prospects qui cherchent déjà une solution, grâce à du contenu utile et à une présence là où ils s'informent. En B2B, ça passe par LinkedIn, par votre site et par les moteurs de recherche, y compris les assistants comme ChatGPT.",
+    "C'est un levier plus lent que l'outbound, mais qui s'additionne dans le temps&nbsp;: une bonne page continue d'apporter des demandes des mois après sa publication. D'où l'intérêt de bien choisir les sujets dès le départ. On détaille le volet IA dans <a href=\"/actualites/referencement-ia\">notre article sur le référencement IA</a>."
+   ],
+   "signs_h3": "Vous en avez besoin si",
+   "signs": [
+    "Votre site présente l'offre mais génère peu de demandes",
+    "Vous publiez sur LinkedIn sans ligne éditoriale claire",
+    "Vos concurrents apparaissent sur Google et dans ChatGPT, pas vous",
+    "Vos commerciaux n'ont rien d'utile à envoyer après un premier échange"
+   ],
+   "del_h2": [
+    "Ce qu'on met",
+    "en place"
+   ],
+   "deliver": [
+    [
+     "compass",
+     "Une stratégie de contenu",
+     "Les sujets qui intéressent vos acheteurs, classés selon leur potentiel et l'effort qu'ils demandent."
+    ],
+    [
+     "linkedin",
+     "Votre présence LinkedIn",
+     "Une ligne éditoriale et un rythme de publication tenables, avec votre voix."
+    ],
+    [
+     "cursor",
+     "Des pages qui convertissent",
+     "Des pages d'atterrissage pensées pour un objectif&nbsp;: le rendez-vous ou la demande de démo."
+    ],
+    [
+     "search",
+     "Aide au SEO",
+     "Mots-clés, structure des pages, maillage interne&nbsp;: les bases pour être trouvé sur Google."
+    ],
+    [
+     "spark",
+     "GEO et EEAT",
+     "Être cité par les IA et inspirer confiance&nbsp;: expertise visible, preuves, sources."
+    ],
+    [
+     "gift",
+     "Des lead magnets utiles",
+     "Des outils et contenus qui donnent une vraie raison de laisser ses coordonnées."
+    ]
+   ],
+   "steps_h2": [
+    "Comment on construit",
+    "votre inbound"
+   ],
+   "steps": [
+    [
+     "Écouter",
+     "Les questions de vos clients",
+     "On part de ce que vos clients demandent vraiment et de ce qu'ils recherchent."
+    ],
+    [
+     "Prioriser",
+     "Le plan éditorial",
+     "Les sujets et les formats à produire en premier, selon leur potentiel."
+    ],
+    [
+     "Publier",
+     "Contenus et pages",
+     "Articles, posts LinkedIn, pages d'atterrissage, à un rythme régulier."
+    ],
+    [
+     "Mesurer",
+     "Trafic et demandes",
+     "On suit les visites, les positions et surtout les demandes générées, puis on ajuste."
+    ]
+   ],
+   "bridge": "L'inbound prend du temps à porter ses fruits. Dans Growth Part-Time, on le lance en parallèle de l'outbound&nbsp;: la prospection apporte les premiers rendez-vous, l'inbound construit la suite.",
+   "faq": [
+    [
+     "En combien de temps l'inbound donne-t-il des résultats&nbsp;?",
+     "Plus lentement que l'outbound&nbsp;: il faut en général plusieurs mois pour que le contenu et le référencement apportent des demandes régulières. C'est pour ça qu'on le combine souvent avec la prospection."
+    ],
+    [
+     "Qu'est-ce que le GEO&nbsp;?",
+     "Le GEO (Generative Engine Optimization) consiste à rendre votre entreprise visible dans les réponses des IA comme ChatGPT, Perplexity ou les Aperçus IA de Google."
+    ],
+    [
+     "Qui rédige les contenus&nbsp;?",
+     "On définit les sujets et on rédige en s'appuyant sur votre expertise&nbsp;: quelques échanges suffisent pour capter votre point de vue. Vous validez avant chaque publication."
+    ],
+    [
+     "Faut-il refaire notre site&nbsp;?",
+     "Rarement. On commence par améliorer les pages existantes et par en créer quelques-unes, bien ciblées. Si une refonte est vraiment nécessaire, on vous le dit."
+    ]
+   ],
+   "related": [
+    "prospection-outbound",
+    "strategie-acquisition",
+    "@article-lm"
+   ],
+   "cas": [
+    "hexagone-ai"
+   ]
+  },
+  {
+   "slug": "automatisation-marketing",
+   "nom": "Automatisation",
+   "nom_long": "Automatisation marketing",
+   "vis": "flow",
+   "tiles": "pink",
+   "service_type": "Automatisation marketing et commerciale",
+   "title": "Automatisation marketing et commerciale B2B | Cely",
+   "desc": "Relances, nurturing, enrichissement, CRM à jour et alertes commerciales : Cely automatise votre parcours d'acquisition B2B, du premier signal au rendez-vous.",
+   "h1": [
+    "Automatisation marketing B2B,",
+    "du premier signal au rendez-vous"
+   ],
+   "lead": "On connecte vos outils et on automatise tout le parcours, du premier signal d'intérêt au rendez-vous commercial. Votre acquisition tourne, même la nuit.",
+   "def_h2": [
+    "L'automatisation,",
+    "concrètement"
+   ],
+   "def_p": [
+    "L'automatisation marketing et commerciale confie aux outils les tâches répétitives de l'acquisition&nbsp;: relancer un prospect, compléter une fiche, prévenir un commercial, envoyer le bon contenu au bon moment.",
+    "L'objectif n'est pas d'envoyer plus de messages. C'est de ne laisser filer aucun prospect et de libérer du temps pour ce qui demande un humain&nbsp;: la conversation."
+   ],
+   "signs_h3": "Vous en avez besoin si",
+   "signs": [
+    "Des prospects intéressés restent sans relance",
+    "Vos commerciaux passent du temps à remplir le CRM à la main",
+    "Vos outils ne se parlent pas",
+    "Vous ne savez pas quels prospects sont prêts à acheter"
+   ],
+   "del_h2": [
+    "Ce qu'on",
+    "automatise"
+   ],
+   "deliver": [
+    [
+     "refresh",
+     "Les relances",
+     "Chaque contact reçoit la bonne relance, au bon moment, selon ce qu'il a fait."
+    ],
+    [
+     "leaf",
+     "Le nurturing",
+     "Des contenus utiles pour les prospects pas encore prêts, sans relance insistante."
+    ],
+    [
+     "plus",
+     "L'enrichissement",
+     "Les fiches se complètent toutes seules&nbsp;: entreprise, fonction, taille."
+    ],
+    [
+     "database",
+     "La mise à jour du CRM",
+     "Plus de saisie à la main&nbsp;: les échanges et les étapes remontent automatiquement."
+    ],
+    [
+     "bell",
+     "Les alertes à votre équipe",
+     "Vos commerciaux sont prévenus quand un prospect devient chaud."
+    ],
+    [
+     "link",
+     "Les liens entre vos outils",
+     "CRM, messagerie, site et outils de prospection travaillent ensemble."
+    ]
+   ],
+   "steps_h2": [
+    "Comment on automatise",
+    "votre acquisition"
+   ],
+   "steps": [
+    [
+     "Cartographier",
+     "Votre parcours actuel",
+     "On repère les tâches répétitives et les endroits où des prospects se perdent."
+    ],
+    [
+     "Connecter",
+     "Vos outils",
+     "On relie ce que vous utilisez déjà, plutôt que d'imposer de nouveaux logiciels."
+    ],
+    [
+     "Automatiser",
+     "Les scénarios",
+     "Relances, nurturing, alertes&nbsp;: chaque scénario est testé avant d'être activé."
+    ],
+    [
+     "Suivre",
+     "Les résultats",
+     "On vérifie que tout tourne et on ajuste selon le comportement des prospects."
+    ]
+   ],
+   "bridge": "Automatiser un processus qui ne marche pas, c'est juste le rater plus vite. Dans Growth Part-Time, les automatisations sont incluses et construites autour de canaux qui fonctionnent déjà.",
+   "faq": [
+    [
+     "Quels outils utilisez-vous&nbsp;?",
+     "Ceux que vous avez déjà, autant que possible. On ne propose un nouvel outil que s'il manque vraiment quelque chose, et son coût est annoncé à l'avance."
+    ],
+    [
+     "L'automatisation rend-elle les messages impersonnels&nbsp;?",
+     "Pas si elle est bien faite&nbsp;: elle gère le bon moment et le suivi, le message reste écrit pour la cible. Dès qu'un prospect répond, un humain prend le relais."
+    ],
+    [
+     "Faut-il un CRM pour automatiser&nbsp;?",
+     "C'est préférable, car c'est là que tout se retrouve. Si vous n'en avez pas, on vous aide à en choisir un et à le mettre en place."
+    ],
+    [
+     "Est-ce inclus dans Growth Part-Time&nbsp;?",
+     "Oui, les automatisations font partie de la formule. Le coût éventuel des outils est annoncé à l'avance."
+    ]
+   ],
+   "related": [
+    "crm-tracking",
+    "lead-scoring",
+    "prospection-outbound"
+   ]
+  },
+  {
+   "slug": "lead-scoring",
+   "nom": "Lead scoring",
+   "nom_long": "Lead scoring",
+   "vis": "score",
+   "tiles": "butter",
+   "extra": true,
+   "service_type": "Lead scoring B2B",
+   "title": "Lead scoring B2B : priorisez vos prospects | Cely",
+   "desc": "Le lead scoring note vos prospects selon leur profil et leur intérêt, pour que vos commerciaux appellent d'abord les plus chauds. Mis en place dans votre CRM.",
+   "h1": [
+    "Lead scoring&nbsp;:",
+    "appelez d'abord les prospects les plus chauds"
+   ],
+   "lead": "Tous les prospects ne se valent pas. Le lead scoring leur donne une note selon leur profil et leur comportement, pour que votre équipe commerciale passe son temps sur ceux qui sont prêts à acheter.",
+   "def_h2": [
+    "Le lead scoring,",
+    "concrètement"
+   ],
+   "def_p": [
+    "Le lead scoring attribue des points à chaque prospect selon deux familles de critères&nbsp;: qui il est (secteur, taille d'entreprise, fonction) et ce qu'il fait (pages clés visitées, réponses, demande de démo). Au-delà d'un certain score, il passe à l'équipe commerciale.",
+    "Un bon scoring reste simple. Il se construit à partir de vos clients réels, pas d'une grille théorique, et il se corrige avec les retours de vos commerciaux."
+   ],
+   "signs_h3": "Vous en avez besoin si",
+   "signs": [
+    "Vos commerciaux traitent les prospects dans l'ordre d'arrivée",
+    "Beaucoup de contacts entrent dans le CRM, peu deviennent des rendez-vous",
+    "Marketing et ventes ne sont pas d'accord sur ce qu'est un bon prospect",
+    "Des prospects chauds attendent trop longtemps une réponse"
+   ],
+   "del_h2": [
+    "Ce qu'on met",
+    "en place"
+   ],
+   "deliver": [
+    [
+     "target",
+     "Votre client idéal",
+     "Les points communs de vos meilleurs clients, traduits en critères mesurables."
+    ],
+    [
+     "sliders",
+     "Une grille de score",
+     "Des points pour le profil et pour le comportement, avec un seuil de passage aux ventes."
+    ],
+    [
+     "database",
+     "Le score dans votre CRM",
+     "Il se calcule et se met à jour automatiquement sur chaque fiche."
+    ],
+    [
+     "bell",
+     "Des alertes commerciales",
+     "Votre équipe est prévenue dès qu'un prospect franchit le seuil."
+    ],
+    [
+     "users",
+     "Une définition partagée",
+     "Marketing et ventes s'accordent sur ce qu'est un prospect qualifié."
+    ],
+    [
+     "refresh",
+     "Une révision régulière",
+     "On compare les scores aux ventes réelles et on ajuste les critères."
+    ]
+   ],
+   "steps_h2": [
+    "Comment on construit",
+    "votre scoring"
+   ],
+   "steps": [
+    [
+     "Analyser",
+     "Vos ventes gagnées et perdues",
+     "On regarde ce qui distingue les prospects qui signent de ceux qui ne signent pas."
+    ],
+    [
+     "Définir",
+     "Les critères",
+     "Profil et comportement, choisis avec vos commerciaux pour que la grille leur parle."
+    ],
+    [
+     "Paramétrer",
+     "Votre CRM",
+     "Le score, les seuils et les alertes sont mis en place et testés."
+    ],
+    [
+     "Ajuster",
+     "Avec les résultats",
+     "Après quelques semaines, on vérifie que les meilleurs scores signent vraiment."
+    ]
+   ],
+   "bridge": "Le lead scoring prend tout son sens quand des prospects arrivent par plusieurs canaux. Dans Growth Part-Time, il complète la prospection, l'inbound et les automatisations, selon vos besoins.",
+   "faq": [
+    [
+     "À partir de quand le lead scoring devient-il utile&nbsp;?",
+     "Dès que votre équipe ne peut plus traiter chaque contact avec la même attention. Avec quelques prospects par mois, un tri à la main suffit&nbsp;; au-delà, le scoring fait gagner un temps précieux."
+    ],
+    [
+     "Quelle différence entre scoring de profil et scoring comportemental&nbsp;?",
+     "Le premier mesure l'adéquation du prospect à votre cible&nbsp;: secteur, taille, fonction. Le second mesure son intérêt du moment&nbsp;: pages vues, réponses, demandes. Combinés, ils indiquent qui appeler en premier."
+    ],
+    [
+     "Faut-il un outil spécifique&nbsp;?",
+     "Généralement non&nbsp;: la plupart des CRM savent calculer un score. On le met en place dans le vôtre."
+    ],
+    [
+     "Le score est-il fixé une fois pour toutes&nbsp;?",
+     "Non. On le confronte régulièrement aux ventes réelles et on ajuste les critères qui ne prédisent rien."
+    ]
+   ],
+   "related": [
+    "crm-tracking",
+    "automatisation-marketing",
+    "inbound-marketing"
+   ]
+  },
+  {
+   "slug": "crm-tracking",
+   "nom": "CRM et tracking",
+   "nom_long": "CRM et tracking",
+   "vis": "crm",
+   "tiles": "lav",
+   "extra": true,
+   "service_type": "Mise en place de CRM et de tracking",
+   "title": "CRM et tracking : mesurez votre acquisition B2B | Cely",
+   "desc": "Savoir d'où vient chaque client et combien il a coûté : Cely structure votre CRM, met en place le tracking et des tableaux de bord simples pour piloter.",
+   "h1": [
+    "CRM et tracking&nbsp;:",
+    "savoir d'où vient chaque client"
+   ],
+   "lead": "Savoir d'où vient chaque client, et combien il a coûté. On structure votre CRM et on met en place le suivi de vos canaux, pour décider avec des chiffres plutôt qu'à l'intuition.",
+   "def_h2": [
+    "CRM et tracking,",
+    "concrètement"
+   ],
+   "def_p": [
+    "Le CRM est l'endroit où vivent vos prospects et vos clients&nbsp;: coordonnées, échanges, étapes de vente. Le tracking relie chaque fiche à son origine&nbsp;: la campagne, le contenu ou le canal qui l'a amenée.",
+    "Ensemble, ils répondent à la question qui compte pour piloter une acquisition&nbsp;: quels canaux apportent des clients, et à quel coût&nbsp;?"
+   ],
+   "signs_h3": "Vous en avez besoin si",
+   "signs": [
+    "Votre CRM est rempli à moitié, ou pas du tout",
+    "Vous ne savez pas quel canal a apporté vos derniers clients",
+    "Chaque commercial suit ses prospects à sa façon",
+    "Vos reportings prennent des heures à préparer"
+   ],
+   "del_h2": [
+    "Ce qu'on met",
+    "en place"
+   ],
+   "deliver": [
+    [
+     "pipeline",
+     "Un pipeline structuré",
+     "Des étapes de vente claires, les mêmes pour toute l'équipe."
+    ],
+    [
+     "pin",
+     "L'origine de chaque contact",
+     "Chaque prospect est relié au canal et à la campagne qui l'a amené."
+    ],
+    [
+     "cursor",
+     "Le suivi du site",
+     "Les actions importantes sont mesurées&nbsp;: demandes de contact, rendez-vous, téléchargements."
+    ],
+    [
+     "chart",
+     "Des tableaux de bord simples",
+     "Quelques indicateurs lisibles en un coup d'œil, mis à jour automatiquement."
+    ],
+    [
+     "coin",
+     "Le coût par client",
+     "Ce que chaque canal coûte vraiment, rapporté aux clients signés."
+    ],
+    [
+     "check",
+     "Des données propres",
+     "Doublons supprimés, champs harmonisés, règles de saisie simples."
+    ]
+   ],
+   "steps_h2": [
+    "Comment on structure",
+    "votre suivi"
+   ],
+   "steps": [
+    [
+     "Auditer",
+     "L'existant",
+     "Vos outils, vos données et la façon dont l'équipe les utilise vraiment."
+    ],
+    [
+     "Structurer",
+     "Le CRM",
+     "Étapes, champs et règles, définis avec ceux qui s'en servent tous les jours."
+    ],
+    [
+     "Mesurer",
+     "Les canaux",
+     "Le suivi du site et des campagnes, relié aux fiches du CRM."
+    ],
+    [
+     "Piloter",
+     "Avec des tableaux de bord",
+     "Les chiffres utiles, revus ensemble lors du point hebdomadaire."
+    ]
+   ],
+   "bridge": "Sans suivi, impossible de savoir quel canal garder. Dans Growth Part-Time, on vérifie dès le premier mois que chaque canal est mesuré&nbsp;: c'est ce qui permet de garder ce qui marche et d'arrêter le reste.",
+   "faq": [
+    [
+     "Quel CRM recommandez-vous&nbsp;?",
+     "Celui que votre équipe utilisera vraiment. On part de l'outil que vous avez déjà&nbsp;; si vous n'en avez pas, on vous aide à choisir selon votre taille, votre budget et vos usages."
+    ],
+    [
+     "Que deviennent nos données actuelles&nbsp;?",
+     "On les reprend&nbsp;: import, dédoublonnage et harmonisation des champs. Rien n'est perdu, et vous restez propriétaire de toutes vos données."
+    ],
+    [
+     "Que mesure-t-on en priorité&nbsp;?",
+     "Les chiffres qui mènent au chiffre d'affaires&nbsp;: demandes entrantes, rendez-vous, propositions et signatures, par canal. Le reste vient après."
+    ],
+    [
+     "Le tracking est-il compatible avec le RGPD&nbsp;?",
+     "Oui, s'il est bien configuré&nbsp;: consentement aux cookies quand il est nécessaire, et outils de mesure respectueux de la vie privée quand c'est possible. On vous indique ce qui demande l'accord de vos visiteurs."
+    ]
+   ],
+   "related": [
+    "lead-scoring",
+    "automatisation-marketing",
+    "publicite-ads"
+   ]
+  },
+  {
+   "slug": "publicite-ads",
+   "nom": "Publicité Ads",
+   "nom_long": "Publicité LinkedIn Ads et Google Ads",
+   "vis": "ads",
+   "tiles": "mint",
+   "extra": true,
+   "service_type": "Publicité LinkedIn Ads et Google Ads",
+   "title": "Publicité LinkedIn Ads et Google Ads en B2B | Cely",
+   "desc": "Campagnes LinkedIn Ads et Google Ads pour startups B2B : ciblage, annonces, pages d'atterrissage et suivi des rendez-vous, pilotés avec votre acquisition.",
+   "h1": [
+    "Publicité B2B&nbsp;:",
+    "LinkedIn Ads et Google Ads, pilotées avec le reste"
+   ],
+   "lead": "On lance des campagnes quand elles ont du sens, on les relie à des pages qui convertissent, et on mesure ce qu'elles rapportent en rendez-vous, pas seulement en clics.",
+   "def_h2": [
+    "La publicité B2B,",
+    "concrètement"
+   ],
+   "def_p": [
+    "La publicité en ligne vous place rapidement devant vos cibles&nbsp;: sur LinkedIn, en ciblant les entreprises et les fonctions qui vous intéressent, et sur Google, au moment où un prospect cherche une solution comme la vôtre.",
+    "En B2B, elle coûte vite cher si elle est lancée seule. Elle fonctionne mieux en appui d'un message déjà testé, avec une page d'atterrissage dédiée et un suivi précis de ce qu'elle rapporte."
+   ],
+   "signs_h3": "Vous en avez besoin si",
+   "signs": [
+    "Vous voulez accélérer sur une cible précise",
+    "Vos prospects cherchent activement votre type de solution sur Google",
+    "Vous avez déjà dépensé en publicité sans savoir ce que ça a rapporté",
+    "Vous lancez une offre ou un événement et voulez de la visibilité vite"
+   ],
+   "del_h2": [
+    "Ce qu'on met",
+    "en place"
+   ],
+   "deliver": [
+    [
+     "layers",
+     "Le choix des plateformes",
+     "LinkedIn, Google ou les deux, selon où se trouvent vos acheteurs et votre budget."
+    ],
+    [
+     "target",
+     "Un ciblage précis",
+     "Entreprises, fonctions, mots-clés&nbsp;: on vise ceux qui peuvent vraiment acheter."
+    ],
+    [
+     "message",
+     "Des annonces testées",
+     "Des messages repris de ce qui marche déjà en prospection, déclinés en plusieurs versions."
+    ],
+    [
+     "cursor",
+     "Des pages d'atterrissage",
+     "Une page par campagne, pensée pour la demande de rendez-vous."
+    ],
+    [
+     "refresh",
+     "Du retargeting",
+     "Les visiteurs de votre site retrouvent votre message pendant leur réflexion."
+    ],
+    [
+     "chart",
+     "Le suivi des rendez-vous",
+     "On ne s'arrête pas aux clics&nbsp;: on suit les demandes et les rendez-vous obtenus."
+    ]
+   ],
+   "steps_h2": [
+    "Comment on lance",
+    "vos campagnes"
+   ],
+   "steps": [
+    [
+     "Cadrer",
+     "Objectif et budget",
+     "On définit ce qu'on attend des campagnes et un budget de test, annoncé à l'avance."
+    ],
+    [
+     "Construire",
+     "Campagnes et pages",
+     "Ciblage, annonces et pages d'atterrissage, avec le suivi des conversions."
+    ],
+    [
+     "Tester",
+     "Les variantes",
+     "Plusieurs messages et audiences, comparés sur des budgets maîtrisés."
+    ],
+    [
+     "Optimiser",
+     "Ce qui rapporte",
+     "On coupe ce qui ne produit pas de rendez-vous et on renforce le reste."
+    ]
+   ],
+   "bridge": "La publicité est un accélérateur, pas un point de départ. Dans Growth Part-Time, on l'active quand la cible et le message sont validés, pour que chaque euro dépensé serve le reste de votre acquisition.",
+   "faq": [
+    [
+     "Quel budget prévoir pour LinkedIn Ads&nbsp;?",
+     "Cela dépend de votre cible et de vos objectifs. LinkedIn est une plateforme chère mais très précise en B2B&nbsp;: on commence par un budget de test, annoncé à l'avance, avant d'investir davantage."
+    ],
+    [
+     "LinkedIn Ads ou Google Ads&nbsp;?",
+     "Google capte une demande qui existe déjà&nbsp;: des personnes qui cherchent votre solution. LinkedIn permet d'aller chercher des profils précis qui ne cherchent pas encore. Le choix dépend de la maturité de votre marché."
+    ],
+    [
+     "Le budget publicitaire est-il inclus&nbsp;?",
+     "Non&nbsp;: le budget versé aux plateformes s'ajoute à l'accompagnement. Il est toujours annoncé et validé avec vous à l'avance."
+    ],
+    [
+     "Les campagnes tournent-elles sur vos comptes ou les nôtres&nbsp;?",
+     "Sur les vôtres. Vous restez propriétaire des comptes publicitaires, des données et de l'historique."
+    ]
+   ],
+   "related": [
+    "inbound-marketing",
+    "crm-tracking",
+    "strategie-acquisition"
+   ]
+  }
+ ]
+}

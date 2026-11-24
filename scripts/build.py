@@ -42,7 +42,7 @@ WEBSITE = {"@type": "WebSite", "@id": SITE + "/#site", "url": SITE + "/", "name"
 PERSON_CELIEN = {
     "@type": "Person", "@id": PERSON_ID, "name": "Célien Boillot",
     "jobTitle": "Fondateur de Cely",
-    "image": SITE + "/images/celien-boillot-112.webp", "url": SITE + "/#histoire",
+    "image": SITE + "/images/celien-boillot-112.webp", "url": SITE + "/a-propos",
     "sameAs": [CONFIG["LINKEDIN_URL"]],
     "worksFor": {"@id": ORG_ID},
     "knowsAbout": ["Growth marketing", "Acquisition B2B", "Prospection B2B", "Référencement naturel", "Generative Engine Optimization"]
@@ -142,10 +142,12 @@ OD_URL = '/services/offre-decouverte'
 SERVICES_LIST = {
     "@type": "ItemList", "@id": SITE + "/services#services", "name": "Services Cely",
     "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": {"@type": "Service", "name": n, "url": SITE + u, "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "France"}}}
-                        for i, (n, u) in enumerate([("Growth Part-Time", "/growth"), ("Offre découverte", OD_URL), ("Stratégie d'acquisition", "/services#strategie"), ("Prospection outbound", "/services#outbound"),
-                                                    ("Stratégie inbound", "/services#inbound"), ("Automatisation marketing et commerciale", "/services#automatisation"),
-                                                    ("Publicité LinkedIn Ads et Google Ads", "/services#publicite"), ("Lead scoring", "/services#lead-scoring"),
-                                                    ("CRM et tracking", "/services#crm-tracking"), ("Audit Marketing Digital", "/audit/audit-marketing-digital")])]
+                        for i, (n, u) in enumerate([("Growth Part-Time", "/growth"), ("Stratégie d'acquisition", "/services/strategie-acquisition"),
+                                                    ("Prospection outbound", "/services/prospection-outbound"), ("Inbound marketing", "/services/inbound-marketing"),
+                                                    ("Automatisation marketing et commerciale", "/services/automatisation-marketing"),
+                                                    ("Lead scoring", "/services/lead-scoring"), ("CRM et tracking", "/services/crm-tracking"),
+                                                    ("Publicité LinkedIn Ads et Google Ads", "/services/publicite-ads"),
+                                                    ("Audit Marketing Digital", "/audit/audit-marketing-digital"), ("Offre découverte", OD_URL)])]
 }
 ARTICLE_COMP = {
     "@type": "Article", "@id": SITE + "/comparatif-growth-marketing#article",
@@ -196,6 +198,8 @@ SERVICE_OD = {
 }
 ORGANIZATION = {"@type": "Organization", "@id": ORG_ID, "name": "Cely", "url": SITE + "/",
                 "logo": {"@type": "ImageObject", "url": LOGO_HD}, "sameAs": [CONFIG["LINKEDIN_URL"], "https://www.google.com/maps?cid=7863789155467383060"]}
+ABOUT_PAGE = {"@type": "AboutPage", "@id": SITE + "/a-propos#page", "url": SITE + "/a-propos", "name": "À propos de Cely",
+              "inLanguage": "fr-FR", "isPartOf": {"@id": SITE + "/#site"}, "about": {"@id": ORG_ID}, "mainEntity": {"@id": PERSON_ID}}
 H = ("Accueil", "/")
 OG = SITE + "/images/og/"
 
@@ -282,6 +286,11 @@ PAGES = [
          title="Manifeste : notre vision du growth marketing | Cely",
          desc="Le manifeste Cely : notre vision du growth marketing pour les startups B2B. Comprendre avant d'agir, s'intégrer à l'équipe, rester tant que ça marche.",
          ld=[PERSON_CELIEN]),
+    dict(key='a-propos', out='a-propos.html', path='/a-propos', prio='0.7', freq='monthly', img=OG + 'og-accueil.png',
+         crumbs=[H, ("À propos", "/a-propos")],
+         title="À propos de Cely et de Célien Boillot | Cely",
+         desc="Cely, c'est Célien Boillot : un growth marketer qui pilote et exécute l'acquisition des startups B2B, depuis Meylan près de Grenoble, partout en France.",
+         ld=[ABOUT_PAGE, PERSON_CELIEN, LOCAL_BUSINESS]),
     dict(key='rejoindre', out='nous-rejoindre.html', path='/nous-rejoindre', robots='noindex, follow', sitemap=False,
          crumbs=[H, ("Nous rejoindre", "/nous-rejoindre")],
          title="Nous rejoindre : réseau d'experts growth | Cely",
@@ -469,7 +478,11 @@ def main():
     import cas_clients
     cc_mains, cc_pages, cc_a_valider = cas_clients.generate(CONFIG, H, OG, ORGANIZATION, os.environ.get('CAS_CLIENTS_DATA'))
     mains.update(cc_mains)
-    all_pages = PAGES + cc_pages
+    # pages services : générées depuis src/services.json (voir scripts/services_pages.py)
+    import services_pages
+    sv_mains, sv_pages, _ = services_pages.generate(H, OG, ORG_ID)
+    mains.update(sv_mains)
+    all_pages = PAGES + sv_pages + cc_pages
     lastmod_path = os.path.join(ROOT, 'scripts', 'lastmod.json')
     lastmod = json.load(open(lastmod_path, encoding='utf-8')) if os.path.exists(lastmod_path) else {}
     warnings = []

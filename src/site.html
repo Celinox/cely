@@ -848,7 +848,7 @@ img{ max-width:100%; display:block; }
    ============================================================ */
 .site-footer{ position:relative; background:var(--prune); color:var(--off-white); padding-block:clamp(64px,8vw,104px) 28px; overflow:clip; border-top:var(--hp-line); }
 .footer-wrap{ position:relative; z-index:1; max-width:1180px; }
-.ft-grid{ display:grid; grid-template-columns:minmax(0,1.7fr) repeat(2,minmax(0,.75fr)) minmax(0,1.05fr); gap:clamp(32px,4vw,56px); padding-bottom:clamp(48px,6vw,72px); }
+.ft-grid{ display:grid; grid-template-columns:minmax(0,1.5fr) repeat(3,minmax(0,.8fr)) minmax(0,1fr); gap:clamp(32px,4vw,56px); padding-bottom:clamp(48px,6vw,72px); }
 .ft-logo{ display:inline-block; }
 .ft-logo img{ display:block; height:40px; width:auto; }
 .ft-baseline{ margin-top:20px; font-family:var(--font-display); font-weight:700; font-size:1.15rem; line-height:1.4; color:var(--off-white); max-width:26ch; }
@@ -4570,6 +4570,255 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
 @media (hover:none){ .ft-pix-hint{ display:none; } }
 @media (prefers-reduced-motion:reduce){ .ft-pix .pix span{ transition:none; } }
 
+/* ===== pages services, À propos et annuaire des services : DA de l'accueil (.hm) + couche .sp ===== */
+.sp > .crumbs{ background:var(--paper); padding-top:calc(var(--nav-top) + var(--nav-h)); }
+.sp > .crumbs .section-wrap{ max-width:var(--frame); margin-inline:auto; padding:clamp(14px,1.6vw,20px) var(--pad); border-inline:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.site-page.sp > .crumbs + *{ padding-top:0 !important; }
+.sp .sp-hero{ position:relative; overflow:hidden; border-bottom:1px solid var(--rule); background:radial-gradient(60% 70% at 22% 30%, rgba(139,91,255,.13), transparent 70%), var(--paper); }
+.sp .sp-hero .hero-grid{ opacity:.8; }
+.sp .sp-hero-f{ display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(28px,4vw,64px); align-items:center; padding:clamp(40px,5.5vw,84px) var(--pad) clamp(48px,6vw,92px); }
+.sp .sp-hero-t{ position:relative; z-index:2; }
+.sp .sp-h1{ font-family:var(--display); font-weight:900; font-size:clamp(2.2rem,1.25rem + 3.1vw,4.4rem); line-height:1; letter-spacing:-.04em; text-wrap:balance; }
+.sp .sp-h1 .accent{ display:block; }
+.sp .sp-hero .lead{ margin-top:clamp(18px,2vw,26px); max-width:54ch; }
+.sp .sp-hero .hero-cta{ justify-content:flex-start; margin-top:clamp(24px,2.6vw,34px); }
+.sp .sp-hero .micro{ margin-top:14px; }
+.sp .sp-vis{ aspect-ratio:auto; width:100%; border:1px solid var(--rule); min-height:clamp(300px,30vw,420px); }
+.sp .sp-def{ display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); }
+.sp .sp-def-t{ padding:var(--pad); border-right:1px solid var(--rule); display:grid; gap:18px; align-content:start; }
+.sp .sp-def-t p{ font-size:clamp(1.05rem,1rem + .25vw,1.2rem); line-height:1.65; max-width:62ch; }
+.sp .sp-def-t p:first-child{ font-size:clamp(1.2rem,1.05rem + .5vw,1.5rem); line-height:1.45; font-weight:600; color:var(--ink); }
+.sp .sp-def-t a, .sp .sp-prose a{ color:var(--violet); text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1.5px; }
+.sp .sp-signs{ padding:var(--pad); background:repeating-linear-gradient(135deg, transparent 0 9px, rgba(104,45,254,.06) 9px 10px); }
+.sp .sp-signs h3{ font-size:1.3rem; }
+.sp .sp-signs ul{ margin-top:18px; display:grid; gap:10px; }
+.sp .sp-signs li{ position:relative; padding:12px 14px 12px 40px; background:var(--white); border:1.5px solid var(--ink); border-radius:12px; font-weight:600; line-height:1.4; }
+.sp .sp-signs li::before{ content:""; position:absolute; left:15px; top:1.15em; width:9px; height:9px; border-radius:2px; background:var(--violet); transform:rotate(45deg); }
+.sp .sp-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); }
+.sp .sp-cell{ padding:var(--pad); border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); transition:background-color .2s; }
+.sp .sp-cell:nth-child(3n){ border-right:0; }
+.sp .sp-cell:nth-last-child(-n+3){ border-bottom:0; }
+.sp .sp-cell:hover{ background:var(--white); }
+.sp .sp-cell .ic, .sp .ic{ display:grid; place-items:center; width:42px; height:42px; border:1.5px solid var(--ink); border-radius:10px; background:var(--lav); color:var(--violet); margin-bottom:20px; }
+.sp .ic svg{ width:21px; height:21px; }
+.sp .sp-cell h3{ font-size:1.22rem; line-height:1.2; }
+.sp .sp-cell p{ margin-top:8px; color:var(--soft); }
+.sp .sp-steps{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); counter-reset:none; }
+.sp .sp-steps li{ position:relative; padding:clamp(28px,3vw,44px) clamp(18px,2vw,32px) clamp(32px,3.6vw,52px); border-right:1px solid var(--rule); }
+.sp .sp-steps li:last-child{ border-right:0; }
+.sp .sp-steps li::before{ content:""; position:absolute; left:0; right:0; top:0; height:3px; background:linear-gradient(90deg, var(--violet), var(--pink)); opacity:.35; }
+.sp .sp-steps li:first-child::before{ opacity:1; }
+.sp .sp-k{ display:block; font-family:var(--display); font-weight:900; font-size:clamp(1.6rem,1rem + 1.5vw,2.4rem); line-height:.95; letter-spacing:-.04em; color:#C9B8EE; overflow-wrap:anywhere; }
+.sp .sp-steps li:first-child .sp-k{ color:var(--violet); }
+.sp .sp-steps h3{ margin-top:18px; font-size:1.15rem; line-height:1.25; }
+.sp .sp-steps p{ margin-top:8px; color:var(--soft); }
+.sp .sp-bridge{ position:relative; overflow:hidden; background:radial-gradient(55% 80% at 85% 20%, rgba(104,45,254,.45), transparent 70%), var(--ink); }
+.sp .sp-bridge-f{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); gap:clamp(28px,4vw,64px); align-items:center; padding:clamp(56px,7vw,104px) var(--pad); }
+.sp .sp-bridge .lead{ margin-top:20px; }
+.sp .sp-bridge .hero-cta{ justify-content:flex-start; margin-top:30px; }
+.sp .sp-bridge .go{ color:var(--paper); }
+.sp .sp-formula{ position:relative; padding:clamp(22px,2.4vw,32px); background:var(--paper); color:var(--ink); border:2px solid var(--paper); border-radius:20px; box-shadow:8px 8px 0 var(--violet); }
+.sp .sp-formula-h{ display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:6px 16px; padding-bottom:16px; border-bottom:1px solid var(--rule); }
+.sp .sp-formula-h b{ font-family:var(--display); font-weight:900; font-size:clamp(1.4rem,1.1rem + .9vw,1.9rem); letter-spacing:-.03em; }
+.sp .sp-formula-h span{ font-family:var(--label); font-size:.82rem; font-weight:700; color:var(--violet); }
+.sp .sp-chips{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin-top:18px; }
+.sp .sp-chips a{ display:flex; align-items:center; gap:10px; padding:12px 14px; border:1.5px solid var(--ink); border-radius:12px; background:var(--white); font-family:var(--display); font-weight:800; transition:transform .2s var(--ease), box-shadow .2s var(--ease); }
+.sp .sp-chips a::before{ content:""; flex:none; width:16px; height:16px; border-radius:5px; background:var(--violet) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4 8.2 2.6 2.6L12 5.4' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.sp .sp-chips a:hover{ transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--ink); }
+.sp .sp-chips .on a{ background:var(--lav); box-shadow:4px 4px 0 var(--violet); }
+.sp .sp-formula-n{ margin-top:16px; color:var(--soft); }
+.sp .sp-formula-n a{ color:var(--ink); font-weight:700; text-decoration:underline; text-decoration-color:rgba(104,45,254,.4); text-underline-offset:3px; }
+.sp .sp-formula-n a.on{ color:var(--violet); }
+.sp .sp-formula-f{ margin-top:16px; padding-top:14px; border-top:1px solid var(--rule); font-family:var(--label); font-size:.84rem; font-weight:700; }
+.sp .sp-formula-m{ position:absolute; right:18px; top:-46px; width:58px; height:58px; }
+.sp .sp-cas{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); }
+.sp .sp-cas-c{ display:flex; flex-direction:column; align-items:flex-start; gap:16px; padding:var(--pad); border-right:1px solid var(--rule); transition:background-color .2s; }
+.sp .sp-cas-c:last-child{ border-right:0; }
+.sp .sp-cas-c:hover{ background:var(--white); }
+.sp .sp-cas-c img{ display:block; max-width:70%; object-fit:contain; }
+.sp .sp-cas-a{ font-family:var(--display); font-weight:800; font-size:clamp(1.15rem,1rem + .5vw,1.45rem); line-height:1.25; max-width:34ch; }
+.sp .sp-cas-c .go{ margin-top:auto; color:var(--violet); }
+.sp .sec-head > .go{ color:var(--violet); margin-bottom:6px; }
+.sp .more a .go{ margin-top:auto; padding-top:8px; color:var(--violet); }
+.sp .sp-ui{ width:min(86%,360px); }
+.sp .sp-ui ul{ display:grid; gap:8px; }
+.sp .sp-ui li.sp-sc{ display:grid; grid-template-columns:minmax(0,1fr) 30% 30px; align-items:center; gap:10px; padding:9px 12px; }
+.sp .sp-ui li.sp-sc span{ display:grid; line-height:1.2; min-width:0; }
+.sp .sp-ui li.sp-sc b{ font-size:.86rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sp .sp-ui li.sp-sc small{ font-size:.72rem; color:var(--soft); font-weight:600; }
+.sp .sp-ui li.sp-sc s{ display:block; height:7px; border-radius:7px; background:var(--paper-2); text-decoration:none; overflow:hidden; }
+.sp .sp-ui li.sp-sc s::after{ content:""; display:block; height:100%; width:var(--w); background:#C9B8EE; }
+.sp .sp-ui li.sp-sc em{ font-style:normal; font-family:var(--label); font-weight:700; font-size:.8rem; text-align:right; }
+.sp .sp-ui li.sp-sc.hot{ border:2px solid var(--ink); box-shadow:3px 3px 0 var(--violet); }
+.sp .sp-ui li.sp-sc.hot s::after{ background:var(--violet); }
+.sp .sp-ui li.sp-sc.hot em{ color:var(--violet); }
+.sp .sp-kpi{ grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:12px; }
+.sp .sp-ui .sp-kpi li{ display:grid; gap:2px; padding:8px 10px; }
+.sp .sp-kpi small{ font-size:.7rem; color:var(--soft); font-family:var(--label); }
+.sp .sp-kpi b{ font-size:.82rem; }
+.sp .sp-ui .sp-kpi li.on{ background:var(--violet); color:var(--white); border-color:var(--violet); }
+.sp .sp-kpi li.on small{ color:rgba(255,255,255,.75); }
+@media (max-width:980px){
+  .sp .sp-hero-f, .sp .sp-bridge-f, .sp .sp-def{ grid-template-columns:1fr; }
+  .sp .sp-def-t{ border-right:0; border-bottom:1px solid var(--rule); }
+  .sp .sp-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .sp .sp-cell:nth-child(3n){ border-right:1px solid var(--rule); }
+  .sp .sp-cell:nth-child(2n){ border-right:0; }
+  .sp .sp-cell:nth-last-child(-n+3){ border-bottom:1px solid var(--rule); }
+  .sp .sp-cell:nth-last-child(-n+2){ border-bottom:0; }
+  .sp .sp-steps{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .sp .sp-steps li:nth-child(2n){ border-right:0; }
+  .sp .sp-steps li:nth-child(-n+2){ border-bottom:1px solid var(--rule); }
+  .sp .sp-cas-c{ border-right:0; border-bottom:1px solid var(--rule); }
+  .sp .sp-cas-c:last-child{ border-bottom:0; }
+}
+@media (max-width:620px){
+  .sp .sp-grid, .sp .sp-steps{ grid-template-columns:1fr; }
+  .sp .sp-cell, .sp .sp-cell:nth-child(3n){ border-right:0; border-bottom:1px solid var(--rule); }
+  .sp .sp-cell:last-child{ border-bottom:0; }
+  .sp .sp-steps li{ border-right:0; border-bottom:1px solid var(--rule); }
+  .sp .sp-steps li:last-child{ border-bottom:0; }
+  .sp .sp-chips{ grid-template-columns:1fr; }
+  .sp .sp-vis{ min-height:280px; }
+  .sp .sp-formula-m{ top:-40px; width:48px; height:48px; }
+}
+
+/* À propos */
+.sp .sp-flat li::before{ opacity:1; }
+.sp .sp-flat .sp-k{ color:var(--violet); }
+.ab .ab-photo{ position:relative; margin:0; justify-self:center; width:min(100%,440px); }
+.ab .ab-photo img{ display:block; width:100%; height:auto; aspect-ratio:4 / 5; object-fit:cover; border:2px solid var(--ink); border-radius:20px; box-shadow:10px 10px 0 var(--violet); }
+.ab .ab-photo figcaption{ position:absolute; left:-14px; bottom:22px; display:grid; padding:10px 14px; background:var(--white); border:2px solid var(--ink); border-radius:12px; box-shadow:4px 4px 0 var(--ink); font-size:.84rem; color:var(--soft); }
+.ab .ab-photo figcaption b{ font-family:var(--display); font-weight:800; font-size:1rem; color:var(--ink); }
+.ab .ab-photo-m{ position:absolute; right:-10px; top:-44px; width:64px; height:64px; }
+.ab .ab-facts dl{ margin:18px 0 0; display:grid; gap:10px; }
+.ab .ab-facts dl > div{ display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:baseline; padding:12px 14px; background:var(--white); border:1.5px solid var(--ink); border-radius:12px; }
+.ab .ab-facts dt{ font-family:var(--label); font-size:.74rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--violet); }
+.ab .ab-facts dd{ margin:0; font-weight:700; line-height:1.35; }
+.ab .ab-facts dd a{ color:var(--violet); text-decoration:underline; text-underline-offset:3px; }
+.ab .ab-who{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); }
+.ab .ab-who-t{ padding:clamp(56px,7vw,96px) var(--pad) var(--pad); border-right:1px solid var(--rule); }
+.ab .sp-prose{ margin-top:24px; display:grid; gap:16px; max-width:60ch; }
+.ab .sp-prose p{ font-size:clamp(1.05rem,1rem + .25vw,1.18rem); line-height:1.65; }
+.ab .ab-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
+.ab .ab-tags li{ padding:6px 12px; border:1.5px solid var(--ink); border-radius:999px; background:var(--white); font-family:var(--label); font-size:.82rem; font-weight:700; }
+.ab .ab-who-t > .go{ margin-top:26px; color:var(--violet); }
+.ab .ab-quote{ margin:0; display:flex; flex-direction:column; justify-content:center; gap:24px; padding:var(--pad); background:radial-gradient(70% 70% at 70% 30%, rgba(104,45,254,.45), transparent 70%), var(--ink); color:var(--paper); }
+.ab .ab-quote p{ font-family:var(--display); font-weight:800; font-size:clamp(1.4rem,1.1rem + 1.1vw,2.1rem); line-height:1.2; letter-spacing:-.02em; }
+.ab .ab-quote cite{ font-style:normal; font-family:var(--label); font-size:.84rem; color:var(--soft-d); }
+.ab .ab-quote cite a{ color:var(--pink); text-decoration:underline; text-underline-offset:3px; }
+.ab .ab-quote footer{ display:flex; align-items:center; gap:12px; }
+.ab .ab-quote footer img{ width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid var(--paper); }
+.ab .ab-quote footer span{ display:grid; font-size:.86rem; color:var(--soft-d); }
+.ab .ab-quote footer b{ font-family:var(--display); color:var(--paper); font-size:1rem; }
+.ab .ab-logos{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); }
+.ab .ab-logos li{ display:grid; place-items:center; min-height:clamp(110px,11vw,150px); border-right:1px solid var(--rule); }
+.ab .ab-logos li:last-child{ border-right:0; }
+.ab .ab-logos img{ height:var(--h); width:auto; max-width:70%; filter:grayscale(1); opacity:.75; transition:filter .2s, opacity .2s; }
+.ab .ab-logos li:hover img{ filter:none; opacity:1; }
+.ab .ab-where{ display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr); }
+.ab .ab-where-t{ padding:clamp(56px,7vw,96px) var(--pad) var(--pad); border-right:1px solid var(--rule); }
+.ab .ab-where-t .lead{ margin-top:20px; }
+.ab .ab-addr{ margin-top:26px; font-style:normal; line-height:1.6; display:grid; }
+.ab .ab-addr b{ font-family:var(--display); }
+.ab .ab-addr a{ color:var(--violet); font-weight:700; }
+.ab .ab-where-t > .go{ margin-top:18px; color:var(--violet); }
+.ab .ab-join{ display:flex; flex-direction:column; justify-content:center; gap:12px; padding:var(--pad); background:repeating-linear-gradient(135deg, transparent 0 9px, rgba(104,45,254,.07) 9px 10px); transition:background-color .2s; }
+.ab .ab-join:hover{ background-color:var(--white); }
+.ab .ab-join-k{ font-family:var(--label); font-size:.84rem; font-weight:700; color:var(--violet); }
+.ab .ab-join h3{ font-size:clamp(1.5rem,1.2rem + 1vw,2.2rem); line-height:1.05; }
+.ab .ab-join p{ color:var(--soft); max-width:46ch; }
+.ab .ab-join .go{ margin-top:6px; color:var(--violet); }
+@media (max-width:980px){
+  .ab .ab-who, .ab .ab-where{ grid-template-columns:1fr; }
+  .ab .ab-who-t, .ab .ab-where-t{ border-right:0; border-bottom:1px solid var(--rule); }
+  .ab .ab-logos{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .ab .ab-logos li:nth-child(2n){ border-right:0; }
+  .ab .ab-logos li:nth-child(-n+2){ border-bottom:1px solid var(--rule); }
+  .ab .ab-photo{ width:min(86%,400px); margin-top:20px; }
+}
+@media (max-width:620px){ .ab .ab-photo figcaption{ left:-6px; } .ab .ab-photo-m{ right:0; } }
+
+/* panneau Services : Growth Part-Time en avant, leviers en petit */
+.nav-panel.np-svc{ grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,.85fr); gap:clamp(20px,2.4vw,40px); }
+.np-feature{ position:relative; overflow:hidden; display:flex; flex-direction:column; gap:10px; padding:clamp(20px,2vw,28px); min-height:230px; border:2px solid var(--prune); border-radius:18px; color:var(--white); background:linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px) 0 0 / 28px 28px, linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px) 0 0 / 28px 28px, radial-gradient(80% 90% at 85% 10%, #8B5BFF, transparent 70%), var(--violet-3); box-shadow:5px 5px 0 var(--prune); transition:transform .22s var(--ease-cely-out), box-shadow .22s var(--ease-cely-out); }
+.np-feature:hover{ transform:translate(-2px,-2px); box-shadow:7px 7px 0 var(--prune); }
+.np-feature:focus-visible{ outline:2.5px solid var(--pink); outline-offset:3px; }
+.np-feature-k{ align-self:flex-start; padding:4px 10px; border-radius:999px; background:var(--white); color:var(--violet-3); font-family:var(--font-label); font-size:.74rem; font-weight:700; }
+.np-feature-t{ margin-top:4px; font-family:var(--font-display); font-weight:900; font-size:clamp(1.7rem,1.2rem + 1vw,2.3rem); line-height:1; letter-spacing:-.03em; }
+.np-feature-d{ max-width:40ch; font-size:.95rem; line-height:1.5; color:rgba(255,255,255,.86); }
+.np-feature-go{ margin-top:auto; display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700; font-size:.92rem; }
+.np-feature-go svg, .np-all svg{ width:8px; height:11px; transition:transform .2s var(--ease-cely-out); }
+.np-feature:hover .np-feature-go svg, .np-all:hover svg{ transform:translateX(3px); }
+.np-col{ display:flex; flex-direction:column; padding-top:4px; }
+.np-h{ margin:0 0 8px; font-family:var(--font-label); font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+.np-mini{ list-style:none; margin:0; padding:0; display:grid; gap:2px; }
+.np-mini a{ display:grid; gap:1px; padding:9px 12px; margin-inline:-12px; border-radius:10px; color:var(--prune); transition:background-color .18s; }
+.np-mini a:hover{ background:var(--lavender); }
+.np-mini a:focus-visible{ outline:2.5px solid var(--violet-3); outline-offset:1px; }
+.np-mini b{ font-family:var(--font-display); font-weight:800; font-size:1.06rem; line-height:1.2; }
+.np-mini span{ font-size:.86rem; color:var(--muted); }
+.np-mini a:hover b{ color:var(--violet-3); }
+.np-subl{ position:relative; margin-left:14px; }
+.np-subl::before{ content:""; position:absolute; left:-6px; top:-2px; height:24px; width:9px; border-left:1.5px solid var(--border); border-bottom:1.5px solid var(--border); border-bottom-left-radius:6px; }
+.np-all{ margin-top:auto; padding-top:16px; display:inline-flex; align-items:center; gap:8px; font-family:var(--font-label); font-weight:700; font-size:.92rem; color:var(--violet-3); }
+.nmp-sub .nmp-feat{ display:grid; gap:2px; margin:4px 0 8px; padding:12px 14px; border:2px solid var(--prune); border-radius:12px; background:var(--violet-3); color:var(--white); box-shadow:3px 3px 0 var(--prune); }
+.nmp-sub .nmp-feat b{ font-family:var(--font-display); font-weight:800; font-size:1.1rem; }
+.nmp-sub .nmp-feat span{ font-size:.86rem; font-weight:600; color:rgba(255,255,255,.85); }
+.nmp-sub .nmp-indent{ padding-left:16px; color:var(--muted); }
+.nmp-sub .nmp-all{ color:var(--violet-3); }
+
+/* accueil : liens vers les pages services */
+.hm .tabs-in{ position:sticky; top:84px; display:grid; gap:14px; }
+.hm .tabs-in ol{ position:static; }
+.hm .tabs a.tabs-all{ display:grid; justify-content:stretch; gap:4px; padding:14px 16px; font-family:var(--body); font-weight:400; color:var(--white); border:2px solid var(--ink); border-radius:12px; background:var(--violet); color:var(--white); box-shadow:4px 4px 0 var(--ink); transition:transform .2s var(--ease), box-shadow .2s var(--ease); }
+.hm .tabs a.tabs-all:hover{ color:var(--white);  transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--ink); }
+.hm .tabs-all b{ display:flex; align-items:center; justify-content:space-between; gap:10px; font-family:var(--display); font-weight:800; font-size:1rem; line-height:1.2; }
+.hm .tabs-all b svg{ flex:none; width:8px; height:11px; opacity:1; }
+.hm .tabs-all span{ font-size:.84rem; color:rgba(255,255,255,.82); }
+.hm .lev-more{ display:inline-flex; align-items:center; gap:7px; margin-top:16px; font-family:var(--label); font-size:.84rem; font-weight:600; color:var(--soft); text-decoration:underline; text-decoration-color:transparent; text-underline-offset:3px; transition:color .2s, text-decoration-color .2s, gap .2s var(--ease); }
+.hm .lev-more:hover{ color:var(--violet); text-decoration-color:currentColor; gap:10px; }
+.hm .lev-more svg{ width:7px; height:10px; }
+.hm .extras .lev-more{ margin-top:12px; }
+@media (max-width:980px){ .hm .tabs{ display:block; border-right:0; border-bottom:1px solid var(--rule); } .hm .tabs-in{ position:static; } .hm .tabs ol{ display:none; } }
+/* annuaire des services */
+.sv .sv-hero-f{ display:flex; flex-direction:column; align-items:flex-start; padding:clamp(48px,6vw,96px) var(--pad) clamp(44px,5vw,80px); }
+.sv .sv-hero-f .lead{ margin-top:22px; max-width:56ch; }
+.sv .sv-toc{ position:relative; z-index:2; display:flex; flex-wrap:wrap; gap:8px; margin-top:clamp(26px,3vw,38px); }
+.sv .sv-toc a{ padding:8px 14px; border:1.5px solid var(--ink); border-radius:999px; background:var(--white); font-family:var(--label); font-weight:700; font-size:.86rem; transition:transform .2s var(--ease), box-shadow .2s var(--ease), background-color .2s; }
+.sv .sv-toc a:hover{ transform:translate(-1px,-1px); box-shadow:3px 3px 0 var(--ink); }
+.sv .sv-toc a.is-main{ background:var(--violet); color:var(--white); box-shadow:3px 3px 0 var(--ink); }
+.sv .sv-bul{ display:grid; gap:10px; margin-top:24px; }
+.sv .sv-bul li{ position:relative; padding-left:24px; font-weight:600; color:var(--paper); }
+.sv .sv-bul li::before{ content:""; position:absolute; left:2px; top:.5em; width:9px; height:9px; border-radius:2px; background:var(--pink); transform:rotate(45deg); }
+.sv .sv-price{ margin-top:18px; font-family:var(--display); font-weight:900; font-size:clamp(1.8rem,1.4rem + 1vw,2.4rem); letter-spacing:-.03em; line-height:1; }
+.sv .sv-price small{ display:block; margin-bottom:4px; font-family:var(--label); font-weight:700; font-size:.78rem; letter-spacing:0; color:var(--soft); }
+.sv .sv-price span{ font-size:.5em; color:var(--soft); }
+.sv .sv-levs{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.sv .sv-lev{ display:flex; flex-direction:column; align-items:flex-start; padding:var(--pad); border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); scroll-margin-top:80px; transition:background-color .2s; }
+.sv .sv-lev:nth-child(2n){ border-right:0; }
+.sv .sv-lev:nth-last-child(-n+2){ border-bottom:0; }
+.sv .sv-lev:hover{ background:var(--white); }
+.sv .sv-lev h3{ font-size:clamp(1.5rem,1.15rem + 1.1vw,2.2rem); line-height:1.05; }
+.sv .sv-lev h3 a:hover, .sv .sp-cell h3 a:hover{ color:var(--violet); }
+.sv .sv-lev p{ margin-top:12px; color:var(--soft); max-width:56ch; }
+.sv .sv-lev ul{ margin-top:16px; display:grid; gap:8px; }
+.sv .sv-lev li{ position:relative; padding-left:22px; font-weight:600; }
+.sv .sv-lev li::before{ content:""; position:absolute; left:2px; top:.5em; width:8px; height:8px; border-radius:2px; background:var(--violet); transform:rotate(45deg); }
+.sv .sv-lev .lev-more{ margin-top:auto; padding-top:20px; }
+.sv .sv-extra .sp-cell .lev-more{ margin-top:12px; }
+.sv .sv-extra .sp-cell:nth-last-child(-n+3){ border-bottom:0; }
+.sv .sv-cards a{ scroll-margin-top:80px; }
+.sv .sv-k{ font-family:var(--label); font-size:.8rem; font-weight:700; color:var(--violet); }
+.sv .sv-p{ font-family:var(--display); font-weight:900; font-size:1.4rem; color:var(--ink) !important; }
+@media (max-width:980px){ .sv .sv-levs{ grid-template-columns:1fr; } .sv .sv-lev{ border-right:0; } .sv .sv-lev:nth-last-child(-n+2){ border-bottom:1px solid var(--rule); } .sv .sv-lev:last-child{ border-bottom:0; } .sv .sv-extra .sp-cell:nth-last-child(-n+3){ border-bottom:1px solid var(--rule); } .sv .sv-extra .sp-cell:last-child{ border-bottom:0; } }
+/* Growth Part-Time : liens vers les pages services */
+.gp-more{ display:inline-flex; align-items:center; gap:7px; margin-top:14px; font-family:var(--font-label); font-size:.84rem; font-weight:600; color:var(--muted); text-decoration:underline; text-decoration-color:transparent; text-underline-offset:3px; transition:color .2s, text-decoration-color .2s, gap .2s; }
+.gp-more:hover{ color:var(--violet-3); text-decoration-color:currentColor; gap:10px; }
+.gp-more svg{ width:7px; height:10px; }
+.hp-extra-card .gp-more{ margin-top:10px; }
+.gp-more-d{ color:rgba(247,245,250,.7); }
+.gp-more-d:hover{ color:var(--pink); }
 /* hub des services : entrée Offre découverte (réutilise le bandeau .od-upsell) */
 .sv-od{ padding-block:clamp(40px,5vw,64px) 0; }
 .sv-od .od-upsell{ margin-top:0; }
@@ -4621,21 +4870,33 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
         <a href="/growth" data-route="growth" class="nl">Growth Part-Time</a>
         <div class="nl-item has-panel">
           <a href="/services" data-route="services" class="nl" aria-expanded="false" aria-controls="navPanelServices">Services<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <div class="nav-panel" id="navPanelServices" inert>
-            <p class="np-label">Services</p>
-            <ul class="np-links">
-              <li><a href="/growth" data-route="growth">Growth Part-Time</a></li>
-              <li><a href="/services/offre-decouverte" data-route="offre-decouverte">Offre découverte</a></li>
-              <li><a href="/audit/audit-marketing-digital" data-route="audit">Audit Marketing Digital</a></li>
-              <li><a href="/comparatif-growth-marketing" data-route="comparatif">Comparatif</a></li>
-            </ul>
-            <div class="np-cards">
-              <a class="np-card" href="/growth" data-route="growth"><span class="np-vis"><img src="/images/og/og-growth.png" alt="" width="1200" height="630" loading="lazy" decoding="async"></span><span class="np-t">Growth Part-Time</span><span class="np-d">Un growth dédié chaque semaine, à partir de 750&nbsp;€&nbsp;HT par mois.</span></a>
-              <a class="np-card" href="/services/offre-decouverte" data-route="offre-decouverte"><span class="np-vis"><img src="/images/og/og-offre-decouverte.png" alt="" width="1200" height="630" loading="lazy" decoding="async"></span><span class="np-t">Offre découverte</span><span class="np-d">300 décideurs contactés, une réponse sur votre marché en 28 jours.</span></a>
+          <div class="nav-panel np-svc" id="navPanelServices" inert>
+            <a class="np-feature" href="/growth" data-route="growth">
+              <span class="np-feature-k">La formule tout-en-un</span>
+              <span class="np-feature-t">Growth Part-Time</span>
+              <span class="np-feature-d">Stratégie, outbound, inbound et automatisation, pilotés par un seul growth, chaque semaine. Sans engagement.</span>
+              <span class="np-feature-go">Découvrir la formule <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </a>
+            <div class="np-col">
+              <p class="np-h">Les leviers, un par un</p>
+              <ul class="np-mini">
+                <li><a href="/services/strategie-acquisition"><b>Stratégie</b><span>Cibles, messages, plan à 90 jours</span></a></li>
+                <li><a href="/services/prospection-outbound"><b>Outbound</b><span>Prospection email et LinkedIn</span></a></li>
+                <li><a href="/services/inbound-marketing"><b>Inbound</b><span>Contenu, SEO et GEO</span></a></li>
+                <li><a href="/services/automatisation-marketing"><b>Automatisation</b><span>Du premier signal au rendez-vous</span></a></li>
+              </ul>
+            </div>
+            <div class="np-col">
+              <p class="np-h">Audits</p>
+              <ul class="np-mini">
+                <li><a href="/audit" data-route="audit"><b>Tous les audits</b><span>Voir clair avant d'agir</span></a></li>
+                <li class="np-subl"><a href="/audit/audit-marketing-digital"><b>Audit Marketing Digital</b><span>Rapport écrit et plan d'action</span></a></li>
+              </ul>
+              <a class="np-all" href="/services" data-route="services">Tous les services <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
             </div>
           </div>
         </div>
-        <a href="/#histoire" class="nl">À propos</a>
+        <a href="/a-propos" data-route="a-propos" class="nl">À propos</a>
         <div class="nl-item has-panel">
           <a href="/actualites" data-route="actualites" class="nl" aria-expanded="false" aria-controls="navPanelRessources">Ressources<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="nav-panel" id="navPanelRessources" inert>
@@ -4664,13 +4925,16 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
             <a href="/growth" data-route="growth">Growth Part-Time</a>
             <button type="button" class="nmp-acc" aria-expanded="false" aria-controls="nmpServices">Services<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="nmp-sub" id="nmpServices" hidden>
-              <a href="/services" data-route="services">Tous les services</a>
-              <a href="/growth" data-route="growth">Growth Part-Time</a>
-              <a href="/services/offre-decouverte" data-route="offre-decouverte">Offre découverte</a>
-              <a href="/audit/audit-marketing-digital" data-route="audit">Audit Marketing Digital</a>
-              <a href="/comparatif-growth-marketing" data-route="comparatif">Comparatif</a>
+              <a href="/growth" data-route="growth" class="nmp-feat"><b>Growth Part-Time</b><span>La formule tout-en-un</span></a>
+              <a href="/services/strategie-acquisition">Stratégie</a>
+              <a href="/services/prospection-outbound">Outbound</a>
+              <a href="/services/inbound-marketing">Inbound</a>
+              <a href="/services/automatisation-marketing">Automatisation</a>
+              <a href="/audit" data-route="audit">Audits</a>
+              <a href="/audit/audit-marketing-digital" class="nmp-indent">Audit Marketing Digital</a>
+              <a href="/services" data-route="services" class="nmp-all">Tous les services</a>
             </div>
-            <a href="/#histoire">À propos</a>
+            <a href="/a-propos" data-route="a-propos">À propos</a>
             <button type="button" class="nmp-acc" aria-expanded="false" aria-controls="nmpRessources">Ressources<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="nmp-sub" id="nmpRessources" hidden>
               <a href="/actualites" data-route="actualites">Tous les articles</a>
@@ -4770,6 +5034,133 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
         <p class="mf-end-big">Le growth qui s'intègre.</p>
         <div class="hp-cta-row"><a href="/growth" data-route="growth" class="btn-text-cely">Voir comment ça se traduit : Growth Part-Time<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
+    </div>
+  </section>
+
+  <!--CTA_FINAL-->
+
+</main>
+
+<main class="site-page hm sp ab" data-page="a-propos" hidden>
+
+  <section class="sp-hero" aria-labelledby="h1">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="frame sp-hero-f">
+      <div class="sp-hero-t">
+        <h1 class="sp-h1" id="h1">Cely, un growth marketer <span class="accent">qui pilote et qui exécute</span></h1>
+        <p class="lead">Cely accompagne les startups et PME B2B qui n'ont pas encore de growth. Derrière Cely, un seul interlocuteur&nbsp;: Célien Boillot, cofondateur de l'agence web Wenoble. Basé à Meylan, près de Grenoble, il travaille avec des entreprises partout en France.</p>
+        <div class="hero-cta"><a class="btn" href="/contact#formulaire"><i aria-hidden="true"></i>Faire le point avec Célien<svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><a class="go" href="/manifeste">Lire le manifeste <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <figure class="ab-photo">
+        <img src="/images/photos/cely-terrain-croissance.webp" alt="Célien Boillot, fondateur de Cely, au travail" width="900" height="1125" fetchpriority="high" decoding="async">
+        <figcaption><b>Célien Boillot</b>Fondateur de Cely</figcaption>
+        <span class="ab-photo-m cely-spot" data-cely="wave" data-cely-threshold="0.2" aria-hidden="true"></span>
+      </figure>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="ab-why">
+    <div class="frame">
+      <div class="sec-head x"><h2 class="h2" id="ab-why">Pourquoi Cely <span class="accent">existe</span></h2></div>
+      <div class="sp-def">
+        <div class="sp-def-t">
+          <p>Beaucoup d'entreprises B2B ont une offre qui se vend et des clients satisfaits. Pourtant, personne ne pilote leur acquisition&nbsp;: les nouveaux clients arrivent par le réseau, au rythme du bouche-à-oreille.</p>
+          <p>Recruter un growth marketer coûte cher et prend du temps. Une agence produit des rapports, mais met rarement les mains dans votre réalité. Entre les deux, il manque quelqu'un qui décide des priorités et qui les met en œuvre lui-même.</p>
+          <p>C'est le rôle de Cely&nbsp;: un growth marketer à temps partagé, intégré à votre équipe quelques heures par semaine, qui reste tant que le travail avance. Le growth qui s'intègre.</p>
+        </div>
+        <div class="sp-signs ab-facts">
+          <h3>Cely en bref</h3>
+          <dl>
+            <div><dt>Fondateur</dt><dd>Célien Boillot</dd></div>
+            <div><dt>Pour qui</dt><dd>Startups et PME B2B</dd></div>
+            <div><dt>Basé à</dt><dd>Meylan, près de Grenoble</dd></div>
+            <div><dt>Où</dt><dd>Partout en France, en visio et dans vos outils</dd></div>
+            <div><dt>Formule</dt><dd><a href="/growth">Growth Part-Time</a>, sans engagement</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="ab-who">
+    <div class="frame ab-who">
+      <div class="ab-who-t">
+        <h2 class="h2" id="ab-who">Qui est <span class="accent">Célien Boillot</span></h2>
+        <div class="sp-prose">
+          <p>Célien a cofondé Wenoble en 2023, une agence grenobloise spécialisée dans la stratégie digitale et les sites web des entreprises B2B. L'agence a accompagné plus de 60 entreprises depuis.</p>
+          <p>Avec Cely, il se consacre à ce qui vient après le site&nbsp;: faire venir des clients. Stratégie, prospection, inbound, automatisation&nbsp;: il construit le plan et l'exécute, avec l'appui d'experts indépendants quand une mission le demande.</p>
+        </div>
+        <ul class="ab-tags" aria-label="Spécialités">
+          <li>Growth marketing</li><li>Acquisition B2B</li><li>Prospection</li><li>SEO et GEO</li><li>Automatisation</li>
+        </ul>
+        <a class="go" href="{{LINKEDIN_URL}}" target="_blank" rel="noopener">Suivre Célien sur LinkedIn <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <blockquote class="ab-quote">
+        <p>«&nbsp;J'ai écrit ces lignes parce que j'ai trop souvent vu l'inverse. Elles sont la règle du jeu chez Cely.&nbsp;»</p><cite>Extrait du <a href="/manifeste">manifeste de Cely</a></cite>
+        <footer><img src="/images/celien-boillot-112.webp" alt="" width="112" height="112" loading="lazy" decoding="async"><span><b>Célien Boillot</b>Fondateur de Cely, cofondateur de Wenoble</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="ab-values">
+    <div class="frame">
+      <div class="sec-head x"><h2 class="h2" id="ab-values">Ce qui guide <span class="accent">notre travail</span></h2><a class="go" href="/manifeste">Lire le manifeste en entier <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="sp-grid">
+        <div class="sp-cell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><h3>Pas de growth piloté de loin</h3><p>Le plan est un point de départ&nbsp;: on le lance, on le mesure et on le corrige chaque semaine.</p></div>
+        <div class="sp-cell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></span><h3>Comprendre avant d'agir</h3><p>Votre marché, vos clients, votre produit, votre équipe. Tout commence par un diagnostic, jamais par une campagne.</p></div>
+        <div class="sp-cell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18 14.4c1.8.8 3 2.6 3 4.6"/></svg></span><h3>Construire avec votre équipe</h3><p>On échange avec vos commerciaux, pas seulement avec le dirigeant&nbsp;: ce sont eux qui savent ce que disent les clients.</p></div>
+        <div class="sp-cell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6"/></svg></span><h3>Peu de clients, bien accompagnés</h3><p>Un nombre restreint d'entreprises à la fois. Ce n'est pas un argument commercial, c'est une condition pour bien faire le travail.</p></div>
+        <div class="sp-cell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><h3>S'intégrer, où que vous soyez</h3><p>Vos points d'équipe, votre Slack, votre CRM. En visio partout en France, sur place près de Grenoble.</p></div>
+        <div class="sp-cell"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Jugés sur les résultats</h3><p>Pas d'engagement figé&nbsp;: on continue parce que le travail avance, pas parce qu'un contrat nous y oblige.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="ab-how">
+    <div class="frame">
+      <div class="sec-head x"><h2 class="h2" id="ab-how">Comment Cely <span class="accent">travaille</span></h2><p class="lead">Une organisation simple, pensée pour que vous sachiez toujours qui fait quoi.</p></div>
+      <ul class="sp-steps sp-flat">
+        <li><span class="sp-k">Un pilote</span><h3>Un seul interlocuteur</h3><p>Célien pilote chaque mission du début à la fin, sans chef de projet intermédiaire.</p></li>
+        <li><span class="sp-k">Un réseau</span><h3>Des experts au besoin</h3><p>Outbound, publicité, SEO, tracking, contenu&nbsp;: des indépendants de confiance rejoignent la mission quand elle le demande.</p></li>
+        <li><span class="sp-k">Vos outils</span><h3>Intégré à votre équipe</h3><p>On travaille dans votre CRM et vos outils existants, plutôt que d'en imposer de nouveaux.</p></li>
+        <li><span class="sp-k">Chaque semaine</span><h3>Un point fixe</h3><p>30 minutes pour voir ce qui a marché, ce qu'on ajuste et ce qu'on lance.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="ab-clients">
+    <div class="frame">
+      <div class="sec-head x"><h2 class="h2" id="ab-clients">Ils travaillent <span class="accent">avec Cely</span></h2><a class="go" href="/cas-clients">Voir les cas clients <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <ul class="ab-logos">
+        <li><img src="/images/clients/biux.svg" alt="Biux" width="1099" height="368" style="--h:30px" loading="lazy" decoding="async"></li>
+        <li><img src="/images/clients/registre-general.webp" alt="Registre Général" width="224" height="77" style="--h:32px" loading="lazy" decoding="async"></li>
+        <li><img src="/images/clients/hexagone.webp" alt="Hexagone AI" width="401" height="84" style="--h:24px" loading="lazy" decoding="async"></li>
+        <li><img src="/images/clients/maison-solea.webp" alt="Maison Soléa" width="136" height="135" style="--h:52px" loading="lazy" decoding="async"></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="ab-where">
+    <div class="frame ab-where">
+      <div class="ab-where-t">
+        <h2 class="h2" id="ab-where">Près de Grenoble, <span class="accent">partout en France</span></h2>
+        <p class="lead">Cely est basé à Meylan, en Isère. On travaille avec des entreprises dans toute la France, en visio et dans vos outils, et sur place dans la région grenobloise.</p>
+        <address class="ab-addr"><b>Cely</b>6A Chemin des Prés<br>38240 Meylan<br><a href="tel:+33756963783">07 56 96 37 83</a></address>
+        <a class="go" href="https://www.google.com/maps?cid=7863789155467383060" target="_blank" rel="noopener">Voir notre fiche Google <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <a class="ab-join" href="/nous-rejoindre">
+        <span class="ab-join-k">Vous êtes expert indépendant&nbsp;?</span>
+        <h3>Rejoindre le réseau Cely</h3>
+        <p>Outbound, paid, SEO, tracking ou contenu&nbsp;: présentez-vous en deux minutes. On revient vers vous quand une mission correspond.</p>
+        <span class="go">Proposer une collaboration <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="ab-faq">
+    <div class="frame faq">
+      <div class="faq-side"><div><h2 class="h2" id="ab-faq">Questions fréquentes</h2><p>Une autre question&nbsp;? Posez-la directement à Célien.</p><a class="btn btn-light" href="/contact#formulaire"><i aria-hidden="true"></i>Poser ma question à Célien<svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
+      <div class="qa"><details class="gpt-faq-item" open><summary>Cely est-elle une agence&nbsp;?<span class="pm" aria-hidden="true"></span></summary><p class="gpt-faq-answer">Pas au sens classique. Cely fonctionne comme un growth marketer intégré à votre équipe, avec un seul interlocuteur, épaulé par des experts indépendants quand une mission le demande.</p></details><details class="gpt-faq-item"><summary>Quel lien entre Cely et Wenoble&nbsp;?<span class="pm" aria-hidden="true"></span></summary><p class="gpt-faq-answer">Célien Boillot est cofondateur de Wenoble, agence web B2B basée à Grenoble. Cely est son activité dédiée au growth marketing&nbsp;: faire venir des clients, plutôt que créer des sites.</p></details><details class="gpt-faq-item"><summary>Où est basée Cely&nbsp;?<span class="pm" aria-hidden="true"></span></summary><p class="gpt-faq-answer">À Meylan, près de Grenoble. On travaille avec des entreprises partout en France, en visio et dans vos outils, et sur place dans la région grenobloise.</p></details><details class="gpt-faq-item"><summary>Avec quelles entreprises travaillez-vous&nbsp;?<span class="pm" aria-hidden="true"></span></summary><p class="gpt-faq-answer">Des startups et PME B2B dont l'offre se vend déjà et qui veulent structurer leur acquisition sans recruter tout de suite&nbsp;: SaaS, services B2B, cabinets de conseil, industrie, fintech, formation.</p></details><details class="gpt-faq-item"><summary>Combien de clients accompagnez-vous en même temps&nbsp;?<span class="pm" aria-hidden="true"></span></summary><p class="gpt-faq-answer">Peu, volontairement&nbsp;: c'est la condition pour vraiment s'impliquer dans chaque mission.</p></details></div>
     </div>
   </section>
 
@@ -5015,35 +5406,35 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
     <div class="frame">
       <div class="sec-head x"><h2 class="h2" id="h-scope">Ce que je prends <span class="accent">en charge</span></h2><p class="lead">On choisit les canaux après le diagnostic.</p></div>
       <div class="scope">
-        <nav class="tabs" aria-label="Leviers"><ol>
+        <nav class="tabs" aria-label="Leviers"><div class="tabs-in"><ol>
           <li><a href="#lev-strat" class="on">Stratégie <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11m0 0-4-4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
           <li><a href="#lev-out">Outbound <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11m0 0-4-4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
           <li><a href="#lev-in">Inbound <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11m0 0-4-4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
           <li><a href="#lev-auto">Automatisation <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h11m0 0-4-4m4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-        </ol></nav>
+        </ol><a class="tabs-all" href="/growth"><b>Découvrir la formule tout-en-un <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></b><span>Ces leviers réunis dans Growth Part-Time</span></a></div></nav>
         <div>
           <article class="lev" id="lev-strat">
-            <div class="lev-t"><h3>Stratégie</h3><ul><li>Cibles et positionnement</li><li>Choix des canaux</li><li>Plan d'action à 90 jours</li></ul></div>
+            <div class="lev-t"><h3>Stratégie</h3><ul><li>Cibles et positionnement</li><li>Choix des canaux</li><li>Plan d'action à 90 jours</li></ul><a class="lev-more" href="/services/strategie-acquisition">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
             <div class="mosaic"><svg class="tiles" viewBox="0 0 16 10" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="0" y="0" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="1" y="0" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="2" y="0" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="3" y="0" width="1.002" height="1.002" fill="#FFE98A"/><rect x="4" y="0" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="5" y="0" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="6" y="0" width="1.002" height="1.002" fill="#FFE066"/><rect x="7" y="0" width="1.002" height="1.002" fill="#FFE066"/><rect x="8" y="0" width="1.002" height="1.002" fill="#FFE98A"/><rect x="9" y="0" width="1.002" height="1.002" fill="#FFE98A"/><rect x="10" y="0" width="1.002" height="1.002" fill="#FFD84D"/><rect x="11" y="0" width="1.002" height="1.002" fill="#FFD84D"/><rect x="12" y="0" width="1.002" height="1.002" fill="#FFD84D"/><rect x="13" y="0" width="1.002" height="1.002" fill="#FFE98A"/><rect x="14" y="0" width="1.002" height="1.002" fill="#FFE066"/><rect x="15" y="0" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="0" y="1" width="1.002" height="1.002" fill="#FFE066"/><rect x="1" y="1" width="1.002" height="1.002" fill="#FFD84D"/><rect x="2" y="1" width="1.002" height="1.002" fill="#FFE066"/><rect x="3" y="1" width="1.002" height="1.002" fill="#FFD84D"/><rect x="4" y="1" width="1.002" height="1.002" fill="#FFD84D"/><rect x="5" y="1" width="1.002" height="1.002" fill="#FFE98A"/><rect x="6" y="1" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="7" y="1" width="1.002" height="1.002" fill="#FFE98A"/><rect x="8" y="1" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="9" y="1" width="1.002" height="1.002" fill="#FFE98A"/><rect x="10" y="1" width="1.002" height="1.002" fill="#FFD84D"/><rect x="11" y="1" width="1.002" height="1.002" fill="#FFE98A"/><rect x="12" y="1" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="13" y="1" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="14" y="1" width="1.002" height="1.002" fill="#FFD84D"/><rect x="15" y="1" width="1.002" height="1.002" fill="#FFE066"/><rect x="0" y="2" width="1.002" height="1.002" fill="#FFE066"/><rect x="1" y="2" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="2" y="2" width="1.002" height="1.002" fill="#FFE98A"/><rect x="3" y="2" width="1.002" height="1.002" fill="#FFE98A"/><rect x="4" y="2" width="1.002" height="1.002" fill="#FFD84D"/><rect x="5" y="2" width="1.002" height="1.002" fill="#FFE98A"/><rect x="6" y="2" width="1.002" height="1.002" fill="#FFE98A"/><rect x="7" y="2" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="8" y="2" width="1.002" height="1.002" fill="#FFE066"/><rect x="9" y="2" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="10" y="2" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="11" y="2" width="1.002" height="1.002" fill="#FFE066"/><rect x="12" y="2" width="1.002" height="1.002" fill="#FFE98A"/><rect x="13" y="2" width="1.002" height="1.002" fill="#FFE066"/><rect x="14" y="2" width="1.002" height="1.002" fill="#FFE066"/><rect x="15" y="2" width="1.002" height="1.002" fill="#FFE98A"/><rect x="0" y="3" width="1.002" height="1.002" fill="#FFD84D"/><rect x="1" y="3" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="2" y="3" width="1.002" height="1.002" fill="#FFD84D"/><rect x="3" y="3" width="1.002" height="1.002" fill="#FFE98A"/><rect x="4" y="3" width="1.002" height="1.002" fill="#FFE066"/><rect x="5" y="3" width="1.002" height="1.002" fill="#FFE98A"/><rect x="6" y="3" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="7" y="3" width="1.002" height="1.002" fill="#FFF6C9"/><rect x="8" y="3" width="1.002" height="1.002" fill="#FFE066"/><rect x="9" y="3" width="1.002" height="1.002" fill="#FFE066"/><rect x="10" y="3" width="1.002" height="1.002" fill="#FFE98A"/><rect x="11" y="3" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="12" y="3" width="1.002" height="1.002" fill="#FFE98A"/><rect x="13" y="3" width="1.002" height="1.002" fill="#FFE98A"/><rect x="14" y="3" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="15" y="3" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="0" y="4" width="1.002" height="1.002" fill="#FFE066"/><rect x="1" y="4" width="1.002" height="1.002" fill="#FFE066"/><rect x="2" y="4" width="1.002" height="1.002" fill="#FFE066"/><rect x="3" y="4" width="1.002" height="1.002" fill="#FFE98A"/><rect x="4" y="4" width="1.002" height="1.002" fill="#FFD84D"/><rect x="5" y="4" width="1.002" height="1.002" fill="#FFE98A"/><rect x="6" y="4" width="1.002" height="1.002" fill="#FFF6C9"/><rect x="7" y="4" width="1.002" height="1.002" fill="#FFE98A"/><rect x="8" y="4" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="9" y="4" width="1.002" height="1.002" fill="#FFE98A"/><rect x="10" y="4" width="1.002" height="1.002" fill="#FFE98A"/><rect x="11" y="4" width="1.002" height="1.002" fill="#FFE98A"/><rect x="12" y="4" width="1.002" height="1.002" fill="#FFE98A"/><rect x="13" y="4" width="1.002" height="1.002" fill="#FFD84D"/><rect x="14" y="4" width="1.002" height="1.002" fill="#FFE066"/><rect x="15" y="4" width="1.002" height="1.002" fill="#FFD84D"/><rect x="0" y="5" width="1.002" height="1.002" fill="#FFE98A"/><rect x="1" y="5" width="1.002" height="1.002" fill="#FFE98A"/><rect x="2" y="5" width="1.002" height="1.002" fill="#FFE066"/><rect x="3" y="5" width="1.002" height="1.002" fill="#FFE066"/><rect x="4" y="5" width="1.002" height="1.002" fill="#FFE98A"/><rect x="5" y="5" width="1.002" height="1.002" fill="#FFE066"/><rect x="6" y="5" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="7" y="5" width="1.002" height="1.002" fill="#FFE98A"/><rect x="8" y="5" width="1.002" height="1.002" fill="#FFE066"/><rect x="9" y="5" width="1.002" height="1.002" fill="#FFE98A"/><rect x="10" y="5" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="11" y="5" width="1.002" height="1.002" fill="#FFD84D"/><rect x="12" y="5" width="1.002" height="1.002" fill="#FFE066"/><rect x="13" y="5" width="1.002" height="1.002" fill="#FFD84D"/><rect x="14" y="5" width="1.002" height="1.002" fill="#FFD84D"/><rect x="15" y="5" width="1.002" height="1.002" fill="#FFD84D"/><rect x="0" y="6" width="1.002" height="1.002" fill="#FFD84D"/><rect x="1" y="6" width="1.002" height="1.002" fill="#FFD84D"/><rect x="2" y="6" width="1.002" height="1.002" fill="#FFE98A"/><rect x="3" y="6" width="1.002" height="1.002" fill="#FFE98A"/><rect x="4" y="6" width="1.002" height="1.002" fill="#FFE98A"/><rect x="5" y="6" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="6" y="6" width="1.002" height="1.002" fill="#FFE98A"/><rect x="7" y="6" width="1.002" height="1.002" fill="#FFF6C9"/><rect x="8" y="6" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="9" y="6" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="10" y="6" width="1.002" height="1.002" fill="#FFE98A"/><rect x="11" y="6" width="1.002" height="1.002" fill="#FFE066"/><rect x="12" y="6" width="1.002" height="1.002" fill="#FFE98A"/><rect x="13" y="6" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="14" y="6" width="1.002" height="1.002" fill="#FFE066"/><rect x="15" y="6" width="1.002" height="1.002" fill="#FFE98A"/><rect x="0" y="7" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="1" y="7" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="2" y="7" width="1.002" height="1.002" fill="#FFE066"/><rect x="3" y="7" width="1.002" height="1.002" fill="#FFE066"/><rect x="4" y="7" width="1.002" height="1.002" fill="#FFD84D"/><rect x="5" y="7" width="1.002" height="1.002" fill="#FFE066"/><rect x="6" y="7" width="1.002" height="1.002" fill="#FFE98A"/><rect x="7" y="7" width="1.002" height="1.002" fill="#FFE98A"/><rect x="8" y="7" width="1.002" height="1.002" fill="#FFD84D"/><rect x="9" y="7" width="1.002" height="1.002" fill="#FFE066"/><rect x="10" y="7" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="11" y="7" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="12" y="7" width="1.002" height="1.002" fill="#FFE066"/><rect x="13" y="7" width="1.002" height="1.002" fill="#FFD84D"/><rect x="14" y="7" width="1.002" height="1.002" fill="#FFE066"/><rect x="15" y="7" width="1.002" height="1.002" fill="#FFE066"/><rect x="0" y="8" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="1" y="8" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="2" y="8" width="1.002" height="1.002" fill="#FFD84D"/><rect x="3" y="8" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="4" y="8" width="1.002" height="1.002" fill="#FFE066"/><rect x="5" y="8" width="1.002" height="1.002" fill="#FFD84D"/><rect x="6" y="8" width="1.002" height="1.002" fill="#FFE98A"/><rect x="7" y="8" width="1.002" height="1.002" fill="#FFE98A"/><rect x="8" y="8" width="1.002" height="1.002" fill="#FFE98A"/><rect x="9" y="8" width="1.002" height="1.002" fill="#FFD84D"/><rect x="10" y="8" width="1.002" height="1.002" fill="#FFF1A8"/><rect x="11" y="8" width="1.002" height="1.002" fill="#FFE98A"/><rect x="12" y="8" width="1.002" height="1.002" fill="#FFD84D"/><rect x="13" y="8" width="1.002" height="1.002" fill="#FFE066"/><rect x="14" y="8" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="15" y="8" width="1.002" height="1.002" fill="#FFD84D"/><rect x="0" y="9" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="1" y="9" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="2" y="9" width="1.002" height="1.002" fill="#FFF9DE"/><rect x="3" y="9" width="1.002" height="1.002" fill="#FFD84D"/><rect x="4" y="9" width="1.002" height="1.002" fill="#FFE066"/><rect x="5" y="9" width="1.002" height="1.002" fill="#FFE066"/><rect x="6" y="9" width="1.002" height="1.002" fill="#FFD84D"/><rect x="7" y="9" width="1.002" height="1.002" fill="#FFE98A"/><rect x="8" y="9" width="1.002" height="1.002" fill="#FFE066"/><rect x="9" y="9" width="1.002" height="1.002" fill="#FFD84D"/><rect x="10" y="9" width="1.002" height="1.002" fill="#FFE98A"/><rect x="11" y="9" width="1.002" height="1.002" fill="#FFE066"/><rect x="12" y="9" width="1.002" height="1.002" fill="#FFD84D"/><rect x="13" y="9" width="1.002" height="1.002" fill="#FFD84D"/><rect x="14" y="9" width="1.002" height="1.002" fill="#FFD84D"/><rect x="15" y="9" width="1.002" height="1.002" fill="#FFF9DE"/></svg><div class="ui ui-card" aria-hidden="true"><b>Plan à 90 jours</b><div class="plan-row"><span>Cibles</span><s style="--s:0%;--e:30%"></s></div><div class="plan-row"><span>Canaux</span><s style="--s:18%;--e:70%"></s></div><div class="plan-row"><span>Actions</span><s style="--s:30%;--e:100%"></s></div></div></div>
           </article>
           <article class="lev flip" id="lev-out">
-            <div class="lev-t"><h3>Outbound</h3><ul><li>Fichiers ciblés</li><li>Séquences email et LinkedIn</li><li>A/B tests</li></ul></div>
+            <div class="lev-t"><h3>Outbound</h3><ul><li>Fichiers ciblés</li><li>Séquences email et LinkedIn</li><li>A/B tests</li></ul><a class="lev-more" href="/services/prospection-outbound">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
             <div class="mosaic"><svg class="tiles" viewBox="0 0 16 10" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="0" y="0" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="1" y="0" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="2" y="0" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="3" y="0" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="4" y="0" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="5" y="0" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="6" y="0" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="7" y="0" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="8" y="0" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="9" y="0" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="10" y="0" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="11" y="0" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="12" y="0" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="13" y="0" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="14" y="0" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="15" y="0" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="0" y="1" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="1" y="1" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="2" y="1" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="3" y="1" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="4" y="1" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="5" y="1" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="6" y="1" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="7" y="1" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="8" y="1" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="9" y="1" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="10" y="1" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="11" y="1" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="12" y="1" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="13" y="1" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="14" y="1" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="15" y="1" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="0" y="2" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="1" y="2" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="2" y="2" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="3" y="2" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="4" y="2" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="5" y="2" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="6" y="2" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="7" y="2" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="8" y="2" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="9" y="2" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="10" y="2" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="11" y="2" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="12" y="2" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="13" y="2" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="14" y="2" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="15" y="2" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="0" y="3" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="1" y="3" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="2" y="3" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="3" y="3" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="4" y="3" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="5" y="3" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="6" y="3" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="7" y="3" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="8" y="3" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="9" y="3" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="10" y="3" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="11" y="3" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="12" y="3" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="13" y="3" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="14" y="3" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="15" y="3" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="0" y="4" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="1" y="4" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="2" y="4" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="3" y="4" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="4" y="4" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="5" y="4" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="6" y="4" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="7" y="4" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="8" y="4" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="9" y="4" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="10" y="4" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="11" y="4" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="12" y="4" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="13" y="4" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="14" y="4" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="15" y="4" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="0" y="5" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="1" y="5" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="2" y="5" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="3" y="5" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="4" y="5" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="5" y="5" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="6" y="5" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="7" y="5" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="8" y="5" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="9" y="5" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="10" y="5" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="11" y="5" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="12" y="5" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="13" y="5" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="14" y="5" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="15" y="5" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="0" y="6" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="1" y="6" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="2" y="6" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="3" y="6" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="4" y="6" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="5" y="6" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="6" y="6" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="7" y="6" width="1.002" height="1.002" fill="#F3EBFF"/><rect x="8" y="6" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="9" y="6" width="1.002" height="1.002" fill="#F3EBFF"/><rect x="10" y="6" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="11" y="6" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="12" y="6" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="13" y="6" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="14" y="6" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="15" y="6" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="0" y="7" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="1" y="7" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="2" y="7" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="3" y="7" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="4" y="7" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="5" y="7" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="6" y="7" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="7" y="7" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="8" y="7" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="9" y="7" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="10" y="7" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="11" y="7" width="1.002" height="1.002" fill="#E9D7FF"/><rect x="12" y="7" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="13" y="7" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="14" y="7" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="15" y="7" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="0" y="8" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="1" y="8" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="2" y="8" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="3" y="8" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="4" y="8" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="5" y="8" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="6" y="8" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="7" y="8" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="8" y="8" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="9" y="8" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="10" y="8" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="11" y="8" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="12" y="8" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="13" y="8" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="14" y="8" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="15" y="8" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="0" y="9" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="1" y="9" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="2" y="9" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="3" y="9" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="4" y="9" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="5" y="9" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="6" y="9" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="7" y="9" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="8" y="9" width="1.002" height="1.002" fill="#DCC6FF"/><rect x="9" y="9" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="10" y="9" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="11" y="9" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="12" y="9" width="1.002" height="1.002" fill="#F7F2FF"/><rect x="13" y="9" width="1.002" height="1.002" fill="#CDB2FF"/><rect x="14" y="9" width="1.002" height="1.002" fill="#BFA0FF"/><rect x="15" y="9" width="1.002" height="1.002" fill="#BFA0FF"/></svg><div class="ui seq" aria-hidden="true"><span><em>J0</em>Email d'approche</span><span><em>J3</em>Invitation LinkedIn</span><span><em>J7</em>Relance personnalisée</span><span class="reply">Réponse reçue → rendez-vous</span></div></div>
           </article>
           <article class="lev" id="lev-in">
-            <div class="lev-t"><h3>Inbound</h3><ul><li>Stratégie de contenu et LinkedIn</li><li>Pages d'atterrissage qui convertissent</li><li>Aide au SEO</li><li>GEO et EEAT</li></ul></div>
+            <div class="lev-t"><h3>Inbound</h3><ul><li>Stratégie de contenu et LinkedIn</li><li>Pages d'atterrissage qui convertissent</li><li>Aide au SEO</li><li>GEO et EEAT</li></ul><a class="lev-more" href="/services/inbound-marketing">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
             <div class="mosaic"><svg class="tiles" viewBox="0 0 16 10" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="0" y="0" width="1.002" height="1.002" fill="#E88BF7"/><rect x="1" y="0" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="2" y="0" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="3" y="0" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="4" y="0" width="1.002" height="1.002" fill="#E88BF7"/><rect x="5" y="0" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="6" y="0" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="7" y="0" width="1.002" height="1.002" fill="#E88BF7"/><rect x="8" y="0" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="9" y="0" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="10" y="0" width="1.002" height="1.002" fill="#E88BF7"/><rect x="11" y="0" width="1.002" height="1.002" fill="#E88BF7"/><rect x="12" y="0" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="13" y="0" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="14" y="0" width="1.002" height="1.002" fill="#E88BF7"/><rect x="15" y="0" width="1.002" height="1.002" fill="#E88BF7"/><rect x="0" y="1" width="1.002" height="1.002" fill="#E88BF7"/><rect x="1" y="1" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="2" y="1" width="1.002" height="1.002" fill="#E88BF7"/><rect x="3" y="1" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="4" y="1" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="5" y="1" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="6" y="1" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="7" y="1" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="8" y="1" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="9" y="1" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="10" y="1" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="11" y="1" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="12" y="1" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="13" y="1" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="14" y="1" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="15" y="1" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="0" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="1" y="2" width="1.002" height="1.002" fill="#E88BF7"/><rect x="2" y="2" width="1.002" height="1.002" fill="#E88BF7"/><rect x="3" y="2" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="4" y="2" width="1.002" height="1.002" fill="#E88BF7"/><rect x="5" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="6" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="7" y="2" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="8" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="9" y="2" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="10" y="2" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="11" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="12" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="13" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="14" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="15" y="2" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="0" y="3" width="1.002" height="1.002" fill="#E88BF7"/><rect x="1" y="3" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="2" y="3" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="3" y="3" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="4" y="3" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="5" y="3" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="6" y="3" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="7" y="3" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="8" y="3" width="1.002" height="1.002" fill="#FCEEFE"/><rect x="9" y="3" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="10" y="3" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="11" y="3" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="12" y="3" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="13" y="3" width="1.002" height="1.002" fill="#E88BF7"/><rect x="14" y="3" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="15" y="3" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="0" y="4" width="1.002" height="1.002" fill="#E88BF7"/><rect x="1" y="4" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="2" y="4" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="3" y="4" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="4" y="4" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="5" y="4" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="6" y="4" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="7" y="4" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="8" y="4" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="9" y="4" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="10" y="4" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="11" y="4" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="12" y="4" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="13" y="4" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="14" y="4" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="15" y="4" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="0" y="5" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="1" y="5" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="2" y="5" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="3" y="5" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="4" y="5" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="5" y="5" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="6" y="5" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="7" y="5" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="8" y="5" width="1.002" height="1.002" fill="#FCEEFE"/><rect x="9" y="5" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="10" y="5" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="11" y="5" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="12" y="5" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="13" y="5" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="14" y="5" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="15" y="5" width="1.002" height="1.002" fill="#E88BF7"/><rect x="0" y="6" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="1" y="6" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="2" y="6" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="3" y="6" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="4" y="6" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="5" y="6" width="1.002" height="1.002" fill="#E88BF7"/><rect x="6" y="6" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="7" y="6" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="8" y="6" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="9" y="6" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="10" y="6" width="1.002" height="1.002" fill="#E88BF7"/><rect x="11" y="6" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="12" y="6" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="13" y="6" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="14" y="6" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="15" y="6" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="0" y="7" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="1" y="7" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="2" y="7" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="3" y="7" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="4" y="7" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="5" y="7" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="6" y="7" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="7" y="7" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="8" y="7" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="9" y="7" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="10" y="7" width="1.002" height="1.002" fill="#E88BF7"/><rect x="11" y="7" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="12" y="7" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="13" y="7" width="1.002" height="1.002" fill="#E88BF7"/><rect x="14" y="7" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="15" y="7" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="0" y="8" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="1" y="8" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="2" y="8" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="3" y="8" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="4" y="8" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="5" y="8" width="1.002" height="1.002" fill="#F7DCFB"/><rect x="6" y="8" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="7" y="8" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="8" y="8" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="9" y="8" width="1.002" height="1.002" fill="#E88BF7"/><rect x="10" y="8" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="11" y="8" width="1.002" height="1.002" fill="#E88BF7"/><rect x="12" y="8" width="1.002" height="1.002" fill="#E88BF7"/><rect x="13" y="8" width="1.002" height="1.002" fill="#E88BF7"/><rect x="14" y="8" width="1.002" height="1.002" fill="#E88BF7"/><rect x="15" y="8" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="0" y="9" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="1" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="2" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="3" y="9" width="1.002" height="1.002" fill="#FDF5FE"/><rect x="4" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="5" y="9" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="6" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="7" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="8" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="9" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="10" y="9" width="1.002" height="1.002" fill="#F2C6F8"/><rect x="11" y="9" width="1.002" height="1.002" fill="#EDB0F5"/><rect x="12" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="13" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="14" y="9" width="1.002" height="1.002" fill="#E88BF7"/><rect x="15" y="9" width="1.002" height="1.002" fill="#EDB0F5"/></svg><div class="ui ui-card post" aria-hidden="true"><span class="post-h"><img src="/images/celien-boillot-112.webp" alt="" width="112" height="112">Votre fondateur</span><i style="width:92%"></i><i style="width:74%"></i><i style="width:84%"></i><span class="post-tag">SEO · GEO · EEAT</span></div></div>
           </article>
           <article class="lev flip" id="lev-auto">
-            <div class="lev-t"><h3>Du premier signal au <span class="nw">rendez-vous</span>, sans saisie manuelle</h3><p class="lev-sub">On connecte vos outils et on automatise tout le parcours, du premier signal d'intérêt au rendez-vous commercial.</p><ul><li>Aucun prospect oublié</li><li>Des messages qui suivent le comportement</li><li>Votre CRM toujours à jour</li><li>Votre équipe alertée au bon moment</li></ul></div>
+            <div class="lev-t"><h3>Du premier signal au <span class="nw">rendez-vous</span>, sans saisie manuelle</h3><p class="lev-sub">On connecte vos outils et on automatise tout le parcours, du premier signal d'intérêt au rendez-vous commercial.</p><ul><li>Aucun prospect oublié</li><li>Des messages qui suivent le comportement</li><li>Votre CRM toujours à jour</li><li>Votre équipe alertée au bon moment</li></ul><a class="lev-more" href="/services/automatisation-marketing">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
             <div class="mosaic"><svg class="tiles" viewBox="0 0 16 10" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect x="0" y="0" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="1" y="0" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="2" y="0" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="3" y="0" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="4" y="0" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="5" y="0" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="6" y="0" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="7" y="0" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="8" y="0" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="9" y="0" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="10" y="0" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="11" y="0" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="12" y="0" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="13" y="0" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="14" y="0" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="15" y="0" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="0" y="1" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="1" y="1" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="2" y="1" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="3" y="1" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="4" y="1" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="5" y="1" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="6" y="1" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="7" y="1" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="8" y="1" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="9" y="1" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="10" y="1" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="11" y="1" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="12" y="1" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="13" y="1" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="14" y="1" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="15" y="1" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="0" y="2" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="1" y="2" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="2" y="2" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="3" y="2" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="4" y="2" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="5" y="2" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="6" y="2" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="7" y="2" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="8" y="2" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="9" y="2" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="10" y="2" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="11" y="2" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="12" y="2" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="13" y="2" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="14" y="2" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="15" y="2" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="0" y="3" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="1" y="3" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="2" y="3" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="3" y="3" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="4" y="3" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="5" y="3" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="6" y="3" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="7" y="3" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="8" y="3" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="9" y="3" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="10" y="3" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="11" y="3" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="12" y="3" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="13" y="3" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="14" y="3" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="15" y="3" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="0" y="4" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="1" y="4" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="2" y="4" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="3" y="4" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="4" y="4" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="5" y="4" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="6" y="4" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="7" y="4" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="8" y="4" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="9" y="4" width="1.002" height="1.002" fill="#E9FAF0"/><rect x="10" y="4" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="11" y="4" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="12" y="4" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="13" y="4" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="14" y="4" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="15" y="4" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="0" y="5" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="1" y="5" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="2" y="5" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="3" y="5" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="4" y="5" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="5" y="5" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="6" y="5" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="7" y="5" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="8" y="5" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="9" y="5" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="10" y="5" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="11" y="5" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="12" y="5" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="13" y="5" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="14" y="5" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="15" y="5" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="0" y="6" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="1" y="6" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="2" y="6" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="3" y="6" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="4" y="6" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="5" y="6" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="6" y="6" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="7" y="6" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="8" y="6" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="9" y="6" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="10" y="6" width="1.002" height="1.002" fill="#CFF3DE"/><rect x="11" y="6" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="12" y="6" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="13" y="6" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="14" y="6" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="15" y="6" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="0" y="7" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="1" y="7" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="2" y="7" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="3" y="7" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="4" y="7" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="5" y="7" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="6" y="7" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="7" y="7" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="8" y="7" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="9" y="7" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="10" y="7" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="11" y="7" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="12" y="7" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="13" y="7" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="14" y="7" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="15" y="7" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="0" y="8" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="1" y="8" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="2" y="8" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="3" y="8" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="4" y="8" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="5" y="8" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="6" y="8" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="7" y="8" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="8" y="8" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="9" y="8" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="10" y="8" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="11" y="8" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="12" y="8" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="13" y="8" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="14" y="8" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="15" y="8" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="0" y="9" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="1" y="9" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="2" y="9" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="3" y="9" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="4" y="9" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="5" y="9" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="6" y="9" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="7" y="9" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="8" y="9" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="9" y="9" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="10" y="9" width="1.002" height="1.002" fill="#7FD9A8"/><rect x="11" y="9" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="12" y="9" width="1.002" height="1.002" fill="#B5EBCC"/><rect x="13" y="9" width="1.002" height="1.002" fill="#9AE2BA"/><rect x="14" y="9" width="1.002" height="1.002" fill="#F2FCF6"/><rect x="15" y="9" width="1.002" height="1.002" fill="#F2FCF6"/></svg><div class="ui flow" aria-hidden="true"><span>Signal d'intérêt</span><span>Enrichissement</span><span>Séquence personnalisée</span><span>Relances selon le comportement</span><span>Alerte à votre équipe</span><span>Rendez-vous</span></div></div>
           </article>
         </div>
       </div>
       <div class="extras">
-        <div><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10v4l12 5V5L4 10zM16 9a3 3 0 0 1 0 6M7 14v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Publicité</h4><p>LinkedIn Ads et Google Ads, pilotées avec le reste de votre acquisition.</p></div>
-        <div><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Lead scoring</h4><p>Vos commerciaux appellent d'abord les prospects les plus chauds.</p></div>
-        <div><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>CRM et tracking</h4><p>Savoir d'où vient chaque client, et combien il a coûté.</p></div>
+        <div><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 10v4l12 5V5L4 10zM16 9a3 3 0 0 1 0 6M7 14v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Publicité</h4><p>LinkedIn Ads et Google Ads, pilotées avec le reste de votre acquisition.</p><a class="lev-more" href="/services/publicite-ads">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        <div><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Lead scoring</h4><p>Vos commerciaux appellent d'abord les prospects les plus chauds.</p><a class="lev-more" href="/services/lead-scoring">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+        <div><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>CRM et tracking</h4><p>Savoir d'où vient chaque client, et combien il a coûté.</p><a class="lev-more" href="/services/crm-tracking">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
     </div>
   </section>
@@ -5087,7 +5478,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
       <div>
         <h2 class="h2" id="h-about">Cely, <span class="accent">concrètement</span></h2>
         <ul><li>Un seul interlocuteur&nbsp;: Célien Boillot, cofondateur de Wenoble.</li><li>Qui pense la stratégie et qui exécute.</li><li>Peu de startups à la fois, pour vraiment s'impliquer.</li></ul>
-        <p class="about-n">Célien est aussi cofondateur de Wenoble, agence web B2B basée à Grenoble, qui a accompagné plus de 60 entreprises depuis 2023.</p>
+        <p class="about-n">Célien est aussi cofondateur de Wenoble, agence web B2B basée à Grenoble, qui a accompagné plus de 60 entreprises depuis 2023.</p><a class="lev-more" href="/a-propos">En savoir plus sur Cely <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
   </section>
@@ -5132,7 +5523,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
   }
   window.addEventListener('scroll', function(){ requestAnimationFrame(fill); }, { passive:true }); fill();
   /* onglets latéraux qui suivent la lecture */
-  var tabs = [].slice.call(document.querySelectorAll('.tabs a'));
+  var tabs = [].slice.call(document.querySelectorAll('.tabs ol a'));
   if('IntersectionObserver' in window){
     var tio = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ tabs.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); } }); }, { rootMargin:'-45% 0px -50% 0px' });
     document.querySelectorAll('.lev').forEach(function(l){ tio.observe(l); });
@@ -5260,7 +5651,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
       <div class="hp-auto-grid">
         <div class="hp-head hp-in">
 <h2 class="hp-h2" id="hpAutoTitle">Votre acquisition tourne, même la nuit</h2>
-          <p class="hp-lede">On connecte vos outils et on automatise tout le parcours, du premier signal d'intérêt au rendez-vous commercial.</p>
+          <p class="hp-lede">On connecte vos outils et on automatise tout le parcours, du premier signal d'intérêt au rendez-vous commercial.</p><a class="gp-more gp-more-d" href="/services/automatisation-marketing">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
         <div class="wf hp-in" id="hpWf" role="img" aria-label="Schéma du parcours automatisé : signal d'intérêt, enrichissement, séquence personnalisée, relances selon le comportement, alerte à votre équipe, rendez-vous. Sans réponse : nurturing automatique puis nouvelle tentative dans 15 jours.">
           <div class="wf-bar" aria-hidden="true"><span></span><span></span><span></span><p>Workflow · Acquisition</p><em>Actif</em></div>
@@ -5292,7 +5683,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
               <div class="hp-plan-row"><span>Actions</span><i style="--s:30%;--e:100%"></i></div>
             </div>
           </div>
-          <div class="hp-lever-txt"><h3>Stratégie</h3><ul class="hp-bul"><li>Cibles et positionnement</li><li>Choix des canaux</li><li>Plan d'action à 90 jours</li></ul></div>
+          <div class="hp-lever-txt"><h3>Stratégie</h3><ul class="hp-bul"><li>Cibles et positionnement</li><li>Choix des canaux</li><li>Plan d'action à 90 jours</li></ul><a class="gp-more" href="/services/strategie-acquisition">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
         </article>
         <article class="hp-lever hp-lever-out hp-in" style="--i:1">
           <div class="hp-lever-vis" aria-hidden="true">
@@ -5303,22 +5694,22 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
               <span class="hp-seq-reply">Réponse reçue → rendez-vous</span>
             </div>
           </div>
-          <div class="hp-lever-txt"><h3>Outbound</h3><ul class="hp-bul"><li>Fichiers ciblés</li><li>Séquences email et LinkedIn</li><li>A/B tests</li></ul></div>
+          <div class="hp-lever-txt"><h3>Outbound</h3><ul class="hp-bul"><li>Fichiers ciblés</li><li>Séquences email et LinkedIn</li><li>A/B tests</li></ul><a class="gp-more" href="/services/prospection-outbound">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
         </article>
         <article class="hp-lever hp-lever-in hp-in" style="--i:2">
           <div class="hp-lever-vis" aria-hidden="true">
             <div class="hp-post"><span class="hp-post-head"><img src="/images/celien-boillot-112.webp" srcset="/images/v/celien-boillot-46.5e71097f.webp 46w, /images/v/celien-boillot-92.a54f4868.webp 92w, /images/celien-boillot-112.webp 112w" sizes="28px" alt="" width="28" height="28"><b>Votre fondateur</b></span><span class="hp-post-l w90"></span><span class="hp-post-l w70"></span><span class="hp-post-l w80"></span><span class="hp-post-react"><i></i><i></i><i></i>Commentaires</span></div>
             <span class="hp-lever-tag">SEO · GEO</span>
           </div>
-          <div class="hp-lever-txt"><h3>Inbound</h3><ul class="hp-bul"><li>Stratégie de contenu et LinkedIn</li><li>Pages d'atterrissage qui convertissent</li><li>SEO et visibilité dans les IA (GEO)</li></ul></div>
+          <div class="hp-lever-txt"><h3>Inbound</h3><ul class="hp-bul"><li>Stratégie de contenu et LinkedIn</li><li>Pages d'atterrissage qui convertissent</li><li>SEO et visibilité dans les IA (GEO)</li></ul><a class="gp-more" href="/services/inbound-marketing">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
         </article>
       </div>
       <div class="hp-extra hp-in">
         <h3 class="hp-extra-h">Services complémentaires <span>— selon vos besoins</span></h3>
         <div class="hp-extra-grid">
-          <div class="hp-extra-card"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10v4l12 5V5L4 10zM16 9a3 3 0 0 1 0 6M7 14v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Publicité</h4><p>LinkedIn Ads et Google Ads, pilotées avec le reste de votre acquisition.</p></div>
-          <div class="hp-extra-card"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Lead scoring</h4><p>Vos commerciaux appellent d'abord les prospects les plus chauds.</p></div>
-          <div class="hp-extra-card"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>CRM et tracking</h4><p>Savoir d'où vient chaque client, et combien il a coûté.</p></div>
+          <div class="hp-extra-card"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10v4l12 5V5L4 10zM16 9a3 3 0 0 1 0 6M7 14v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Publicité</h4><p>LinkedIn Ads et Google Ads, pilotées avec le reste de votre acquisition.</p><a class="gp-more" href="/services/publicite-ads">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          <div class="hp-extra-card"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>Lead scoring</h4><p>Vos commerciaux appellent d'abord les prospects les plus chauds.</p><a class="gp-more" href="/services/lead-scoring">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          <div class="hp-extra-card"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h4>CRM et tracking</h4><p>Savoir d'où vient chaque client, et combien il a coûté.</p><a class="gp-more" href="/services/crm-tracking">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
         </div>
       </div>
       <div class="hp-cta-row hp-in">
@@ -5819,158 +6210,57 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
 
 </main>
 
-  <main class="site-page" data-page="services" hidden>
+  <main class="site-page hm sp sv" data-page="services" hidden>
 
-  <section class="hub-hero sv-hero">
-    <div class="section-wrap">
-      <div class="hub-hero-inner reveal">
-        <span class="section-label">Services</span>
-        <h1 class="hub-hero-h1">Nos services pour votre croissance digitale</h1>
-        <p class="hub-hero-sub">Tout est piloté par un seul interlocuteur, dans le cadre de Growth Part-Time ou en complément, selon vos besoins.</p>
-        <nav class="sv-toc" aria-label="Sur cette page">
-          <a href="#strategie">Stratégie</a><a href="#outbound">Outbound</a><a href="#inbound">Inbound</a><a href="#automatisation">Automatisation</a>
-          <a href="#publicite">Publicité</a><a href="#lead-scoring">Lead scoring</a><a href="#crm-tracking">CRM et tracking</a><a href="#audit">Audit</a><a href="#offre-decouverte">Offre découverte</a>
-        </nav>
+  <section class="sp-hero sv-hero" aria-labelledby="h1">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="frame sv-hero-f">
+      <h1 class="sp-h1" id="h1">Nos services pour <span class="accent">votre croissance digitale</span></h1>
+      <p class="lead">Tout est piloté par un seul interlocuteur, dans le cadre de Growth Part-Time ou en complément, selon vos besoins.</p>
+      <nav class="sv-toc" aria-label="Sur cette page"><a href="#growth-part-time" class="is-main">Growth Part-Time</a><a href="/services/strategie-acquisition">Stratégie</a><a href="/services/prospection-outbound">Outbound</a><a href="/services/inbound-marketing">Inbound</a><a href="/services/automatisation-marketing">Automatisation</a><a href="/services/publicite-ads">Publicité</a><a href="/services/lead-scoring">Lead scoring</a><a href="/services/crm-tracking">CRM et tracking</a><a href="/audit">Audits</a><a href="/services/offre-decouverte">Offre découverte</a></nav>
+    </div>
+  </section>
+
+  <section class="row dark sp-bridge" id="growth-part-time" aria-labelledby="sv-gpt">
+    <div class="frame sp-bridge-f">
+      <div class="sp-bridge-t">
+        <h2 class="h2" id="sv-gpt">Growth&nbsp;Part&#8209;Time, <span class="accent">la formule qui combine tout</span></h2>
+        <p class="lead">Un growth marketer intégré à votre équipe, qui pilote votre acquisition et exécute les priorités chaque semaine&nbsp;: stratégie, outbound, inbound et automatisation.</p>
+        <ul class="sv-bul"><li>Un growth dédié, chaque semaine</li><li>Premiers canaux lancés dès le premier mois</li><li>Sans engagement, 1er mois satisfait ou remboursé</li></ul>
+        <div class="hero-cta"><a class="btn btn-light" href="/growth"><i aria-hidden="true"></i>Découvrir Growth Part-Time<svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <div class="sp-formula">
+        <p class="sp-formula-h"><b>Growth Part-Time</b><span>Offre principale</span></p>
+        <ul class="sp-chips"><li><a href="/services/strategie-acquisition">Stratégie</a></li><li><a href="/services/prospection-outbound">Outbound</a></li><li><a href="/services/inbound-marketing">Inbound</a></li><li><a href="/services/automatisation-marketing">Automatisation</a></li></ul>
+        <p class="sp-formula-n">Selon vos besoins&nbsp;: <a href="/services/lead-scoring">lead scoring</a>, <a href="/services/crm-tracking">CRM et tracking</a>, <a href="/services/publicite-ads">publicité</a>.</p>
+        <p class="sv-price"><small>À partir de</small>750&nbsp;€ <span>HT/mois</span></p>
+        <p class="sp-formula-f">Prix fixé selon vos besoins, après le diagnostic.</p>
+        <span class="sp-formula-m cely-spot" data-cely="point" data-cely-threshold="0.2" aria-hidden="true"></span>
       </div>
     </div>
   </section>
 
-  <section class="hp-sec sv-od" id="offre-decouverte" aria-labelledby="svOdTitle">
-    <div class="section-wrap">
-      <div class="od-upsell hp-in">
-        <div class="od-upsell-txt">
-<h2 id="svOdTitle">Offre découverte&nbsp;: testez votre marché en 28 jours</h2>
-          <p>300 décideurs de vos cibles, contactés par email et LinkedIn avec des messages entièrement personnalisés. On s'occupe de tout, jusqu'au rendez-vous. 500&nbsp;€, avec une garantie si aucun rendez-vous ne tombe.</p>
-        </div>
-        <a href="/services/offre-decouverte" data-route="offre-decouverte" class="hp-btn hp-btn-light"><span class="hp-btn-dot" aria-hidden="true"></span>Voir l'offre découverte<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
+  <section class="row" aria-labelledby="sv-lev">
+    <div class="frame">
+      <div class="sec-head x"><h2 class="h2" id="sv-lev">Quatre leviers, <span class="accent">un seul pilote</span></h2><p class="lead">Chaque levier a sa page. Dans Growth Part-Time, ils sont pilotés ensemble.</p></div>
+      <div class="sv-levs"><article class="sv-lev" id="strategie"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span><h3><a href="/services/strategie-acquisition">Stratégie d'acquisition</a></h3><p>Avant de lancer quoi que ce soit, on pose les bases&nbsp;: qui sont vos meilleurs clients, quel message leur parle, et sur quels canaux les trouver. Vous repartez avec un plan d'action à 90 jours, priorisé.</p><ul><li>Cibles et positionnement</li><li>Choix des canaux</li><li>Plan d'action à 90 jours</li></ul><a class="lev-more" href="/services/strategie-acquisition">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="sv-lev" id="outbound"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span><h3><a href="/services/prospection-outbound">Prospection outbound</a></h3><p>On va chercher vos prochains clients directement&nbsp;: fichiers ciblés, séquences email et LinkedIn, messages testés et améliorés chaque semaine. C'est le levier le plus rapide pour obtenir vos premiers rendez-vous.</p><ul><li>Fichiers ciblés et enrichis</li><li>Séquences email et LinkedIn</li><li>A/B tests sur les messages</li></ul><a class="lev-more" href="/services/prospection-outbound">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="sv-lev" id="inbound"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg></span><h3><a href="/services/inbound-marketing">Stratégie inbound</a></h3><p>On construit une stratégie inbound complète, pas juste du contenu&nbsp;: ce que vous publiez, où, et comment ça se transforme en demandes. Pour que les prospects viennent à vous, sur Google, sur LinkedIn et dans les réponses des IA.</p><ul><li>Stratégie de contenu et LinkedIn</li><li>Pages d'atterrissage qui convertissent</li><li>SEO et visibilité dans les IA (GEO)</li></ul><a class="lev-more" href="/services/inbound-marketing">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article><article class="sv-lev" id="automatisation"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.7-5.6M20 12a8 8 0 0 1-13.7 5.6"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></span><h3><a href="/services/automatisation-marketing">Automatisation marketing et commerciale</a></h3><p>On connecte vos outils et on automatise tout le parcours, du premier signal d'intérêt au rendez-vous commercial. Votre acquisition tourne, même la nuit.</p><ul><li>Aucun prospect oublié</li><li>Votre CRM toujours à jour</li><li>Votre équipe alertée au bon moment</li></ul><a class="lev-more" href="/services/automatisation-marketing">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></article></div>
     </div>
   </section>
 
-  <section class="hp-sec sv-main">
-    <div class="section-wrap">
-      <article class="au-card hp-in">
-        <div class="au-card-main">
-          <span class="au-card-tag">Offre principale</span>
-          <h2 class="au-card-title">Growth Part-Time</h2>
-          <p class="au-card-dek">Un growth marketer intégré à votre équipe, qui pilote votre acquisition et exécute les priorités chaque semaine&nbsp;: stratégie, outbound, inbound et automatisation.</p>
-          <ul class="hp-bul au-card-list">
-            <li>Un growth dédié, chaque semaine</li>
-            <li>Premiers canaux lancés dès le premier mois</li>
-            <li>Sans engagement, 1er mois satisfait ou remboursé</li>
-          </ul>
-        </div>
-        <div class="au-card-side">
-          <p class="au-card-price"><small class="au-card-from">À partir de</small>750&nbsp;€ <span>HT/mois</span></p>
-          <p class="au-card-price-note">Prix fixé selon vos besoins, après le diagnostic.</p>
-          <a href="/growth" data-route="growth" class="hp-btn"><span class="hp-btn-dot" aria-hidden="true"></span>Découvrir Growth Part-Time<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </article>
+  <section class="row" aria-labelledby="sv-extra">
+    <div class="frame">
+      <div class="sec-head x"><h2 class="h2" id="sv-extra">Services complémentaires, <span class="accent">selon vos besoins</span></h2></div>
+      <div class="sp-grid sv-extra"><div class="sp-cell" id="publicite"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5z"/><path d="m3 12 9 5 9-5M3 16l9 5 9-5"/></svg></span><h3><a href="/services/publicite-ads">Publicité</a></h3><p>LinkedIn Ads et Google Ads, pilotées avec le reste de votre acquisition.</p><a class="lev-more" href="/services/publicite-ads">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="sp-cell" id="lead-scoring"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></span><h3><a href="/services/lead-scoring">Lead scoring</a></h3><p>Vos commerciaux appellent d'abord les prospects les plus chauds.</p><a class="lev-more" href="/services/lead-scoring">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="sp-cell" id="crm-tracking"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3><a href="/services/crm-tracking">CRM et tracking</a></h3><p>Savoir d'où vient chaque client, et combien il a coûté.</p><a class="lev-more" href="/services/crm-tracking">En savoir plus <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
     </div>
   </section>
 
-  <section class="hp-sec sv-pilot">
-    <div class="section-wrap">
-      <div class="hp-head hp-in">
-        <p class="hp-eyebrow">Ce qu'on pilote</p>
-        <p class="hp-h2 svx-section-title">Quatre leviers, un seul pilote.</p>
-      </div>
-      <div class="svx-list">
-      <article class="svx hp-in" id="strategie">
-        <div class="svx-txt">
-<h2 class="hp-h2">Stratégie d'acquisition</h2>
-          <p>Avant de lancer quoi que ce soit, on pose les bases&nbsp;: qui sont vos meilleurs clients, quel message leur parle, et sur quels canaux les trouver. Vous repartez avec un plan d'action à 90 jours, priorisé.</p>
-          <ul class="hp-bul"><li>Cibles et positionnement</li><li>Choix des canaux</li><li>Plan d'action à 90 jours</li></ul>
-        </div>
-        <div class="svx-vis hp-lever hp-lever-strat" aria-hidden="true"><div class="hp-lever-vis"><div class="hp-plan">
-              <p class="hp-plan-h">Plan à 90 jours</p>
-              <div class="hp-plan-axis"><span>J0</span><span>J30</span><span>J60</span><span>J90</span></div>
-              <div class="hp-plan-row"><span>Cibles</span><i style="--s:0%;--e:30%"></i></div>
-              <div class="hp-plan-row"><span>Canaux</span><i style="--s:18%;--e:70%"></i></div>
-              <div class="hp-plan-row"><span>Actions</span><i style="--s:30%;--e:100%"></i></div>
-            </div></div></div>
-      </article>
-
-      <article class="svx is-rev hp-in" id="outbound">
-        <div class="svx-txt">
-<h2 class="hp-h2">Prospection outbound</h2>
-          <p>On va chercher vos prochains clients directement&nbsp;: fichiers ciblés, séquences email et LinkedIn, messages testés et améliorés chaque semaine. C'est le levier le plus rapide pour obtenir vos premiers rendez-vous.</p>
-          <ul class="hp-bul"><li>Fichiers ciblés et enrichis</li><li>Séquences email et LinkedIn</li><li>A/B tests sur les messages</li></ul>
-        </div>
-        <div class="svx-vis hp-lever hp-lever-out" aria-hidden="true"><div class="hp-lever-vis"><div class="hp-seq">
-              <span class="hp-seq-step"><b>J0</b>Email d'approche</span>
-              <span class="hp-seq-step"><b>J3</b>Invitation LinkedIn</span>
-              <span class="hp-seq-step"><b>J7</b>Relance personnalisée</span>
-              <span class="hp-seq-reply">Réponse reçue → rendez-vous</span>
-            </div></div></div>
-      </article>
-
-      <article class="svx hp-in" id="inbound">
-        <div class="svx-txt">
-<h2 class="hp-h2">Stratégie inbound</h2>
-          <p>On construit une stratégie inbound complète, pas juste du contenu&nbsp;: ce que vous publiez, où, et comment ça se transforme en demandes. Pour que les prospects viennent à vous, sur Google, sur LinkedIn et dans les réponses des IA.</p>
-          <ul class="hp-bul"><li>Stratégie de contenu et LinkedIn</li><li>Pages d'atterrissage qui convertissent</li><li>SEO et visibilité dans les IA (GEO)</li></ul>
-        </div>
-        <div class="svx-vis hp-lever hp-lever-in" aria-hidden="true"><div class="hp-lever-vis"><div class="hp-post"><span class="hp-post-head"><img src="/images/celien-boillot-112.webp" srcset="/images/v/celien-boillot-46.5e71097f.webp 46w, /images/v/celien-boillot-92.a54f4868.webp 92w, /images/celien-boillot-112.webp 112w" sizes="28px" alt="" width="28" height="28"><b>Votre fondateur</b></span><span class="hp-post-l w90"></span><span class="hp-post-l w70"></span><span class="hp-post-l w80"></span><span class="hp-post-react"><i></i><i></i><i></i>Commentaires</span></div><span class="hp-lever-tag">SEO · GEO</span></div></div>
-      </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="hp-sec hp-dark hp-auto" id="automatisation" aria-labelledby="svAutoTitle">
-    <div class="section-wrap">
-      <div class="hp-auto-grid">
-        <div class="hp-head hp-in">
-<h2 class="hp-h2" id="svAutoTitle">Automatisation marketing et commerciale</h2>
-          <p class="hp-lede">On connecte vos outils et on automatise tout le parcours, du premier signal d'intérêt au rendez-vous commercial. Votre acquisition tourne, même la nuit.</p>
-        </div>
-        <div class="wf hp-in" id="hpWf" role="img" aria-label="Schéma du parcours automatisé : signal d'intérêt, enrichissement, séquence personnalisée, relances selon le comportement, alerte à votre équipe, rendez-vous. Sans réponse : nurturing automatique puis nouvelle tentative dans 15 jours.">
-          <div class="wf-bar" aria-hidden="true"><span></span><span></span><span></span><p>Workflow · Acquisition</p><em>Actif</em></div>
-          <div class="wf-body" aria-hidden="true">
-            <ol class="wf-main"><li class="wf-node" style="--n:0"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h4l3-7 4 14 3-7h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Signal d'intérêt</b><small>Visite, téléchargement, réponse</small></span></li><li class="wf-node" style="--n:1"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Enrichissement</b><small>Le contact est complété</small></span></li><li class="wf-node" style="--n:2"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Séquence personnalisée</b><small>Email et LinkedIn</small></span></li><li class="wf-node" style="--n:3"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2M4 4v4h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Relances selon le comportement</b><small>Selon ce que fait le prospect</small></span></li><li class="wf-node" style="--n:4"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 16V11a6 6 0 1 1 12 0v5l2 2H4zM10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Alerte à votre équipe</b><small>Le prospect est chaud</small></span></li><li class="wf-node is-end" style="--n:5"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M9 3v4M15 3v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Rendez-vous</b><small>Dans l'agenda de vos commerciaux</small></span></li></ol>
-            <ol class="wf-branch"><li class="wf-node is-br" style="--n:4"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Pas de réponse</b><small>Après la séquence</small></span></li><li class="wf-node is-br" style="--n:5"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21c-4-3-7-6-7-10a7 7 0 0 1 14 0c0 4-3 7-7 10z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Nurturing automatique</b><small>Contenus utiles, sans relance</small></span></li><li class="wf-node is-br is-loop" style="--n:6"><span class="wf-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v4h-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="wf-txt"><b>Nouvelle tentative</b><small>Dans 15 jours, retour à la séquence</small></span></li></ol>
-          </div>
-        </div>
-      </div>
-      <ul class="hp-auto-benefits"><li class="hp-in" style="--i:0"><b>Aucun prospect oublié</b><span>Chaque contact reçoit la bonne relance, au bon moment.</span></li><li class="hp-in" style="--i:1"><b>Des messages qui suivent le comportement</b><span>On adapte la suite selon ce que fait chaque prospect.</span></li><li class="hp-in" style="--i:2"><b>Votre CRM toujours à jour</b><span>Plus de saisie à la main.</span></li><li class="hp-in" style="--i:3"><b>Votre équipe alertée au bon moment</b><span>Elle appelle quand le prospect est chaud.</span></li></ul>
-    </div>
-  </section>
-
-  <section class="hp-sec sv-extra">
-    <div class="section-wrap">
-      <div class="hp-head hp-in">
-<h2 class="hp-h2">Services complémentaires, selon vos besoins</h2>
-      </div>
-      <div class="hp-extra hp-in">
-        <div class="hp-extra-grid">
-          <div class="hp-extra-card" id="publicite"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10v4l12 5V5L4 10zM16 9a3 3 0 0 1 0 6M7 14v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Publicité</h3><p>LinkedIn Ads et Google Ads, pilotées avec le reste de votre acquisition.</p></div>
-          <div class="hp-extra-card" id="lead-scoring"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-8z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>Lead scoring</h3><p>Vos commerciaux appellent d'abord les prospects les plus chauds.</p></div>
-          <div class="hp-extra-card" id="crm-tracking"><span class="hp-extra-ico"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><h3>CRM et tracking</h3><p>Savoir d'où vient chaque client, et combien il a coûté.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="hp-sec hp-dark au-vs sv-audit" id="audit">
-    <div class="section-wrap">
-      <div class="hp-head hp-in">
-<h2 class="hp-h2">Audit Marketing Digital</h2>
-        <p class="hp-lede">Un état des lieux complet de votre acquisition, restitué en rapport écrit d'une cinquantaine de pages, avec deux points de suivi. Pour décider en connaissance de cause.</p>
-      </div>
-      <div class="au-vs-grid sv-audit-grid">
-        <a href="/audit/audit-marketing-digital" data-route="audit" class="au-vs-card is-cely hp-in">
-          <span class="au-vs-k">Rapport écrit</span>
-          <h3>Audit Marketing Digital</h3>
-          <p>Canaux, tracking, conversion, positionnement&nbsp;: tout est passé au crible, avec un plan d'action priorisé.</p>
-          <p class="au-vs-price">1&nbsp;250&nbsp;€ HT</p>
-          <span class="au-vs-go">Découvrir l'audit ↗</span>
-        </a>
-        <div class="au-vs-card sv-hesite hp-in" style="--i:1">
-          <span class="au-vs-k">Vous hésitez&nbsp;?</span>
-          <h3>Plusieurs formats possibles</h3>
-          <p>Freelance, agence, salarié, direction externalisée ou temps partagé&nbsp;: on compare les options pour vous aider à choisir.</p>
-          <a class="au-vs-go" href="/comparatif-growth-marketing" data-route="comparatif">Vous hésitez entre plusieurs formats&nbsp;? Voir le comparatif ↗</a>
-        </div>
+  <section class="row" id="audit" aria-labelledby="sv-more">
+    <div class="frame">
+      <div class="sec-head x"><h2 class="h2" id="sv-more">Pour commencer <span class="accent">autrement</span></h2><p class="lead">Un diagnostic écrit, un test de marché ou un comparatif pour choisir le bon format.</p></div>
+      <div class="more sv-cards">
+        <a href="/audit/audit-marketing-digital" id="offre-audit"><span class="sv-k">Rapport écrit</span><h3>Audit Marketing Digital</h3><p>Un état des lieux complet de votre acquisition, restitué en rapport écrit d'une cinquantaine de pages, avec deux points de suivi.</p><p class="sv-p">1&nbsp;250&nbsp;€ HT</p><span class="go">Découvrir l'audit <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="/services/offre-decouverte" id="offre-decouverte"><span class="sv-k">Test de marché</span><h3>Offre découverte&nbsp;: testez votre marché en 28 jours</h3><p>300 décideurs de vos cibles, contactés par email et LinkedIn avec des messages entièrement personnalisés. On s'occupe de tout, jusqu'au rendez-vous.</p><p class="sv-p">500&nbsp;€</p><span class="go">Voir l'offre découverte <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="/comparatif-growth-marketing"><span class="sv-k">Vous hésitez&nbsp;?</span><h3>Plusieurs formats possibles</h3><p>Freelance, agence, salarié, direction externalisée ou temps partagé&nbsp;: on compare les options pour vous aider à choisir.</p><span class="go">Voir le comparatif <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -5987,7 +6277,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
         <span class="section-label">Comparatif</span>
         <h1 class="hub-hero-h1">Freelance, agence, salarié ou directeur marketing externalisé&nbsp;: que choisir&nbsp;?</h1>
         <p class="hub-hero-sub">Cinq façons de faire avancer l'acquisition d'une startup B2B. Ce qu'elles recouvrent, pour qui elles sont faites, ce qu'elles coûtent, et comment choisir.</p>
-        <div class="art-meta-row"><span class="art-readtime">8 min de lecture</span><span class="cmpx-author">Par <a href="/#histoire">Célien Boillot</a>, fondateur de Cely</span></div>
+        <div class="art-meta-row"><span class="art-readtime">8 min de lecture</span><span class="cmpx-author">Par <a href="/a-propos" data-route="a-propos">Célien Boillot</a>, fondateur de Cely</span></div>
         <nav class="sv-toc" aria-label="Sur cette page">
           <a href="#growth-marketer">C'est quoi, un growth marketer&nbsp;?</a>
           <a href="#salarie">Salarié</a><a href="#freelance">Freelance</a><a href="#agence">Agence</a>
@@ -9702,17 +9992,30 @@ Allow: /</code></pre>
         <p class="ft-h" id="ftOffre">Offre</p>
         <ul>
           <li><a href="/growth" data-route="growth">Growth Part-Time</a></li>
-          <li><a href="/services" data-route="services">Services</a></li>
-          <li><a href="/audit/audit-marketing-digital" data-route="audit">Audit Marketing Digital</a></li>
+          <li><a href="/services/offre-decouverte" data-route="offre-decouverte">Offre découverte</a></li>
+          <li><a href="/audit" data-route="audit">Audits</a></li>
           <li><a href="/comparatif-growth-marketing" data-route="comparatif">Comparatif</a></li>
           <li><a href="/cas-clients" data-route="cas-clients">Cas clients</a></li>
           <li><a href="/actualites" data-route="actualites">Ressources</a></li>
         </ul>
       </nav>
+      <nav class="ft-col footer-nav" aria-labelledby="ftServices">
+        <p class="ft-h" id="ftServices">Services</p>
+        <ul>
+          <li><a href="/services/strategie-acquisition">Stratégie d'acquisition</a></li>
+          <li><a href="/services/prospection-outbound">Prospection outbound</a></li>
+          <li><a href="/services/inbound-marketing">Inbound marketing</a></li>
+          <li><a href="/services/automatisation-marketing">Automatisation</a></li>
+          <li><a href="/services/lead-scoring">Lead scoring</a></li>
+          <li><a href="/services/crm-tracking">CRM et tracking</a></li>
+          <li><a href="/services/publicite-ads">Publicité Ads</a></li>
+          <li><a href="/services" data-route="services">Tous les services</a></li>
+        </ul>
+      </nav>
       <nav class="ft-col footer-nav" aria-labelledby="ftCely">
         <p class="ft-h" id="ftCely">Cely</p>
         <ul>
-          <li><a href="/#histoire">À propos</a></li>
+          <li><a href="/a-propos" data-route="a-propos">À propos</a></li>
           <li><a href="/manifeste" data-route="manifeste">Manifeste</a></li>
           <li><a href="/nous-rejoindre" data-route="nous-rejoindre">Rejoindre le réseau</a></li>
           <li><a href="/contact" data-route="contact">Contact</a></li>
@@ -9862,7 +10165,7 @@ Allow: /</code></pre>
   if(!main) return;
   var key = main.getAttribute('data-page');
   var navKey = { hero:'home', growth:'growth', audit:'audit', 'audit-detail':'audit', services:'services', comparatif:'comparatif', actu:'actualites',
-                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'article-lm':'actualites', 'cms-article':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact', 'offre-decouverte':'offre-decouverte', 'cas-clients':'cas-clients' }[key] || (key.indexOf('cas-') === 0 ? 'cas-clients' : '');
+                 article:'actualites', 'article-ia':'actualites', 'article-aarrr':'actualites', 'article-lm':'actualites', 'cms-article':'actualites', 'motion-design':'motion-design', manifeste:'manifeste', rejoindre:'nous-rejoindre', contact:'contact', 'offre-decouverte':'offre-decouverte', 'cas-clients':'cas-clients', 'a-propos':'a-propos' }[key] || (key.indexOf('cas-') === 0 ? 'cas-clients' : key.indexOf('svc-') === 0 ? 'services' : '');
   document.querySelectorAll('a[data-route]').forEach(function(el){
     if(navKey && el.getAttribute('data-route') === navKey) el.setAttribute('aria-current', 'page');
     else el.removeAttribute('aria-current');
