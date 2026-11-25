@@ -4844,6 +4844,19 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
   .hm .hm-run .coin.got{opacity:0;}
   .hm .hero .diamond.is-on{animation:none; transform:translateY(calc(var(--u) * -1.02)) rotate(45deg);}
 }
+/* case « Et bientôt vous ? » : effet vieille télé, intermittent et au survol */
+.hm .logos .next{position:relative; overflow:hidden; isolation:isolate;}
+.hm .logos .next > *{position:relative; z-index:2;}
+.hm .logos .next::before, .hm .logos .next::after{content:""; position:absolute; pointer-events:none; z-index:1; opacity:0; transition:opacity .3s;}
+.hm .logos .next::before{inset:-40px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .07 0 0 0 0 .16 0 0 0 1.6 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hm .logos .next::after{inset:0; background:repeating-linear-gradient(to bottom, rgba(26,17,40,.08) 0 1px, transparent 1px 3px), linear-gradient(to bottom, transparent, rgba(104,45,254,.14) 50%, transparent) 0 -120% / 100% 45% no-repeat;}
+.hm .logos .next.is-tv::before{opacity:.3; animation:hm-snow .5s steps(5) infinite;}
+.hm .logos .next.is-tv::after{opacity:1; animation:hm-roll 1.8s linear infinite;}
+.hm .logos .next.is-tv .hm-hl{animation:hm-rgb 1.2s steps(3) infinite;}
+@keyframes hm-snow{ 0%{ transform:translate(0,0); } 20%{ transform:translate(-18px,12px); } 40%{ transform:translate(14px,-20px); } 60%{ transform:translate(-10px,-6px); } 80%{ transform:translate(20px,16px); } 100%{ transform:translate(0,0); } }
+@keyframes hm-roll{ to{ background-position:0 0, 0 260%; } }
+@keyframes hm-rgb{ 0%, 100%{ text-shadow:-1.5px 0 rgba(232,139,247,.9), 1.5px 0 rgba(143,224,181,.9); } 33%{ text-shadow:1.5px 0 rgba(232,139,247,.9), -1.5px 0 rgba(143,224,181,.9); } 66%{ text-shadow:-1px 0 rgba(232,139,247,.7), 1px 0 rgba(143,224,181,.7); } }
+@media (prefers-reduced-motion:reduce){ .hm .logos .next::before, .hm .logos .next::after{ display:none; } .hm .logos .next .hm-hl{ animation:none; } }
 /* hub des services : entrée Offre découverte (réutilise le bandeau .od-upsell) */
 .sv-od{ padding-block:clamp(40px,5vw,64px) 0; }
 .sv-od .od-upsell{ margin-top:0; }
@@ -11377,6 +11390,28 @@ Allow: /</code></pre>
   window.CelyMascot = { Rig:Rig, timeline:timeline, REST:REST, EASE:EASE, variants:V, mountSpots:mountSpots, svg:el };
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountSpots); else mountSpots();
 })();</script>
+
+<script>
+/* Case « Et bientôt vous ? » : la télé cathodique décroche par moments (neige, lignes de balayage,
+   léger décalage de couleur), et au survol. Rien avec prefers-reduced-motion. */
+(function(){
+  "use strict";
+  var cards = [].slice.call(document.querySelectorAll('.hm .logos .next'));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(!cards.length || reduce.matches) return;
+  cards.forEach(function(card){
+    var seen = false, hover = false, off = null, next = null;
+    function on(ms){ card.classList.add('is-tv'); clearTimeout(off); off = setTimeout(function(){ if(!hover) card.classList.remove('is-tv'); }, ms); }
+    function loop(){ clearTimeout(next); next = setTimeout(function(){ if(seen && !document.hidden && !reduce.matches) on(1400 + Math.random() * 900); loop(); }, 6000 + Math.random() * 5000); }
+    card.addEventListener('mouseenter', function(){ hover = true; on(700); });
+    card.addEventListener('mouseleave', function(){ hover = false; on(350); });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ seen = es[0].isIntersecting; if(seen && !card.__tvOnce){ card.__tvOnce = 1; setTimeout(function(){ on(1600); }, 1200); } }, { threshold:0.5 }).observe(card);
+    } else { seen = true; }
+    loop();
+  });
+})();
+</script>
 
 <!-- ============================================================
      HERO — animation "Vous, avec Cely." (SVG inline, horloge unique)
