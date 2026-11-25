@@ -479,10 +479,17 @@ def main():
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     import cas_clients
     cc_mains, cc_pages, cc_a_valider = cas_clients.generate(CONFIG, H, OG, ORGANIZATION, os.environ.get('CAS_CLIENTS_DATA'))
+    # réglage unique CAS_CLIENTS_VISIBLE (src/site-config.json) : false = pages gardées et accessibles par leur URL,
+    # mais en noindex, hors sitemap, et sans aucun lien interne (blocs <!--IF:CAS_CLIENTS_VISIBLE--> et pages services)
+    show_cas = bool(CONFIG.get('CAS_CLIENTS_VISIBLE'))
+    if not show_cas:
+        for cp in cc_pages:
+            cp['robots'] = 'noindex, follow'
+            cp['sitemap'] = False
     mains.update(cc_mains)
     # pages services : générées depuis src/services.json (voir scripts/services_pages.py)
     import services_pages
-    sv_mains, sv_pages, _ = services_pages.generate(H, OG, ORG_ID)
+    sv_mains, sv_pages, _ = services_pages.generate(H, OG, ORG_ID, show_cas)
     mains.update(sv_mains)
     all_pages = PAGES + sv_pages + cc_pages
     lastmod_path = os.path.join(ROOT, 'scripts', 'lastmod.json')

@@ -4,5 +4,7 @@
   "LINKEDIN_URL": "https://www.linkedin.com/in/celienboillotwenoble/",
   "SHOW_REFERENCES": false,
   "RDV_URL": "https://cely-crm.vercel.app/rdv/appel-decouverte",
-  "RDV_WIDGET": "https://cely-crm.vercel.app/api/rdv/widget.js"
+  "RDV_WIDGET": "https://cely-crm.vercel.app/api/rdv/widget.js",
+  "_CAS_CLIENTS_VISIBLE": "true pour réafficher les liens Cas clients (menu, pied de page, À propos, pages services) et remettre les pages dans le sitemap et en index ; false les masque (pages accessibles par leur URL, en noindex).",
+  "CAS_CLIENTS_VISIBLE": false
 }

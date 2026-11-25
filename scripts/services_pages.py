@@ -125,7 +125,7 @@ def url(s):
 def btn(href, label, cls='btn'):
     return '<a class="%s" href="%s"><i aria-hidden="true"></i>%s%s</a>' % (cls, href, label, ARROW)
 
-def page(s, by_slug, cas):
+def page(s, by_slug, cas, show_cas=True):
     k = s['slug']
     out = ['<main class="site-page hm sp" data-page="svc-%s" hidden>' % k]
     # haut de page
@@ -197,7 +197,7 @@ def page(s, by_slug, cas):
     </div>
   </section>''' % (s['bridge'], btn('/growth', 'Découvrir Growth Part-Time', 'btn btn-light'), od, chips, opt))
     # cas clients
-    if s.get('cas'):
+    if show_cas and s.get('cas'):
         cards = []
         for slug in s['cas']:
             c = cas[slug]
@@ -242,14 +242,14 @@ def page(s, by_slug, cas):
 </main>''' % (CHEV, ''.join(cards)))
     return ''.join(out)
 
-def generate(H, OG, ORG_ID):
+def generate(H, OG, ORG_ID, show_cas=True):
     svcs = load()
     by_slug = {s['slug']: s for s in svcs}
     cas = {c['slug']: c for c in json.load(open(CAS, encoding='utf-8'))['cas']}
     mains, pages = {}, []
     for s in svcs:
         u = url(s)
-        mains['svc-' + s['slug']] = page(s, by_slug, cas)
+        mains['svc-' + s['slug']] = page(s, by_slug, cas, show_cas)
         ld = {"@type": "Service", "@id": SITE + u + "#service", "name": s['nom_long'], "serviceType": s['service_type'],
               "description": strip(s['desc']), "provider": {"@id": ORG_ID}, "areaServed": {"@type": "Country", "name": "France"},
               "audience": {"@type": "BusinessAudience", "name": "Startups et PME B2B"}, "url": SITE + u,
