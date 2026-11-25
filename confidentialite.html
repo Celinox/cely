@@ -2648,6 +2648,10 @@
 })();</script>
 <!-- Réservation Cely Growth : bouton flottant -->
 <div data-cely-rdv="floating" data-url="https://cely-crm.vercel.app/rdv/appel-decouverte" data-text="Prendre rendez-vous"><a href="https://cely-crm.vercel.app/rdv/appel-decouverte">Prendre rendez-vous</a></div>
-<script>(function(){ if(window.matchMedia("(max-width:1180px)").matches){ var s=document.createElement("script"); s.src="https://cely-crm.vercel.app/api/rdv/widget.js"; s.async=true; document.body.appendChild(s); } })();</script>
+<!-- Le script du CRM est chargé sur toutes les largeurs (il ne l'était plus qu'en dessous de 1180 px : d'où le bouton absent sur ordinateur).
+     Il est injecté après le chargement de la page, pour ne pas peser sur le premier affichage. -->
+<script>(function(){ function go(){ var s=document.createElement("script"); s.src="https://cely-crm.vercel.app/api/rdv/widget.js"; s.async=true; document.body.appendChild(s); }
+  function later(){ if("requestIdleCallback" in window) requestIdleCallback(go, { timeout:2000 }); else setTimeout(go, 200); }
+  if(document.readyState === "complete") later(); else window.addEventListener("load", later, { once:true }); })();</script>
 </body>
 </html>
