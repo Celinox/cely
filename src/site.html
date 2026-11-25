@@ -80,7 +80,7 @@
 }
 
 *{ box-sizing:border-box; }
-body{ margin:0; background:var(--off-white); color:var(--prune); font-family:var(--font-body); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+body{ margin:0; background:var(--off-white); color:var(--prune); font-family:var(--font-body); line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden; overflow-x:clip; }
 h1{ font-family:var(--font-display); font-weight:800; line-height:1.02; letter-spacing:-.015em; margin:0; text-wrap:balance; }
 p{ margin:0; }
 a{ color:inherit; text-decoration:none; }
@@ -4392,6 +4392,7 @@ a.cc-offre:focus-visible{ outline:2.5px solid var(--prune); outline-offset:2px; 
 .hm .strings-head{border-bottom:1px solid var(--rule-d);}
 .hm .strings-head .h2{font-size:clamp(2.4rem,1.2rem + 3.8vw,5.2rem); line-height:.98; max-width:16ch;}
 .hm .strings-head .h2 .accent{display:block;}
+@media (min-width:760px){ .hm .strings-head .h2{max-width:none;} .hm .strings-head .h2 .accent{white-space:nowrap;} }
 .hm .notes{border-top:0;}
 .hm .helm-zone{height:clamp(520px,54vw,700px); overflow:hidden;}
 .hm .helm-glow{position:absolute; left:50%; top:40%; width:min(70vw,760px); aspect-ratio:1; translate:-50% -50%; background:radial-gradient(closest-side, rgba(139,91,255,.42), rgba(139,91,255,.12) 55%, transparent 75%); pointer-events:none;}
@@ -4463,7 +4464,11 @@ a.cc-offre:focus-visible{ outline:2.5px solid var(--prune); outline-offset:2px; 
 @media (max-width:900px){.hm .engage{grid-template-columns:1fr;}}
 .hm .about1{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:clamp(36px,5vw,88px); align-items:center; padding:clamp(56px,7vw,104px) var(--pad);}
 .hm .about1 figure{margin:0;}
-.hm .about1 figure img{width:100%; aspect-ratio:4 / 5; object-fit:cover; object-position:50% 22%; border:2px solid var(--ink); border-radius:26px; box-shadow:12px 12px 0 var(--violet);}
+.hm .about1 figure{position:relative;}
+.hm .about1 figure img{position:relative; z-index:1; width:100%; aspect-ratio:4 / 5; object-fit:cover; object-position:50% 22%; border:1px solid var(--rule);}
+.hm .about1 figure::before{content:""; position:absolute; z-index:0; left:calc(var(--pad) * -.6); top:calc(var(--pad) * -.6); width:46%; height:34%; background:var(--violet);}
+.hm .about1 figure::after{content:""; position:absolute; z-index:2; right:-14px; top:58%; width:28px; height:28px; background:var(--butter);}
+.hm .about1 figcaption{position:relative; z-index:1;}
 .hm .about1 figcaption{margin-top:16px; font-family:var(--label); font-size:.86rem; color:var(--soft);}
 .hm .about1 ul{margin-top:clamp(28px,3.4vw,44px); display:grid; gap:20px;}
 .hm .about1 li{position:relative; padding-left:38px; font-family:var(--display); font-weight:800; font-size:clamp(1.4rem,1.05rem + 1.2vw,2.1rem); line-height:1.15; letter-spacing:-.03em;}
@@ -4827,19 +4832,38 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
 .hm .hm-run .coin i{width:16px; height:16px; border:1.5px solid var(--ink); border-radius:50%; background:var(--butter);}
 @media (max-width:1023px){ .hm .hm-run{display:none;} }
 @media (prefers-reduced-motion:reduce){ .hm .hm-run{display:none;} }
-/* case « Et bientôt vous ? » : effet vieille télé, intermittent et au survol */
+/* case « Et bientôt vous ? » : effet vieille télé, en continu */
 .hm .logos .next{position:relative; overflow:hidden; isolation:isolate;}
 .hm .logos .next > *{position:relative; z-index:2;}
-.hm .logos .next::before, .hm .logos .next::after{content:""; position:absolute; pointer-events:none; z-index:1; opacity:0; transition:opacity .3s;}
+.hm .logos .next::before, .hm .logos .next::after{content:""; position:absolute; pointer-events:none; z-index:1;}
 .hm .logos .next::before{inset:-40px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .07 0 0 0 0 .16 0 0 0 1.6 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 .hm .logos .next::after{inset:0; background:repeating-linear-gradient(to bottom, rgba(26,17,40,.08) 0 1px, transparent 1px 3px), linear-gradient(to bottom, transparent, rgba(104,45,254,.14) 50%, transparent) 0 -120% / 100% 45% no-repeat;}
-.hm .logos .next.is-tv::before{opacity:.3; animation:hm-snow .5s steps(5) infinite;}
-.hm .logos .next.is-tv::after{opacity:1; animation:hm-roll 1.8s linear infinite;}
-.hm .logos .next.is-tv .hm-hl{animation:hm-rgb 1.2s steps(3) infinite;}
+.hm .logos .next::before{opacity:.26; animation:hm-snow .5s steps(5) infinite;}
+.hm .logos .next::after{animation:hm-roll 2.4s linear infinite;}
+.hm .logos .next .hm-hl{animation:hm-rgb 1.2s steps(3) infinite;}
 @keyframes hm-snow{ 0%{ transform:translate(0,0); } 20%{ transform:translate(-18px,12px); } 40%{ transform:translate(14px,-20px); } 60%{ transform:translate(-10px,-6px); } 80%{ transform:translate(20px,16px); } 100%{ transform:translate(0,0); } }
 @keyframes hm-roll{ to{ background-position:0 0, 0 260%; } }
 @keyframes hm-rgb{ 0%, 100%{ text-shadow:-1.5px 0 rgba(232,139,247,.9), 1.5px 0 rgba(143,224,181,.9); } 33%{ text-shadow:1.5px 0 rgba(232,139,247,.9), -1.5px 0 rgba(143,224,181,.9); } 66%{ text-shadow:-1px 0 rgba(232,139,247,.7), 1px 0 rgba(143,224,181,.7); } }
 @media (prefers-reduced-motion:reduce){ .hm .logos .next::before, .hm .logos .next::after{ display:none; } .hm .logos .next .hm-hl{ animation:none; } }
+/* accueil : second CTA sous « Sans recruter. Sans engagement. », le ticket Offre découverte */
+.hm .engage-od{position:relative; display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:6px 22px; max-width:520px; margin-top:28px; padding:18px 22px; background:var(--butter); color:var(--ink); border:2px solid var(--ink); box-shadow:5px 5px 0 var(--ink); transform:rotate(-1.2deg); transition:transform .25s var(--ease), box-shadow .25s var(--ease); -webkit-mask:radial-gradient(circle 9px at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 9px at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat; mask:radial-gradient(circle 9px at 0 50%, #0000 98%, #000) left / 51% 100% no-repeat, radial-gradient(circle 9px at 100% 50%, #0000 98%, #000) right / 51% 100% no-repeat;}
+.hm .engage-od:hover{transform:rotate(0) translate(-2px,-2px); box-shadow:7px 7px 0 var(--ink);}
+.hm .engage-od-t{display:grid; gap:4px;}
+.hm .engage-od-k{font-family:var(--label); font-size:.8rem; font-weight:700;}
+.hm .engage-od-t b{font-family:var(--display); font-weight:900; font-size:clamp(1.25rem,1.05rem + .6vw,1.6rem); line-height:1.08; letter-spacing:-.02em;}
+.hm .engage-od-t small{font-size:.86rem; line-height:1.4; color:rgba(26,17,40,.75);}
+.hm .engage-od-p{display:grid; justify-items:center; padding-left:20px; border-left:2px dashed rgba(26,17,40,.45);}
+.hm .engage-od-p b{font-family:var(--display); font-weight:900; font-size:clamp(1.7rem,1.3rem + 1vw,2.3rem); line-height:1; letter-spacing:-.03em;}
+.hm .engage-od-p small{font-family:var(--label); font-size:.72rem; font-weight:700;}
+.hm .engage-od-go{grid-column:1 / -1; display:inline-flex; align-items:center; gap:8px; margin-top:6px; font-family:var(--label); font-weight:700; font-size:.88rem; color:var(--violet); transition:gap .2s var(--ease);}
+.hm .engage-od:hover .engage-od-go{gap:12px;}
+.hm .engage-od-go svg{width:8px; height:11px;}
+@media (max-width:520px){ .hm .engage-od{grid-template-columns:1fr;} .hm .engage-od-p{justify-items:start; padding:10px 0 0; border-left:0; border-top:2px dashed rgba(26,17,40,.45);} }
+@media (prefers-reduced-motion:reduce){ .hm .engage-od{transform:none;} }
+/* hero : Cély passe devant le losange, qui s'écarte à son arrivée */
+.hm .hero .blocks.l{z-index:2;}
+.hm .hero .diamond{transition:translate .7s var(--ease), rotate .7s var(--ease), background-color .4s;}
+.hm .hero .diamond.is-off{translate:0 calc(var(--u) * -1.15); rotate:180deg; background:var(--violet) !important;}
 /* hub des services : entrée Offre découverte (réutilise le bandeau .od-upsell) */
 .sv-od{ padding-block:clamp(40px,5vw,64px) 0; }
 .sv-od .od-upsell{ margin-top:0; }
@@ -5490,6 +5514,11 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
           <h2 id="h-engage">Sans recruter. <span>Sans engagement.</span></h2>
           <p class="lead">Aucune durée minimale&nbsp;: vous arrêtez quand vous voulez. Un growth dédié, présent chaque semaine, sans les délais et le coût d'un recrutement.</p>
           <a class="btn btn-light" href="/contact#formulaire"><i aria-hidden="true"></i>Faire le point avec Célien<svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="engage-od" href="/services/offre-decouverte">
+            <span class="engage-od-t"><span class="engage-od-k">Ok, ok… pas encore prêt&nbsp;?</span><b>Testez votre marché outbound</b><small>300 décideurs contactés, verdict en 28 jours. Aucun rendez-vous&nbsp;? 100 contacts de plus offerts.</small></span>
+            <span class="engage-od-p"><b>500&nbsp;€</b><small>HT, une fois</small></span>
+            <span class="engage-od-go">Je teste mon marché <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
         </div>
         <ul class="facts">
           <li><b aria-hidden="true"></b>Un seul interlocuteur, de la stratégie à l'exécution</li>
@@ -5589,7 +5618,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
   var hero = document.querySelector('.hm .hero');
   if(!hero || !window.Element || !Element.prototype.animate) return;
   var run = hero.querySelector('.hm-run'), perch = hero.querySelector('.blocks.l .perch');
-  var left = hero.querySelector('.blocks.l'), pink = hero.querySelector('.blocks.r .blk');
+  var left = hero.querySelector('.blocks.l'), pink = hero.querySelector('.blocks.r .blk'), dia = hero.querySelector('.blocks.r .diamond');
   if(!run || !perch || !left || !pink) return;
   var coins = [].slice.call(run.querySelectorAll('.coin'));
   var desk = window.matchMedia('(min-width:1024px)'), reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -5622,6 +5651,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
     perch.style.transform = '';
     coins.forEach(function(c){ c.classList.remove('got'); });
     run.classList.remove('is-ready');
+    if(dia) dia.classList.remove('is-off');
   }
   function wait(ms, t){ return new Promise(function(r){ timers.push(setTimeout(function(){ if(t === token) r(); }, ms)); }); }
   function pass(g, back, t){
@@ -5637,6 +5667,8 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
     anim = perch.animate(frames, { duration:dur, fill:'forwards' });
     if(!visible) anim.pause();
     order.forEach(function(c, i){ timers.push(setTimeout(function(){ if(t === token) c.classList.add('got'); }, dur * (i + 0.5) / n)); });
+    /* le losange s'écarte quand Cély arrive à droite, et revient quand il repart */
+    if(dia){ if(back) timers.push(setTimeout(function(){ if(t === token) dia.classList.remove('is-off'); }, dur * 1.2 / n)); else timers.push(setTimeout(function(){ if(t === token) dia.classList.add('is-off'); }, dur * (n - 0.8) / n)); }
     return anim.finished;
   }
   function loop(){
@@ -11372,28 +11404,6 @@ Allow: /</code></pre>
   window.CelyMascot = { Rig:Rig, timeline:timeline, REST:REST, EASE:EASE, variants:V, mountSpots:mountSpots, svg:el };
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountSpots); else mountSpots();
 })();</script>
-
-<script>
-/* Case « Et bientôt vous ? » : la télé cathodique décroche par moments (neige, lignes de balayage,
-   léger décalage de couleur), et au survol. Rien avec prefers-reduced-motion. */
-(function(){
-  "use strict";
-  var cards = [].slice.call(document.querySelectorAll('.hm .logos .next'));
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if(!cards.length || reduce.matches) return;
-  cards.forEach(function(card){
-    var seen = false, hover = false, off = null, next = null;
-    function on(ms){ card.classList.add('is-tv'); clearTimeout(off); off = setTimeout(function(){ if(!hover) card.classList.remove('is-tv'); }, ms); }
-    function loop(){ clearTimeout(next); next = setTimeout(function(){ if(seen && !document.hidden && !reduce.matches) on(1400 + Math.random() * 900); loop(); }, 6000 + Math.random() * 5000); }
-    card.addEventListener('mouseenter', function(){ hover = true; on(700); });
-    card.addEventListener('mouseleave', function(){ hover = false; on(350); });
-    if('IntersectionObserver' in window){
-      new IntersectionObserver(function(es){ seen = es[0].isIntersecting; if(seen && !card.__tvOnce){ card.__tvOnce = 1; setTimeout(function(){ on(1600); }, 1200); } }, { threshold:0.5 }).observe(card);
-    } else { seen = true; }
-    loop();
-  });
-})();
-</script>
 
 <!-- ============================================================
      HERO — animation "Vous, avec Cely." (SVG inline, horloge unique)
