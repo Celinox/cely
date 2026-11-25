@@ -4819,6 +4819,44 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
 .hp-extra-card .gp-more{ margin-top:10px; }
 .gp-more-d{ color:rgba(247,245,250,.7); }
 .gp-more-d:hover{ color:var(--pink); }
+/* hero : la bannière où Cély ramasse les quatre leviers */
+.hm .hm-run{--u:clamp(56px,7.2vw,104px); position:absolute; left:0; right:0; bottom:0; z-index:3; height:calc(var(--u) * 2); cursor:pointer; -webkit-tap-highlight-color:transparent;}
+.hm .hm-run .coin{position:absolute; left:0; bottom:0; display:inline-flex; align-items:center; gap:7px; padding:4px 11px 4px 5px; border:1.5px solid var(--ink); border-radius:999px; background:var(--white); box-shadow:3px 3px 0 var(--ink); font-family:var(--label); font-size:.76rem; font-weight:700; line-height:1; color:var(--ink); white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .3s;}
+.hm .hm-run.is-ready .coin{opacity:1; animation:hm-coin 2.4s ease-in-out infinite;}
+.hm .hm-run .coin:nth-child(2){animation-delay:-.6s;} .hm .hm-run .coin:nth-child(3){animation-delay:-1.2s;} .hm .hm-run .coin:nth-child(4){animation-delay:-1.8s;}
+.hm .hm-run .coin i{display:grid; place-items:center; width:16px; height:16px; border:1.5px solid var(--ink); border-radius:50%; background:var(--butter); font-style:normal;}
+.hm .hm-run.is-ready .coin.got{animation:hm-got .5s var(--ease) forwards;}
+@keyframes hm-coin{ 50%{ transform:translateY(-4px); } }
+@keyframes hm-got{ 0%{ transform:none; opacity:1; } 40%{ transform:translateY(-14px) scale(1.15); opacity:1; } 100%{ transform:translateY(-30px) scale(.6); opacity:0; } }
+.hm .hero .diamond.is-on{background:var(--violet) !important; animation:hm-dia-pop .8s var(--ease) both, hm-dia-float 6s ease-in-out .8s infinite;}
+@keyframes hm-dia-pop{ 0%{ transform:rotate(45deg); } 45%{ transform:translateY(calc(var(--u) * -1.3)) rotate(225deg) scale(1.15); } 100%{ transform:translateY(calc(var(--u) * -1.02)) rotate(405deg); } }
+@keyframes hm-dia-float{ 0%, 100%{ transform:translateY(calc(var(--u) * -1.02)) rotate(45deg); } 50%{ transform:translateY(calc(var(--u) * -1.02)) rotate(45deg) translate(-6px,-6px); } }
+@media (max-width:700px){
+  .hm .hm-run .coin{padding:0; gap:0; border:0; background:none; box-shadow:none;}
+  .hm .hm-run .coin b{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);}
+  .hm .hm-run .coin i{width:24px; height:24px; box-shadow:2px 2px 0 var(--ink);}
+  .hm .hm-run .coin i::after{content:attr(data-k); font-family:var(--label); font-size:.7rem; font-weight:700;}
+}
+@media (max-width:640px){ .hm .hm-run{--u:44px;} }
+@media (prefers-reduced-motion:reduce){
+  .hm .hm-run{cursor:default;}
+  .hm .hm-run.is-ready .coin, .hm .hm-run.is-ready .coin.got{animation:none;}
+  .hm .hm-run .coin.got{opacity:0;}
+  .hm .hero .diamond.is-on{animation:none; transform:translateY(calc(var(--u) * -1.02)) rotate(45deg);}
+}
+/* case « Et bientôt vous ? » : effet vieille télé, intermittent et au survol */
+.hm .logos .next{position:relative; overflow:hidden; isolation:isolate;}
+.hm .logos .next > *{position:relative; z-index:2;}
+.hm .logos .next::before, .hm .logos .next::after{content:""; position:absolute; pointer-events:none; z-index:1; opacity:0; transition:opacity .3s;}
+.hm .logos .next::before{inset:-40px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .07 0 0 0 0 .16 0 0 0 1.6 -.35'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.hm .logos .next::after{inset:0; background:repeating-linear-gradient(to bottom, rgba(26,17,40,.08) 0 1px, transparent 1px 3px), linear-gradient(to bottom, transparent, rgba(104,45,254,.14) 50%, transparent) 0 -120% / 100% 45% no-repeat;}
+.hm .logos .next.is-tv::before{opacity:.3; animation:hm-snow .5s steps(5) infinite;}
+.hm .logos .next.is-tv::after{opacity:1; animation:hm-roll 1.8s linear infinite;}
+.hm .logos .next.is-tv .hm-hl{animation:hm-rgb 1.2s steps(3) infinite;}
+@keyframes hm-snow{ 0%{ transform:translate(0,0); } 20%{ transform:translate(-18px,12px); } 40%{ transform:translate(14px,-20px); } 60%{ transform:translate(-10px,-6px); } 80%{ transform:translate(20px,16px); } 100%{ transform:translate(0,0); } }
+@keyframes hm-roll{ to{ background-position:0 0, 0 260%; } }
+@keyframes hm-rgb{ 0%, 100%{ text-shadow:-1.5px 0 rgba(232,139,247,.9), 1.5px 0 rgba(143,224,181,.9); } 33%{ text-shadow:1.5px 0 rgba(232,139,247,.9), -1.5px 0 rgba(143,224,181,.9); } 66%{ text-shadow:-1px 0 rgba(232,139,247,.7), 1px 0 rgba(143,224,181,.7); } }
+@media (prefers-reduced-motion:reduce){ .hm .logos .next::before, .hm .logos .next::after{ display:none; } .hm .logos .next .hm-hl{ animation:none; } }
 /* hub des services : entrée Offre découverte (réutilise le bandeau .od-upsell) */
 .sv-od{ padding-block:clamp(40px,5vw,64px) 0; }
 .sv-od .od-upsell{ margin-top:0; }
@@ -4836,7 +4874,11 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
 <!--COMPONENT:RDV_FLOAT-->
 <!-- Réservation Cely Growth : bouton flottant -->
 <div data-cely-rdv="floating" data-url="{{RDV_URL}}" data-text="Prendre rendez-vous"><a href="{{RDV_URL}}">Prendre rendez-vous</a></div>
-<script>(function(){ if(window.matchMedia("(max-width:1180px)").matches){ var s=document.createElement("script"); s.src="{{RDV_WIDGET}}"; s.async=true; document.body.appendChild(s); } })();</script>
+<!-- Le script du CRM est chargé sur toutes les largeurs (il ne l'était plus qu'en dessous de 1180 px : d'où le bouton absent sur ordinateur).
+     Il est injecté après le chargement de la page, pour ne pas peser sur le premier affichage. -->
+<script>(function(){ function go(){ var s=document.createElement("script"); s.src="{{RDV_WIDGET}}"; s.async=true; document.body.appendChild(s); }
+  function later(){ if("requestIdleCallback" in window) requestIdleCallback(go, { timeout:2000 }); else setTimeout(go, 200); }
+  if(document.readyState === "complete") later(); else window.addEventListener("load", later, { once:true }); })();</script>
 <!--/COMPONENT:RDV_FLOAT-->
 <!--COMPONENT:CTA_FINAL-->
 <section class="hp-sec hp-dark hp-final" aria-labelledby="hpFinalTitle">
@@ -4903,8 +4945,8 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
             <p class="np-label">Ressources</p>
             <ul class="np-links">
               <li><a href="/actualites" data-route="actualites">Tous les articles</a></li>
-              <li><a href="/cas-clients" data-route="cas-clients">Cas clients</a></li>
-              <li><a href="/manifeste" data-route="manifeste">Manifeste</a></li>
+              <!--IF:CAS_CLIENTS_VISIBLE--><li><a href="/cas-clients" data-route="cas-clients">Cas clients</a></li>
+<!--/IF:CAS_CLIENTS_VISIBLE-->              <li><a href="/manifeste" data-route="manifeste">Manifeste</a></li>
             </ul>
             <div class="np-cards"><!--LATEST_ARTICLES:NAV--></div>
           </div>
@@ -4938,8 +4980,8 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
             <button type="button" class="nmp-acc" aria-expanded="false" aria-controls="nmpRessources">Ressources<svg class="nl-chev" viewBox="0 0 10 10" fill="none" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="nmp-sub" id="nmpRessources" hidden>
               <a href="/actualites" data-route="actualites">Tous les articles</a>
-              <a href="/cas-clients" data-route="cas-clients">Cas clients</a>
-              <a href="/manifeste" data-route="manifeste">Manifeste</a>
+              <!--IF:CAS_CLIENTS_VISIBLE--><a href="/cas-clients" data-route="cas-clients">Cas clients</a>
+<!--/IF:CAS_CLIENTS_VISIBLE-->              <a href="/manifeste" data-route="manifeste">Manifeste</a>
             </div>
           </div>
           <div class="nmp-foot">
@@ -5130,7 +5172,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
 
   <section class="row" aria-labelledby="ab-clients">
     <div class="frame">
-      <div class="sec-head x"><h2 class="h2" id="ab-clients">Ils travaillent <span class="accent">avec Cely</span></h2><a class="go" href="/cas-clients">Voir les cas clients <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      <div class="sec-head x"><h2 class="h2" id="ab-clients">Ils travaillent <span class="accent">avec Cely</span></h2><!--IF:CAS_CLIENTS_VISIBLE--><a class="go" href="/cas-clients">Voir les cas clients <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><!--/IF:CAS_CLIENTS_VISIBLE--></div>
       <ul class="ab-logos">
         <li><img src="/images/clients/biux.svg" alt="Biux" width="1099" height="368" style="--h:30px" loading="lazy" decoding="async"></li>
         <li><img src="/images/clients/registre-general.webp" alt="Registre Général" width="224" height="77" style="--h:32px" loading="lazy" decoding="async"></li>
@@ -5329,7 +5371,7 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
       <p class="lead">On structure votre acquisition et on lance vos premiers canaux dès le premier mois. <strong>Un growth dédié, présent chaque semaine. Sans recruter, sans engagement.</strong></p>
       <div class="hero-cta">
         <a class="btn" href="/contact#formulaire"><i aria-hidden="true"></i>Faire le point avec Célien<svg class="arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13 13 3M13 3H5M13 3v8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="go" href="#comment-ca-marche">Voir comment ça marche <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="go" href="/growth">Voir l'offre Growth <svg viewBox="0 0 9 12" fill="none" aria-hidden="true"><path d="M2 1.5 6.5 6 2 10.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <p class="micro">30 min offertes · Vous repartez avec 2 à 3 pistes concrètes</p>
     </div>
@@ -5342,6 +5384,13 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
       <span class="blk" style="--w:calc(var(--u) * 1.2);--h:calc(var(--u) * 1.1);--c:var(--pink)"></span>
       <span class="blk" style="--w:calc(var(--u) * .55);--h:calc(var(--u) * .45);--c:var(--mint-2)"></span>
       <span class="diamond" style="background:var(--lav);border:0"></span>
+    </div>
+    <!-- bannière : Cély traverse et ramasse les quatre leviers (décoratif) -->
+    <div class="hm-run" aria-hidden="true">
+      <span class="coin"><i data-k="S"></i><b>Stratégie</b></span>
+      <span class="coin"><i data-k="O"></i><b>Outbound</b></span>
+      <span class="coin"><i data-k="I"></i><b>Inbound</b></span>
+      <span class="coin"><i data-k="A"></i><b>Automatisation</b></span>
     </div>
   </section>
 
@@ -5545,6 +5594,95 @@ main.site-page:not(.hm) > section.hp-dark + section, main.site-page:not(.hm) > s
   /* une seule question ouverte */
   var qa = [].slice.call(document.querySelectorAll('.qa details'));
   qa.forEach(function(d){ d.addEventListener('toggle', function(){ if(d.open) qa.forEach(function(o){ if(o !== d) o.open = false; }); }); });
+})();
+</script>
+<script>
+/* Bannière du hero : Cély part de son bloc, ramasse les quatre leviers et rejoint le bloc de droite,
+   où le losange réagit. Une fois au chargement, puis au survol ou au clic. Transformations seules
+   (aucun décalage de mise en page) ; avec prefers-reduced-motion, état final direct. */
+(function(){
+  "use strict";
+  var hero = document.querySelector('.hm .hero');
+  if(!hero || !window.Element || !Element.prototype.animate) return;
+  var run = hero.querySelector('.hm-run'), perch = hero.querySelector('.blocks.l .perch');
+  var dia = hero.querySelector('.blocks.r .diamond'), pink = hero.querySelector('.blocks.r .blk');
+  if(!run || !perch || !dia || !pink) return;
+  var coins = [].slice.call(run.querySelectorAll('.coin'));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var anim = null, timers = [], busy = false, played = false;
+
+  function clear(){ timers.forEach(clearTimeout); timers = []; if(anim){ anim.cancel(); anim = null; } }
+  /* repères dans le hero : x depuis la gauche, y depuis le bas (perchoir sans transformation) */
+  function geo(){
+    perch.style.transform = 'none';
+    var h = hero.getBoundingClientRect(), p = perch.getBoundingClientRect(), k = pink.getBoundingClientRect();
+    var u = p.height / 0.9, n = 5, pts = [], hops = [];
+    var sx = p.left + p.width / 2 - h.left, sy = h.bottom - p.bottom;
+    var ex = k.left + k.width * 0.4 - h.left, ey = h.bottom - k.top;
+    for(var i = 0; i <= n; i++){
+      pts.push(i === 0 ? [sx, sy] : i === n ? [ex, ey] : [sx + (ex - sx) * i / n, 0]);
+    }
+    for(var j = 1; j <= n; j++){
+      var a = pts[j - 1], b = pts[j], lift = j === 1 ? 0.3 : j === n ? 0.45 : 0.8;
+      hops.push([(a[0] + b[0]) / 2, Math.max(a[1], b[1]) + u * lift]);
+    }
+    return { sx:sx, sy:sy, ph:p.height, pts:pts, hops:hops };
+  }
+  function tr(g, x, y){ return 'translate(' + (x - g.sx).toFixed(1) + 'px,' + (g.sy - y).toFixed(1) + 'px)'; }
+  function place(g){
+    coins.forEach(function(c, i){
+      var hp = g.hops[i];
+      c.style.left = (hp[0] - c.offsetWidth / 2).toFixed(1) + 'px';
+      c.style.bottom = (hp[1] + g.ph * 0.55 - c.offsetHeight / 2).toFixed(1) + 'px';
+    });
+  }
+  function final(){
+    clear();
+    var g = geo(); place(g);
+    var e = g.pts[g.pts.length - 1];
+    perch.style.transform = tr(g, e[0], e[1]);
+    coins.forEach(function(c){ c.classList.add('got'); });
+    dia.classList.add('is-on');
+  }
+  function play(){
+    if(busy) return;
+    busy = true; clear();
+    dia.classList.remove('is-on');
+    coins.forEach(function(c){ c.classList.remove('got'); });
+    var g = geo(); place(g);
+    run.classList.add('is-ready');
+    var n = g.hops.length, dur = (window.innerWidth < 700 ? 420 : 520) * n, frames = [];
+    var up = 'cubic-bezier(.2,.75,.45,1)', down = 'cubic-bezier(.55,0,.85,.35)';
+    frames.push({ transform:tr(g, g.pts[0][0], g.pts[0][1]), offset:0, easing:up });
+    for(var i = 0; i < n; i++){
+      frames.push({ transform:tr(g, g.hops[i][0], g.hops[i][1]), offset:(i + 0.5) / n, easing:down });
+      frames.push({ transform:tr(g, g.pts[i + 1][0], g.pts[i + 1][1]), offset:(i + 1) / n, easing:up });
+    }
+    anim = perch.animate(frames, { duration:dur, fill:'forwards' });
+    coins.forEach(function(c, i){ timers.push(setTimeout(function(){ c.classList.add('got'); }, dur * (i + 0.5) / n)); });
+    timers.push(setTimeout(function(){ dia.classList.add('is-on'); }, dur * (n - 0.6) / n));
+    anim.onfinish = function(){
+      var e = g.pts[n]; perch.style.transform = tr(g, e[0], e[1]); anim.cancel(); anim = null; busy = false; played = true;
+      var host = perch.querySelector('.cely-spot'), sp = host && host.__celySpots && host.__celySpots[0];
+      try{ if(sp && sp.play) sp.play(); }catch(err){}
+    };
+  }
+  function start(){
+    if(reduce.matches){ run.classList.add('is-ready'); final(); return; }
+    place(geo()); run.classList.add('is-ready');
+    /* le premier passage attend que la bannière soit à l'écran (elle peut être sous la ligne de flottaison) */
+    if(!('IntersectionObserver' in window)){ setTimeout(play, 700); return; }
+    var io = new IntersectionObserver(function(es){
+      if(es[0].isIntersecting){ io.disconnect(); setTimeout(play, 600); }
+    }, { threshold:0.6 });
+    io.observe(run);
+  }
+  if(document.readyState === 'complete') start(); else window.addEventListener('load', start, { once:true });
+  run.addEventListener('mouseenter', function(){ if(!reduce.matches && played) play(); });
+  run.addEventListener('click', function(){ if(!reduce.matches) play(); });
+  var rt = null;
+  window.addEventListener('resize', function(){ clearTimeout(rt); rt = setTimeout(function(){ if(!busy && run.classList.contains('is-ready')) final(); }, 150); });
+  if(reduce.addEventListener) reduce.addEventListener('change', function(){ if(reduce.matches){ busy = false; final(); } });
 })();
 </script>
 </main>
@@ -10013,8 +10151,8 @@ Allow: /</code></pre>
           <li><a href="/services/offre-decouverte" data-route="offre-decouverte">Offre découverte · 28 jours, 500&nbsp;€&nbsp;HT</a></li>
           <li><a href="/audit" data-route="audit">Audits</a></li>
           <li><a href="/comparatif-growth-marketing" data-route="comparatif">Comparatif</a></li>
-          <li><a href="/cas-clients" data-route="cas-clients">Cas clients</a></li>
-          <li><a href="/actualites" data-route="actualites">Ressources</a></li>
+          <!--IF:CAS_CLIENTS_VISIBLE--><li><a href="/cas-clients" data-route="cas-clients">Cas clients</a></li>
+<!--/IF:CAS_CLIENTS_VISIBLE-->          <li><a href="/actualites" data-route="actualites">Ressources</a></li>
         </ul>
       </nav>
       <nav class="ft-col footer-nav" aria-labelledby="ftServices">
@@ -11252,6 +11390,28 @@ Allow: /</code></pre>
   window.CelyMascot = { Rig:Rig, timeline:timeline, REST:REST, EASE:EASE, variants:V, mountSpots:mountSpots, svg:el };
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mountSpots); else mountSpots();
 })();</script>
+
+<script>
+/* Case « Et bientôt vous ? » : la télé cathodique décroche par moments (neige, lignes de balayage,
+   léger décalage de couleur), et au survol. Rien avec prefers-reduced-motion. */
+(function(){
+  "use strict";
+  var cards = [].slice.call(document.querySelectorAll('.hm .logos .next'));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(!cards.length || reduce.matches) return;
+  cards.forEach(function(card){
+    var seen = false, hover = false, off = null, next = null;
+    function on(ms){ card.classList.add('is-tv'); clearTimeout(off); off = setTimeout(function(){ if(!hover) card.classList.remove('is-tv'); }, ms); }
+    function loop(){ clearTimeout(next); next = setTimeout(function(){ if(seen && !document.hidden && !reduce.matches) on(1400 + Math.random() * 900); loop(); }, 6000 + Math.random() * 5000); }
+    card.addEventListener('mouseenter', function(){ hover = true; on(700); });
+    card.addEventListener('mouseleave', function(){ hover = false; on(350); });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ seen = es[0].isIntersecting; if(seen && !card.__tvOnce){ card.__tvOnce = 1; setTimeout(function(){ on(1600); }, 1200); } }, { threshold:0.5 }).observe(card);
+    } else { seen = true; }
+    loop();
+  });
+})();
+</script>
 
 <!-- ============================================================
      HERO — animation "Vous, avec Cely." (SVG inline, horloge unique)
